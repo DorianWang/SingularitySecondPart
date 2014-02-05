@@ -1,0 +1,42 @@
+# Project: Singularity
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o $(RES)
+LINKOBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o $(RES)
+LIBS =  -L"E:/programs/Dev-Cpp/lib"  
+INCS =  -I"E:/programs/Dev-Cpp/include" 
+CXXINCS =  -I"E:/programs/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2/backward"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2"  -I"E:/programs/Dev-Cpp/include" 
+BIN  = Singularity.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Singularity.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Singularity.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Bases.o: Bases.cpp
+	$(CPP) -c Bases.cpp -o Bases.o $(CXXFLAGS)
+
+keys.o: keys.cpp
+	$(CPP) -c keys.cpp -o keys.o $(CXXFLAGS)
+
+CursorOptions.o: CursorOptions.cpp
+	$(CPP) -c CursorOptions.cpp -o CursorOptions.o $(CXXFLAGS)
+
+Screens.o: Screens.cpp
+	$(CPP) -c Screens.cpp -o Screens.o $(CXXFLAGS)
