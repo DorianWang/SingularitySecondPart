@@ -1,7 +1,7 @@
 [Project]
 FileName=Singularity.dev
 Name=Singularity
-UnitCount=9
+UnitCount=11
 Type=1
 Ver=1
 ObjFiles=
@@ -20,7 +20,7 @@ ObjectOutput=
 OverrideOutput=0
 OverrideOutputName=
 HostApplication=
-Folders=Bases,CursorMod
+Folders=Bases,CursorMod,Keys
 CommandLine=
 UseCustomMakefile=0
 CustomMakefile=
@@ -80,7 +80,7 @@ AutoIncBuildNr=0
 [Unit4]
 FileName=keys.cpp
 CompileCpp=1
-Folder=
+Folder=Keys
 Compile=1
 Link=1
 Priority=1000
@@ -90,7 +90,7 @@ BuildCmd=
 [Unit5]
 FileName=keys.h
 CompileCpp=1
-Folder=
+Folder=Keys
 Compile=1
 Link=1
 Priority=1000
@@ -129,6 +129,26 @@ BuildCmd=
 
 [Unit9]
 FileName=Screens.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit10]
+FileName=Painter.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit11]
+FileName=Painter.h
 CompileCpp=1
 Folder=
 Compile=1

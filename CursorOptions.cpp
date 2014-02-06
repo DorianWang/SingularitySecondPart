@@ -197,7 +197,25 @@ void COptions::cursorControl(int optionNum)
 
 
 
+   
+bool COptions::changeCursorPos(HANDLE cHandle, short cursorX, short cursorY)
+{
 
+   int returningNum;
+   COORD coord;
+   coord.X = cursorX;
+   coord.Y = cursorY;
+
+   returningNum=SetConsoleCursorPosition(cHandle, coord);
+   
+   if (returningNum==0){
+   
+   return false;
+                        
+   }
+
+   return true;
+}
 
 
 
