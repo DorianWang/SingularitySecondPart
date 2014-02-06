@@ -13,12 +13,6 @@ using namespace std;
 // global variables
 #define VERSION_NUM 1
 
-typedef struct screenGraphicData //user defined datatype
-{
-   std::string screenData[10];       
-
-
-};
 
 
 //Keypress keyIO;
