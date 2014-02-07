@@ -10,8 +10,8 @@ class painter
       
    public:
    
-   screenWriter(screenGraphicData *screenData, int screenHeight, int screenWidth);
-   screenRedraw(screenGraphicData *screenData, int screenHeight, int screenWidth);
+   void screenWriter(screenGraphicData *screenData, int screenHeight, int screenWidth);
+   void screenRedraw(screenGraphicData *screenData, int screenHeight, int screenWidth);
    
    
    

@@ -29,6 +29,7 @@ typedef struct tile
    int yCoord;     
 };
 
+
 //typedef struct screenGraphicData //user defined datatype
 //{
 //};
