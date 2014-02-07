@@ -1,11 +1,13 @@
 
-
+#include "FileIO.h"
 
 void getProfile(std::string name)
 {
 
 ifstream myfile;
-myfile.open ("saves/"+name+".txt");
+std::string fileName;
+fileName= "saves/"+name+".dat";
+myfile.open (fileName.c_str());
  	
 if (myfile.is_open()) {
 
@@ -18,8 +20,10 @@ if (myfile.is_open()) {
 void makeProfile(std::string name)
 {
 
-ofstream myfile;     
-myfile.open("saves/"+name+".txt");     
+ofstream myfile;  
+std::string fileName;  
+fileName = "saves/"+name+".dat"; 
+myfile.open(fileName.c_str());     
      
 if (myfile.is_open()){
                       

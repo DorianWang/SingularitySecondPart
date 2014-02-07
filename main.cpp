@@ -26,6 +26,7 @@ typedef struct tile
 #include "keys.h"
 #include "CursorOptions.h"
 #include "Screens.h"
+#include "FileIO.h"
 
 #include "Painter.h"
 
