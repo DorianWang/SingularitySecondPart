@@ -1,7 +1,7 @@
 [Project]
 FileName=Singularity.dev
 Name=Singularity
-UnitCount=12
+UnitCount=13
 Type=1
 Ver=1
 ObjFiles=
@@ -20,7 +20,7 @@ ObjectOutput=
 OverrideOutput=0
 OverrideOutputName=
 HostApplication=
-Folders=Bases,CursorMod,Keys
+Folders=Bases,CursorMod,FileIO,Keys
 CommandLine=
 UseCustomMakefile=0
 CustomMakefile=
@@ -160,7 +160,17 @@ BuildCmd=
 [Unit12]
 FileName=FileIO.cpp
 CompileCpp=1
-Folder=
+Folder=FileIO
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit13]
+FileName=FileIO.h
+CompileCpp=1
+Folder=FileIO
 Compile=1
 Link=1
 Priority=1000

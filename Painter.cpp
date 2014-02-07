@@ -1,12 +1,28 @@
 
-
+#include "Painter.h"
           
 //   screenFill();      
       
-void painter::screenWriter(screenGraphicData *screenData, int screenHeight, int screenWidth)
+Painter::Painter()
+{
+                  
+                  
+                  
+}    
+
+Painter::~Painter()
+{
+                  
+                
+                  
+}      
+      
+      
+      
+void Painter::screenWriter(int screenHeight, int screenWidth)
 {
         
-        
+        cout<<"hello";
         
         
         
@@ -15,16 +31,11 @@ void painter::screenWriter(screenGraphicData *screenData, int screenHeight, int 
         
 }
    
-void painter::screenRedraw(screenGraphicData *screenData, int screenHeight, int screenWidth); 
-{    
+//void Painter::screenRedraw(screenGraphicData *screenData, int screenHeight, int screenWidth); 
+//{}    
       
       
       
       
       
-
-
-
-
-}
 

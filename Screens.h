@@ -12,22 +12,6 @@
 
 using namespace std;
 
-typedef struct interactObject
-{
-   std::string nameObject;     
-   int objectType;     
-   int objectAlignment; //what it is (hostile, friendly, neutral, etc)
-   int numUse;  
-   int specialType;//normally 0, different for other things
-};
-
-typedef struct tile
-{
-   char tileSymbol;
-   interactObject tileEntities;     
-   int xCoord;
-   int yCoord;     
-};
 
 
 //typedef struct screenGraphicData //user defined datatype

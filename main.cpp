@@ -3,15 +3,37 @@
 #include <iostream>
 
 
+using namespace std;
+
+typedef struct interactObject
+{
+   std::string nameObject;     
+   int objectType;     
+   int objectAlignment; //what it is (hostile, friendly, neutral, etc)
+   int numUse;  
+   int specialType;//normally 0, different for other things
+};
+
+typedef struct tile
+{
+   char tileSymbol;
+   interactObject tileEntities;     
+   int xCoord;
+   int yCoord;     
+};
+
 #include "Bases.h"
 #include "keys.h"
 #include "CursorOptions.h"
 #include "Screens.h"
 
-using namespace std;
+#include "Painter.h"
+
+
 
 // global variables
 #define VERSION_NUM 1
+
 
 
 
