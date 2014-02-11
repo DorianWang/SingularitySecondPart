@@ -150,11 +150,13 @@ string out = ss.str();
 int input;
 cursorMod.cursorControl(3);
 
+char chars[]="abcdefghijklmnop"; // c string
 
 cout<<"Welcome to version " + out + " of singularity."<<endl<<endl;
 system("PAUSE");
 system("CLS");
 cout<<"Press A to start the game, S to change settings and Q to quit"<<endl;
+screenPaint.screenWriter(24,80, &chars[2]);
 
 do{
    input = keyIO.get_code("asqASQ");             
@@ -173,7 +175,7 @@ do{
           
           system("CLS");
           cout<<"Press A to start the game, S to change settings and Q to quit"<<endl;
-          
+          screenPaint.screenWriter(24,80, &chars[2]);
           }  
           
           if (input==2||input==5){
@@ -206,7 +208,7 @@ return 0;
 
 int SelectScreens::dwarfGame()
 {
-struct tile graphicDataDwarf[SCREEN_WIDTH*SCREEN_HEIGHT];  
+//struct tile graphicDataDwarf[SCREEN_WIDTH*SCREEN_HEIGHT];  
 
 
 
