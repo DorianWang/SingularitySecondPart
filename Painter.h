@@ -23,8 +23,8 @@ class Painter
    Painter();
    ~Painter();
    
-   void screenWriter(int screenHeight, int screenWidth);
-   //void screenRedraw(tile *screenTiles[24][80], int screenHeight, int screenWidth);
+   void screenWriter(int screenHeight, int screenWidth, char* screenData);
+   //void screenRedraw(tile screenTiles[24][80], int screenHeight, int screenWidth);
    
    //tile *screenTiles[24][80]
    

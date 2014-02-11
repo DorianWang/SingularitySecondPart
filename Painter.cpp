@@ -19,9 +19,9 @@ Painter::~Painter()
       
       
       
-void Painter::screenWriter(int screenHeight, int screenWidth)
+void Painter::screenWriter(int screenHeight, int screenWidth, char* screenData)//use of C string for class
 {
-        
+        cout<<screenData<<endl;
         cout<<"hello";
         
         

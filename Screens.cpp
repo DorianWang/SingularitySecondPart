@@ -206,7 +206,7 @@ return 0;
 
 int SelectScreens::dwarfGame()
 {
-tile graphicDataDwarf[SCREEN_HEIGHT][SCREEN_WIDTH];  
+struct tile graphicDataDwarf[SCREEN_WIDTH*SCREEN_HEIGHT];  
 
 
 

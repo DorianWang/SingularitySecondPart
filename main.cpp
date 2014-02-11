@@ -5,7 +5,7 @@
 
 using namespace std;
 
-typedef struct interactObject
+struct interactObject
 {
    std::string nameObject;     
    int objectType;     
@@ -14,7 +14,7 @@ typedef struct interactObject
    int specialType;//normally 0, different for other things
 };
 
-typedef struct tile
+struct tile
 {
    char tileSymbol;
    interactObject tileEntities;     
@@ -48,7 +48,14 @@ bool cursorSmall = true;
 
 int main(int argc, char *argv[])
 {
-    
+    //char asdf=176;
+    //char asdfg=177;
+    //char asdfgh=178;
+    //char qwe = 43;
+    //cout<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
+    //cout<<asdfgh<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
+    //219 -> 178 -> 177 -> 176 -> 43
+
     SelectScreens ScreenControl;
    // int asdf = 0;
     

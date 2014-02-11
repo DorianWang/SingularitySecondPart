@@ -1,7 +1,7 @@
 
 #include "FileIO.h"
 
-void getProfile(std::string name)
+bool getProfile(std::string name)
 {
 
 ifstream myfile;
@@ -17,7 +17,7 @@ if (myfile.is_open()) {
 
 }
 
-void makeProfile(std::string name)
+bool makeProfile(std::string name)
 {
 
 ofstream myfile;  
@@ -33,3 +33,30 @@ if (myfile.is_open()){
      
      
 }
+
+
+bool writeDwarf()
+{
+   int asdf;  
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+}
+     
+
+
+
+
+
+

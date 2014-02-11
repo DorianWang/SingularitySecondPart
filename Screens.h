@@ -4,6 +4,7 @@
 
 #include "Keys.h"
 #include "CursorOptions.h"
+#include "Painter.h"
 
 #define PRESSDELAY 5
 
@@ -11,7 +12,6 @@
 #define SCREEN_WIDTH 80
 
 using namespace std;
-
 
 
 //typedef struct screenGraphicData //user defined datatype
@@ -23,6 +23,7 @@ class SelectScreens
 
 COptions cursorMod;
 Keypress keyIO;
+Painter screenPaint;
 
 ;;
 public:
@@ -31,7 +32,7 @@ public:
 int mainScreen(int versionNum);
 void optionsScreen();
 int gameStart();
-int contextMenu(tile graphicData[SCREEN_HEIGHT][SCREEN_WIDTH]);
+int contextMenu(struct tile graphicData[SCREEN_HEIGHT][SCREEN_WIDTH]);
 int dwarfGame();
 
 ;;
