@@ -28,7 +28,9 @@ bool Painter::screenWriter(int screenHeight, int screenWidth, char*screenData, i
    if (startY<=screenHeight&&startY>0){
    cursorStart.Y=startY;   
    }
-   SetConsoleCursorPosition(cHandle,cursorStart);
+   if (SetConsoleCursorPosition(cHandle,cursorStart)!=0){
+   return true;                                                      
+   }
       
    return false;
 }      
@@ -36,10 +38,12 @@ bool Painter::screenWriter(int screenHeight, int screenWidth, char*screenData, i
 void Painter::screenWriter(int screenHeight, int screenWidth, char* screenData)//use of C string for class
 {
      
-   for (int j=1;j<screenHeight;)
-        cout<<screenData<<endl;
-        cout<<"hello";
-        
+   for (int j=1;j<screenHeight;j++){
+      for (int i=1;i<screenWidth;i++){ 
+         cout<<screenData[((j-1)*screenHeight)+i];
+         cout<<"hello";
+      }
+   }
         
         
         
