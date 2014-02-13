@@ -6,22 +6,23 @@
 Painter::Painter()
 {
                   
-                  
-                  
 }    
 
 Painter::~Painter()
 {
-                  
-                
-                  
+                                 
 }      
       
 
 bool Painter::screenWriter(int screenHeight, int screenWidth, char*screenData, int startX, int startY, int overwriteNum, HANDLE cHandle)
 {
+     
+   int endX, endY;
+   
+   
    COORD cursorStart;
    if (startX<=screenWidth&&startX>0){
+      
    cursorStart.X=startX;   
    }
    
@@ -29,6 +30,8 @@ bool Painter::screenWriter(int screenHeight, int screenWidth, char*screenData, i
    cursorStart.Y=startY;   
    }
    if (SetConsoleCursorPosition(cHandle,cursorStart)!=0){
+      cout<<
+      cout<<screenData
    return true;                                                      
    }
       
