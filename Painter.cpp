@@ -30,8 +30,8 @@ bool Painter::screenWriter(int screenHeight, int screenWidth, char*screenData, i
    cursorStart.Y=startY;   
    }
    if (SetConsoleCursorPosition(cHandle,cursorStart)!=0){
-      cout<<
-      cout<<screenData
+      cout<<"asdf";
+      cout<<screenData;
    return true;                                                      
    }
       
@@ -43,8 +43,8 @@ void Painter::screenWriter(int screenHeight, int screenWidth, char* screenData)/
      
    for (int j=1;j<screenHeight;j++){
       for (int i=1;i<screenWidth;i++){ 
-         cout<<screenData[((j-1)*screenHeight)+i];
-         cout<<"hello";
+         //cout<<screenData[((j-1)*screenHeight)+i];
+         //cout<<"hello";
       }
    }
         

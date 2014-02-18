@@ -217,8 +217,18 @@ bool COptions::changeCursorPos(HANDLE cHandle, short cursorX, short cursorY)
    return true;
 }
 
+void COptions::changeCursorInsert(HANDLE cHandle, bool insertMode)
+{
+
+DWORD mode = 0;
+DWORD otherThing = ENABLE_INSERT_MODE | ENABLE_EXTENDED_FLAGS;
+GetConsoleMode(cHandle, &mode);
+SetConsoleMode(cHandle, mode & otherThing);
 
 
+
+
+}
 
 
 

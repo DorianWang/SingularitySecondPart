@@ -156,7 +156,7 @@ cout<<"Welcome to version " + out + " of singularity."<<endl<<endl;
 system("PAUSE");
 system("CLS");
 cout<<"Press A to start the game, S to change settings and Q to quit"<<endl;
-screenPaint.screenWriter(24,80, &chars[2]);
+//screenPaint.screenWriter(24,80, &chars[2]);
 
 do{
    input = keyIO.get_code("asqASQ");             

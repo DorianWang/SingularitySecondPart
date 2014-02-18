@@ -3,7 +3,7 @@
 #define COPTIONS_H 
 
 #include "windows.h"
-
+#include "stdio.h"
 
 
 using namespace std;
@@ -28,6 +28,8 @@ void returnDefault(HANDLE cHandle);
 void toggleCursorSize(HANDLE cHandle);
 void toggleCursor(HANDLE cHandle);
 void tempColourChange(bool isDiff, HANDLE cHandle, int targetColour);
+void changeCursorInsert(HANDLE cHandle, bool insertMode);
+
 
 bool changeCursorPos(HANDLE cHandle, short cursorX, short cursorY);
 
