@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-
-
+#define ENABLE_INSERT_MODE 0x0020
+#define ENABLE_EXTENDED_FLAGS 0x0080
 
 using namespace std;
 
@@ -134,8 +134,7 @@ void COptions::cursorControl(int optionNum)
      if (optionNum==0){
                        
         if (cursorVisibility==false){
-        toggleCursor(consoleHandle);  
-                                
+        toggleCursor(consoleHandle);                    
         }
         
         debugDetector=false;               
@@ -147,45 +146,44 @@ void COptions::cursorControl(int optionNum)
         toggleCursor(consoleHandle);                    
         }
          
-         debugDetector=false;               
+        debugDetector=false;               
      }//if cursor is true, make false    
      
-     if (optionNum==2){
-                       
+     if (optionNum==2){      
         toggleColour(consoleHandle);                   
-        
         debugDetector=false;             
      }//change colour
      
      if (optionNum==3){
-                       
-        
         returnDefault(consoleHandle);                         
-        
         debugDetector=false;              
      }//returns defaults
      
-     if (optionNum==4){
-                       
+     if (optionNum==4){  
         toggleCursor(consoleHandle); //force toggle
-                             
-        
         debugDetector=false;               
      }
      
      if (optionNum==5){
- 
-        tempColourChange(false, consoleHandle,15);                      
-        
+        changeCursorInsert(consoleHandle, true);//Insert mode                      
         debugDetector=false;      
-              
      }
      
      if (optionNum==6){
-                       
-        tempColourChange(true, consoleHandle,15);
+        changeCursorInsert(consoleHandle, false);//no Insert mode
         debugDetector=false;               
      }
+     
+     //beyond this are unused
+     
+     if (optionNum==7){
+        debugDetector=false;               
+     }
+     
+     if (optionNum==8){
+        debugDetector=false;               
+     }
+     
      
  
      if (debugDetector){
@@ -219,15 +217,19 @@ bool COptions::changeCursorPos(HANDLE cHandle, short cursorX, short cursorY)
 
 void COptions::changeCursorInsert(HANDLE cHandle, bool insertMode)
 {
+//DWORD mode = 0;
+//DWORD otherThing = ENABLE_INSERT_MODE | ENABLE_EXTENDED_FLAGS;
+//DWORD thing = ENABLE_EXTENDED_FLAGS; 
+//GetConsoleMode(cHandle, &mode);
 
-DWORD mode = 0;
-DWORD otherThing = ENABLE_INSERT_MODE | ENABLE_EXTENDED_FLAGS;
-GetConsoleMode(cHandle, &mode);
-SetConsoleMode(cHandle, mode & otherThing);
-
-
-
-
+   if (insertMode){
+   SetConsoleMode(cHandle, ENABLE_INSERT_MODE | ENABLE_EXTENDED_FLAGS);
+   }
+   else
+   {
+   SetConsoleMode(cHandle, ENABLE_EXTENDED_FLAGS);
+   }
+   
 }
 
 
