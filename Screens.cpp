@@ -14,12 +14,12 @@ void SelectScreens::optionsScreen(){
 system("CLS");
 
 int input;
-cursorMod.cursorControl(5);
+cursorMod.cursorControl(7);
 cout<<"Press A to make the cursor visible, S to make it invisible"<<endl;
 cout<<"D to change the text colour, F to return it to defaults"<<endl;
 cout<<"G forces the cursor to toggle visibility"<<endl;
 cout<<"Press Q to close the options screen"<<endl;
-cursorMod.cursorControl(6);
+cursorMod.cursorControl(8);
 cout<<"Test line"; // 9 characters
 do{
    input = keyIO.get_code("asdfgqASDFGQ");             

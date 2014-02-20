@@ -109,7 +109,7 @@ void COptions::returnDefault(HANDLE cHandle)
   
 void COptions::tempColourChange(bool isDiff, HANDLE cHandle, int targetColour)
 {
-     
+   //if isDiff is true, change the colour to the target colour, otherwise, change it back
     
     CONSOLE_SCREEN_BUFFER_INFO con_info;
     GetConsoleScreenBufferInfo(cHandle, &con_info); 
@@ -171,6 +171,16 @@ void COptions::cursorControl(int optionNum)
      
      if (optionNum==6){
         changeCursorInsert(consoleHandle, false);//no Insert mode
+        debugDetector=false;               
+     }
+     
+     if (optionNum==7){
+        tempColourChange(false, consoleHandle, 7);                     
+        debugDetector=false;      
+     }
+     
+     if (optionNum==8){
+        tempColourChange(true,consoleHandle, 7);
         debugDetector=false;               
      }
      
