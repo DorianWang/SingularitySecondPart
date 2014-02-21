@@ -6,8 +6,14 @@
 #include <sstream>
 #include <iostream>
 
+void stringThing(int inputNum, int outputNum, int stringLength)
+{
 
 
+
+
+
+}
 
 void SelectScreens::optionsScreen(){
 
