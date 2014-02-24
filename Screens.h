@@ -7,6 +7,9 @@
 #include "Painter.h"
 
 #define PRESSDELAY 5
+#define SUCCESS_NUM 1
+#define FAILURE_NUM -1
+#define FAILURE_NUM_OTHER -2
 
 #define SCREEN_HEIGHT 24
 #define SCREEN_WIDTH 80
@@ -33,10 +36,16 @@ int mainScreen(int versionNum);
 void optionsScreen();
 int gameStart();
 int contextMenu(struct tile graphicData[SCREEN_HEIGHT][SCREEN_WIDTH]);
-int dwarfGame();
+int dwarfGame(int difficulty);
+void programRun(int programNum);
 
 ;;
 
 };
 
 #endif
+
+
+
+
+

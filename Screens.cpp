@@ -18,7 +18,7 @@ int stringThing(int inputNum, int outputNum, int stringLength)
       return outputNum;
    }
 
-return -1;
+return FAILURE_NUM;
 }
 
 
@@ -47,7 +47,7 @@ do{
 
    //stringTest = stringThing
 
-      if (input!=-1){             
+      if (input!=FAILURE_NUM){             
           
           if (stringThing(input, 0, stringLength)==0){//input==0||input==6){
           cursorMod.cursorControl(0);                   
@@ -91,7 +91,7 @@ int input;
 int stringLength;
 std::string inCharString;
 
-inCharString="dspqDSPQ";
+inCharString="dswpqDSWPQ";
 stringLength= inCharString.length();
 
 bool isGame;
@@ -107,12 +107,13 @@ cout<<"Please select your function"<<endl<<endl;
 
 cout<<"Dwarf game - D"<<endl;
 cout<<"Tree sort - S"<<endl;
+cout<<"Hello World - W"<<endl;
 cout<<"Plans for future stuff - P"<<endl;
 cout<<"Quit - Q"<<endl;
 
 do{
    input=keyIO.get_code(inCharString);            
-   if (input!=-1){
+   if (input!=FAILURE_NUM){
                   
       if (stringThing(input, 0, stringLength)==0){ 
          whichGame=0;
@@ -133,12 +134,12 @@ do{
       if (stringThing(input, 3, stringLength)==3){ 
          return 3;
          break;
-      }//current quit key
+      }
       
       if (stringThing(input, 4, stringLength)==4){
          return 4;
          break;
-      }
+      }//current quit key
 
       if (stringThing(input, 9, stringLength)==9){
          return 9;
@@ -162,7 +163,7 @@ if (isGame){
          
       input=keyIO.get_code("zasdnZASDN");
 
-      if (input!=-1){
+      if (input!=FAILURE_NUM){
    
          continue;
                   
@@ -200,6 +201,9 @@ stringstream ss (stringstream::in | stringstream::out);
 ss<<versionNum;          
 string out = ss.str();     
 int input;
+
+int programFunction;
+programFunction=FAILURE_NUM;
 cursorMod.cursorControl(3);
 
 char chars[]="abcdefghijklmnop"; // c string
@@ -213,10 +217,14 @@ cout<<"Press A to start the game, S to change settings and Q to quit"<<endl;
 do{
    input = keyIO.get_code("asqASQ");             
 
-      if (input!=-1){             
+      if (input!=FAILURE_NUM){             
           
           if (input==0||input==3){
-          gameStart();        
+          programFunction=gameStart();  
+          system("CLS");
+             if (programFunction!=FAILURE_NUM){
+                programRun(programFunction);
+             }      
           }
           
           if (input==1||input==4){
@@ -230,7 +238,7 @@ do{
           
           if (input==2||input==5){
                                   
-          return -1;
+          return FAILURE_NUM;
           
           }                        
           
@@ -240,7 +248,7 @@ do{
 
 cout<<input<<endl;
 
-return -2;
+return FAILURE_NUM_OTHER;
 }
 
 
@@ -254,23 +262,58 @@ int SelectScreens::contextMenu(tile graphicData[SCREEN_HEIGHT][SCREEN_WIDTH])
 return 0;
 }
 
+void SelectScreens::programRun(int programNum)
+{
+int functionRan; 
+functionRan=-1;
+
+switch(programNum)
+{
+   case 0:
+   break;//not supposed to get here  
+   
+   case 1:
+   functionRan=treeSort();
+   break;
+
+   case 2:
+   functionRan=helloWorld();
+   break;
+   
+   case 3:
+   functionRan=futurePlans();     
+   break;
+   
+   case 4:
+   break;
+   //nothing   
+   case 5:
+   break;
+   //nothing      
+   case 6:
+   break;
+   //nothing as well
+   case 9:
+   break;
+   //could be used later     
+   case 10:
+   functionRun=dwarfGame(1);
+   break;
+   //more things to be added later
+   
+}
 
 
-int SelectScreens::dwarfGame()
+
+}//end programRun
+
+int SelectScreens::dwarfGame(int difficulty)
 {
 //struct tile graphicDataDwarf[SCREEN_WIDTH*SCREEN_HEIGHT];  
 
 
 
-
-
-
-
-
-
-return 0;
-
-
+return 1;
 }
 
 
