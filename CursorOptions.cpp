@@ -175,12 +175,12 @@ void COptions::cursorControl(int optionNum)
      }
      
      if (optionNum==7){
-        tempColourChange(false, consoleHandle, 7);                     
+        tempColourChange(false, consoleHandle, 15);                     
         debugDetector=false;      
      }
      
      if (optionNum==8){
-        tempColourChange(true,consoleHandle, 7);
+        tempColourChange(true,consoleHandle, 15);
         debugDetector=false;               
      }
      

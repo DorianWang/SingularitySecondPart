@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
     
     
     //I don't want to reach this
-    system("PAUSE");
+    //system("PAUSE");
     return EXIT_SUCCESS;
 }
 
