@@ -54,7 +54,7 @@ int contextMenu(struct tile graphicData[SCREEN_HEIGHT][SCREEN_WIDTH]);
 int dwarfGame(int difficulty);
 void programRun(int programNum);
 
-const char *findMyDocsWindows();
+void findMyDocsWindows(char* myDocsPath);
 
 int treeSort();
 int helloWorld();

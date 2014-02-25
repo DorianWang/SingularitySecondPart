@@ -326,7 +326,7 @@ return 1;
 }
 
 
-const char *SelectScreens::findMyDocsWindows()
+void SelectScreens::findMyDocsWindows(char* myDocsPath)
 {
 
 char path[256];
@@ -335,20 +335,17 @@ GetEnvironmentVariable("USERPROFILE",path,sizeof(path));
 int letterNum;
 int counter=0;
 
-
 do{
    letterNum=path[counter];
    if (letterNum>0){
       counter++;
    }
 }while (letterNum>0);
-char returnArray[counter];
 
    for (int i=0;i<counter;i++){
-      returnArray[i]=path[i];
+      myDocsPath[i]=path[i];
    }
-   
-return returnArray;
+
 }
 
 int SelectScreens::treeSort()
@@ -363,6 +360,11 @@ fstream myfile;
 std::string keyInput;
 std::string fileName;
 std::string fileLocation;
+char myDocsPath[256];
+char* P_myDocsPath = myDocsPath;
+int counting=0;
+
+do{myDocsPath[counting]=0;counting++;}while(counting<256);
 
 std::string filePath;//entire thing together
 
@@ -397,12 +399,16 @@ cout<<"Enter 1 or 2"<<endl;
 cin>>keyInput;
 if (atoi(keyInput.c_str())==1){
    filePath="/Data/"+fileName;
-   myfile.open(filePath);                   
+   myfile.open(filePath.c_str());                   
 }
 else
 {
+   //filePath
+   std::string myDocsPathTemp= "";
+   findMyDocsWindows(P_myDocsPath);
+   //str.shrink_to_fit();
    
-   myfile.open(findMyDocsWindows)    
+   myfile.open("asdf");    
 }
 
 treeNodeBinary rootNode; 
