@@ -303,9 +303,19 @@ switch(programNum)
    
 }
 
-
+if (functionRun==FAILURE_NUM){
+   cout<<"Failure to do stuff"<<endl;
+}
 
 }//end programRun
+
+int treeSort()
+{
+
+
+
+return 1;
+}
 
 int SelectScreens::dwarfGame(int difficulty)
 {
