@@ -256,11 +256,6 @@ return FAILURE_NUM_OTHER;
 
 int SelectScreens::contextMenu(tile graphicData[SCREEN_HEIGHT][SCREEN_WIDTH])
 {
-
-
-
-
-
 return 0;
 }
 
@@ -371,9 +366,11 @@ std::string filePath;//entire thing together
 system("CLS");
 
 cout<<"What is the name of your file?"<<endl;
-std::getline (std::cin,fileName);
+cin>>fileName;
+cout<<fileName;
+//std::getline (std::cin,fileName);
 
-
+bool option1,option2,option3;
 char letter;
 letter='/';
 int letterInt;
@@ -390,7 +387,8 @@ for (int i=0;i<fileName.length();i++){
    
 
 }
-
+cout<<"asdfasdf"<<endl;
+system("PAUSE");
 
 system("CLS");
 cout<<"I read the file name as "<<fileName<<"."<<endl;
@@ -403,11 +401,27 @@ if (atoi(keyInput.c_str())==1){
 }
 else
 {
-   //filePath
+   
    std::string myDocsPathTemp= "";
    findMyDocsWindows(P_myDocsPath);
    //str.shrink_to_fit();
+   //filePath=P_myDocsPath;
+   int letterNum;
+   bool endOfArray=false;
    
+   for (int k=0;k<256;k++){
+      letterNum=myDocsPath[k];    
+      if (letterNum<1){
+         endOfArray=true;                 
+      }
+      if (endOfArray!=true){
+      filePath+=myDocsPath[k];
+      }
+   }
+   
+   //filePath.shrink_to_fit();
+   filePath+=fileName;
+   cout<<filePath;
    myfile.open("asdf");    
 }
 
