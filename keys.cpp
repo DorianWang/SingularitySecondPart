@@ -17,7 +17,6 @@ for(i=0;i<importantKeys.length();i++){
         return -1;
 }// get_code
 
-
 //returns 1 for enter, 2 for escape,3 for TAB etc.
 int Keypress::get_code(){
     

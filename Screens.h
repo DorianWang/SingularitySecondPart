@@ -21,6 +21,19 @@ using namespace std;
 //{
 //};
 
+typedef struct treeNodeBinary
+{
+        
+int intData;
+int metaData;
+char moreMetaData;
+
+treeNodeBinary* parent;
+treeNodeBinary* left;
+treeNodeBinary* right;
+
+};
+
 class SelectScreens
 {
 
@@ -38,6 +51,10 @@ int gameStart();
 int contextMenu(struct tile graphicData[SCREEN_HEIGHT][SCREEN_WIDTH]);
 int dwarfGame(int difficulty);
 void programRun(int programNum);
+
+int treeSort();
+int helloWorld();
+int futurePlans();
 
 ;;
 

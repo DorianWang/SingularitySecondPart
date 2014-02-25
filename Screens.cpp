@@ -297,7 +297,7 @@ switch(programNum)
    break;
    //could be used later     
    case 10:
-   functionRun=dwarfGame(1);
+   functionRan=dwarfGame(1);
    break;
    //more things to be added later
    
@@ -309,10 +309,69 @@ if (functionRun==FAILURE_NUM){
 
 }//end programRun
 
+int helloWorld()
+{
+cout<<"Hello world!"<<endl<<endl;
+system("PAUSE");   
+return 1; 
+}
+
+int futurePlans()
+{
+cout<<"Plan - Finish treeSort, and then this function"<<endl<<endl;    
+system("PAUSE");
+return 1;
+}
+
 int treeSort()
 {
+    
+stringstream ss (stringstream::in | stringstream::out);
+//ss<<versionNum;          
+//std::string out
+// = ss.str();    
+    
+std::string fileName;
+std::string fileLocation;
 
 
+system("CLS");
+
+cout<<"What is the name of your file?"<<endl;
+std::getline (std::cin,fileName);
+
+
+char letter;
+letter='/';
+int letterInt;
+for (int i=0;i<fileName.length();i++){
+    
+   letter=fileName.at(i);
+   
+   letterInt=letter;
+   if (letterInt<123&&letterInt>63||letterInt==32){
+      if(letterInt!=92&&letterInt!=94&&)
+                                    
+                                    
+   }
+    
+
+}
+
+
+treeNodeBinary rootNode; 
+
+
+
+rootNode.
+
+ifstream treeDataFile;
+
+
+
+
+//cout<<"Would you like to save the sorted data?"<,endl;
+//ofstream treeOutputData;
 
 return 1;
 }
@@ -320,11 +379,37 @@ return 1;
 int SelectScreens::dwarfGame(int difficulty)
 {
 //struct tile graphicDataDwarf[SCREEN_WIDTH*SCREEN_HEIGHT];  
+system("CLS");
+
+
 
 
 
 return 1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
