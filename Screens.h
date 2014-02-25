@@ -2,6 +2,8 @@
 #ifndef SCREENS_H
 #define SCREENS_H 
 
+#include <fstream>
+
 #include "Keys.h"
 #include "CursorOptions.h"
 #include "Painter.h"
@@ -51,6 +53,8 @@ int gameStart();
 int contextMenu(struct tile graphicData[SCREEN_HEIGHT][SCREEN_WIDTH]);
 int dwarfGame(int difficulty);
 void programRun(int programNum);
+
+const char *findMyDocsWindows();
 
 int treeSort();
 int helloWorld();

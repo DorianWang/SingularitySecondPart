@@ -211,6 +211,8 @@ char chars[]="abcdefghijklmnop"; // c string
 cout<<"Welcome to version " + out + " of singularity."<<endl<<endl;
 system("PAUSE");
 system("CLS");
+
+
 cout<<"Press A to start the game, S to change settings and Q to quit"<<endl;
 //screenPaint.screenWriter(24,80, &chars[2]);
 
@@ -303,27 +305,53 @@ switch(programNum)
    
 }
 
-if (functionRun==FAILURE_NUM){
+if (functionRan==FAILURE_NUM){
    cout<<"Failure to do stuff"<<endl;
 }
 
 }//end programRun
 
-int helloWorld()
+int SelectScreens::helloWorld()
 {
 cout<<"Hello world!"<<endl<<endl;
 system("PAUSE");   
 return 1; 
 }
 
-int futurePlans()
+int SelectScreens::futurePlans()
 {
 cout<<"Plan - Finish treeSort, and then this function"<<endl<<endl;    
 system("PAUSE");
 return 1;
 }
 
-int treeSort()
+
+const char *SelectScreens::findMyDocsWindows()
+{
+
+char path[256];
+GetEnvironmentVariable("USERPROFILE",path,sizeof(path));
+
+int letterNum;
+int counter=0;
+
+
+do{
+   letterNum=path[counter];
+   if (letterNum>0){
+      counter++;
+   }
+}while (letterNum>0);
+char returnArray[counter];
+
+   for (int i=0;i<counter;i++){
+      returnArray[i]=path[i];
+   }
+   
+return returnArray;
+}
+
+int SelectScreens::treeSort()
 {
     
 stringstream ss (stringstream::in | stringstream::out);
@@ -331,9 +359,12 @@ stringstream ss (stringstream::in | stringstream::out);
 //std::string out
 // = ss.str();    
     
+fstream myfile;
+std::string keyInput;
 std::string fileName;
 std::string fileLocation;
 
+std::string filePath;//entire thing together
 
 system("CLS");
 
@@ -349,21 +380,36 @@ for (int i=0;i<fileName.length();i++){
    letter=fileName.at(i);
    
    letterInt=letter;
-   if (letterInt<123&&letterInt>63||letterInt==32){
-      if(letterInt!=92&&letterInt!=94&&)
-                                    
-                                    
+   if ((letterInt<123&&letterInt>63)||letterInt==32||(letterInt>47&&letterInt<58)){
+      if(letterInt!=92&&letterInt!=94&&letterInt!=96){
+         fileName+=letter;                                                                          
+      }                              
    }
-    
+   
 
 }
 
+
+system("CLS");
+cout<<"I read the file name as "<<fileName<<"."<<endl;
+cout<<"Is the file located in the Data folder of this program, or in My Documents?"<<endl;
+cout<<"Enter 1 or 2"<<endl;
+cin>>keyInput;
+if (atoi(keyInput.c_str())==1){
+   filePath="/Data/"+fileName;
+   myfile.open(filePath);                   
+}
+else
+{
+   
+   myfile.open(findMyDocsWindows)    
+}
 
 treeNodeBinary rootNode; 
 
 
 
-rootNode.
+//rootNode.
 
 ifstream treeDataFile;
 
