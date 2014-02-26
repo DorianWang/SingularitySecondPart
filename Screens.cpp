@@ -6,7 +6,17 @@
 #include <sstream>
 #include <iostream>
 
-int stringThing(int inputNum, int outputNum, int stringLength)
+//SelectScreens::SelectScreens()
+//{
+//                            
+//}
+
+//SelectScreens::~SelectScreens()
+//{
+//
+//}
+
+int SelectScreens::stringThing(int inputNum, int outputNum, int stringLength)
 {
 //An easier implementaion would involve returning true false, instead of numbers.
 
@@ -353,11 +363,15 @@ stringstream ss (stringstream::in | stringstream::out);
     
 fstream myfile;
 std::string keyInput;
+
+std::string fileNameIn;
 std::string fileName;
 std::string fileLocation;
 char myDocsPath[256];
 char* P_myDocsPath = myDocsPath;
 int counting=0;
+
+bool fileOpen=false;
 
 do{myDocsPath[counting]=0;counting++;}while(counting<256);
 
@@ -366,7 +380,7 @@ std::string filePath;//entire thing together
 system("CLS");
 
 cout<<"What is the name of your file?"<<endl;
-cin>>fileName;
+cin>>fileNameIn;
 cout<<fileName;
 //std::getline (std::cin,fileName);
 
@@ -374,11 +388,13 @@ bool option1,option2,option3;
 char letter;
 letter='/';
 int letterInt;
-for (int i=0;i<fileName.length();i++){
-    
-   letter=fileName.at(i);
+cout<<fileName.length()<<endl;
+for (int i=0;i<fileNameIn.length();i++){
+   //cout<<fileName.length()<<endl;
+   letter=fileNameIn.at(i);
    
    letterInt=letter;
+   
    if (letterInt<123&&letterInt>63){
       option1=true ;
    }
@@ -403,13 +419,15 @@ system("PAUSE");
 system("CLS");
 cout<<"I read the file name as "<<fileName<<"."<<endl;
 cout<<"Is the file located in the Data folder of this program, or in My Documents?"<<endl;
-cout<<"Enter 1 or 2"<<endl;
+cout<<"Or even press 3 for your student Data folder."<<endl;
+cout<<"Enter 1, 2 or 3"<<endl;
 cin>>keyInput;
-if (atoi(keyInput.c_str())==1){
-   filePath="/Data/"+fileName;
+if (keyInput=="1"){//atoi(keyInput.c_str())==1){
+   filePath="Data/"+fileName;
+   cout<<filePath<<endl;
    myfile.open(filePath.c_str());                   
 }
-else
+else if (keyInput=="2")
 {
    
    std::string myDocsPathTemp= "";
@@ -430,12 +448,38 @@ else
    }
    
    //filePath.shrink_to_fit();
+   filePath+="/Data/";
    filePath+=fileName;
-   cout<<filePath;
-   myfile.open("asdf");    
+   cout<<filePath<<endl;
+   myfile.open(filePath.c_str());    
+}
+else if (keyInput=="3")
+{
+   studentDrive="P:/"; 
+   filePath=studentDrive;
+   filePath+="Data/";
+   filePath+=fileName;
+   myfile.open(filePath.c_str());   
+   cout<<filePath<<endl;
+}
+else
+{
+   cout<<"I don't know..."<<endl;    
 }
 
-treeNodeBinary rootNode; 
+if (myfile.is_open()){
+   cout<<"File found and opened."<<endl;
+   fileOpen=true;
+}
+else
+{
+   cout<<"File does not exist, or cannot be opened"<<endl;
+}
+
+system("PAUSE");
+system("CLS");
+
+treeNodeBinary* rootNode; 
 
 
 

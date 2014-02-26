@@ -42,10 +42,14 @@ class SelectScreens
 COptions cursorMod;
 Keypress keyIO;
 Painter screenPaint;
-
+;;
+std::string studentDrive;
 ;;
 public:
 ;;
+
+//SelectScreens();
+//~SelectScreens();
 
 int mainScreen(int versionNum);
 void optionsScreen();
@@ -61,6 +65,10 @@ int helloWorld();
 int futurePlans();
 
 ;;
+private:
+        
+int stringThing(int inputNum, int outputNum, int stringLength);        
+        
 
 };
 
