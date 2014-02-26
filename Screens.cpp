@@ -379,7 +379,17 @@ for (int i=0;i<fileName.length();i++){
    letter=fileName.at(i);
    
    letterInt=letter;
-   if ((letterInt<123&&letterInt>63)||letterInt==32||(letterInt>47&&letterInt<58)){
+   if (letterInt<123&&letterInt>63){
+      option1=true ;
+   }
+   if (letterInt==32){
+      option2=true;
+   }
+   if (letterInt>47&&letterInt<58){
+      option3=true;                                
+   }
+   
+   if (option1||option2||option3){
       if(letterInt!=92&&letterInt!=94&&letterInt!=96){
          fileName+=letter;                                                                          
       }                              
