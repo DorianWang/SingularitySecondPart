@@ -236,6 +236,8 @@ do{
           system("CLS");
              if (programFunction!=FAILURE_NUM){
                 programRun(programFunction);
+                system("CLS");
+                cout<<"Press A to start the game, S to change settings and Q to quit"<<endl;
              }      
           }
           
@@ -318,8 +320,51 @@ if (functionRan==FAILURE_NUM){
 
 int SelectScreens::helloWorld()
 {
-cout<<"Hello world!"<<endl<<endl;
+char s1[254]="Hello worl";
+char s2[254];
+int counter=0;
+int counter2=0;
+
+s2[0]='d';
+s2[1]='!';
+s2[2]=0; 
+
+//cout<<s1<<endl;
+//system("PAUSE");
+
+do{
+   if (s1[counter]!=0){
+      counter++;
+   }
+   if (s1[counter]==0){
+      do{
+         s1[counter]=s2[counter2];
+         counter++;
+         counter2++; 
+      }while(s2[counter2]!=0);
+      break;
+   }
+         
+      
+}while(true);
+
+cout<<s1<<endl<<endl;
 system("PAUSE");   
+
+//char asdfasdf[] ="1 2 3 4 5 6 7 8 9 asdf";
+//char* pch;
+//std::string asdfasdfa="0";
+//pch = strtok (asdfasdf," ,.-");
+//
+//while(pch!=NULL){
+//   cout<<pch<<endl;    
+//   asdfasdfa+=pch;             
+//   pch=strtok (NULL," ,.-");
+//   
+//}
+//cout<<asdfasdfa<<endl;
+//system("PAUSE");
+
 return 1; 
 }
 
