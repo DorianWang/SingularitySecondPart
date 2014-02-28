@@ -519,10 +519,37 @@ if (myfile.is_open()){
 else
 {
    cout<<"File does not exist, or cannot be opened"<<endl;
+   system("PAUSE");
+   system("CLS");
+   fileOpen=false;
+   return FAILURE_NUM;
 }
 
 system("PAUSE");
 system("CLS");
+
+std::string nextLine = "";
+if (myfile.eof()){
+   cout<<"File is empty, or some other thing happened"<<endl;
+}
+
+if (myfile.eof()!=true){
+getLine(myfile,nextLine);
+}
+
+//char asdfasdf[] ="1 2 3 4 5 6 7 8 9 asdf";
+//char* pch;
+//std::string asdfasdfa="0";
+//pch = strtok (asdfasdf," ,.-");
+//
+//while(pch!=NULL){
+//   cout<<pch<<endl;    
+//   asdfasdfa+=pch;             
+//   pch=strtok (NULL," ,.-");
+//   
+//}
+//cout<<asdfasdfa<<endl;
+//system("PAUSE");
 
 treeNodeBinary* rootNode; 
 
