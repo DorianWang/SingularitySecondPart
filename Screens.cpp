@@ -406,15 +406,26 @@ stringstream ss (stringstream::in | stringstream::out);
 //std::string out
 // = ss.str();    
     
+
 fstream myfile;
 std::string keyInput;
 
 std::string fileNameIn;
 std::string fileName;
 std::string fileLocation;
+
 char myDocsPath[256];
 char* P_myDocsPath = myDocsPath;
 int counting=0;
+
+char* pch; //char* for strtok (tokenizer)
+std::string nextLine = "";// getting next line from file
+char empty = 0;// empty char, to add to the end of strings, to catch errors
+
+std::vector<char> writable(str.size() + 1);// for use in 
+std::copy(str.begin(), str.end(), writable.begin());
+
+// get the char* using &writable[0] or &*writable.begin()
 
 bool fileOpen=false;
 
@@ -467,6 +478,7 @@ cout<<"Is the file located in the Data folder of this program, or in My Document
 cout<<"Or even press 3 for your student Data folder."<<endl;
 cout<<"Enter 1, 2 or 3"<<endl;
 cin>>keyInput;
+
 if (keyInput=="1"){//atoi(keyInput.c_str())==1){
    filePath="Data/"+fileName;
    cout<<filePath<<endl;
@@ -528,13 +540,28 @@ else
 system("PAUSE");
 system("CLS");
 
-std::string nextLine = "";
+
 if (myfile.eof()){
    cout<<"File is empty, or some other thing happened"<<endl;
 }
 
-if (myfile.eof()!=true){
-getLine(myfile,nextLine);
+//if(myfile.eof()!=true){
+//getline(myfile,nextLine);
+//pch = strtok ()
+//cout<<nextLine<<endl;
+//}
+
+while (myfile.eof()!=true){
+   getline(myfile,nextLine);
+   if (nextLine.c_str()!=NULL){
+      nextLine+=empty;
+      pch = strtok (nextLine.data(), " ,")
+          while (pch!=NULL){
+            cout<<pch<<endl;
+            pch = strtok(NULL, " ,");
+         }
+   }
+
 }
 
 //char asdfasdf[] ="1 2 3 4 5 6 7 8 9 asdf";
@@ -567,6 +594,8 @@ ifstream treeDataFile;
 
 return 1;
 }
+
+
 
 int SelectScreens::dwarfGame(int difficulty)
 {
