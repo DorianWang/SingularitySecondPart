@@ -551,7 +551,7 @@ if (myfile.eof()){
 //}
 
 std::vector<char> writable(MAX_LINE_LENGTH + 1);// for use in 
-
+std::string tempString = "";
 
 while (myfile.eof()!=true){
    getline(myfile,nextLine);
@@ -562,6 +562,7 @@ while (myfile.eof()!=true){
          pch = strtok (&*writable.begin(), " ,");
          while (pch!=NULL){
             cout<<pch<<endl;
+            tempString=pch;
             pch = strtok(NULL, " ,");
          }
       }
