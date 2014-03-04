@@ -3,6 +3,7 @@
 #define SCREENS_H 
 
 #include <fstream>
+#include <vector>
 
 #include "Keys.h"
 #include "CursorOptions.h"
@@ -12,6 +13,8 @@
 #define SUCCESS_NUM 1
 #define FAILURE_NUM -1
 #define FAILURE_NUM_OTHER -2
+
+#define MAX_LINE_LENGTH 510
 
 #define SCREEN_HEIGHT 24
 #define SCREEN_WIDTH 80

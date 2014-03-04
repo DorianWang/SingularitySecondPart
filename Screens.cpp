@@ -422,8 +422,7 @@ char* pch; //char* for strtok (tokenizer)
 std::string nextLine = "";// getting next line from file
 char empty = 0;// empty char, to add to the end of strings, to catch errors
 
-std::vector<char> writable(str.size() + 1);// for use in 
-std::copy(str.begin(), str.end(), writable.begin());
+
 
 // get the char* using &writable[0] or &*writable.begin()
 
@@ -551,18 +550,24 @@ if (myfile.eof()){
 //cout<<nextLine<<endl;
 //}
 
+std::vector<char> writable(MAX_LINE_LENGTH + 1);// for use in 
+
+
 while (myfile.eof()!=true){
    getline(myfile,nextLine);
-   if (nextLine.c_str()!=NULL){
-      nextLine+=empty;
-      pch = strtok (nextLine.data(), " ,")
-          while (pch!=NULL){
+   if (nextLine.length()!=0){
+      if (nextLine.at(0)!=0&&nextLine.at(0)!=32){
+         nextLine+=empty;
+         std::copy(nextLine.begin(), nextLine.end(), writable.begin());
+         pch = strtok (&*writable.begin(), " ,");
+         while (pch!=NULL){
             cout<<pch<<endl;
             pch = strtok(NULL, " ,");
          }
+      }
    }
-
 }
+//code currently outputs each token on a new line. I will later put the tokens in an array.
 
 //char asdfasdf[] ="1 2 3 4 5 6 7 8 9 asdf";
 //char* pch;
@@ -576,7 +581,7 @@ while (myfile.eof()!=true){
 //   
 //}
 //cout<<asdfasdfa<<endl;
-//system("PAUSE");
+system("PAUSE");
 
 treeNodeBinary* rootNode; 
 
