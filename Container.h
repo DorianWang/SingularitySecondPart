@@ -6,6 +6,22 @@
 
 
 using namespace std;
+
+struct linkedListInt{
+int data;
+
+linkedListInt* pointerForward;
+linkedListInt* pointerBack;
+}
+
+struct linkedListString{//please do not use
+std::string data;
+
+linkedListString* pointerforward;
+linkedListString* pointerBack;
+
+}
+
 class MyContainer
 {
 
