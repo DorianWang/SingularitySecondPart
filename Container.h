@@ -12,15 +12,26 @@ int data;
 
 linkedListInt* pointerForward;
 linkedListInt* pointerBack;
-}
+};
 
-struct linkedListString{//please do not use
-std::string data;
+//struct linkedListString{//please do not use
+//std::string data;
+//
+//linkedListString* pointerForward;
+//linkedListString* pointerBack;
+//};
 
-linkedListString* pointerforward;
-linkedListString* pointerBack;
+struct listHeadInt{
+int counter;//length of list       
+       
+linkedListInt* pointerBack;
+};
 
-}
+//struct listHeadString{
+//int counter;//length of list       
+//       
+//linkedListString* pointerBack;
+//};
 
 class MyContainer
 {
@@ -29,14 +40,22 @@ class MyContainer
 int emptyValue;
 int length;
 
-public:
-MyContainer(std::string firstValue);
-MyContainer(int firstValue);
+//linkedListString* lastValueStr;
+linkedListInt* lastValueInt;
 
-int pushBack(std::string addValue);
+//linkedListString firstLinkStr;
+linkedListInt firstLinkInt;
+
+public:
+//MyContainer(std::string firstValue);
+MyContainer(int firstValueInt);
+
+//int pushBack(std::string addValue);
 int pushBack(int addValue);
 
-
+//int pushFront(std::string addValue);
+int pushFront(int addValue);
+;
 };
 
 #endif
