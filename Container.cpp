@@ -4,10 +4,12 @@
 
 MyContainer::MyContainer(std::string firstValue)
 {
-   //lastValue = 1;            
-   
-                          
-                          
+       
+   length=1;     
+   linkedListString Null;
+   linkedListString firstValue;
+   firstValue.pointerforward = &Null;
+   linkedListString* lastValue = 1;                          
                           
 }
 
@@ -16,11 +18,9 @@ MyContainer::MyContainer(std::string firstValue)
 
 MyContainer::MyContainer(int firstValue)
 {
-                          
-                          
-                          
-                          
-                          
+   length=1;    
+   linkedListInt Null;              
+   linkedListInt firstValue; 
                           
 }
 

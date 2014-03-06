@@ -25,8 +25,9 @@ linkedListString* pointerBack;
 class MyContainer
 {
 
-int lastValue;
+//int lastValue;
 int emptyValue;
+int length;
 
 public:
 MyContainer(std::string firstValue);
@@ -39,3 +40,14 @@ int pushBack(int addValue);
 };
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
