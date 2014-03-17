@@ -41,10 +41,17 @@ int emptyValue;
 int length;
 
 //linkedListString* lastValueStr;
-linkedListInt* lastValueInt;
-
 //linkedListString firstLinkStr;
-linkedListInt firstLinkInt;
+
+
+
+
+//linkedListInt firstLinkInt;
+
+listHeadInt headNodeInt;//first node, holds counter and pointer to next node
+listHeadInt* P_Head;//pointer to head node
+
+linkedListInt* lastValueInt;//pointer to the last value in the list
 
 public:
 //MyContainer(std::string firstValue);
@@ -52,6 +59,9 @@ MyContainer(int firstValueInt);
 
 //int pushBack(std::string addValue);
 int pushBack(int addValue);
+
+int length();
+void recount();
 
 //int pushFront(std::string addValue);
 int pushFront(int addValue);
