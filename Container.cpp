@@ -58,10 +58,14 @@ int MyContainer::pushBack(int addValue)
    linkedListInt* newNode = new linkedListInt;
    if (length==0){
       headNodeInt.pointerBack=newNode;
+      newNode -> data = addValue;
+      
    }
    else
    {
-       
+      lastValueInt -> pointerBack = newNode;
+      newNode -> data = addValue;
+      lastValueInt = newNode;
    }
  
    
