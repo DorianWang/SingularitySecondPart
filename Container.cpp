@@ -73,9 +73,23 @@ int MyContainer::pushBack(int addValue)
 
 int MyContainer::pushFront(int addValue)
 {
+   linkedListInt *P_newFront;
+   linkedListInt *P_oldFront;
+   linkedListInt *temp;
    
-    
-    
+   P_oldFront = headNodeInt.pointerBack;
+   P_newFront = P_oldFront -> pointerBack;
+   temp = P_oldFront;
+   delete P_oldFront;
+   headNodeInt.pointerBack = P_newFront;
+   P_newFront -> pointerForward = NULL;
+   
+   if (headNodeInt.pointerBack = temp){
+   return -1;
+   
+   }
+   return 1;
+   
 }
 
 int MyContainer::popFront()
@@ -86,7 +100,7 @@ int MyContainer::popFront()
 
 int MyContainer::popBack()
 {
-    
+   
     
 }
 
@@ -94,8 +108,8 @@ int MyContainer::valueAt(int numNode)
 {
 
 if (numNode>length||numNode<0){
-cout<<"something broke in valueAt"<<endl;
-return 0;//assume the value is 0. This is not good.
+   cout<<"something broke in valueAt"<<endl;
+   return 0;//assume the value is 0. This is not good.
 }
 
 
