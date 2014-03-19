@@ -3,6 +3,7 @@
 #define CONTAINER_H 
 
 #include <string>
+#include <iostream>
 
 
 using namespace std;
@@ -55,13 +56,18 @@ linkedListInt* lastValueInt;//pointer to the last value in the list
 
 public:
 //MyContainer(std::string firstValue);
-MyContainer(int firstValueInt);
+MyContainer();//int firstValueInt);
 
 //int pushBack(std::string addValue);
 int pushBack(int addValue);
 
-int length();
+int width();
 void recount();
+bool removeInvalid(int remove);
+
+int popFront();
+int popBack();
+int valueAt(int numNode);
 
 //int pushFront(std::string addValue);
 int pushFront(int addValue);

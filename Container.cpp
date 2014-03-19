@@ -2,17 +2,17 @@
 
 #include "Container.h"
 
-MyContainer::MyContainer(std::string firstValue)
-{
-       
-   length=1;     
-   linkedListString Null;
-   P_Head=&headNodeInt;
-   firstLinkStr.pointerForward = &Null;
-   firstLinkStr.data = firstValue;
-   linkedListString* lastValueStr = &firstLinkStr;                        
-                          
-}
+//MyContainer::MyContainer(std::string firstValue)
+//{
+//       
+//   length=1;     
+//   linkedListString Null;
+//   P_Head=&headNodeInt;
+//   firstLinkStr.pointerForward = &Null;
+//   firstLinkStr.data = firstValue;
+//   linkedListString* lastValueStr = &firstLinkStr;                        
+//                          
+//}
 
 
 
@@ -32,7 +32,7 @@ MyContainer::MyContainer()//int firstValueInt)
 }
 
 
-int MyContainer::length()
+int MyContainer::width()
 {
 return length;
 }
@@ -47,7 +47,7 @@ void MyContainer::recount()
 
 bool MyContainer::removeInvalid(int remove)
 {
-for (int i; ){}
+for (int i; i<20;i++){}
 
 }// IC
 
@@ -92,9 +92,13 @@ int MyContainer::popBack()
 
 int MyContainer::valueAt(int numNode)
 {
-if (numNode>length){
-return -1;
+
+if (numNode>length||numNode<0){
+cout<<"something broke in valueAt"<<endl;
+return 0;//assume the value is 0. This is not good.
 }
+
+
 
 
 }
