@@ -38,7 +38,7 @@ class MyContainer
 {
 
 //int lastValue;
-int emptyValue;
+//int emptyValue;
 int length;
 
 //linkedListString* lastValueStr;
