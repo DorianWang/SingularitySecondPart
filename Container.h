@@ -69,6 +69,8 @@ int popFront();
 int popBack();
 int valueAt(int numNode);
 
+bool changeLength(int lengthChange);
+
 //int pushFront(std::string addValue);
 int pushFront(int addValue);
 ;

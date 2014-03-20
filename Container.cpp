@@ -56,6 +56,7 @@ for (int i; i<20;i++){}
 int MyContainer::pushBack(int addValue)
 {
    linkedListInt* newNode = new linkedListInt;
+   
    if (length==0){
       headNodeInt.pointerBack=newNode;
       newNode -> data = addValue;
@@ -89,21 +90,78 @@ int MyContainer::pushFront(int addValue)
    
    if (headNodeInt.pointerBack = temp){
    return -1;
-   
    }
+   
+   length++;
    return 1;
    
 }
 
 int MyContainer::popFront()
 {
+   linkedListInt *P_newFront;
+   linkedListInt *P_oldFront;
+   linkedListInt *temp;     
+   
+   if (length<1){
+      return -1;//failure; nothing to remove   
+   }   
     
+   if (length == 1){
+      return popBack();
+   } 
+   
+   if (length>1){
+      P_oldFront = head.pointerBack;
+      P_newFront = P_oldFront -> pointerBack;
+      delete P_oldFront;
+      P_newFront -> pointerForward = NULL;
+      head.pointerBack = P_newFront;
+      changeLength(-1);
+      return 2;
+   }
     
+   return -2;
+}
+
+bool MyContainer::changeLength(int lengthChange)
+{
+   if (length+lengthChange>=0){
+      length = length + lengthChange;
+      head.counter = length;
+   }
 }
 
 int MyContainer::popBack()
 {
+
+   linkedListInt *P_newBack;
+   linkedListInt *P_oldBack;
+   linkedListInt *temp;
    
+   if (length<1){
+      return -1;//failure; There is nothing to pop off
+   }
+   
+   if (length == 1){
+      P_oldBack = lastValueInt;
+      lastValueInt = NULL;
+      delete P_oldBack;
+      head.pointerBack = NULL;
+      changeLength(-1);
+      return 1;
+   }
+   else
+   {
+      P_oldBack = lastValueInt;
+      lastValueInt = P_oldBack -> pointerForward;
+      delete P_oldBack;
+      lastValueInt ->  pointerBack = NULL;
+      changeLength(-1);
+      return 2;    
+   }
+   
+return -2;   
     
 }
 
@@ -114,9 +172,6 @@ if (numNode>length||numNode<0){
    cout<<"something broke in valueAt"<<endl;
    return 0;//assume the value is 0. This is not good.
 }
-
-
-
 
 }
    
