@@ -14,9 +14,6 @@
 //                          
 //}
 
-
-
-
 MyContainer::MyContainer()//int firstValueInt)
 {
    length=0;    
@@ -31,7 +28,6 @@ MyContainer::MyContainer()//int firstValueInt)
    //firstLinkInt.pointerBack=NULL;
 }
 
-
 int MyContainer::width()
 {
 return length;
@@ -39,10 +35,23 @@ return length;
 
 void MyContainer::recount()
 {
-   linkedListInt Null; 
+   //linkedListInt Null; 
+   int newLength=0;
    linkedListInt* P_link;
-   while (P_link!=&Null){  
-         }
+   
+   if (head.pointerBack!=NULL){                            
+   P_link=head.pointerBack;
+   }
+   else
+   {
+   length=newLength;    
+   }
+   
+   do{
+   newLength++;
+   P_link=P_link -> pointerBack;            
+   }while (P_link!=Null){  
+   length = newLength;
 }
 
 bool MyContainer::removeInvalid(int remove)
