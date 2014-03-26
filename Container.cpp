@@ -111,7 +111,7 @@ int MyContainer::pushFront(int addValue)
    return -1;
    }
    
-   length++;
+   changeLength(1);
    return 1;
    
 }
@@ -184,23 +184,22 @@ return -2;
     
 }
 
-//Gives the value at the node specified. Node 0 is the first node.
-int MyContainer::valueAt(int numNode)
+int MyContainer::giveNode(linkedListInt** output, int numNode)//pointer to pointer
 {
 int atIndex=0;
 linkedListInt *temp;
 int i=0;
 
-   if (numNode>length||numNode<0){
-      cout<<"Something broke in valueAt"<<endl;
-      return 0;//assume the value is 0. This is not good.
+   if (numNode=>length||numNode<=EMPTY_NUM){
+      cout<<"Something broke in giveNode"<<endl;
+      return -1;
    }
    else
    {
       temp = headInt.pointerBack;
       while(true){
          if (atIndex==numNode){
-            return temp -> data;   
+            output = temp;   
          }
          temp = temp -> pointerBack;
          atIndex++;
@@ -208,13 +207,39 @@ int i=0;
             break;   
          }
       }
-   cout<<"Something broke in valueAt"<<endl;
-   return 0;//assume the value is 0. This is not good.
+   cout<<"Something broke in giveNode"<<endl;
+   return -1;//assume the value is 0. This is not good.
    
    }
+return -1;    
+}
+
+//Gives the value at the node specified. Node 0 is the first node.
+int MyContainer::valueAt(int numNode)
+{
+
+   if (giveNode==)
+
+   
 
 return -1;//bad stuff...
 }
+
+int MyContainer::deleteNode(int nodeNum)
+{
+   if (length == EMPTY_NUM){
+      return -1;//nothing to delete...   
+   }
+   
+   if (length == 0){
+      return popBack();  
+   }
+   
+   
+    
+    
+}
+
    
 //int MyContainer::pushBack(std::string addValue)
 //{}
