@@ -5,6 +5,7 @@
 #include <string>
 #include <iostream>
 
+#define EMPTY_NUM -1
 
 using namespace std;
 
@@ -49,7 +50,7 @@ int length;
 
 //linkedListInt firstLinkInt;
 
-listHeadInt headNodeInt;//first node, holds counter and pointer to next node
+listHeadInt headInt;//first node, holds counter and pointer to next node
 listHeadInt* P_Head;//pointer to head node
 
 linkedListInt* lastValueInt;//pointer to the last value in the list

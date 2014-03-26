@@ -16,11 +16,11 @@
 
 MyContainer::MyContainer()//int firstValueInt)
 {
-   length=0;    
+   length=EMPTY_NUM; //empty   
    //linkedListInt Null; 
-   headNodeInt.counter=length;
-   P_Head=&headNodeInt;
-   headNodeInt.pointerBack=NULL;
+   headInt.counter=length;
+   P_Head=&headInt;
+   headInt.pointerBack=NULL;
 
    //firstLinkInt.pointerForward=P_Head;
    //firstLinkInt.data = firstValueInt;
@@ -36,11 +36,11 @@ return length;
 void MyContainer::recount()
 {
    //linkedListInt Null; 
-   int newLength=0;
+   int newLength=EMPTY_NUM;
    linkedListInt* P_link;
    
-   if (head.pointerBack!=NULL){                            
-   P_link=head.pointerBack;
+   if (headInt.pointerBack!=NULL){                            
+   P_link=headInt.pointerBack;
    }
    else
    {
@@ -49,8 +49,8 @@ void MyContainer::recount()
    
    do{
    newLength++;
-   P_link=P_link -> pointerBack;            
-   }while (P_link!=Null){  
+   P_link = P_link -> pointerBack;            
+   }while (P_link!=NULL);  
    length = newLength;
 }
 
@@ -66,8 +66,8 @@ int MyContainer::pushBack(int addValue)
 {
    linkedListInt* newNode = new linkedListInt;
    
-   if (length==0){
-      headNodeInt.pointerBack=newNode;
+   if (length==EMPTY_NUM){
+      headInt.pointerBack=newNode;
       newNode -> data = addValue;
       newNode -> pointerForward = NULL;
       newNode -> pointerBack = NULL;
@@ -90,14 +90,17 @@ int MyContainer::pushFront(int addValue)
    linkedListInt *P_oldFront;
    linkedListInt *temp;
    
-   P_oldFront = headNodeInt.pointerBack;
-   P_newFront = P_oldFront -> pointerBack;
-   temp = P_oldFront;
-   delete P_oldFront;
-   headNodeInt.pointerBack = P_newFront;
+   P_oldFront = headInt.pointerBack;
+   P_newFront = new linkedListInt;
+   
+   headInt.pointerBack = P_newFront;
+   P_newFront -> pointerBack = P_oldFront;
    P_newFront -> pointerForward = NULL;
    
-   if (headNodeInt.pointerBack = temp){
+   P_oldFront -> pointerForward = P_newFront;
+   
+   
+   if (headInt.pointerBack = temp){
    return -1;
    }
    
@@ -112,20 +115,20 @@ int MyContainer::popFront()
    linkedListInt *P_oldFront;
    linkedListInt *temp;     
    
-   if (length<1){
+   if (length<0){
       return -1;//failure; nothing to remove   
    }   
     
-   if (length == 1){
+   if (length == 0){
       return popBack();
    } 
    
-   if (length>1){
-      P_oldFront = head.pointerBack;
+   if (length>0){
+      P_oldFront = headInt.pointerBack;
       P_newFront = P_oldFront -> pointerBack;
       delete P_oldFront;
       P_newFront -> pointerForward = NULL;
-      head.pointerBack = P_newFront;
+      headInt.pointerBack = P_newFront;
       changeLength(-1);
       return 2;
    }
@@ -135,9 +138,9 @@ int MyContainer::popFront()
 
 bool MyContainer::changeLength(int lengthChange)
 {
-   if (length+lengthChange>=0){
+   if (length+lengthChange>=EMPTY_NUM){
       length = length + lengthChange;
-      head.counter = length;
+      headInt.counter = length;
    }
 }
 
@@ -148,15 +151,15 @@ int MyContainer::popBack()
    linkedListInt *P_oldBack;
    linkedListInt *temp;
    
-   if (length<1){
+   if (length<0){
       return -1;//failure; There is nothing to pop off
    }
    
-   if (length == 1){
+   if (length == 0){
       P_oldBack = lastValueInt;
       lastValueInt = NULL;
       delete P_oldBack;
-      head.pointerBack = NULL;
+      headInt.pointerBack = NULL;
       changeLength(-1);
       return 1;
    }
@@ -174,13 +177,34 @@ return -2;
     
 }
 
+//Gives the value at the node specified. Node 0 is the first node.
 int MyContainer::valueAt(int numNode)
 {
+int atIndex=0;
+linkedListInt *temp;
+int i=0;
 
-if (numNode>length||numNode<0){
-   cout<<"something broke in valueAt"<<endl;
+   if (numNode>length||numNode<0){
+      cout<<"Something broke in valueAt"<<endl;
+      return 0;//assume the value is 0. This is not good.
+   }
+   else
+   {
+      temp = headInt.pointerBack;
+      while(true){
+         if (atIndex==numNode){
+            return temp -> data;   
+         }
+         temp = temp -> pointerBack;
+         atIndex++;
+         if (temp==NULL){
+            break;   
+         }
+      }
+   cout<<"Something broke in valueAt"<<endl;
    return 0;//assume the value is 0. This is not good.
-}
+   
+   }
 
 }
    
