@@ -67,7 +67,7 @@ int MyContainer::pushBack(int addValue)
    linkedListInt* newNode = new linkedListInt;
    
    if (length==EMPTY_NUM){
-      headInt.pointerBack=newNode;
+      headInt.pointerBack = newNode;
       newNode -> data = addValue;
       newNode -> pointerForward = NULL;
       newNode -> pointerBack = NULL;
@@ -78,6 +78,7 @@ int MyContainer::pushBack(int addValue)
    {
       lastValueInt -> pointerBack = newNode;
       newNode -> data = addValue;
+      newNode -> pointerBack = NULL;
       lastValueInt = newNode;
    }
  
@@ -89,6 +90,10 @@ int MyContainer::pushFront(int addValue)
    linkedListInt *P_newFront;
    linkedListInt *P_oldFront;
    linkedListInt *temp;
+   
+   if (length==EMPTY_NUM){
+      return pushBack(addValue);   
+   }
    
    P_oldFront = headInt.pointerBack;
    P_newFront = new linkedListInt;
@@ -206,6 +211,7 @@ int i=0;
    
    }
 
+return -1;//bad stuff...
 }
    
 //int MyContainer::pushBack(std::string addValue)
