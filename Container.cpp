@@ -72,6 +72,7 @@ int MyContainer::pushBack(int addValue)
       newNode -> pointerForward = NULL;
       newNode -> pointerBack = NULL;
       lastValueInt = newNode;
+      changeLength(1);
       
    }
    else
@@ -80,6 +81,7 @@ int MyContainer::pushBack(int addValue)
       newNode -> data = addValue;
       newNode -> pointerBack = NULL;
       lastValueInt = newNode;
+      changeLength(1);
    }
  
    return 1;

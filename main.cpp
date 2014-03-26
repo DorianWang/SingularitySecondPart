@@ -56,8 +56,8 @@ int main(int argc, char *argv[])
     //cout<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
     //cout<<asdfgh<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
     //219 -> 178 -> 177 -> 176 -> 43
-
-    SelectScreens ScreenControl;
+   MyContainer Aso;
+   SelectScreens ScreenControl;
    // int asdf = 0;
     
    // for (int i =1; i<17;i++){
@@ -66,13 +66,15 @@ int main(int argc, char *argv[])
    // Sleep(750);
    // }
     
-   ScreenControl.mainScreen(VERSION_NUM);
+   //ScreenControl.mainScreen(VERSION_NUM);
+   Aso.pushBack(1);
+   Aso.pushBack(2);
+   Aso.pushBack(4);
+   cout<<Aso.valueAt(1)<<endl;
     
-    
-    
-    //I don't want to reach this
-    //system("PAUSE");
-    return EXIT_SUCCESS;
+   //I don't want to reach this
+   system("PAUSE");
+   return EXIT_SUCCESS;
 }
 
 
