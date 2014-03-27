@@ -67,10 +67,7 @@ int main(int argc, char *argv[])
    // }
     
    //ScreenControl.mainScreen(VERSION_NUM);
-   Aso.pushBack(1);
-   Aso.pushBack(2);
-   Aso.pushBack(4);
-   cout<<Aso.valueAt(1)<<endl;
+
     
    //I don't want to reach this
    system("PAUSE");

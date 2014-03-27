@@ -72,6 +72,9 @@ int valueAt(int numNode);
 
 bool changeLength(int lengthChange);
 
+int giveNode(linkedListInt** output, int numNode);//pointer to pointer
+int deleteNode(int nodeNum);
+
 //int pushFront(std::string addValue);
 int pushFront(int addValue);
 ;

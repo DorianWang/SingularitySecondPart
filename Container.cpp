@@ -89,26 +89,29 @@ int MyContainer::pushBack(int addValue)
 
 int MyContainer::pushFront(int addValue)
 {
-   linkedListInt *P_newFront;
+   linkedListInt *P_newFront = new linkedListInt;
    linkedListInt *P_oldFront;
    linkedListInt *temp;
+   
+   if (length<EMPTY_NUM){
+      return -1;   
+   }
    
    if (length==EMPTY_NUM){
       return pushBack(addValue);   
    }
    
    P_oldFront = headInt.pointerBack;
-   P_newFront = new linkedListInt;
    
    headInt.pointerBack = P_newFront;
    P_newFront -> pointerBack = P_oldFront;
    P_newFront -> pointerForward = NULL;
    
    P_oldFront -> pointerForward = P_newFront;
+   P_newFront -> data = addValue;
    
-   
-   if (headInt.pointerBack = temp){
-   return -1;
+   if (headInt.pointerBack == temp){
+      return -1;
    }
    
    changeLength(1);
@@ -190,8 +193,8 @@ int atIndex=0;
 linkedListInt *temp;
 int i=0;
 
-   if (numNode=>length||numNode<=EMPTY_NUM){
-      cout<<"Something broke in giveNode"<<endl;
+   if (numNode>length||numNode<=EMPTY_NUM){
+      cout<<"Something broke in giveNode(1)"<<endl;
       return -1;
    }
    else
@@ -208,7 +211,7 @@ int i=0;
             break;   
          }
       }
-   cout<<"Something broke in giveNode"<<endl;
+   cout<<"Something broke in giveNode(2)"<<endl;
    return -1;
    
    }
@@ -219,11 +222,9 @@ return -1;//should never reach here
 int MyContainer::valueAt(int numNode)
 {
 linkedListInt *temp;
-
-   if (giveNode(temp, numNode)==1){
+   if (giveNode(&temp, numNode)==1){
    return temp -> data;
    }
-
 return -1;//bad stuff...
 }
 
@@ -241,9 +242,9 @@ int MyContainer::deleteNode(int nodeNum)
       return popBack();  
    }
    
-   if (giveNode(temp,nodeNum)==1){
+   if (giveNode(&temp,nodeNum)==1){
       backward = temp -> pointerBack;
-      forward = temp -> pointerFront;
+      forward = temp -> pointerForward;
       if (forward!=NULL){
          forward -> pointerBack = backward;
       }
