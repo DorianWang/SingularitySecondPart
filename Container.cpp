@@ -199,7 +199,8 @@ int i=0;
       temp = headInt.pointerBack;
       while(true){
          if (atIndex==numNode){
-            output = temp;   
+            *output = temp;   
+            return 1;
          }
          temp = temp -> pointerBack;
          atIndex++;
@@ -208,25 +209,30 @@ int i=0;
          }
       }
    cout<<"Something broke in giveNode"<<endl;
-   return -1;//assume the value is 0. This is not good.
+   return -1;
    
    }
-return -1;    
+return -1;//should never reach here
 }
 
 //Gives the value at the node specified. Node 0 is the first node.
 int MyContainer::valueAt(int numNode)
 {
+linkedListInt *temp;
 
-   if (giveNode==)
-
-   
+   if (giveNode(temp, numNode)==1){
+   return temp -> data;
+   }
 
 return -1;//bad stuff...
 }
 
 int MyContainer::deleteNode(int nodeNum)
 {
+   linkedListInt *temp;
+   linkedListInt *forward;
+   linkedListInt *backward;
+   
    if (length == EMPTY_NUM){
       return -1;//nothing to delete...   
    }
@@ -235,9 +241,18 @@ int MyContainer::deleteNode(int nodeNum)
       return popBack();  
    }
    
-   
-    
-    
+   if (giveNode(temp,nodeNum)==1){
+      backward = temp -> pointerBack;
+      forward = temp -> pointerFront;
+      if (forward!=NULL){
+         forward -> pointerBack = backward;
+      }
+      if (backward!=NULL){
+         backward -> pointerForward = forward;
+      }
+      delete temp;
+      return 1;
+   }
 }
 
    
