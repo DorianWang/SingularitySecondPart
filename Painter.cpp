@@ -38,7 +38,7 @@ bool Painter::screenWriter(int screenHeight, int screenWidth, char*screenData, i
    return false;
 }      
 
-void Painter::screenWriter(int screenHeight, int screenWidth, char* screenData)//use of C string for class
+void Painter::screenWriter(int screenHeight, int screenWidth, *char screenData)
 {
      
    for (int j=1;j<screenHeight;j++){

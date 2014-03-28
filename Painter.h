@@ -16,7 +16,7 @@ using namespace std;
 
 class Painter
 {
-   
+   COptions colourC;
       
     
    HANDLE consoleHandle;   
