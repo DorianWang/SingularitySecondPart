@@ -7,15 +7,14 @@
 #include <iostream>
 
 //SelectScreens::SelectScreens()
-//{
-//                            
+//{                        
 //}
 
 //SelectScreens::~SelectScreens()
 //{
-//
 //}
 
+//this takes a string like asdfgqASDFGQ, checks to see if 
 int SelectScreens::stringThing(int inputNum, int outputNum, int stringLength)
 {
 //An easier implementaion would involve returning true false, instead of numbers.
@@ -31,7 +30,7 @@ int SelectScreens::stringThing(int inputNum, int outputNum, int stringLength)
 return FAILURE_NUM;
 }
 
-
+//This toggles mostly cursor options.
 void SelectScreens::optionsScreen(){
 
 system("CLS");
@@ -60,25 +59,20 @@ do{
       if (input!=FAILURE_NUM){             
           
           if (stringThing(input, 0, stringLength)==0){//input==0||input==6){
-          cursorMod.cursorControl(0);                   
+             cursorMod.cursorControl(0);                   
           }
-          
           if (stringThing(input, 1, stringLength)==1){//input==1||input==7){
           cursorMod.cursorControl(1);
           }  
-          
           if (stringThing(input, 2, stringLength)==2){//input==2||input==8){                      
           cursorMod.cursorControl(2);
-          }                        
-          
+          }                       
           if (stringThing(input, 3, stringLength)==3){//input==3||input==9){                      
           cursorMod.cursorControl(3);
           }
-          
           if (stringThing(input, 4, stringLength)==4){//input==4||input==10){                       
           cursorMod.cursorControl(4);
           }
-          
           if (stringThing(input, 5, stringLength)==5){//input==5||input==11){
           Sleep(PRESSDELAY);
           break;
