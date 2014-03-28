@@ -20,7 +20,7 @@ ObjectOutput=
 OverrideOutput=0
 OverrideOutputName=
 HostApplication=
-Folders=Bases,Container,CursorMod,FileIO,Keys
+Folders=Bases,Container,CursorMod,FileIO,Keys,Screens
 CommandLine=
 UseCustomMakefile=0
 CustomMakefile=
@@ -120,7 +120,7 @@ BuildCmd=
 [Unit8]
 FileName=Screens.cpp
 CompileCpp=1
-Folder=
+Folder=Screens
 Compile=1
 Link=1
 Priority=1000
@@ -130,7 +130,7 @@ BuildCmd=
 [Unit9]
 FileName=Screens.h
 CompileCpp=1
-Folder=
+Folder=Screens
 Compile=1
 Link=1
 Priority=1000

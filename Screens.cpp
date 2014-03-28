@@ -168,20 +168,13 @@ if (isGame){
       input=keyIO.get_code("zasdnZASDN");
 
       if (input!=FAILURE_NUM){
-   
-         continue;
-                  
+         continue;       
       }
-
       if (input>4){
-   
-         return (input-5);             
-                
+         return (input-5);                
       }
       else if (input<4&&input>-1){
-   
          return input;
-        
       }
       else
       {
