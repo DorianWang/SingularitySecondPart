@@ -4,6 +4,7 @@
 
 #include <fstream>
 #include <vector>
+#include <map>
 
 #include "Keys.h"
 #include "CursorOptions.h"

@@ -258,12 +258,14 @@ int SelectScreens::contextMenu(tile graphicData[SCREEN_HEIGHT][SCREEN_WIDTH])
 return 0;
 }
 
+//http://ideone.com/BBNVOH
+//try this...
 void SelectScreens::programRun(int programNum)
 {
 int functionRan; 
 functionRan=-1;
 
-switch(programNum)
+//switch(programNum)
 {
    case 0:
    break;//not supposed to get here  
