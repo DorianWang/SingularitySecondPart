@@ -6,9 +6,15 @@
 #include <sstream>
 #include <iostream>
 
-//SelectScreens::SelectScreens()
-//{                        
-//}
+SelectScreens::SelectScreens()
+{   
+   
+   functions[0]=treeSort;/*Add stuff here*/functions[1]=helloWorld;functions[2]=futurePlans;
+   functions[3]=;functions[4]=a;functions[5]=a;functions[6]=a;functions[7]=a;functions[8]=a;
+   functions[9]=a;functions[10]=a;functions[11]=a;functions[12]=a;
+   
+                         
+}
 
 //SelectScreens::~SelectScreens()
 //{
@@ -88,7 +94,7 @@ do{
       
 }//options screen
 
-int SelectScreens::gameStart()
+int SelectScreens::functionRun()
 {
 int input;
 
@@ -260,47 +266,50 @@ return 0;
 
 //http://ideone.com/BBNVOH
 //try this...
+//Actually, do this one http://www.tutorialspoint.com/c_standard_library/c_macro_va_arg.htm
+//together with http://stackoverflow.com/questions/252748/using-an-array-of-function-pointers
 void SelectScreens::programRun(int programNum)
 {
 int functionRan; 
 functionRan=-1;
 
+if ((functions[programNum]==NULL))
 
 //switch(programNum)
-{
-   case 0:
-   break;//not supposed to get here  
-   
-   case 1:
-   functionRan=treeSort();
-   break;
-
-   case 2:
-   functionRan=helloWorld();
-   break;
-   
-   case 3:
-   functionRan=futurePlans();     
-   break;
-   
-   case 4:
-   break;
-   //nothing   
-   case 5:
-   break;
-   //nothing      
-   case 6:
-   break;
-   //nothing as well
-   case 9:
-   break;
-   //could be used later     
-   case 10:
-   functionRan=dwarfGame(1);
-   break;
-   //more things to be added later
-   
-}
+//{
+//   case 0:
+//   break;//not supposed to get here  
+//   
+//   case 1:
+//   functionRan=treeSort(0);
+//   break;
+//
+//   case 2:
+//   functionRan=helloWorld(0);
+//   break;
+//   
+//   case 3:
+//   functionRan=futurePlans(0);     
+//   break;
+//   
+//   case 4:
+//   break;
+//   //nothing   
+//   case 5:
+//   break;
+//   //nothing      
+//   case 6:
+//   break;
+//   //nothing as well
+//   case 9:
+//   break;
+//   //could be used later     
+//   case 10:
+//   functionRan=dwarfGame(1);
+//   break;
+//   //more things to be added later
+//   
+//}
 
 if (functionRan==FAILURE_NUM){
    cout<<"Failure to do stuff"<<endl;
@@ -308,7 +317,7 @@ if (functionRan==FAILURE_NUM){
 
 }//end programRun
 
-int SelectScreens::helloWorld()
+int SelectScreens::helloWorld(int nothing, ...)
 {
 char s1[254]="Hello worl";
 char s2[254];
@@ -358,7 +367,7 @@ system("PAUSE");
 return 1; 
 }
 
-int SelectScreens::futurePlans()
+int SelectScreens::futurePlans(int nothing, ...)
 {
 cout<<"Plan - Finish treeSort, and then this function"<<endl<<endl;    
 system("PAUSE");
@@ -388,7 +397,7 @@ do{
 
 }
 
-int SelectScreens::treeSort()
+int SelectScreens::treeSort(int nothing, ...)
 {
     
 stringstream ss (stringstream::in | stringstream::out);
@@ -593,7 +602,7 @@ return 1;
 
 
 
-int SelectScreens::dwarfGame(int difficulty)
+int SelectScreens::dwarfGame(int difficulty, ...)
 {
 //struct tile graphicDataDwarf[SCREEN_WIDTH*SCREEN_HEIGHT];  
 system("CLS");

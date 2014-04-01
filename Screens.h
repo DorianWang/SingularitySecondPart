@@ -4,7 +4,9 @@
 
 #include <fstream>
 #include <vector>
-#include <map>
+//#include <map>
+#include <stdarg.h>
+#include <stdio.h>
 
 #include "Keys.h"
 #include "CursorOptions.h"
@@ -19,6 +21,8 @@
 
 #define SCREEN_HEIGHT 24
 #define SCREEN_WIDTH 80
+
+#define NUM_FUNCTIONS 
 
 using namespace std;
 
@@ -40,6 +44,8 @@ treeNodeBinary* right;
 
 };
 
+typedef int(*FuncP)(int A, ...);//for functions
+
 class SelectScreens
 {
 
@@ -52,21 +58,26 @@ std::string studentDrive;
 public:
 ;;
 
-//SelectScreens();
+SelectScreens();
 //~SelectScreens();
 
 int mainScreen(int versionNum);
 void optionsScreen();
-int gameStart();
+int functionRun();
+
 int contextMenu(struct tile graphicData[SCREEN_HEIGHT][SCREEN_WIDTH]);
-int dwarfGame(int difficulty);
+
 void programRun(int programNum);
 
 void findMyDocsWindows(char* myDocsPath);
 
-int treeSort();
-int helloWorld();
-int futurePlans();
+int treeSort(int nothing, ...);
+int helloWorld(int nothing, ...);
+int futurePlans(int nothing, ...);
+
+int dwarfGame(int difficulty, ...);
+
+FuncP functions[NUM_FUNCTIONS];//array of function pointers
 
 ;;
 private:
