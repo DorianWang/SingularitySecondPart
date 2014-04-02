@@ -44,7 +44,7 @@ treeNodeBinary* right;
 
 };
 
-typedef int(*FuncP)(int A, ...);//for functions
+//typedef int(*FuncP)(int A, ...);//for functions
 
 class SelectScreens
 {
@@ -77,7 +77,7 @@ int futurePlans(int nothing, ...);
 
 int dwarfGame(int difficulty, ...);
 
-FuncP functions[NUM_FUNCTIONS];//array of function pointers
+//FuncP functions[NUM_FUNCTIONS];//array of function pointers
 
 ;;
 private:

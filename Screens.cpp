@@ -275,41 +275,42 @@ functionRan=-1;
 
 if ((functions[programNum]==NULL))
 
-//switch(programNum)
-//{
-//   case 0:
-//   break;//not supposed to get here  
-//   
-//   case 1:
-//   functionRan=treeSort(0);
-//   break;
-//
-//   case 2:
-//   functionRan=helloWorld(0);
-//   break;
-//   
-//   case 3:
-//   functionRan=futurePlans(0);     
-//   break;
-//   
-//   case 4:
-//   break;
-//   //nothing   
-//   case 5:
-//   break;
-//   //nothing      
-//   case 6:
-//   break;
-//   //nothing as well
-//   case 9:
-//   break;
-//   //could be used later     
-//   case 10:
-//   functionRan=dwarfGame(1);
-//   break;
-//   //more things to be added later
-//   
-//}
+switch(programNum)
+{
+   case 0:
+   break;//not supposed to get here  
+   
+   case 1:
+   functionRan=treeSort(0);
+   break;
+
+   case 2:
+   functionRan=helloWorld(0);
+   break;
+   
+   case 3:
+   functionRan=futurePlans(0);     
+   break;
+   
+   case 4:
+   break;
+   //nothing   
+   case 5:
+   break;
+   //nothing      
+   case 6:
+   break;
+   //nothing as well
+   case 9:
+   break;
+   //could be used later     
+   case 10:
+   functionRan=dwarfGame(1);
+   break;
+   //more things to be added later
+   
+}
+
 
 if (functionRan==FAILURE_NUM){
    cout<<"Failure to do stuff"<<endl;
