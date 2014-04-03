@@ -1,7 +1,7 @@
 [Project]
 FileName=Singularity.dev
 Name=Singularity
-UnitCount=15
+UnitCount=16
 Type=1
 Ver=1
 ObjFiles=
@@ -191,6 +191,16 @@ BuildCmd=
 FileName=Container.h
 CompileCpp=1
 Folder=Container
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit16]
+FileName=ScreensSwitch.cpp
+CompileCpp=1
+Folder=Screens
 Compile=1
 Link=1
 Priority=1000
