@@ -7,6 +7,8 @@
 //#include <map>
 #include <stdarg.h>
 #include <stdio.h>
+#include <sstream>
+#include <iostream>
 
 #include "Keys.h"
 #include "CursorOptions.h"
@@ -54,6 +56,7 @@ Keypress keyIO;
 Painter screenPaint;
 ;;
 std::string studentDrive;
+std::string functionToLetter;
 ;;
 public:
 ;;
@@ -71,11 +74,11 @@ void programRun(int programNum);
 
 void findMyDocsWindows(char* myDocsPath);
 
-int treeSort(int nothing, ...);
-int helloWorld(int nothing, ...);
-int futurePlans(int nothing, ...);
+int treeSort(int nothing);
+int helloWorld(int nothing);
+int futurePlans(int nothing);
 
-int dwarfGame(int difficulty, ...);
+int dwarfGame(int difficulty);
 
 //FuncP functions[NUM_FUNCTIONS];//array of function pointers
 
