@@ -3,6 +3,7 @@
 #define PAINTER_H 
 
 #include "windows.h"  
+#include "CursorOptions.h"
 
 #define SCREEN_HEIGHT 24
 #define SCREEN_WIDTH 80

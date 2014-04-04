@@ -5,6 +5,7 @@
 
 int SelectScreens::gameStart()
 {
+int input=0;
 input = keyIO.get_code("asqASQ");             
 
    if (input!=FAILURE_NUM){      
@@ -24,19 +25,19 @@ switch(programNum)
    break;//not supposed to get here  
    
    case 1:
-   functionRan=treeSort(0);
+   functionRan=treeSort();
    break;
 
    case 2:
-   functionRan=helloWorld(0);
+   functionRan=helloWorld();
    break;
    
    case 3:
-   functionRan=futurePlans(0);     
+   functionRan=futurePlans();     
    break;
    
    case 4:
-   functionRan=helloWorld(0);
+   functionRan=helloWorld();
    break;
    //nothing   
    case 5:
@@ -62,52 +63,4 @@ if (functionRan==FAILURE_NUM){
 
 }//end programRun
 
-int SelectScreens::helloWorld(int nothing, ...)
-{
-char s1[254]="Hello worl";
-char s2[254];
-int counter=0;
-int counter2=0;
 
-s2[0]='d';
-s2[1]='!';
-s2[2]=0; 
-
-//cout<<s1<<endl;
-//system("PAUSE");
-
-do{
-   if (s1[counter]!=0){
-      counter++;
-   }
-   if (s1[counter]==0){
-      do{
-         s1[counter]=s2[counter2];
-         counter++;
-         counter2++; 
-      }while(s2[counter2]!=0);
-      break;
-   }
-         
-      
-}while(true);
-
-cout<<s1<<endl<<endl;
-system("PAUSE");   
-
-//char asdfasdf[] ="1 2 3 4 5 6 7 8 9 asdf";
-//char* pch;
-//std::string asdfasdfa="0";
-//pch = strtok (asdfasdf," ,.-");
-//
-//while(pch!=NULL){
-//   cout<<pch<<endl;    
-//   asdfasdfa+=pch;             
-//   pch=strtok (NULL," ,.-");
-//   
-//}
-//cout<<asdfasdfa<<endl;
-//system("PAUSE");
-
-return 1; 
-}

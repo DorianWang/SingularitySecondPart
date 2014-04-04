@@ -67,6 +67,7 @@ SelectScreens();
 int mainScreen(int versionNum);
 void optionsScreen();
 int functionRun();
+int gameStart();
 
 int contextMenu(struct tile graphicData[SCREEN_HEIGHT][SCREEN_WIDTH]);
 
@@ -74,9 +75,11 @@ void programRun(int programNum);
 
 void findMyDocsWindows(char* myDocsPath);
 
-int treeSort(int nothing);
-int helloWorld(int nothing);
-int futurePlans(int nothing);
+int emptyFunction();
+
+int treeSort();
+int helloWorld();
+int futurePlans();
 
 int dwarfGame(int difficulty);
 

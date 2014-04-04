@@ -265,7 +265,7 @@ int SelectScreens::emptyFunction()
    return 1;    
 }
 
-int SelectScreens::futurePlans(int nothing)
+int SelectScreens::futurePlans()
 {
 cout<<"Plan - Finish treeSort, and then this function"<<endl<<endl;    
 system("PAUSE");
@@ -295,7 +295,7 @@ do{
 
 }
 
-int SelectScreens::treeSort(int nothing)
+int SelectScreens::treeSort()
 {
     
 stringstream ss (stringstream::in | stringstream::out);
@@ -498,7 +498,41 @@ ifstream treeDataFile;
 return 1;
 }
 
+int SelectScreens::helloWorld()
+{
+char s1[254]="Hello worl";
+char s2[254];
+int counter=0;
+int counter2=0;
 
+s2[0]='d';
+s2[1]='!';
+s2[2]=0; 
+
+//cout<<s1<<endl;
+//system("PAUSE");
+
+do{
+   if (s1[counter]!=0){
+      counter++;
+   }
+   if (s1[counter]==0){
+      do{
+         s1[counter]=s2[counter2];
+         counter++;
+         counter2++; 
+      }while(s2[counter2]!=0);
+      break;
+   }
+         
+      
+}while(true);
+
+cout<<s1<<endl<<endl;
+system("PAUSE");   
+
+return 1; 
+}
 
 int SelectScreens::dwarfGame(int difficulty)
 {
