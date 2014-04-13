@@ -12,14 +12,20 @@ class FileIO
 {
 
 public:
+//Variables
+ofstream myfile;//input and output
+std::string filePath;
+
+//Functions
+std::string getFileName();
 
 bool getProfile(std::string name);
 bool makeProfile(std::string name);
 bool writeDwarf();
 
-
-
-
+int dataFile();
+std::string getFileName(bool isBinary);
+int deleteFile(std::string *fileName);
 
 
 
