@@ -2,6 +2,14 @@
 #ifndef PAINTER_H
 #define PAINTER_H 
 
+typedef struct rotor{
+   int setNum;//Different rotors in different sets
+   int numChars;//number of characters on the rotor
+   std::string mapping;//gives the mapping rules. For example the map DBCA means ADCB -> DACB
+   
+   int currentNum;//Where the "Front" of the rotor should be.
+};
+
 class Encryter
 {
 
