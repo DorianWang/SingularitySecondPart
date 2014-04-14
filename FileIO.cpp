@@ -176,8 +176,7 @@ int FileIO::dataOpenFile()
 
 int FileIO::readLine(std::string *output)
 {
-   inputFile.clear();
-inputFile.seekg(0, ios::beg);
+
 
 
 
@@ -186,4 +185,16 @@ inputFile.seekg(0, ios::beg);
 
 }
 
+int FileIO::returnStart()
+{
+
+   myfile.clear();
+   myfile.seekg(0, ios::beg);
+
+
+
+
+
+
+}
 

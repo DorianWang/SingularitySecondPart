@@ -24,6 +24,7 @@ FileIO();
 ~FileIO();
 
 std::string getFileName();
+int returnStart();
 
 bool getProfile(std::string name);
 bool makeProfile(std::string name);
