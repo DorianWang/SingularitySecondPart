@@ -30,6 +30,7 @@ struct tile
 #include "FileIO.h"
 
 #include "Painter.h"
+#include "Encrypt.h"
 
 
 
@@ -56,6 +57,8 @@ int main(int argc, char *argv[])
     //cout<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
     //cout<<asdfgh<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
     //219 -> 178 -> 177 -> 176 -> 43
+   Encryter Bromo;
+   Bromo.keygen();
    MyContainer Aso;
    SelectScreens ScreenControl;
    // int asdf = 0;
@@ -67,10 +70,11 @@ int main(int argc, char *argv[])
    // }
     
    //ScreenControl.mainScreen(VERSION_NUM);
-
+   //^Important for code n' stuff
     
-   //I don't want to reach this
-   system("PAUSE");
+   //I don't want to reach this, should I remove it?
+   //system("PAUSE");
+   
    return EXIT_SUCCESS;
 }
 

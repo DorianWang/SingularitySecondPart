@@ -1,6 +1,11 @@
 
-#ifndef PAINTER_H
-#define PAINTER_H 
+#ifndef ENCRYPT_H
+#define ENCRYPT_H 
+
+#include <iostream>
+#include <string>
+
+using namespace std;
 
 typedef struct rotor{
    int setNum;//Different rotors in different sets
@@ -15,6 +20,7 @@ class Encryter
 
 public:
 
+int keygen();
 //Enigma machine like cipher, not really too secure...
 
 //http://codereview.stackexchange.com/questions/44196/enigma-simulator-performance
