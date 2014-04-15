@@ -189,7 +189,7 @@ int FileIO::returnStart()
 {
 
    myfile.clear();
-   myfile.seekg(0, ios::beg);
+   //myfile.seekg(0, ios::beg);
 
 
 
