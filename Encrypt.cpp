@@ -14,15 +14,21 @@ int Encryter::keygen() //For creating new rotors, reflectors and things
    
    //http://www.asciitable.com/
    
+   int vectorCounter = 0;
+   
    for (int i='a'-'a';i<'z'-'a'+1;i++){
       alphabet[i]='a' + i;
       cout<<alphabet[i];
+      myvector.push_back(alphabet[i]);
+      vectorCounter++;
    }
 cout<<endl;
  
    for (int i='A'-'A';i<'Z'-'A' + 1;i++){
       upperAlphabet[i]='A' + i;
       cout<<upperAlphabet[i];
+      myvector.push_back(alphabet[i]);
+      vectorCounter++;
    }
 cout<<endl;
 
@@ -44,6 +50,9 @@ for (int i=0;i<25;i++){
 cout<<endl;
 
 //add rotor complexity selection here.
+//How about antirotors, for decryption?
+for (int i=0; i<10; ++i) myvector.push_back(i); // 1 2 3 4 5 6 7 8 9
+std::random_shuffle ( myvector.begin(), myvector.end() );
 
 //add randomization here.
 
