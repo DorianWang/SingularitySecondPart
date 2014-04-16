@@ -27,7 +27,7 @@ cout<<endl;
    for (int i='A'-'A';i<'Z'-'A' + 1;i++){
       upperAlphabet[i]='A' + i;
       cout<<upperAlphabet[i];
-      myvector.push_back(alphabet[i]);
+      myvector.push_back(upperAlphabet[i]);
       vectorCounter++;
    }
 cout<<endl;
@@ -35,6 +35,8 @@ cout<<endl;
 for (int i='0'-'0';i<'9'-'0' + 1;i++){
       numbers[i]='0' + i;
       cout<<numbers[i];
+      myvector.push_back(numbers[i]);
+      vectorCounter++;
    }
 cout<<endl;
 //char asdf = '!'+1;//"
