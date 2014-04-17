@@ -1,7 +1,7 @@
 [Project]
 FileName=Singularity.dev
 Name=Singularity
-UnitCount=19
+UnitCount=20
 Type=1
 Ver=1
 ObjFiles=
@@ -12,13 +12,13 @@ ResourceIncludes=
 MakeIncludes=
 Compiler=
 CppCompiler=
-Linker=
+Linker=-lgdi32_@@_
 IsCpp=1
 Icon=
 ExeOutput=
 ObjectOutput=
 OverrideOutput=0
-OverrideOutputName=
+OverrideOutputName=Singularity.exe
 HostApplication=
 Folders=Bases,Container,CursorMod,FileEncryt,FileIO,Keys,Painter,Screens
 CommandLine=
@@ -27,7 +27,7 @@ CustomMakefile=
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
-CompilerSettings=
+CompilerSettings=0000000000000000000000
 
 [Unit2]
 FileName=Bases.cpp
@@ -229,6 +229,16 @@ BuildCmd=
 
 [Unit19]
 FileName=pixelPainter.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit20]
+FileName=pixelPainter.h
 CompileCpp=1
 Folder=
 Compile=1
