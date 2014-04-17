@@ -15,6 +15,7 @@ using namespace std;
 
 //I've got no idea...
 
+//http://stackoverflow.com/questions/12378642/c-pixels-in-console-window
 
 int pixelPaint() 
 {
@@ -28,7 +29,7 @@ int pixelPaint()
     HWND myConsole;// = GetConsoleWindow();
     myConsole = FindWindow(NULL, name);
     //Get a handle to device context
-    //HDC mydc = GetDC(myConsole);
+    HDC mydc = GetDC(myConsole);
 
     int pixel =0;
 
@@ -42,7 +43,7 @@ int pixelPaint()
         //pixel+=1;
     //}
 
-    //ReleaseDC(myConsole, mydc);
+    ReleaseDC(myConsole, mydc);
     cin.ignore();
     return 0;
 }
