@@ -14,24 +14,61 @@ using namespace std;
 
 //http://stackoverflow.com/questions/12378642/c-pixels-in-console-window
 
-HBITMAP CreateDIBSection(
- HDC hdc,         // handle to DC
- CONST BITMAPINFO *pbmi, // bitmap data
- UINT iUsage,       // data type indicator
- VOID **ppvBits,     // bit values
- HANDLE hSection,     // handle to file mapping object
- DWORD dwOffset      // offset to bitmap bit values
-);
+//HBITMAP CreateDIBSection(
+// HDC hdc,         // handle to DC
+// CONST BITMAPINFO *pbmi, // bitmap data
+// UINT iUsage,       // data type indicator
+// VOID **ppvBits,     // bit values
+// HANDLE hSection,     // handle to file mapping object
+// DWORD dwOffset      // offset to bitmap bit values
+//);
+
+int screenSizeChange(int x, int y, int xSize, int ySize)
+{
+    
+//SetWindowPos()
+    
+    
+    
+    
+    
+    
+}
 
 
-int pixelPaint() 
+int screenDraw(unsigned char *drawing_bytes)
+{
+   struct xyPair window;
+
+   //if ((!window.xSize) || (!window.ySize)) return;
+   if ((!window.x) || (!window.y)) return 0;
+   BITMAPINFO info;
+   info.bmiHeader.biSize = sizeof (info.bmiHeader);
+   info.bmiHeader.biWidth = window.x;//Size;
+   info.bmiHeader.biHeight = window.y;//Size;
+   info.bmiHeader.biPlanes = 1;
+   info.bmiHeader.biBitCount = 24; // 24 bits per pixel - one unsigned char for each pixel
+   info.bmiHeader.biCompression = BI_RGB;
+   info.bmiHeader.biSizeImage = 0;
+   info.bmiHeader.biClrUsed = 0;
+   info.bmiHeader.biClrImportant = 0;
+   HDC cDC = CreateCompatibleDC (hdc); // this is the GetDC (hwnd) where hwnd is the
+                                        // handle of the window I want to write to
+   HBITMAP hbmp = CreateCompatibleBitmap  (hdc, window.xSize, window.ySize);
+   SetDIBits (hdc, hbmp, 0, window.ySize, drawing_bytes, &info, DIB_RGB_COLORS);
+   hbmp = (HBITMAP) SelectObject (cDC, hbmp);
+   BitBlt (hdc, 0, 0, window.xSize, window.ySize, cDC, 0, 0, SRCCOPY);
+   DeleteObject (SelectObject(cDC, hbmp));
+   DeleteDC (cDC);
+}
+
+
+int pixelPaint(HWND myConsole) 
 {
    AllocConsole();
    FreeConsole();
    DWORD consoleThing;
-   char name[62];
    
-   int thingy = GetConsoleTitle(name, 62);
    HBITMAP hBitmap;
    BITMAPINFO* m_Bit;
    CBitmap m_OffscreenBitmap, *m_pOldBitmap;
@@ -39,10 +76,18 @@ int pixelPaint()
    
    //ATOM aso;
    //Get a console handle
-   HWND myConsole;// = GetConsoleWindow();
-   myConsole = FindWindow(NULL, name);
-   //Get a handle to device context
-   HDC mydc = GetDC(myConsole);
+   
+   
+   
+   
+   HBITMAP CreateBitmap(
+  _In_  int nWidth,
+  _In_  int nHeight,
+  _In_  UINT cPlanes,
+  _In_  UINT cBitsPerPel,
+  _In_  const VOID *lpvBits
+);
+   
    
    CreateDIBSection(mydc, m_Bit, DIB_RGB_COLORS, (void**)&m_pBits, NULL, 0)
    m_OffscreenBitmap.Attach(hBitmap);
@@ -68,7 +113,19 @@ int pixelPaint()
    
    
    
-   
+int pixelController()
+{
+   char name[62];
+   int thingy = GetConsoleTitle(name, 62);
+   HWND myConsole;    
+   myConsole = FindWindow(NULL, name);
+   //Get a handle to device context
+   HDC mydc = GetDC(myConsole);
+    
+    
+    
+    
+}
    
    
    
