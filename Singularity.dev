@@ -1,7 +1,7 @@
 [Project]
 FileName=Singularity.dev
 Name=Singularity
-UnitCount=18
+UnitCount=19
 Type=1
 Ver=1
 ObjFiles=
@@ -20,7 +20,7 @@ ObjectOutput=
 OverrideOutput=0
 OverrideOutputName=
 HostApplication=
-Folders=Bases,Container,CursorMod,FileEncryt,FileIO,Keys,Screens
+Folders=Bases,Container,CursorMod,FileEncryt,FileIO,Keys,Painter,Screens
 CommandLine=
 UseCustomMakefile=0
 CustomMakefile=
@@ -140,7 +140,7 @@ BuildCmd=
 [Unit10]
 FileName=Painter.cpp
 CompileCpp=1
-Folder=
+Folder=Painter
 Compile=1
 Link=1
 Priority=1000
@@ -150,7 +150,7 @@ BuildCmd=
 [Unit11]
 FileName=Painter.h
 CompileCpp=1
-Folder=
+Folder=Painter
 Compile=1
 Link=1
 Priority=1000
@@ -221,6 +221,16 @@ BuildCmd=
 FileName=Encrypt.h
 CompileCpp=1
 Folder=FileEncryt
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit19]
+FileName=pixelPainter.cpp
+CompileCpp=1
+Folder=
 Compile=1
 Link=1
 Priority=1000

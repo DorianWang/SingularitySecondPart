@@ -5,8 +5,8 @@ CPP  = g++.exe
 CC   = gcc.exe
 WINDRES = windres.exe
 RES  = 
-OBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o $(RES)
-LINKOBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o $(RES)
+OBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o pixelPainter.o $(RES)
+LINKOBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o pixelPainter.o $(RES)
 LIBS =  -L"E:/programs/Dev-Cpp/lib"  
 INCS =  -I"E:/programs/Dev-Cpp/include" 
 CXXINCS =  -I"E:/programs/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2/backward"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2"  -I"E:/programs/Dev-Cpp/include" 
@@ -55,3 +55,6 @@ ScreensSwitch.o: ScreensSwitch.cpp
 
 Encrypt.o: Encrypt.cpp
 	$(CPP) -c Encrypt.cpp -o Encrypt.o $(CXXFLAGS)
+
+pixelPainter.o: pixelPainter.cpp
+	$(CPP) -c pixelPainter.cpp -o pixelPainter.o $(CXXFLAGS)

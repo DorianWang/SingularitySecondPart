@@ -11,6 +11,10 @@ int Encryter::keygen() //For creating new rotors, reflectors and things
    // : = 58, " = 34, \ = 92, / = 47
    char otherChars[23]={'@', '#', '$', '%', '^', '&', '*', '(', ')', ';', 'a', 'b', 'c', 'd', '~', '<', '>', '-', '_', '=', '+', '{', '}'};     
    
+   bool cipherType[5];
+   
+   std::vector<char> cipherCharSpace;
+   
    //Special chars that are annoying.
    importantChars[5] = 34; 
    otherChars[11] = 47; otherChars[12] = 58; otherChars[13] = 92;
@@ -22,33 +26,51 @@ int Encryter::keygen() //For creating new rotors, reflectors and things
    
    int vectorCounter = 0;
 
-if (){
+if (cipherType[0]==true){
    for (int i='a'-'a';i<'z'-'a'+1;i++){
       alphabet[i]='a' + i;
       cout<<alphabet[i];
-      myvector.push_back(alphabet[i]);
+      cipherCharSpace.push_back(alphabet[i]);
       vectorCounter++;
    }
 }
 //cout<<endl;
- 
+if (cipherType[1]==true){
    for (int i='A'-'A';i<'Z'-'A' + 1;i++){
       upperAlphabet[i]='A' + i;
       cout<<upperAlphabet[i];
-      myvector.push_back(upperAlphabet[i]);
+      cipherCharSpace.push_back(upperAlphabet[i]);
       vectorCounter++;
    }
+}
 //cout<<endl;
-
-for (int i='0'-'0';i<'9'-'0' + 1;i++){
+if (cipherType[1]==true){
+   for (int i='0'-'0';i<'9'-'0' + 1;i++){
       numbers[i]='0' + i;
       cout<<numbers[i];
-      myvector.push_back(numbers[i]);
+      cipherCharSpace.push_back(numbers[i]);
       vectorCounter++;
    }
+}
 //cout<<endl;
 
+if (cipherType[1]==true){
+   for (int i='0'-'0';i<'9'-'0' + 1;i++){
+      numbers[i]='0' + i;
+      cout<<numbers[i];
+      cipherCharSpace.push_back(numbers[i]);
+      vectorCounter++;
+   }
+}
 
+if (cipherType[1]==true){
+   for (int i='0'-'0';i<'9'-'0' + 1;i++){
+      numbers[i]='0' + i;
+      cout<<numbers[i];
+      cipherCharSpace.push_back(numbers[i]);
+      vectorCounter++;
+   }
+}
 
 
 
@@ -61,8 +83,8 @@ cout<<endl;
 
 //add rotor complexity selection here.
 //How about antirotors, for decryption?
-for (int i=0; i<10; ++i) myvector.push_back(i); // 1 2 3 4 5 6 7 8 9
-std::random_shuffle ( myvector.begin(), myvector.end() );
+for (int i=0; i<10; ++i) cipherCharSpace.push_back(i); // 1 2 3 4 5 6 7 8 9
+std::random_shuffle ( cipherCharSpace.begin(), cipherCharSpace.end() );
 
 //add randomization here.
 
