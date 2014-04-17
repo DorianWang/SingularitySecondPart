@@ -20,10 +20,15 @@ int pixelPaint()
 {
     AllocConsole();
     FreeConsole();
+    DWORD consoleThing;
+    char name[62];
+    int thingy = GetConsoleTitle(name, 62);
+    ATOM aso;
     //Get a console handle
-    HWND myConsole = GetConsoleWindow();
+    HWND myConsole;// = GetConsoleWindow();
+    myConsole = FindWindow(NULL, name);
     //Get a handle to device context
-    HDC mydc = GetDC(myConsole);
+    //HDC mydc = GetDC(myConsole);
 
     int pixel =0;
 
@@ -37,7 +42,7 @@ int pixelPaint()
         //pixel+=1;
     //}
 
-    ReleaseDC(myConsole, mydc);
+    //ReleaseDC(myConsole, mydc);
     cin.ignore();
     return 0;
 }
