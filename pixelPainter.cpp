@@ -36,9 +36,8 @@ int screenSizeChange(int x, int y, int xSize, int ySize)
 }
 
 
-int screenDraw(unsigned char *drawing_bytes)
+int screenDraw(unsigned char *drawing_bytes, struct xyPair window, HDC mydc)
 {
-   struct xyPair window;
 
    //if ((!window.xSize) || (!window.ySize)) return;
    if ((!window.x) || (!window.y)) return 0;
@@ -52,12 +51,12 @@ int screenDraw(unsigned char *drawing_bytes)
    info.bmiHeader.biSizeImage = 0;
    info.bmiHeader.biClrUsed = 0;
    info.bmiHeader.biClrImportant = 0;
-   HDC cDC = CreateCompatibleDC (hdc); // this is the GetDC (hwnd) where hwnd is the
+   HDC cDC = CreateCompatibleDC (mydc); // this is the GetDC (hwnd) where hwnd is the
                                         // handle of the window I want to write to
-   HBITMAP hbmp = CreateCompatibleBitmap  (hdc, window.xSize, window.ySize);
-   SetDIBits (hdc, hbmp, 0, window.ySize, drawing_bytes, &info, DIB_RGB_COLORS);
+   HBITMAP hbmp = CreateCompatibleBitmap  (cDC, window.x, window.y);
+   SetDIBits (cDC, hbmp, 0, window.y, drawing_bytes, &info, DIB_RGB_COLORS);
    hbmp = (HBITMAP) SelectObject (cDC, hbmp);
-   BitBlt (hdc, 0, 0, window.xSize, window.ySize, cDC, 0, 0, SRCCOPY);
+   BitBlt (cDC, 0, 0, window.x, window.y, cDC, 0, 0, SRCCOPY);
    DeleteObject (SelectObject(cDC, hbmp));
    DeleteDC (cDC);
 }
@@ -126,6 +125,14 @@ int pixelController()
     
     
 }
+   
+   
+   
+   
+   
+   
+   
+   
    
    
    
