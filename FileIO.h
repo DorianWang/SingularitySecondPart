@@ -14,7 +14,7 @@ class FileIO
 
 public:
 //Variables
-ofstream myfile;//input and output
+fstream myfile;//input and output
 std::string filePath;
 bool isBinary;
 bool isOpen;
@@ -34,11 +34,12 @@ int textOpenFile();
 int dataOpenFile();
 
 int readLine(std::string *output);
+int readIntData(int *output);
 
 std::string getFileName(bool isBinary);
 int deleteFile(std::string *fileName);
 
-
+int closeFile();
 
 };
 

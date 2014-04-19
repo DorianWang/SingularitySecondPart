@@ -230,7 +230,7 @@ BuildCmd=
 [Unit19]
 FileName=pixelPainter.cpp
 CompileCpp=1
-Folder=
+Folder=Painter
 Compile=1
 Link=1
 Priority=1000
@@ -240,7 +240,7 @@ BuildCmd=
 [Unit20]
 FileName=pixelPainter.h
 CompileCpp=1
-Folder=
+Folder=Painter
 Compile=1
 Link=1
 Priority=1000

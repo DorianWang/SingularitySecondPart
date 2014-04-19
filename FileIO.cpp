@@ -173,23 +173,35 @@ int FileIO::dataOpenFile()
    return 1;
 }
 
+int FileIO::readIntData(int *output)
+{
+    
+    
+    
+    
+    
+}
+
 
 int FileIO::readLine(std::string *output)
 {
-
-
-
-
-
-
-
+   if (myfile.good()){
+      return 0;
+   }
+   
+   std::string input;
+   
+   getline( myfile, input );
+   *output = input;
+   return 1;
 }
 
 int FileIO::returnStart()
 {
 
    myfile.clear();
-   //myfile.seekg(0, ios::beg);
+   myfile.seekg(0, ios::beg);
+   myfile.tellp();
 
 
 
@@ -198,3 +210,7 @@ int FileIO::returnStart()
 
 }
 
+int FileIO::closeFile()
+{
+   myfile.close();    
+}
