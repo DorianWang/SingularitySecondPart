@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <cstdarg>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ fstream myfile;//input and output
 std::string filePath;
 bool isBinary;
 bool isOpen;
+int fileLength;
 
 //Functions
 FileIO();
@@ -37,11 +39,14 @@ int dataOpenFile();
 //reading data
 int readLine(std::string *output);
 int readIntData(int *output);
-int readData(int output, ...);
+
+//http://stackoverflow.com/questions/1579719/variable-number-of-parameters-in-function-in-c
+int readData(int outputType, int arrayLength, ...);
 
 //moving the read/write
-int returnStart(int isRead);
+int goStart(int isRead);
 int goEnd(int isRead);
+int goPos(int isRead, int position);
 
 std::string getFileName(bool isBinary);
 int deleteFile(std::string *fileName);

@@ -56,6 +56,10 @@ int main(int argc, char *argv[])
     //cout<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
     //cout<<asdfgh<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
     //219 -> 178 -> 177 -> 176 -> 43
+    
+   short asdf;
+   cout<<sizeof(asdf)<<endl;
+    
    Encryter Bromo;
    Bromo.keygen();
    MyContainer Aso;
