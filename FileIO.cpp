@@ -19,9 +19,10 @@ std::string fileName;
 fileName= "saves/"+name+".dat";
 myfile.open (fileName.c_str());
  	
-if (myfile.is_open()) {
-   cout<<"yey!";
-}
+   if (myfile.is_open()) {
+      cout<<"yey!";
+      return true;
+   }
 
 }
 
@@ -173,7 +174,7 @@ int FileIO::dataOpenFile()
    return 1;
 }
 
-int FileIO::readIntData(int *output)
+int FileIO::readData(int input, ...)
 {
     
     
@@ -196,21 +197,46 @@ int FileIO::readLine(std::string *output)
    return 1;
 }
 
-int FileIO::returnStart()
+int FileIO::returnStart(int isRead)
 {
 
    myfile.clear();
    myfile.seekg(0, ios::beg);
-   myfile.tellp();
-
-
-
-
-
+   //myfile.tellp();
 
 }
+
+int FileIO::goEnd(int isRead)
+{
+    myfile.clear();
+    myfile.seekg(0, ios::end);
+    
+}
+
 
 int FileIO::closeFile()
 {
-   myfile.close();    
+   if (isOpen){
+      myfile.close(); 
+      isOpen =false; 
+      return 1;
+   }  
+   return 0;
+   
 }
+
+void FileIO::closeFile(bool asdf)
+{
+   myfile.close(); 
+}
+
+
+
+
+
+
+
+
+
+
+

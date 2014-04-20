@@ -70,45 +70,45 @@ int pixelPaint(HWND myConsole)
    
    HBITMAP hBitmap;
    BITMAPINFO* m_Bit;
-   CBitmap m_OffscreenBitmap, *m_pOldBitmap;
-   FIBITMAP* m_dib;
+   //CBitmap m_OffscreenBitmap, *m_pOldBitmap;
+   //FIBITMAP* m_dib;
    
    //ATOM aso;
    //Get a console handle
-   
-   
-   
-   
-   HBITMAP CreateBitmap(
-  _In_  int nWidth,
-  _In_  int nHeight,
-  _In_  UINT cPlanes,
-  _In_  UINT cBitsPerPel,
-  _In_  const VOID *lpvBits
-);
-   
-   
-   CreateDIBSection(mydc, m_Bit, DIB_RGB_COLORS, (void**)&m_pBits, NULL, 0)
-   m_OffscreenBitmap.Attach(hBitmap);
-   m_pOldBitmap = m_dcOffscreen.SelectObject(&m_OffscreenBitmap);
-   //hBitmap=(HBITMAP) LoadImage(NULL, _T("c:\\Temp\\Temp.bmp"), IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION | LR_LOADFROMFILE);
-   
-   int pixel =0;
-
-   //Choose any color
-   COLORREF COLOR = RGB(255,255,255); 
-
-   //Draw pixels
-   for(double i = 0; i < PI * 4; i += 0.05)
-   {
-      SetPixel(mydc,pixel,12,COLOR);
-      pixel+=1;
-   }
-
-   ReleaseDC(myConsole, mydc);
-   cin.ignore();
-   return 0;
 }
+   
+   
+   
+//   HBITMAP CreateBitmap(
+//  _In_  int nWidth,
+//  _In_  int nHeight,
+//  _In_  UINT cPlanes,
+//  _In_  UINT cBitsPerPel,
+//  _In_  const VOID *lpvBits
+//);
+//   
+//   
+//   CreateDIBSection(mydc, m_Bit, DIB_RGB_COLORS, (void**)&m_pBits, NULL, 0)
+//   m_OffscreenBitmap.Attach(hBitmap);
+//   m_pOldBitmap = m_dcOffscreen.SelectObject(&m_OffscreenBitmap);
+//   //hBitmap=(HBITMAP) LoadImage(NULL, _T("c:\\Temp\\Temp.bmp"), IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION | LR_LOADFROMFILE);
+//   
+//   int pixel =0;
+//
+//   //Choose any color
+//   COLORREF COLOR = RGB(255,255,255); 
+//
+//   //Draw pixels
+//   for(double i = 0; i < PI * 4; i += 0.05)
+//   {
+//      SetPixel(mydc,pixel,12,COLOR);
+//      pixel+=1;
+//   }
+//
+//   ReleaseDC(myConsole, mydc);
+//   cin.ignore();
+//   return 0;
+//}
    
    
    
