@@ -218,7 +218,7 @@ int FileIO::readData(int outputType, int arrayLength, ...)
    *((int *)output) = qwer;
    return 1;
     
-}
+}//Unfinished
 
 
 int FileIO::readLine(std::string *output)
@@ -236,7 +236,7 @@ int FileIO::readLine(std::string *output)
 
 
 
-//When isRead is 1 or higher, moves the get position. If it is 0, moves the put pointer. Else, returns 1.
+//When isRead is 1 or higher, moves the get position. If it is 0, moves the put pointer. Else, returns 0.
 int FileIO::goStart(int isRead)
 {
    myfile.clear();
@@ -294,7 +294,7 @@ int FileIO::closeFile()
 {
    if (isOpen){
       myfile.close(); 
-      isOpen =false; 
+      isOpen = false; 
       return 1;
    }  
    return 0;
