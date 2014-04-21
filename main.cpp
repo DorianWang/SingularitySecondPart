@@ -57,9 +57,16 @@ int main(int argc, char *argv[])
     //cout<<asdfgh<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
     //219 -> 178 -> 177 -> 176 -> 43
     
-   short asdf;
+   short asdf = 24;
    cout<<sizeof(asdf)<<endl;
-    
+   
+   char* buffer[64];
+   
+   fstream myfile;
+   myfile.open("Asdf.bin",  ios::out | ios::in | ios::binary);
+   myfile.write()
+   
+   
    Encryter Bromo;
    Bromo.keygen();
    MyContainer Aso;

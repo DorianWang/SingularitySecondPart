@@ -41,12 +41,15 @@ int readLine(std::string *output);
 int readIntData(int *output);
 
 //http://stackoverflow.com/questions/1579719/variable-number-of-parameters-in-function-in-c
-int readData(int outputType, int arrayLength, ...);
+int readData(int dataType, int arrayLength, ...);
 
 //moving the read/write
 int goStart(int isRead);
 int goEnd(int isRead);
 int goPos(int isRead, int position);
+
+int writeData(char* data);
+int writeData(int dataType, int arrayLength, ...);
 
 std::string getFileName(bool isBinary);
 int deleteFile(std::string *fileName);
