@@ -244,7 +244,14 @@ int FileIO::readData(int dataType, int arrayLength, ...)
    //read bytes, chance to fail...
    myfile.read(buffer, bytesToGet);
    if (myfile.eof()&&myfile.fail()) return 0; //hit end of file...
-   switch
+   switch (dataType) {
+          
+          
+          
+          
+          
+          
+   }
    //http://www.dreamincode.net/forums/topic/47339-writing-floats-to-a-file/
    //in.read((char *)&f2,sizeof(float));
    //*((int *)output) = qwer;
