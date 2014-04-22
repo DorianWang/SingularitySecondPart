@@ -14,10 +14,8 @@
 int cToI(char* buffer);
 unsigned int cToUI(char* buffer);
 
-
 short cToS(char* buffer);
 unsigned short cToUS(char* buffer);
-
 
 int cIToI(char* buffer, int* output);
 

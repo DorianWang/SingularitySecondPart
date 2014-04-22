@@ -60,20 +60,61 @@ return output;
 int cIToI(char* buffer, int* output)
 {
    bool isNegative; 
+   int temp = 0;
    if(buffer[0]=='-'){
       for (int i=1;i<4;i++){
          if(buffer[i]>'9'||buffer[i]<'0'){
             return 0;
          }
+         temp = temp*10 + buffer[i];
       }
+      *output = temp*(-1);
+   return 1;
    }
    
-   
+   if(buffer[0]>'9'||buffer[0]<'0'){
+      for (int j=0;j<4;j++){
+         if(buffer[j]>'9'||buffer[j]<'0'){
+            return 0;
+         }
+         temp = temp*10 + buffer[j];
+      }                                 
+      *output = temp;  
+   return 1;                    
+   }
 
-
-
-
+return 0;//not a number
 }
+
+
+int iToC(int input, char* output)
+{
+   char buffer[4];
+    
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
