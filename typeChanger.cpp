@@ -90,14 +90,19 @@ return 0;//not a number
 int iToC(int input, char* output)
 {
    char buffer[4];
-    
-    
-    
-    
-    
-    
-    
+   //unsignedOutput+=buffer[i]+unsignedOutput*(256);
+
+   for (int i=3;i>=0;i--){
+      buffer[i]=input&0xFF;//does stuff
+      input>>8;
+   }
+   
+   for(int j=0;j<4;j++){
+      output[j]=buffer[j];        
+   }
+return 1;
 }
+
 
 
 
