@@ -119,18 +119,26 @@ int FileIO::deleteFile(std::string *fileName)
    return 1;
 }
 
+
+
 int FileIO::textOpenFile()
 {
    std::string fileName;
    std::string input;
+   bool newFile=false;
    
    while (true){
       fileName = getFileName();
       system("CLS");
       cout<<"I will now try to open the file \""<<fileName<<"\"."<<endl;
       cout<<"Is this right? Enter Y to continue, Q to quit, and anything else to try again."<<endl;
+      cout<<"If the file does not exist, please press C instead."<<endl;
       cin>>input;
       if (input=="Y"||input=="y"){
+         break;
+      }
+      if (input=="C"||input=="c"){
+         newFile=true;
          break;
       }
       if (input=="Q"||input=="q"){
@@ -139,6 +147,14 @@ int FileIO::textOpenFile()
    }
    
    //fileName = getFileName();
+   if (newFile){
+      myfile.open(filePath.c_str(), ios::out);//creates the file
+      myfile.close();
+      myfile.open(filePath.c_str(), ios::out | ios::in);
+      isBinary=false;
+      fileLength=0;
+      return 1;
+   }
    
    myfile.open(filePath.c_str(), ios::out | ios::in);
    if (myfile.is_open()){
@@ -153,14 +169,20 @@ int FileIO::dataOpenFile()
 {
    std::string fileName;// = getFileName();
    std::string input;
+   bool newFile=false;
    
    while (true){
       fileName = getFileName();
       system("CLS");
       cout<<"I will now try to open the file \""<<fileName<<"\"."<<endl;
       cout<<"Is this right? Enter Y to continue, Q to quit, and anything else to try again."<<endl;
+      cout<<"If the file does not exist, please press C instead."<<endl;
       cin>>input;
       if (input=="Y"||input=="y"){
+         break;
+      }
+      if (input=="C"||input=="c"){
+         newFile=true;
          break;
       }
       if (input=="Q"||input=="q"){
@@ -169,6 +191,14 @@ int FileIO::dataOpenFile()
       
    }
    
+   if (newFile){
+      myfile.open(filePath.c_str(), ios::out | ios::binary);//creates the file
+      myfile.close();
+      myfile.open(filePath.c_str(), ios::out | ios::in | ios::binary);
+      isBinary=true;
+      fileLength=0;
+      return 1;
+   }
    
    myfile.open(filePath.c_str(), ios::out | ios::in | ios::binary);
    isBinary=true;

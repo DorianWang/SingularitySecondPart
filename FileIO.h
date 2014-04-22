@@ -33,6 +33,8 @@ bool makeProfile(std::string name);
 bool writeDwarf();
 
 //opening files
+int createFile();
+
 int textOpenFile();
 int dataOpenFile();
 

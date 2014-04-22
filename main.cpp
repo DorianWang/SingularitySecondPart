@@ -2,6 +2,10 @@
 #include <cstdlib>
 #include <iostream>
 
+//MUSIC! http://www.youtube.com/watch?v=nDyzVV_e7WM&list=LL5I3vUh2iNfQ3pCU3sodYRA&shuffle=167714
+
+
+
 using namespace std;
 
 struct interactObject
@@ -60,11 +64,14 @@ int main(int argc, char *argv[])
    short asdf = 24;
    cout<<sizeof(asdf)<<endl;
    
-   char* buffer[64];
+   char buffer[64];
+   buffer[0]='0';buffer[1]='1';
    
    fstream myfile;
-   myfile.open("Asdf.bin",  ios::out | ios::in | ios::binary);
-   myfile.write()
+   //myfile.open("D:/Asdf.bin",  ios::out | ios::in | ios::binary);
+   myfile.open("D:/Asdfg.bin",  ios::out | ios::binary);//creates the file if it doesn't exist yet
+   //myfile.write(buffer, 2);
+   myfile.close();
    
    
    Encryter Bromo;
