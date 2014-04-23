@@ -211,7 +211,7 @@ int FileIO::dataOpenFile()
 }
 
 //For dataType, 
-//0 for int, 1 for char, 2 for float, 3 for double, 4 for short, 5 for long long. More may be added later.
+//0 for int, 1 for char, 2 for float, 3 for double, 4 for short, 5 for long long, 6 for unsigned int More may be added later.
 
 //numWanted is the length of the array. (note, a pointer to a single thing is still treated like an array)
 //returns 0 for failure, else 1
@@ -245,13 +245,27 @@ int FileIO::readData(int dataType, int arrayLength, ...)
    myfile.read(buffer, bytesToGet);
    if (myfile.eof()&&myfile.fail()) return 0; //hit end of file...
    switch (dataType) {
-          
-          
-          
-          
-          
-          
+      case 0:
+         *((int*)output) = cToI(buffer);
+         break;
+      case 1:
+         *((char*)output) = buffer[0];
+         break;
+      case 2:
+         *((char*)output) = buffer[0];
+         break;
+      case 3:
+         *((char*)output) = buffer[0];
+         break;
+      case 4:
+         *((char*)output) = buffer[0];
+         break;
+      case 5:
+         *((char*)output) = buffer[0];
+         break;
+        
    }
+   
    //http://www.dreamincode.net/forums/topic/47339-writing-floats-to-a-file/
    //in.read((char *)&f2,sizeof(float));
    //*((int *)output) = qwer;

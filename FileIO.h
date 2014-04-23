@@ -8,6 +8,8 @@
 #include <sstream>
 #include <cstdarg>
 
+#include "typeChanger.h"
+
 using namespace std;
 
 class FileIO
