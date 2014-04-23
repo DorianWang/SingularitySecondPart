@@ -6,15 +6,15 @@ int Encryter::keygen() //For creating new rotors, reflectors and things
    //I think I'll split them into 5 pieces. alphabet, upperAlphabet, numbers, important characters, and extras
    char alphabet[26];
    char upperAlphabet[26];
-   char importantChars[6]={'.', ',', '!', ' ', '?', 'a'};
+   char importantChars[NUM_IMPORTANT_CHARS]={'.', ',', '!', ' ', '?', 'a'};
    char numbers[10];
    // : = 58, " = 34, \ = 92, / = 47
-   char otherChars[23]={'@', '#', '$', '%', '^', '&', '*', '(', ')', ';', 'a', 'b', 'c', 'd', '~', '<', '>', '-', '_', '=', '+', '{', '}'};     
+   char otherChars[NUM_OTHER_CHARS]={'@', '#', '$', '%', '^', '&', '*', '(', ')', ';', 'a', 'b', 'c', 'd', '~', '<', '>', '-', '_', '=', '+', '{', '}'};     
    
    bool cipherType[5];
    
    std::vector<char> cipherCharSpace;
-   
+   std::vector<char> cipherScrambled;
    //Special chars that are annoying.
    importantChars[5] = 34; 
    otherChars[11] = 47; otherChars[12] = 58; otherChars[13] = 92;
@@ -44,17 +44,17 @@ if (cipherType[1]==true){
    }
 }
 //cout<<endl;
-if (cipherType[1]==true){
-   for (int i='0'-'0';i<'9'-'0' + 1;i++){
-      numbers[i]='0' + i;
-      cout<<numbers[i];
-      cipherCharSpace.push_back(numbers[i]);
+if (cipherType[2]==true){
+   for (int i=0;i<NUM_IMPORTANT_CHARS;i++){
+      //importantChars[i]='0' + i;
+      cout<<importantChars[i];
+      cipherCharSpace.push_back(importantChars[i]);
       vectorCounter++;
    }
 }
 //cout<<endl;
 
-if (cipherType[1]==true){
+if (cipherType[3]==true){
    for (int i='0'-'0';i<'9'-'0' + 1;i++){
       numbers[i]='0' + i;
       cout<<numbers[i];
@@ -63,35 +63,42 @@ if (cipherType[1]==true){
    }
 }
 
-if (cipherType[1]==true){
-   for (int i='0'-'0';i<'9'-'0' + 1;i++){
-      numbers[i]='0' + i;
-      cout<<numbers[i];
-      cipherCharSpace.push_back(numbers[i]);
-      vectorCounter++;
-   }
-}
-
-
-
-
-for (int i=0;i<25;i++){
-
+if (cipherType[4]==true){
+   for (int i=0;i<NUM_OTHER_CHARS;i++){
+      //otherChars[i]='0' + i;
       cout<<otherChars[i];
+      cipherCharSpace.push_back(otherChars[i]);
+      vectorCounter++;
    }
-cout<<endl;
+}
 
-//add rotor complexity selection here.
-//How about antirotors, for decryption?
-for (int i=0; i<10; ++i) cipherCharSpace.push_back(i); // 1 2 3 4 5 6 7 8 9
-std::random_shuffle ( cipherCharSpace.begin(), cipherCharSpace.end() );
+   //add rotor complexity selection here.
+   //How about antirotors, for decryption?
 
-//add randomization here.
+   srand ( time(NULL) );
+   //65536
+   int randInt = rand() % 262144;//65536 (16*16*16*16*4)4*2^4^4, or 2^18
+   //for (int i=0; i<10; ++i) cipherCharSpace.push_back(i); // 1 2 3 4 5 6 7 8 9
+   cipherScrambled = cipherCharSpace;
+   //randomization.
+   std::random_shuffle ( cipherScrambled.begin(), cipherScrambled.end() );
+   std::random_shuffle ( cipherScrambled.begin(), cipherScrambled.end() , rand);
+   
 
 
 system("PAUSE");
 return 1;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

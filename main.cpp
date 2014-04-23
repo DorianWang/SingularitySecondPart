@@ -62,13 +62,16 @@ int main(int argc, char *argv[])
     //219 -> 178 -> 177 -> 176 -> 43
     
    float asdf = 24;
+   int asdfs = 564;
    void* temp;
-   char buffer[8];
+   char buffer[16];
    buffer[0]='0';buffer[1]='1';buffer[2]='5';buffer[3]='h';//buffer[4]='c';buffer[5]='d';buffer[6]='q';buffer[7]='h';
+   buffer[8]='Q';buffer[9]=0;
    //cout<<sizeof(asdf)<<endl;
-   *((float*)temp) = *((float*)((buffer)));
-   cout<< *((float*)temp)<<endl;
-   
+   *((float*)(buffer)) = asdf;
+   *((int*)(buffer+sizeof(float))) = asdfs;
+   cout<< *((float*)buffer)<<endl;
+   cout<< *((int*)(buffer+sizeof(float)))<<endl;
    
    
    

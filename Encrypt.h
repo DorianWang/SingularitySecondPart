@@ -2,11 +2,15 @@
 #ifndef ENCRYPT_H
 #define ENCRYPT_H 
 
+#define NUM_IMPORTANT_CHARS 6
+#define NUM_OTHER_CHARS 23
+
 #include <iostream>
 #include <string>
 #include <algorithm>
 #include <vector>
-#include <ctime>        
+#include <ctime>      
+#include <cstdlib>      // std::rand, std::srand  
 
 using namespace std;
 

@@ -221,7 +221,7 @@ int FileIO::readData(int dataType, int arrayLength, ...)
    //int *asdf;
    char buffer[256];
    void * output;
-   void * temp;
+   //void * temp;
    int bytesToGet=4;
    int j = 0;
    if (dataType>=5||dataType<=-1){
@@ -373,7 +373,7 @@ int FileIO::writeData(int dataType, int arrayLength, ...)
    //int *asdf;
    char buffer[256];
    void * output;
-   void * temp;
+   //void * temp;
    int bytesToGet=4;
    int j = 0;
    if (dataType>=5||dataType<=-1){
