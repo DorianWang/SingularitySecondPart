@@ -61,11 +61,16 @@ int main(int argc, char *argv[])
     //cout<<asdfgh<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
     //219 -> 178 -> 177 -> 176 -> 43
     
-   long long asdf = 24;
-   cout<<sizeof(asdf)<<endl;
+   float asdf = 24;
+   void* temp;
+   char buffer[8];
+   buffer[0]='0';buffer[1]='1';buffer[2]='5';buffer[3]='h';//buffer[4]='c';buffer[5]='d';buffer[6]='q';buffer[7]='h';
+   //cout<<sizeof(asdf)<<endl;
+   *((float*)temp) = *((float*)((buffer)));
+   cout<< *((float*)temp)<<endl;
    
-   char buffer[64];
-   buffer[0]='0';buffer[1]='1';
+   
+   
    
    fstream myfile;
    //myfile.open("D:/Asdf.bin",  ios::out | ios::in | ios::binary);
