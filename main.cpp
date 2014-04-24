@@ -84,6 +84,7 @@ int main(int argc, char *argv[])
    
    Encryter Bromo;
    Bromo.keygen();
+   
    MyContainer Aso;
    SelectScreens ScreenControl;
    // int asdf = 0;
