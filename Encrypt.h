@@ -27,7 +27,8 @@ class Encryter
 
 public:
 
-int keygen();
+int keygenChars(char* charSpace, char* scrambledCipher, char* antiCipher);
+int keygenInts(bool* ciperType);
 //Enigma machine like cipher, not really too secure...
 
 //http://codereview.stackexchange.com/questions/44196/enigma-simulator-performance

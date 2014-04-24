@@ -5,7 +5,7 @@
 //int randInt = rand() % 262144;//65536 (16*16*16*16*4)4*2^4^4, or 2^18
 int myRand (int i) { return std::rand()%(i);}
 
-int Encryter::keygenChars() //For creating new rotors, reflectors and things
+int Encryter::keygenChars(char* charSpace, char* scrambledCipher, char* antiCipherChars) //For creating new rotors, reflectors and things
 {
    //I think I'll split them into 5 pieces. alphabet, upperAlphabet, numbers, important characters, and extras
    char alphabet[26];
@@ -131,22 +131,27 @@ if (cipherType[4]==true){
 
 
 system("PAUSE");
-return 1;
+return vectorCounter;
 }
 
 
 
-int keygenInts()//A more useful cipher, that a computer can actually use.
+int Encryter::keygenInts(bool* cipherType)//A more useful cipher, that a computer can actually use.
 {
     
-bool cipherType[5];
+//bool cipherType[5];
+int vectorCounter=0;
    
    //testing
    for (int q=0; q<5; q++){cipherType[q]=true;};
     
+   std::vector<int> cipherIntSpace;
+   std::vector<int> cipherScrambled;
+
+
 if (cipherType[0]==true){
    for (int i='a'-'a';i<'z'-'a'+1;i++){
-      cipherCharSpace.push_back(alphabet[i]);
+      cipherCharSpace.push_back(vectorCounter);
       vectorCounter++;
    }
 }
