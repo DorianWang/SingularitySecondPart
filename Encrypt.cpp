@@ -5,7 +5,7 @@
 //int randInt = rand() % 262144;//65536 (16*16*16*16*4)4*2^4^4, or 2^18
 int myRand (int i) { return std::rand()%(i);}
 
-int Encryter::keygenChars(char* charSpace, char* scrambledCipher, char* antiCipherChars) //For creating new rotors, reflectors and things
+int Encryter::keygenChars(char* charSpace, char* scrambledCipher, char* antiCipherChars, bool *cipherType) //For creating new rotors, reflectors and things
 {
    //I think I'll split them into 5 pieces. alphabet, upperAlphabet, numbers, important characters, and extras
    char alphabet[26];
@@ -15,7 +15,7 @@ int Encryter::keygenChars(char* charSpace, char* scrambledCipher, char* antiCiph
    // : = 58, " = 34, \ = 92, / = 47
    char otherChars[NUM_OTHER_CHARS]={'@', '#', '$', '%', '^', '&', '*', '(', ')', ';', 'a', 'b', 'c', 'd', '~', '<', '>', '-', '_', '=', '+', '{', '}'};     
    
-   bool cipherType[5];
+   //bool cipherType[5];
    
    //testing
    for (int q=0; q<5; q++){cipherType[q]=true;};
@@ -111,6 +111,7 @@ if (cipherType[4]==true){
       }   
       
       antiCipher[temp] = cipherCharSpace[j];
+      
    }
    /* Print path vector to console 
    copy(path.begin(), path.end(), ostream_iterator<char>(cout, " "));
@@ -121,22 +122,28 @@ if (cipherType[4]==true){
    }
    cout<<endl;
    
-   for( std::vector<char>::const_iterator i = cipherCharSpace.begin(); i != cipherCharSpace.end(); i++){ std::cout << *i;}
+   for(int i=0; i<vectorCounter; i++){charSpace[i]=cipherCharSpace[i];}
    cout<<endl;
    cout<<"stuff"<<endl;
-   for( std::vector<char>::const_iterator i = cipherScrambled.begin(); i != cipherScrambled.end(); i++){ std::cout << *i;}
-   cout<<endl;
-   for( std::vector<char>::const_iterator i = antiCipher.begin(); i != antiCipher.end(); i++){ std::cout << *i;}
-   cout<<endl<<endl;
+
+   for(int i=0; i<vectorCounter; i++){scrambledCipher[i]=cipherScrambled[i];}
+   
+   for(int i=0; i<vectorCounter; i++){antiCipherChars[i]=antiCipher[i];}
+   //for( std::vector<char>::const_iterator i = cipherScrambled.begin(); i != cipherScrambled.end(); i++){ std::cout << *i;}
+   //cout<<endl;
+   //for( std::vector<char>::const_iterator i = antiCipher.begin(); i != antiCipher.end(); i++){ std::cout << *i;}
+   //cout<<endl<<endl;
 
 
-system("PAUSE");
+//system("PAUSE");
 return vectorCounter;
 }
 
-
-
-int Encryter::keygenInts(bool* cipherType)//A more useful cipher, that a computer can actually use.
+//A more useful cipher, that a computer can actually use.
+//cipherNum is the number of ciphers which should be made. The char mapping will only be made once though.
+//Then char map is basically a salt, preventing brute force guessing.
+//If there are more than 2 cipher wheels, the last one will be used as a reflector.
+int Encryter::keygenInts(bool* cipherType, int cipherNum)
 {
     
 //bool cipherType[5];
@@ -147,29 +154,25 @@ int vectorCounter=0;
     
    std::vector<int> cipherIntSpace;
    std::vector<int> cipherScrambled;
-
+   
 
 if (cipherType[0]==true){
    for (int i='a'-'a';i<'z'-'a'+1;i++){
-      cipherCharSpace.push_back(vectorCounter);
+      cipherIntSpace.push_back(vectorCounter);
       vectorCounter++;
    }
 }
 //cout<<endl;
 if (cipherType[1]==true){
    for (int i='A'-'A';i<'Z'-'A' + 1;i++){
-      upperAlphabet[i]='A' + i;
-      cout<<upperAlphabet[i];
-      cipherCharSpace.push_back(upperAlphabet[i]);
+      cipherIntSpace.push_back(vectorCounter);
       vectorCounter++;
    }
 }
 //cout<<endl;
 if (cipherType[2]==true){
    for (int i=0;i<NUM_IMPORTANT_CHARS;i++){
-      //importantChars[i]='0' + i;
-      cout<<importantChars[i];
-      cipherCharSpace.push_back(importantChars[i]);
+      cipherIntSpace.push_back(vectorCounter);
       vectorCounter++;
    }
 }
@@ -177,24 +180,21 @@ if (cipherType[2]==true){
 
 if (cipherType[3]==true){
    for (int i='0'-'0';i<'9'-'0' + 1;i++){
-      numbers[i]='0' + i;
-      cout<<numbers[i];
-      cipherCharSpace.push_back(numbers[i]);
+      cipherIntSpace.push_back(vectorCounter);
       vectorCounter++;
    }
 }
 
 if (cipherType[4]==true){
    for (int i=0;i<NUM_OTHER_CHARS;i++){
-      //otherChars[i]='0' + i;
-      cout<<otherChars[i];
-      cipherCharSpace.push_back(otherChars[i]);
+      cipherIntSpace.push_back(vectorCounter);
       vectorCounter++;
    }
 }
     
-    
-    
+char cipherSalt[vectorCounter];
+char antiCipherSalt[vectorCounter];
+char charSpace[vectorCounter];//All the characters possible in the cipher.
     
     
     
