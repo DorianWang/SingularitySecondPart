@@ -12,6 +12,8 @@
 #include <ctime>      
 #include <cstdlib>      // std::rand, std::srand  
 
+#include "FileIO.h"
+
 using namespace std;
 
 typedef struct rotor{
@@ -28,7 +30,7 @@ class Encryter
 public:
 
 int keygenChars(char* charSpace, char* scrambledCipher, char* antiCipher, bool *cipherType);
-int keygenInts(bool* cipherType, int cipherNum);
+int keygenInts(bool* cipherType, int numCiphers, char* keyName);
 //Enigma machine like cipher, not really too secure...
 
 //http://codereview.stackexchange.com/questions/44196/enigma-simulator-performance

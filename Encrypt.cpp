@@ -142,8 +142,7 @@ return vectorCounter;
 //A more useful cipher, that a computer can actually use.
 //cipherNum is the number of ciphers which should be made. The char mapping will only be made once though.
 //Then char map is basically a salt, preventing brute force guessing.
-//If there are more than 2 cipher wheels, the last one will be used as a reflector.
-int Encryter::keygenInts(bool* cipherType, int cipherNum)
+int Encryter::keygenInts(bool* cipherType, int numCiphers, char* keyName)
 {
     
 //bool cipherType[5];
@@ -154,6 +153,7 @@ int vectorCounter=0;
     
    std::vector<int> cipherIntSpace;
    std::vector<int> cipherScrambled;
+   std::vector<int> antiCipherInts;
    
 
 if (cipherType[0]==true){
@@ -195,29 +195,32 @@ if (cipherType[4]==true){
 char cipherSalt[vectorCounter];
 char antiCipherSalt[vectorCounter];
 char charSpace[vectorCounter];//All the characters possible in the cipher.
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+int temp;
+FileIO outputFile;
+outputFile.open();
+
+
+   for (int i=0;i<numCiphers;i++){
+          
+      int check = keygenChars(charSpace, cipherSalt, antiCipherSalt, cipherType);
+      if (check!=vectorCounter){/*What happened?*/};
+          
+      cipherScrambled = cipherIntSpace;
+      
+      std::random_shuffle ( cipherScrambled.begin(), cipherScrambled.end() );
+      std::random_shuffle ( cipherScrambled.begin(), cipherScrambled.end() , myRand);
+      antiCipherInts.resize(vectorCounter,0);
+      
+      
+      
+      for (int j=0;j<vectorCounter;j++){  
+         temp = cipherScrambled[j];
+         antiCipherInts[temp]=j;
+      }
+          
+          
+   }
+
     
 }
 

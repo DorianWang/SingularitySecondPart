@@ -119,6 +119,13 @@ int FileIO::deleteFile(std::string *fileName)
    return 1;
 }
 
+int FileIO::textOpenFile(char* fileName, bool isFirstTime)
+{
+    
+    
+    
+    
+}
 
 
 int FileIO::textOpenFile()
