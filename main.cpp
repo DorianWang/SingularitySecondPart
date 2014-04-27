@@ -77,13 +77,18 @@ int main(int argc, char *argv[])
    
    fstream myfile;
    //myfile.open("D:/Asdf.bin",  ios::out | ios::in | ios::binary);
-   myfile.open("D:/Asdfg.bin",  ios::out | ios::binary);//creates the file if it doesn't exist yet
+   myfile.open("Data/Asdfg.bin",  ios::out | ios::binary);//creates the file if it doesn't exist yet
    //myfile.write(buffer, 2);
    myfile.close();
    
    
    Encryter Bromo;
-   Bromo.keygen();
+   //Bromo.keygenChars();
+//   char qwer[16]="asd";
+//   char* keyName=qwer;
+//   std::string fileName = "Data/";
+//   fileName += keyName;
+//   cout<<fileName<<endl;;
    
    MyContainer Aso;
    SelectScreens ScreenControl;
@@ -99,7 +104,7 @@ int main(int argc, char *argv[])
    //^Important for code n' stuff
     
    //I don't want to reach this, should I remove it?
-   //system("PAUSE");
+   system("PAUSE");
    
    return EXIT_SUCCESS;
 }

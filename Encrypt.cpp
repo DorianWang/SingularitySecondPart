@@ -142,6 +142,7 @@ return vectorCounter;
 //A more useful cipher, that a computer can actually use.
 //cipherNum is the number of ciphers which should be made. The char mapping will only be made once though.
 //Then char map is basically a salt, preventing brute force guessing.
+//The keyname is a name, and does not need to have a file extension. The function will add one.
 int Encryter::keygenInts(bool* cipherType, int numCiphers, char* keyName)
 {
     
@@ -196,11 +197,13 @@ char cipherSalt[vectorCounter];
 char antiCipherSalt[vectorCounter];
 char charSpace[vectorCounter];//All the characters possible in the cipher.
 int temp;
-std::string fileName;
+
+std::string fileName = "Data/";
+fileName += keyName;
 FileIO outputFile;
-outputFile.textOpenFile();
+outputFile.textOpenFile(fileName, true);
 
-
+//creating ciphers
    for (int i=0;i<numCiphers;i++){
           
       int check = keygenChars(charSpace, cipherSalt, antiCipherSalt, cipherType);

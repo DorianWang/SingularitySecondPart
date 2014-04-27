@@ -119,7 +119,7 @@ int FileIO::deleteFile(std::string *fileName)
    return 1;
 }
 
-int FileIO::textOpenFile(char* fileName, bool isFirstTime)
+int FileIO::textOpenFile(std::string filePath, bool isFirstTime)
 {
    if (isFirstTime){
       myfile.open(filePath.c_str(), ios::out);//creates the file

@@ -38,7 +38,7 @@ bool writeDwarf();
 int createFile();
 
 int textOpenFile();
-int textOpenFile(char* fileName, bool isFirstTime);
+int textOpenFile(std::string fileName, bool isFirstTime);
 int dataOpenFile();
 
 //reading data
