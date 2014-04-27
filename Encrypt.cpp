@@ -196,8 +196,9 @@ char cipherSalt[vectorCounter];
 char antiCipherSalt[vectorCounter];
 char charSpace[vectorCounter];//All the characters possible in the cipher.
 int temp;
+std::string fileName;
 FileIO outputFile;
-outputFile.open();
+outputFile.textOpenFile();
 
 
    for (int i=0;i<numCiphers;i++){

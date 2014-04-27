@@ -121,10 +121,24 @@ int FileIO::deleteFile(std::string *fileName)
 
 int FileIO::textOpenFile(char* fileName, bool isFirstTime)
 {
+   if (isFirstTime){
+      myfile.open(filePath.c_str(), ios::out);//creates the file
+      myfile.close();
+      myfile.open(filePath.c_str(), ios::out | ios::in);
+      isBinary=false;
+      fileLength=0;
+      return 1;
+   }
+   
+   myfile.open(filePath.c_str(), ios::out | ios::in);
+   
+   if (myfile.is_open()){
+      isBinary=false;
+      return 1;
+   }
     
     
-    
-    
+return 0;//file is not open
 }
 
 

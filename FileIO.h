@@ -38,6 +38,7 @@ bool writeDwarf();
 int createFile();
 
 int textOpenFile();
+int textOpenFile(char* fileName, bool isFirstTime);
 int dataOpenFile();
 
 //reading data
