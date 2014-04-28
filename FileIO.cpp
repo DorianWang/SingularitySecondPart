@@ -486,10 +486,18 @@ int FileIO::writeStringText(std::string output)
 return 0;
 }
 
+//
 void FileIO::bufferLines(std::string input)
 {
    lineBuffer[lineCounter]+=input;
    lineCounter++;
+}
+
+int FileIO::clearBuffer()
+{
+    
+    
+    
 }
 
 void FileIO::writeBuffer()
@@ -504,11 +512,7 @@ void FileIO::writeBuffer()
 //Does not increment the counter
 void FileIO::bufferAddition(std::string input)
 {
-     
-     
-     
-     
-     
+   lineBuffer[lineCounter]+=input;
 }
 
 int FileIO::writeData(char* data)

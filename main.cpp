@@ -74,9 +74,14 @@ int main(int argc, char *argv[])
    cout<< *((int*)(buffer+sizeof(float)))<<endl;
    
    std::string empty;
+   std::string ijn = "zxcv";
    cout<<empty<<endl;
    empty+="asdf";
-   cout<<empty<<endl;
+   cout<<empty<<" "<<empty.length()<<endl;
+   empty+="qwer";
+   cout<<empty<<" "<<empty.length()<<endl;
+   empty+=ijn;
+   cout<<empty<<" "<<empty.length()<<endl;
    
    fstream myfile;
    //myfile.open("D:/Asdf.bin",  ios::out | ios::in | ios::binary);
