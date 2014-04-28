@@ -3,6 +3,8 @@
 
 FileIO::FileIO()
 {
+   lineCounter = 0;
+   dataCounter = 0;
    isOpen=false;   
 };
                  
@@ -459,7 +461,54 @@ int FileIO::writeData(int dataType, int arrayLength, ...)
    //*((int *)output) = qwer;
 return 1;
 
+}
 
+//Puts a newline after the output
+int FileIO::writeLine(std::string output)
+{
+    
+   if (myfile.is_open()){
+      myfile << output<<endl;
+      return 1;
+   }
+    
+return 0;
+}
+
+//Does not put a newline after the output
+int FileIO::writeStringText(std::string output)
+{
+   if (myfile.is_open()){
+      myfile << output;
+      return 1;
+   }
+    
+return 0;
+}
+
+void FileIO::bufferLines(std::string input)
+{
+   lineBuffer[lineCounter]+=input;
+   lineCounter++;
+}
+
+void FileIO::writeBuffer()
+{
+   for (int i=0;i<lineCounter;i++){
+      myfile << lineBuffer[i]<<endl;
+   }     
+     
+     
+}
+
+//Does not increment the counter
+void FileIO::bufferAddition(std::string input)
+{
+     
+     
+     
+     
+     
 }
 
 int FileIO::writeData(char* data)

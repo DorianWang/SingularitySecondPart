@@ -73,7 +73,10 @@ int main(int argc, char *argv[])
    cout<< *((float*)buffer)<<endl;
    cout<< *((int*)(buffer+sizeof(float)))<<endl;
    
-   
+   std::string empty;
+   cout<<empty<<endl;
+   empty+="asdf";
+   cout<<empty<<endl;
    
    fstream myfile;
    //myfile.open("D:/Asdf.bin",  ios::out | ios::in | ios::binary);

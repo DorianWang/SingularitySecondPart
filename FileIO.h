@@ -7,6 +7,7 @@
 #include <iostream>
 #include <sstream>
 #include <cstdarg>
+#include <vector>
 
 #include "typeChanger.h"
 
@@ -53,13 +54,32 @@ int goStart(int isRead);
 int goEnd(int isRead);
 int goPos(int isRead, int position);
 
+//Writing data
 int writeData(char* data);
 int writeData(int dataType, int arrayLength, ...);
+int writeLine(std::string output);
+int writeStringText(std::string output);
 
+//Other stuff
 std::string getFileName(bool isBinary);
 int deleteFile(std::string *fileName);
 
+//Data buffer stuff, to allow for storage in the object. More convienient.
+void bufferLines(std::string input);
+void bufferAddition(std::string input);
+void writeBuffer();
+
+
 int closeFile(); void closeFile(bool asdf);
+
+;
+private:
+
+int lineCounter;
+int dataCounter;
+vector <std::string> lineBuffer;
+vector <char> dataBuffer;
+        
 
 };
 
