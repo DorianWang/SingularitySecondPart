@@ -147,6 +147,8 @@ int main(int argc, char *argv[])
    
    MyContainer Aso;
    SelectScreens ScreenControl;
+   FileIO myFile;
+   myFile.dataOpenFile();
    // int asdf = 0;
     
    // for (int i =1; i<17;i++){

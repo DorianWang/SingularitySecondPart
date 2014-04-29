@@ -139,7 +139,6 @@ int FileIO::textOpenFile(std::string filePath, bool isFirstTime)
       return 1;
    }
     
-    
 return 0;//file is not open
 }
 
@@ -233,21 +232,6 @@ int FileIO::dataOpenFile()
    return 1;
 }
 
-int FileIO::readLine(std::string *output)
-{
-   if (!myfile.good()){
-      return 0;
-   }
-   
-   std::string input;
-   
-   getline( myfile, input );
-   *output = input;
-   return 1;
-}
-
-
-
 //When isRead is 1 or higher, moves the get position. If it is 0, moves the put pointer. Else, returns 0.
 int FileIO::goStart(int isRead)
 {
@@ -301,13 +285,21 @@ int FileIO::goPos(int isRead, int position)
     
 }
 
+int FileIO::readLine(std::string *output)
+{
+   if (!myfile.good()){
+      return 0;
+   }
+   
+   std::string input;
+   
+   getline( myfile, input );
+   *output = input;
+   return 1;
+}
 
 int FileIO::readData(int dataType, ...)
 {
-   //int 
-//two floats
-//out.write((char *)&f1,sizeof(float));
-
 //For dataType, 
 //0 for int, 1 for char, 2 for float, 3 for double, 4 for short, 5 for long long, 6 for unsigned int...
 //7 for unsigned short,  More may be added later.
@@ -463,16 +455,25 @@ int FileIO::writeDataToFile(char* data, int length)
 return 0; 
 }
 
+//Takes any array (including single value pointers) and writes it to the file.
+
 int FileIO::writeData(int dataLength, int arrayLength, ...){
+    
 va_list ap;
 char* dataBytes[arrayLength];
 va_start(ap, arrayLength);
 
 for (int i=0;i<arrayLength;i++){
-    
+    dataBytes[i]=va_arg(ap, char*);
+}
+va_end(ap);
+for (int j=0; j<arrayLength;j++){
+   if !(writeDataToFile(dataBytes[j], dataLength)){
+      return j;
+   }
 }
 
-    
+return arrayLength;
 }
 
 int FileIO::closeFile()

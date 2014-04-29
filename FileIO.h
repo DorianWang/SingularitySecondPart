@@ -56,10 +56,9 @@ int goPos(int isRead, int position);
 
 //Writing data
 int writeDataToFile(char* data, int length);
-//int writeData(int dataType, int arrayLength, ...);
 int writeLine(std::string output);
 int writeStringText(std::string output);
-int writeData();
+int writeData(int dataLength, int arrayLength, ...);
 
 //Other stuff
 std::string getFileName(bool isBinary);
