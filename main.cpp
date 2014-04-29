@@ -47,16 +47,16 @@ struct tile
 bool cursorVisibility = false;
 bool cursorSmall = true;
 
-int poi(int count, ...)
+int poi(int size, ...)
 {
     va_list ap;
     int j=0;
     char* asdf;
-    va_start(ap, count); //Requires the last fixed parameter (to get the address)
+    va_start(ap, size); //Requires the last fixed parameter (to get the address)
     asdf=va_arg(ap, char*); //Requires the type to cast to. Increments ap to the next argument.
     va_end(ap);
    cout<<sizeof(asdf)<<"asdfasdf"<<endl;
-   for (int i=0;i<4;i++){
+   for (int i=0;i<size;i++){
       cout<<(int)((unsigned char)(*(asdf+i)))<<"."<<endl; 
    }
    
@@ -83,7 +83,7 @@ int main(int argc, char *argv[])
     //cout<<asdfgh<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
     //219 -> 178 -> 177 -> 176 -> 43
    int poiu = 4321;
-   poi(123, &poiu);
+   poi(4, &poiu);
 
    float asdf = 24;
    int asdfs = 564;
