@@ -233,84 +233,6 @@ int FileIO::dataOpenFile()
    return 1;
 }
 
-//For dataType, 
-//0 for int, 1 for char, 2 for float, 3 for double, 4 for short, 5 for long long, 6 for unsigned int...
-//7 for unsigned short,  More may be added later.
-
-//numWanted is the length of the array. (note, a pointer to a single thing is still treated like an array)
-//returns 0 for failure, else 1
-int FileIO::readData(int dataType, int arrayLength, ...)
-{
-   //int *asdf;
-   char buffer[256];
-   void * output;
-   //void * temp;
-   int bytesToGet=4;
-   int j = 0;
-   if (dataType>=5||dataType<=-1){
-      return 0;
-   }
-   
-   if (arrayLength<0) return 0;
-   
-   bytesToGet = 1;
-   
-   if (dataType==1){ bytesToGet = 1;}
-   
-   if (dataType==3||dataType==5){ bytesToGet = 8;}
-   
-   if (dataType==4){ bytesToGet = 2;}
-   
-   va_list ap;
-   //va_start(ap, numWanted);
-
-   output = va_arg(ap, void *);
-   
-   if (output==NULL) return 0;
-   
-   for (j=0;j<arrayLength;j++){
-      //read bytes, chance to fail...
-      myfile.read(buffer, bytesToGet);
-      if (myfile.eof()&&myfile.fail()) return 0; //hit end of file...
-      switch (dataType) {
-         case 0:
-            *((int*)output) = cToI(buffer);
-            break;
-         case 1:
-            *((char*)output) = buffer[j];
-            break;
-         case 2:
-            *((float*)output) = *((float*)((buffer)));
-            break;
-         case 3:
-            *((double*)output) = *((double*)((buffer)));
-            break;
-         case 4:
-            *((short*)output) = cToS(buffer);
-            break;
-         case 5:
-            *((long long*)output) = *((long long*)((buffer)));
-            break;
-         case 6:
-            *((unsigned int*)output) = cToUI(buffer);
-            break;
-         case 7:
-            *((unsigned short*)output) = cToUS(buffer);
-            break;
-         case 8:
-            //*((long long*)output) = *((long long*)((buffer)));
-            break;
-           
-      }
-
-   }
-   //http://www.dreamincode.net/forums/topic/47339-writing-floats-to-a-file/
-   //in.read((char *)&f2,sizeof(float));
-   //*((int *)output) = qwer;
-return 1;
-}//Unfinished
-
-
 int FileIO::readLine(std::string *output)
 {
    if (!myfile.good()){
@@ -380,7 +302,7 @@ int FileIO::goPos(int isRead, int position)
 }
 
 
-int FileIO::writeData(int dataType, int arrayLength, ...)
+int FileIO::readData(int dataType, ...)
 {
    //int 
 //two floats
@@ -390,7 +312,6 @@ int FileIO::writeData(int dataType, int arrayLength, ...)
 //0 for int, 1 for char, 2 for float, 3 for double, 4 for short, 5 for long long, 6 for unsigned int...
 //7 for unsigned short,  More may be added later.
 
-//numWanted is the length of the array. (note, a pointer to a single thing is still treated like an array)
 //returns 0 for failure, else 1
 
    //int *asdf;
@@ -403,8 +324,6 @@ int FileIO::writeData(int dataType, int arrayLength, ...)
       return 0;
    }
    
-   if (arrayLength<0) return 0;
-   
    bytesToGet = 1;
    
    if (dataType==1){ bytesToGet = 1;}
@@ -414,46 +333,47 @@ int FileIO::writeData(int dataType, int arrayLength, ...)
    if (dataType==4){ bytesToGet = 2;}
    
    va_list ap;
-   //va_start(ap, numWanted);
+   va_start(ap, dataType);//Gets the pointer to the function parameter list
 
    output = va_arg(ap, void *);
+   va_end(ap);//closes list, important...
    
    if (output==NULL) return 0;
    
-   for (j=0;j<arrayLength;j++){
-      //read bytes, chance to fail...
-      myfile.read(buffer, bytesToGet);
-      if (myfile.eof()&&myfile.fail()) return 0; //hit end of file...
-      switch (dataType) {
-         case 0:
-            *((int*)output) = cToI(buffer);
-            break;
-         case 1:
-            *((char*)output) = buffer[j];
-            break;
-         case 2:
-            *((float*)output) = *((float*)((buffer)));
-            break;
-         case 3:
-            *((double*)output) = *((double*)((buffer)));
-            break;
-         case 4:
-            *((short*)output) = cToS(buffer);
-            break;
-         case 5:
-            *((long long*)output) = *((long long*)((buffer)));
-            break;
-         case 6:
-            *((unsigned int*)output) = cToUI(buffer);
-            break;
-         case 7:
-            *((unsigned short*)output) = cToUS(buffer);
-            break;
-         case 8:
-            //*((long long*)output) = *((long long*)((buffer)));
-            break;
-           
-      }
+
+   //read bytes, chance to fail...
+   myfile.read(buffer, bytesToGet);
+   if (myfile.eof()&&myfile.fail()) return 0; //hit end of file...
+   switch (dataType) {
+      case 0:
+         *((int*)output) = cToI(buffer);
+         break;
+      case 1:
+         *((char*)output) = buffer[j];
+         break;
+      case 2:
+         *((float*)output) = *((float*)((buffer)));
+         break;
+      case 3:
+         *((double*)output) = *((double*)((buffer)));
+         break;
+      case 4:
+         *((short*)output) = cToS(buffer);
+         break;
+      case 5:
+         *((long long*)output) = *((long long*)((buffer)));
+         break;
+      case 6:
+         *((unsigned int*)output) = cToUI(buffer);
+         break;
+      case 7:
+         *((unsigned short*)output) = cToUS(buffer);
+         break;
+      case 8:
+         //*((long long*)output) = *((long long*)((buffer)));
+         break;
+        
+   
 
    }
    //http://www.dreamincode.net/forums/topic/47339-writing-floats-to-a-file/
@@ -482,31 +402,50 @@ int FileIO::writeStringText(std::string output)
       myfile << output;
       return 1;
    }
-    
 return 0;
 }
 
-//
+//Adds to the buffer, and then increments the line counter.
 void FileIO::bufferLines(std::string input)
 {
    lineBuffer[lineCounter]+=input;
    lineCounter++;
 }
 
-int FileIO::clearBuffer()
+//Clears entire buffer, and resets counter
+void FileIO::clearBuffer()
 {
-    
-    
-    
+   lineBuffer.clear();
+   lineCounter=0;
 }
 
+//clears the buffer after line #(line), and sets the counter to that line.
+int FileIO::clearBuffer(int line)
+{
+   if (line>lineCounter||line<0){
+      return 0;   
+   }
+   lineBuffer[line].clear();
+   lineCounter = line;
+   if (lineBuffer[line].empty())return 1;
+   return 0;
+}
+
+//Writes the buffer to the file, and then clears it.
 void FileIO::writeBuffer()
 {
    for (int i=0;i<lineCounter;i++){
       myfile << lineBuffer[i]<<endl;
    }     
-     
-     
+clearBuffer();
+}
+
+//Does not clear the buffer, allowing for multiple calls.
+void FileIO::writeBuffer(bool clearData)
+{
+   for (int i=0;i<lineCounter;i++){
+      myfile << lineBuffer[i] << endl;
+   }
 }
 
 //Does not increment the counter
@@ -515,12 +454,13 @@ void FileIO::bufferAddition(std::string input)
    lineBuffer[lineCounter]+=input;
 }
 
-int FileIO::writeData(char* data)
+//Takes data already 
+int FileIO::writeDataToFile(char* data, int length)
 {
-    
-    
-    
-    
+   if (myfile.is_open()){
+      myfile.write(data, length); return !myfile.fail();
+   }
+return 0; 
 }
 
 int FileIO::closeFile()

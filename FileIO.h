@@ -47,7 +47,7 @@ int readLine(std::string *output);
 int readIntData(int *output);
 
 //http://stackoverflow.com/questions/1579719/variable-number-of-parameters-in-function-in-c
-int readData(int dataType, int arrayLength, ...);
+int readData(int dataType, ...);
 
 //moving the read/write
 int goStart(int isRead);
@@ -55,8 +55,8 @@ int goEnd(int isRead);
 int goPos(int isRead, int position);
 
 //Writing data
-int writeData(char* data);
-int writeData(int dataType, int arrayLength, ...);
+int writeDataToFile(char* data, int length);
+//int writeData(int dataType, int arrayLength, ...);
 int writeLine(std::string output);
 int writeStringText(std::string output);
 
@@ -68,7 +68,9 @@ int deleteFile(std::string *fileName);
 void bufferLines(std::string input);
 void bufferAddition(std::string input);
 void writeBuffer();
-
+void writeBuffer(bool clearData);
+void clearBuffer();
+int clearBuffer(int line);
 
 int closeFile(); void closeFile(bool asdf);
 

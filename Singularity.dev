@@ -1,7 +1,7 @@
 [Project]
 FileName=Singularity.dev
 Name=Singularity
-UnitCount=22
+UnitCount=23
 Type=1
 Ver=1
 ObjFiles=
@@ -20,14 +20,14 @@ ObjectOutput=
 OverrideOutput=0
 OverrideOutputName=Singularity.exe
 HostApplication=
-Folders=Bases,Container,CursorMod,FileEncryt,FileIO,Keys,Painter,Screens
+Folders=Bases,Container,CursorMod,FileEncryt,FileIO,Keys,Painter,Screens,Stuff
 CommandLine=
 UseCustomMakefile=0
 CustomMakefile=
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
-CompilerSettings=0000000000000000000000
+CompilerSettings=0000000000000001000000
 
 [Unit2]
 FileName=Bases.cpp
@@ -261,6 +261,16 @@ BuildCmd=
 FileName=typeChanger.h
 CompileCpp=1
 Folder=FileIO
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit23]
+FileName=Depreciated.cpp
+CompileCpp=1
+Folder=
 Compile=1
 Link=1
 Priority=1000

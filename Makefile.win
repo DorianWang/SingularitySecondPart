@@ -1,18 +1,18 @@
 # Project: Singularity
 # Makefile created by Dev-C++ 4.9.9.2
 
-CPP  = g++.exe
-CC   = gcc.exe
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
 WINDRES = windres.exe
 RES  = 
-OBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o pixelPainter.o typeChanger.o $(RES)
-LINKOBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o pixelPainter.o typeChanger.o $(RES)
-LIBS =  -L"D:/_Cpp/Dev-Cpp/lib" -lgdi32  
-INCS =  -I"D:/_Cpp/Dev-Cpp/include" 
-CXXINCS =  -I"D:/_Cpp/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"D:/_Cpp/Dev-Cpp/include/c++/3.4.2/backward"  -I"D:/_Cpp/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"D:/_Cpp/Dev-Cpp/include/c++/3.4.2"  -I"D:/_Cpp/Dev-Cpp/include" 
+OBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o pixelPainter.o typeChanger.o Depreciated.o $(RES)
+LINKOBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o pixelPainter.o typeChanger.o Depreciated.o $(RES)
+LIBS =  -L"E:/programs/Dev-Cpp/lib" -lgdi32  -g3 
+INCS =  -I"E:/programs/Dev-Cpp/include" 
+CXXINCS =  -I"E:/programs/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2/backward"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2"  -I"E:/programs/Dev-Cpp/include" 
 BIN  = Singularity.exe
-CXXFLAGS = $(CXXINCS)  
-CFLAGS = $(INCS)  
+CXXFLAGS = $(CXXINCS)   -g3
+CFLAGS = $(INCS)   -g3
 RM = rm -f
 
 .PHONY: all all-before all-after clean clean-custom
@@ -61,3 +61,6 @@ pixelPainter.o: pixelPainter.cpp
 
 typeChanger.o: typeChanger.cpp
 	$(CPP) -c typeChanger.cpp -o typeChanger.o $(CXXFLAGS)
+
+Depreciated.o: Depreciated.cpp
+	$(CPP) -c Depreciated.cpp -o Depreciated.o $(CXXFLAGS)

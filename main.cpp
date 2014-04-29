@@ -47,7 +47,28 @@ struct tile
 bool cursorVisibility = false;
 bool cursorSmall = true;
 
-
+int poi(int count, ...)
+{
+    va_list ap;
+    int j=0;
+    char* asdf;
+    va_start(ap, count); //Requires the last fixed parameter (to get the address)
+    asdf=va_arg(ap, char*); //Requires the type to cast to. Increments ap to the next argument.
+    va_end(ap);
+   cout<<sizeof(asdf)<<"asdfasdf"<<endl;
+   for (int i=0;i<4;i++){
+      cout<<(int)((unsigned char)(*(asdf+i)))<<"."<<endl; 
+   }
+   
+   for (int i=3;i>=0;i--){
+      cout<<(int)((unsigned char)(*(asdf+i)))<<"."<<endl; 
+      j = (j*256) + (int)((unsigned char)(*(asdf+i)));
+   }
+   
+//   
+   
+   cout<<j<<"qqq"<<endl;
+}
 
 
 
@@ -57,10 +78,13 @@ int main(int argc, char *argv[])
     //char asdfg=177;
     //char asdfgh=178;
     //char qwe = 43;
+    cout<<"asdfasdfasdf"<<endl;
     //cout<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
     //cout<<asdfgh<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
     //219 -> 178 -> 177 -> 176 -> 43
-    
+   int poiu = 4321;
+   poi(123, &poiu);
+
    float asdf = 24;
    int asdfs = 564;
    void* temp;
@@ -72,6 +96,23 @@ int main(int argc, char *argv[])
    *((int*)(buffer+sizeof(float))) = asdfs;
    cout<< *((float*)buffer)<<endl;
    cout<< *((int*)(buffer+sizeof(float)))<<endl;
+   
+//   char buffer2[5];
+//   buffer2[4]=0;
+//   void* test;
+//   test = (char*)asdfs;
+//   
+//   unsigned char bytes[4];
+//unsigned long n = 175;
+//
+//
+//for (int i=0;i<sizeof(int);i++){
+//   bytes[0] = (n >> 24) & 0xFF;
+//   bytes[1] = (n >> 16) & 0xFF;
+//   bytes[2] = (n >> 8) & 0xFF;
+//   bytes[3] = n & 0xFF;
+//}
+//   cout<<buffer2<<endl;
    
    std::string empty;
    std::string ijn = "zxcv";
