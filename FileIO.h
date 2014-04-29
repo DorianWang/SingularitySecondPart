@@ -59,6 +59,7 @@ int writeDataToFile(char* data, int length);
 //int writeData(int dataType, int arrayLength, ...);
 int writeLine(std::string output);
 int writeStringText(std::string output);
+int writeData();
 
 //Other stuff
 std::string getFileName(bool isBinary);

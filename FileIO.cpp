@@ -463,6 +463,18 @@ int FileIO::writeDataToFile(char* data, int length)
 return 0; 
 }
 
+int FileIO::writeData(int dataLength, int arrayLength, ...){
+va_list ap;
+char* dataBytes[arrayLength];
+va_start(ap, arrayLength);
+
+for (int i=0;i<arrayLength;i++){
+    
+}
+
+    
+}
+
 int FileIO::closeFile()
 {
    if (isOpen){

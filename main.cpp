@@ -70,6 +70,12 @@ int poi(int size, ...)
    cout<<j<<"qqq"<<endl;
 }
 
+void swap(int*a, int*b)
+{
+int temp = *a;
+*a=*b;     
+*b = temp;
+}
 
 
 int main(int argc, char *argv[])
@@ -153,6 +159,8 @@ int main(int argc, char *argv[])
    //^Important for code n' stuff
     
    //I don't want to reach this, should I remove it?
+   
+   
    system("PAUSE");
    
    return EXIT_SUCCESS;
