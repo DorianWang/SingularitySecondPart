@@ -1,5 +1,9 @@
 
 #include <cstdarg>
+#include <iostream>
+#include <fstream>
+
+using namespace std;
 //For dataType, 
 //0 for int, 1 for char, 2 for float, 3 for double, 4 for short, 5 for long long, 6 for unsigned int...
 //7 for unsigned short,  More may be added later.
@@ -76,3 +80,33 @@ int readData(int dataType, int arrayLength, ...)
    //*((int *)output) = qwer;
 return 1;
 }//Unfinished
+
+bool getProfile(std::string name)
+{
+
+ifstream myfile;
+std::string fileName;
+fileName= "saves/"+name+".dat";
+myfile.open (fileName.c_str());
+ 	
+   if (myfile.is_open()) {
+      cout<<"yey!";
+      return true;
+   }
+
+}
+
+bool makeProfile(std::string name)
+{
+
+ofstream myfile;  
+std::string fileName;  
+fileName = "saves/"+name+".dat"; 
+myfile.open(fileName.c_str());     
+     
+if (myfile.is_open()){
+   cout<<"yey!";                   
+   myfile << "Writing this to a file.\n";                        
+}     
+         
+}

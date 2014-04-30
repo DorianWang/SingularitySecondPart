@@ -13,37 +13,6 @@ FileIO::~FileIO()
    myfile.close();    
 };
 
-bool getProfile(std::string name)
-{
-
-ifstream myfile;
-std::string fileName;
-fileName= "saves/"+name+".dat";
-myfile.open (fileName.c_str());
- 	
-   if (myfile.is_open()) {
-      cout<<"yey!";
-      return true;
-   }
-
-}
-
-bool makeProfile(std::string name)
-{
-
-ofstream myfile;  
-std::string fileName;  
-fileName = "saves/"+name+".dat"; 
-myfile.open(fileName.c_str());     
-     
-if (myfile.is_open()){
-                      
-   cout<<"yey!";                   
-   myfile << "Writing this to a file.\n";                        
-}     
-     
-     
-}
 
 
 bool writeDwarf()
@@ -121,6 +90,7 @@ int FileIO::deleteFile(std::string *fileName)
    return 1;
 }
 
+//Takes a string, and opens the file at that location.
 int FileIO::textOpenFile(std::string filePath, bool isFirstTime)
 {
    if (isFirstTime){
@@ -142,6 +112,27 @@ int FileIO::textOpenFile(std::string filePath, bool isFirstTime)
 return 0;//file is not open
 }
 
+//Takes a string, and opens the file at that location.
+int FileIO::dataOpenFile(std::string filePath, bool isFirstTime)
+{
+   if (isFirstTime){
+      myfile.open(filePath.c_str(), ios::out);//creates the file
+      myfile.close();
+      myfile.open(filePath.c_str(), ios::out | ios::in);
+      isBinary=true;
+      fileLength=0;
+      return 1;
+   }
+   
+   myfile.open(filePath.c_str(), ios::out | ios::in);
+   
+   if (myfile.is_open()){
+      isBinary=true;
+      return 1;
+   }
+    
+return 0;//file is not open
+}
 
 int FileIO::textOpenFile()
 {
@@ -298,19 +289,26 @@ int FileIO::readLine(std::string *output)
    return 1;
 }
 
-int FileIO::readData(int dataType, ...)
+// It is limited to 512 bytes per pull. 
+// Multiple executions may be required to get all data.
+// http://stackoverflow.com/questions
+// /1579719/variable-number-of-parameters-in-function-in-c
+int FileIO::readData(int dataType, int arrayLength, ...)
 {
 //For dataType, 
-//0 for int, 1 for char, 2 for float, 3 for double, 4 for short, 5 for long long, 6 for unsigned int...
+//0 for int, 1 for char, 2 for float, 3 for double, 4 for short, 
+//5 for long long, 6 for unsigned int...
 //7 for unsigned short,  More may be added later.
 
 //returns 0 for failure, else 1
 
    //int *asdf;
-   char buffer[256];
-   void * output;
+   char buffer[512];//64 (8 byte) buffer size. 
+   //This stores 128 4 byte objects (such as integers), or 64 doubles.
+   char* output;
    //void * temp;
    int bytesToGet=4;
+   int totalBytesToGet=0;
    int j = 0;
    if (dataType>=5||dataType<=-1){
       return 0;
@@ -325,49 +323,60 @@ int FileIO::readData(int dataType, ...)
    if (dataType==4){ bytesToGet = 2;}
    
    va_list ap;
-   va_start(ap, dataType);//Gets the pointer to the function parameter list
+   va_start(ap, arrayLength);//Gets the pointer to the function parameter list
 
-   output = va_arg(ap, void *);
+   output = va_arg(ap, char*);//This allows for modification, and pointer arithmatic
    va_end(ap);//closes list, important...
    
    if (output==NULL) return 0;
    
 
    //read bytes, chance to fail...
-   myfile.read(buffer, bytesToGet);
-   if (myfile.eof()&&myfile.fail()) return 0; //hit end of file...
-   switch (dataType) {
-      case 0:
-         *((int*)output) = cToI(buffer);
-         break;
-      case 1:
-         *((char*)output) = buffer[j];
-         break;
-      case 2:
-         *((float*)output) = *((float*)((buffer)));
-         break;
-      case 3:
-         *((double*)output) = *((double*)((buffer)));
-         break;
-      case 4:
-         *((short*)output) = cToS(buffer);
-         break;
-      case 5:
-         *((long long*)output) = *((long long*)((buffer)));
-         break;
-      case 6:
-         *((unsigned int*)output) = cToUI(buffer);
-         break;
-      case 7:
-         *((unsigned short*)output) = cToUS(buffer);
-         break;
-      case 8:
-         //*((long long*)output) = *((long long*)((buffer)));
-         break;
-        
+   totalBytesToGet = (bytesToGet*arrayLength);
+   myfile.read(buffer, totalBytesToGet);
+   int bytesRead = myfile.gcount();
    
-
+   if (bytesRead!=totalBytesToGet){
+      myfile.seekg(bytesRead*(-1), myfile.cur);
+      return bytesRead*(-1);//Bad stuff, note that all bad returns are negative
    }
+   
+   if (myfile.eof()&&myfile.fail()) return 0; //hit end of file...
+   
+   for (int i=0;i<arrayLength;i++){
+      *(output+i) = buffer[i];
+   }
+   
+   
+//   switch (dataType) {
+//      case 0:
+//         *((int*)output) = cToI(buffer);
+//         break;
+//      case 1:
+//         *((char*)output) = buffer[j];
+//         break;
+//      case 2:
+//         *((float*)output) = *((float*)((buffer)));
+//         break;
+//      case 3:
+//         *((double*)output) = *((double*)((buffer)));
+//         break;
+//      case 4:
+//         *((short*)output) = cToS(buffer);
+//         break;
+//      case 5:
+//         *((long long*)output) = *((long long*)((buffer)));
+//         break;
+//      case 6:
+//         *((unsigned int*)output) = cToUI(buffer);
+//         break;
+//      case 7:
+//         *((unsigned short*)output) = cToUS(buffer);
+//         break;
+//      case 8:
+//         //*((long long*)output) = *((long long*)((buffer)));
+//         break;
+// }
    //http://www.dreamincode.net/forums/topic/47339-writing-floats-to-a-file/
    //in.read((char *)&f2,sizeof(float));
    //*((int *)output) = qwer;
@@ -456,21 +465,22 @@ return 0;
 }
 
 //Takes any array (including single value pointers) and writes it to the file.
-
+//Returns the number of indexes written to the file.
 int FileIO::writeData(int dataLength, int arrayLength, ...){
     
 va_list ap;
-char* dataBytes[arrayLength];
+char* dataBytes;
 va_start(ap, arrayLength);
 
-for (int i=0;i<arrayLength;i++){
-    dataBytes[i]=va_arg(ap, char*);
-}
+//for (int i=0;i<arrayLength;i++){
+   dataBytes = va_arg(ap, char*);
+//}
 va_end(ap);
 for (int j=0; j<arrayLength;j++){
-   if !(writeDataToFile(dataBytes[j], dataLength)){
+   if (!(writeDataToFile(dataBytes, dataLength))){
       return j;
    }
+   dataBytes=dataBytes+4;
 }
 
 return arrayLength;
@@ -490,6 +500,7 @@ int FileIO::closeFile()
 void FileIO::closeFile(bool asdf)
 {
    myfile.close(); 
+   isOpen = false;
 }
 
 

@@ -41,13 +41,12 @@ int createFile();
 int textOpenFile();
 int textOpenFile(std::string fileName, bool isFirstTime);
 int dataOpenFile();
+int dataOpenFile(std::string filePath, bool isFirstTime);
 
 //reading data
 int readLine(std::string *output);
 int readIntData(int *output);
-
-//http://stackoverflow.com/questions/1579719/variable-number-of-parameters-in-function-in-c
-int readData(int dataType, ...);
+int readData(int dataType, int arrayLength, ...);
 
 //moving the read/write
 int goStart(int isRead);

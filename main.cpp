@@ -25,6 +25,16 @@ struct tile
    int yCoord;     
 };
 
+typedef struct tester
+{
+int a;
+int b;
+int c;
+int d;
+char e;
+char f;        
+};
+
 #include "Container.h"
 #include "Bases.h"
 #include "keys.h"
@@ -103,6 +113,9 @@ int main(int argc, char *argv[])
    cout<< *((float*)buffer)<<endl;
    cout<< *((int*)(buffer+sizeof(float)))<<endl;
    
+   tester testingSize;
+   cout<<"A"<<sizeof(testingSize)<<endl;
+   
 //   char buffer2[5];
 //   buffer2[4]=0;
 //   void* test;
@@ -148,7 +161,15 @@ int main(int argc, char *argv[])
    MyContainer Aso;
    SelectScreens ScreenControl;
    FileIO myFile;
-   myFile.dataOpenFile();
+   myFile.dataOpenFile("Data/test.bin", true);
+   int asos[1024];
+   for (int i=0;i<1024;i++){
+      asos[i]=i*2;
+   }
+   
+   //myFile.writeData(sizeof(asos[0]), 1024, asos);  
+   //myFile.readData();
+   
    // int asdf = 0;
     
    // for (int i =1; i<17;i++){
