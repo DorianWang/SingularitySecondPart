@@ -81,6 +81,7 @@ private:
 int lineCounter;
 int dataCounter;
 vector <std::string> lineBuffer;
+std::string lineBufferBuffer;//For extra storage...
 vector <char> dataBuffer;
         
 

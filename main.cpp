@@ -165,19 +165,10 @@ int main(int argc, char *argv[])
    MyContainer Aso;
    SelectScreens ScreenControl;
    
-   FileIO myFile;
+   FileIO myFile;//FileIO has been tested, and appears to work...
    
    //myFile.dataOpenFile("Data/test.bin", true);
-   cout<<"???1"<<endl;
-   myFile.textOpenFile("Data/test.txt", true);//Putting true there overwrites the original data.
-   cout<<"???2"<<endl;
-   myFile.bufferLines("Hello!");
-   cout<<"???3"<<endl;
-   myFile.bufferLines("Can you hear me?");
-   cout<<"???4"<<endl;
-   myFile.bufferLines("Now for other stuff!");
-   cout<<"???5";
-   
+
    // int asdf = 0;
     
    // for (int i =1; i<17;i++){

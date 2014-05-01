@@ -397,15 +397,16 @@ void FileIO::bufferLines(std::string input)
       lineBuffer.push_back(input);
    }
    std::string temp;
-   temp = lineBuffer.back();
-   temp+=input;
+   //temp = lineBuffer[lineCounter];//.back();
+   lineBufferBuffer+=input;
    if (lineBuffer.capacity()<=lineCounter+2){
       lineBuffer.reserve(lineCounter+(lineCounter/2)+1);      
    }
    
-   lineBuffer[lineCounter] = input;//push_back(input);[lineCounter]+=input;
+   lineBuffer[lineCounter] = lineBufferBuffer;//push_back(input);[lineCounter]+=input;
    lineCounter++;
    dataInLineBuffer=false;
+   lineBufferBuffer.clear();
 }
 
 //Clears entire buffer, and resets counter
@@ -413,6 +414,7 @@ void FileIO::clearBuffer()
 {
    dataInLineBuffer = false;
    lineBuffer.clear();
+   lineBufferBuffer.clear();
    lineCounter=0;
 }
 
@@ -425,6 +427,7 @@ int FileIO::clearBuffer(int line)
    lineBuffer[line].clear();
    lineCounter = line;
    dataInLineBuffer = false;
+   lineBufferBuffer.clear();
    if (lineBuffer[line].empty())return 1;
    return 0;
 }
@@ -435,6 +438,9 @@ void FileIO::writeBuffer()
    for (int i=0;i<lineCounter;i++){
       myfile << lineBuffer[i]<<endl;
    }     
+   if (dataInLineBuffer){
+      myfile << lineBufferBuffer;
+   }
 clearBuffer();
 }
 
@@ -444,15 +450,16 @@ void FileIO::writeBuffer(bool clearData)
    for (int i=0;i<lineCounter;i++){
       myfile << lineBuffer[i] << endl;
    }
+   if (dataInLineBuffer){
+      myfile << lineBufferBuffer;
+   }
 }
 
 //Does not increment the counter
 void FileIO::bufferAddition(std::string input)
 { 
-   if (lineBuffer.capacity()<=lineCounter+2){
-      lineBuffer.reserve(lineCounter+(lineCounter/2)+1);  
-   }
-   lineBuffer[lineCounter]+=input;
+   //lineBuffer[lineCounter]+=input;
+   lineBufferBuffer+=input;
    dataInLineBuffer = true;
 }
 

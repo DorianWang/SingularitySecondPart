@@ -1,0 +1,7 @@
+Hello!
+Can you hear me?
+Now for other stuff!
+Hello!X2
+Adding to buffer...
+Adding to buffer...Adding to buffer...
+Adding to buffer... Does this work? ... Done buffering!

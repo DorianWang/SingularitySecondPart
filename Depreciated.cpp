@@ -171,3 +171,26 @@ if (myfile.is_open()){
 //   cout<<asos[i*2]<<" "<<asos[i*2+1]<<": "<<i<<endl;
 //   }
 
+
+//   cout<<"???1"<<endl;
+//   myFile.textOpenFile("Data/test.txt", true);//Putting true there overwrites the original data.
+//   cout<<"???2"<<endl;
+//   myFile.bufferLines("Hello!");
+//   cout<<"???3"<<endl;
+//   myFile.bufferLines("Can you hear me?");
+//   cout<<"???4"<<endl;
+//   myFile.bufferLines("Now for other stuff!");
+//   cout<<"???5";
+//   myFile.writeBuffer();
+//   system("PAUSE");
+//   myFile.bufferLines("Hello!X2");
+//   system("PAUSE");
+//   myFile.writeBuffer();
+//   myFile.bufferAddition("Adding to buffer...");myFile.bufferAddition("\nAdding to buffer...");
+//   myFile.writeBuffer(true);
+//   system("PAUSE");
+//   myFile.bufferAddition(" Does this work? ...");//This doesn't work...
+//   system("PAUSE");
+//   myFile.bufferLines(" Done buffering!");
+//   system("PAUSE");
+//   myFile.writeBuffer();
