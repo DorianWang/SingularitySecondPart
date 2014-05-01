@@ -303,7 +303,9 @@ int FileIO::readData(int dataType, int arrayLength, ...)
 //returns 0 for failure, else 1
 
    //int *asdf;
-   char buffer[512];//64 (8 byte) buffer size. 
+   //512*4
+   char *buffer= new char [2048];
+   //char * buffer = new char [length];
    //This stores 128 4 byte objects (such as integers), or 64 doubles.
    char* output;
    //void * temp;
@@ -311,12 +313,11 @@ int FileIO::readData(int dataType, int arrayLength, ...)
    int totalBytesToGet=0;
    int j = 0;
    if (dataType>=5||dataType<=-1){
+      delete [] buffer;
       return 0;
    }
    
-   bytesToGet = 1;
-   
-   if (dataType==1){ bytesToGet = 1;}
+   if (dataType==1){ bytesToGet = 1; cout<<"Yey!"<<endl;}
    
    if (dataType==3||dataType==5){ bytesToGet = 8;}
    
@@ -328,58 +329,37 @@ int FileIO::readData(int dataType, int arrayLength, ...)
    output = va_arg(ap, char*);//This allows for modification, and pointer arithmatic
    va_end(ap);//closes list, important...
    
-   if (output==NULL) return 0;
-   
+   if (output==NULL){
+      cout<<"???"<<endl;  
+      delete [] buffer; 
+      return 0;
+   }
 
    //read bytes, chance to fail...
    totalBytesToGet = (bytesToGet*arrayLength);
+   goStart(1);
    myfile.read(buffer, totalBytesToGet);
    int bytesRead = myfile.gcount();
    
    if (bytesRead!=totalBytesToGet){
       myfile.seekg(bytesRead*(-1), myfile.cur);
+      cout<<bytesRead<<", "<<totalBytesToGet<<endl;
+      cout<<(int)buffer[0]<<" "<<(int)buffer[1]<<endl;
+      cout<<"asdf"<<endl;
+      system("PAUSE");
+      cout<<"???"<<endl; 
+      delete [] buffer;
       return bytesRead*(-1);//Bad stuff, note that all bad returns are negative
    }
    
-   if (myfile.eof()&&myfile.fail()) return 0; //hit end of file...
+   //if (myfile.eof()&&myfile.fail()) return 0; //hit end of file...
    
-   for (int i=0;i<arrayLength;i++){
+   for (int i=0;i<(arrayLength*bytesToGet);i++){
       *(output+i) = buffer[i];
    }
-   
-   
-//   switch (dataType) {
-//      case 0:
-//         *((int*)output) = cToI(buffer);
-//         break;
-//      case 1:
-//         *((char*)output) = buffer[j];
-//         break;
-//      case 2:
-//         *((float*)output) = *((float*)((buffer)));
-//         break;
-//      case 3:
-//         *((double*)output) = *((double*)((buffer)));
-//         break;
-//      case 4:
-//         *((short*)output) = cToS(buffer);
-//         break;
-//      case 5:
-//         *((long long*)output) = *((long long*)((buffer)));
-//         break;
-//      case 6:
-//         *((unsigned int*)output) = cToUI(buffer);
-//         break;
-//      case 7:
-//         *((unsigned short*)output) = cToUS(buffer);
-//         break;
-//      case 8:
-//         //*((long long*)output) = *((long long*)((buffer)));
-//         break;
-// }
-   //http://www.dreamincode.net/forums/topic/47339-writing-floats-to-a-file/
-   //in.read((char *)&f2,sizeof(float));
-   //*((int *)output) = qwer;
+   system("PAUSE");
+
+   delete [] buffer;
 return 1;
 
 }
@@ -480,7 +460,7 @@ for (int j=0; j<arrayLength;j++){
    if (!(writeDataToFile(dataBytes, dataLength))){
       return j;
    }
-   dataBytes=dataBytes+4;
+   dataBytes=dataBytes+dataLength;//I forgot to change the variable. Derp.
 }
 
 return arrayLength;

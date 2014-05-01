@@ -110,3 +110,40 @@ if (myfile.is_open()){
 }     
          
 }
+
+   
+//   switch (dataType) {
+//      case 0:
+//         *((int*)output) = cToI(buffer);
+//         break;
+//      case 1:
+//         *((char*)output) = buffer[j];
+//         break;
+//      case 2:
+//         *((float*)output) = *((float*)((buffer)));
+//         break;
+//      case 3:
+//         *((double*)output) = *((double*)((buffer)));
+//         break;
+//      case 4:
+//         *((short*)output) = cToS(buffer);
+//         break;
+//      case 5:
+//         *((long long*)output) = *((long long*)((buffer)));
+//         break;
+//      case 6:
+//         *((unsigned int*)output) = cToUI(buffer);
+//         break;
+//      case 7:
+//         *((unsigned short*)output) = cToUS(buffer);
+//         break;
+//      case 8:
+//         //*((long long*)output) = *((long long*)((buffer)));
+//         break;
+// }
+   //http://www.dreamincode.net/forums/topic/47339-writing-floats-to-a-file/
+   //in.read((char *)&f2,sizeof(float));
+   //*((int *)output) = qwer;
+
+
+

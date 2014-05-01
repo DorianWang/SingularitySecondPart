@@ -59,21 +59,27 @@ bool cursorSmall = true;
 
 int poi(int size, ...)
 {
-    va_list ap;
-    int j=0;
-    char* asdf;
-    va_start(ap, size); //Requires the last fixed parameter (to get the address)
-    asdf=va_arg(ap, char*); //Requires the type to cast to. Increments ap to the next argument.
-    va_end(ap);
+   va_list ap;
+   int j=0;
+   char* asdf;
+   va_start(ap, size); //Requires the last fixed parameter (to get the address)
+   asdf=va_arg(ap, char*); //Requires the type to cast to. Increments ap to the next argument.
+   va_end(ap);
    cout<<sizeof(asdf)<<"asdfasdf"<<endl;
-   for (int i=0;i<size;i++){
-      cout<<(int)((unsigned char)(*(asdf+i)))<<"."<<endl; 
-   }
+   int counter=0;
    
-   for (int i=3;i>=0;i--){
-      cout<<(int)((unsigned char)(*(asdf+i)))<<"."<<endl; 
-      j = (j*256) + (int)((unsigned char)(*(asdf+i)));
+   for (int i=0;i<(size/4)-1;i++){
+      cout<<(int)((unsigned char)(*(asdf+i*4)))<<"."<<endl; 
+      counter=i;
    }
+   cout<<(char)((unsigned char)(*(asdf+counter*(4+1)+1)))<<"."<<endl; 
+   cout<<(char)((unsigned char)(*(asdf+counter*(4+1)+2)))<<"."<<endl;
+   //Yey! I can read/write structures!
+   
+   //for (int i=3;i>=0;i--){
+//      cout<<(int)((unsigned char)(*(asdf+i)))<<"."<<endl; 
+//      j = (j*256) + (int)((unsigned char)(*(asdf+i)));
+//   }
    
 //   
    
@@ -160,15 +166,33 @@ int main(int argc, char *argv[])
    
    MyContainer Aso;
    SelectScreens ScreenControl;
+   
    FileIO myFile;
+   
    myFile.dataOpenFile("Data/test.bin", true);
-   int asos[1024];
-   for (int i=0;i<1024;i++){
-      asos[i]=i*2;
+   char asos[512];
+   for (int i=0;i<512;i++){
+      asos[i]=i%26+65;cout<<asos[i]<<" "<<i<<endl;
+   }
+   testingSize.a = 1;testingSize.b = 2; testingSize.c = 3; testingSize.d = 4;
+   testingSize.e = 'q'; testingSize.f = 'w';
+   
+   //poi(sizeof(testingSize), &testingSize);
+   cout<<"..."<<endl;
+   myFile.goStart(0);
+   myFile.writeData(sizeof(asos[0]), 512, asos);
+   
+   for (int i=0;i<512;i++){
+      asos[i]=0;
    }
    
-   //myFile.writeData(sizeof(asos[0]), 1024, asos);  
-   //myFile.readData();
+   cout<<myFile.readData(1, 512, asos);
+   system("PAUSE");
+   
+   for (int i=0;i<(512/2);i++){//Sort of works... Why?
+   //   asos[i]=i*2;
+   cout<<asos[i*2]<<" "<<asos[i*2+1]<<": "<<i<<endl;
+   }
    
    // int asdf = 0;
     
