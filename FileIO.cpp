@@ -5,7 +5,8 @@ FileIO::FileIO()
 {
    lineCounter = 0;
    dataCounter = 0;
-   isOpen=false;   
+   isOpen = false;   
+   dataInLineBuffer = false;
 };
                  
 FileIO::~FileIO()
@@ -389,13 +390,28 @@ return 0;
 //Adds to the buffer, and then increments the line counter.
 void FileIO::bufferLines(std::string input)
 {
-   lineBuffer[lineCounter]+=input;
+   if (lineBuffer.empty()){
+      lineBuffer.push_back(input);
+   }
+   if (!dataInLineBuffer){
+      lineBuffer.push_back(input);
+   }
+   std::string temp;
+   temp = lineBuffer.back();
+   temp+=input;
+   if (lineBuffer.capacity()<=lineCounter+2){
+      lineBuffer.reserve(lineCounter+(lineCounter/2)+1);      
+   }
+   
+   lineBuffer[lineCounter] = input;//push_back(input);[lineCounter]+=input;
    lineCounter++;
+   dataInLineBuffer=false;
 }
 
 //Clears entire buffer, and resets counter
 void FileIO::clearBuffer()
 {
+   dataInLineBuffer = false;
    lineBuffer.clear();
    lineCounter=0;
 }
@@ -408,6 +424,7 @@ int FileIO::clearBuffer(int line)
    }
    lineBuffer[line].clear();
    lineCounter = line;
+   dataInLineBuffer = false;
    if (lineBuffer[line].empty())return 1;
    return 0;
 }
@@ -431,8 +448,12 @@ void FileIO::writeBuffer(bool clearData)
 
 //Does not increment the counter
 void FileIO::bufferAddition(std::string input)
-{
+{ 
+   if (lineBuffer.capacity()<=lineCounter+2){
+      lineBuffer.reserve(lineCounter+(lineCounter/2)+1);  
+   }
    lineBuffer[lineCounter]+=input;
+   dataInLineBuffer = true;
 }
 
 //Takes data already 

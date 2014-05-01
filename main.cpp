@@ -114,13 +114,11 @@ int main(int argc, char *argv[])
    buffer[0]='0';buffer[1]='1';buffer[2]='5';buffer[3]='h';//buffer[4]='c';buffer[5]='d';buffer[6]='q';buffer[7]='h';
    buffer[8]='Q';buffer[9]=0;
    //cout<<sizeof(asdf)<<endl;
-   *((float*)(buffer)) = asdf;
-   *((int*)(buffer+sizeof(float))) = asdfs;
-   cout<< *((float*)buffer)<<endl;
-   cout<< *((int*)(buffer+sizeof(float)))<<endl;
+   //*((float*)(buffer)) = asdf;
+//   *((int*)(buffer+sizeof(float))) = asdfs;
+//   cout<< *((float*)buffer)<<endl;
+//   cout<< *((int*)(buffer+sizeof(float)))<<endl;
    
-   tester testingSize;
-   cout<<"A"<<sizeof(testingSize)<<endl;
    
 //   char buffer2[5];
 //   buffer2[4]=0;
@@ -139,21 +137,21 @@ int main(int argc, char *argv[])
 //}
 //   cout<<buffer2<<endl;
    
-   std::string empty;
-   std::string ijn = "zxcv";
-   cout<<empty<<endl;
-   empty+="asdf";
-   cout<<empty<<" "<<empty.length()<<endl;
-   empty+="qwer";
-   cout<<empty<<" "<<empty.length()<<endl;
-   empty+=ijn;
-   cout<<empty<<" "<<empty.length()<<endl;
+//   std::string empty;
+//   std::string ijn = "zxcv";
+//   cout<<empty<<endl;
+//   empty+="asdf";
+//   cout<<empty<<" "<<empty.length()<<endl;
+//   empty+="qwer";
+//   cout<<empty<<" "<<empty.length()<<endl;
+//   empty+=ijn;
+//   cout<<empty<<" "<<empty.length()<<endl;
    
-   fstream myfile;
+   //fstream myfile;
    //myfile.open("D:/Asdf.bin",  ios::out | ios::in | ios::binary);
-   myfile.open("Data/Asdfg.bin",  ios::out | ios::binary);//creates the file if it doesn't exist yet
+   //myfile.open("Data/Asdfg.bin",  ios::out | ios::binary);//creates the file if it doesn't exist yet
    //myfile.write(buffer, 2);
-   myfile.close();
+   //myfile.close();
    
    
    Encryter Bromo;
@@ -170,8 +168,15 @@ int main(int argc, char *argv[])
    FileIO myFile;
    
    //myFile.dataOpenFile("Data/test.bin", true);
+   cout<<"???1"<<endl;
    myFile.textOpenFile("Data/test.txt", true);//Putting true there overwrites the original data.
-
+   cout<<"???2"<<endl;
+   myFile.bufferLines("Hello!");
+   cout<<"???3"<<endl;
+   myFile.bufferLines("Can you hear me?");
+   cout<<"???4"<<endl;
+   myFile.bufferLines("Now for other stuff!");
+   cout<<"???5";
    
    // int asdf = 0;
     

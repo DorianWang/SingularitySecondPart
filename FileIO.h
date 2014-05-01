@@ -7,6 +7,7 @@
 #include <iostream>
 #include <sstream>
 #include <cstdarg>
+#include <cstdlib>
 #include <vector>
 
 #include "typeChanger.h"
@@ -23,6 +24,7 @@ std::string filePath;
 bool isBinary;
 bool isOpen;
 int fileLength;
+bool dataInLineBuffer;
 
 //Functions
 FileIO();
