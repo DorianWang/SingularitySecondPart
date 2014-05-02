@@ -5,6 +5,14 @@
 #define NUM_IMPORTANT_CHARS 6
 #define NUM_OTHER_CHARS 23
 
+#define TWO_P_FOUR 0x10
+#define TWO_P_SIXTEEN 0x10000
+#define TWO_P_TWENTYFOUR 0x1000000
+#define TWO_P_THIRTY 0x40000000
+#define TWO_P_SIXTY 0x1000000000000000LL
+
+#define NUM_PRIMES 8
+
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -31,6 +39,7 @@ public:
 
 int keygenChars(char* charSpace, char* scrambledCipher, char* antiCipher, bool *cipherType);
 int keygenInts(bool* cipherType, int numCiphers, char* keyName);
+unsigned int passwordToInt(std::string password);
 //Enigma machine like cipher, not really too secure...
 
 //http://codereview.stackexchange.com/questions/44196/enigma-simulator-performance
@@ -41,8 +50,8 @@ int keygenInts(bool* cipherType, int numCiphers, char* keyName);
 
 
 
-
-
+private:
+//Primes: 59233, 49157, 32647, 99083, 158003, 779347, 2141, 8501 
 
 
 

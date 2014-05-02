@@ -155,6 +155,11 @@ int main(int argc, char *argv[])
    
    
    Encryter Bromo;
+   system("PAUSE");
+   std::string password = "TESING STUFF";
+   std::getline (std::cin, password);//Unlimited size of passwords
+   //std::cin.getline(password, 64);//Passwords are up to 64 chars in size
+   Bromo.passwordToInt(password);
    //Bromo.keygenChars();
 //   char qwer[16]="asd";
 //   char* keyName=qwer;

@@ -2,6 +2,8 @@
 #include "Encrypt.h"
 
 
+
+
 //int randInt = rand() % 262144;//65536 (16*16*16*16*4)4*2^4^4, or 2^18
 int myRand (int i) { return std::rand()%(i);}
 
@@ -200,8 +202,10 @@ int temp;
 
 std::string fileName = "Data/";
 fileName += keyName;
-FileIO outputFile;
-outputFile.textOpenFile(fileName, true);
+FileIO outputFileCipher;
+FileIO outputFileAntiCipher;
+outputFileCipher.textOpenFile(fileName, true);
+outputFileAntiCipher.textOpenFile(fileName, true);
 
 //creating ciphers
    for (int i=0;i<numCiphers;i++){
@@ -213,9 +217,9 @@ outputFile.textOpenFile(fileName, true);
       
       std::random_shuffle ( cipherScrambled.begin(), cipherScrambled.end() );
       std::random_shuffle ( cipherScrambled.begin(), cipherScrambled.end() , myRand);
+      
       antiCipherInts.resize(vectorCounter,0);
-      
-      
+      //Makes the vector a size of vectorCounter, and fills it with 0s.
       
       for (int j=0;j<vectorCounter;j++){  
          temp = cipherScrambled[j];
@@ -228,7 +232,60 @@ outputFile.textOpenFile(fileName, true);
     
 }
 
+//http://www.cse.yorku.ca/~oz/hash.html
+//Knuth's Sorting and Searching
+unsigned int Encryter::passwordToInt(std::string password)
+{
+   int arrayPrimes[NUM_PRIMES] = {59233, 49157, 32647, 
+   99083, 158003, 779347, 2141, 8501};
+   
+   if (password.length()<5){return 0;}//Passwords must be a minimum length.
+   
+   int primesSelected[4];
+   unsigned int AllCharsMult = 1;
+   unsigned int AllCharAdded = 0;
+   
+   for (int i=0;i<password.length(); i++){
+      AllCharsMult = (AllCharsMult * password.at(i)) % TWO_P_THIRTY + 1;
+      AllCharAdded += (AllCharAdded + password.at(i)) % TWO_P_THIRTY + 1;
+   }
+   
+   for (int i=0; i<4;i++){
+      primesSelected[i] = arrayPrimes[(AllCharsMult * i * (password.at(0)-20)) % (AllCharAdded % NUM_PRIMES+1)];
+   }
+   long long protoKey = AllCharsMult % TWO_P_SIXTEEN
+    + AllCharsMult % TWO_P_THIRTY//(TWO_P_TWENTYFOUR * 64)//2^30
+    //+ AllCharsMult % TWO_P_FOUR
+    + AllCharsMult % primesSelected[1]//99083
+    + AllCharsMult % primesSelected[2]//158003
+    + (AllCharsMult * AllCharAdded * primesSelected[3]) % 
+    (TWO_P_TWENTYFOUR * TWO_P_FOUR);
+    + (AllCharsMult - AllCharAdded) % primesSelected[4]//2141
+    //+ (AllCharsMult ^ AllCharAdded) % 2
+   ;
+   cout<<"!!!"<<endl;
+   protoKey = (protoKey * (primesSelected[2]-primesSelected[1]));
+   if (protoKey<TWO_P_THIRTY){//TWO_P_SIXTY){
+      protoKey = protoKey * (protoKey % primesSelected[4]);
+   }
+   // protoKey = (protoKey * (primesSelected[3] - primesSelected[2]))%(TWO_P_THIRTY*TWO_P_THIRTY);
+   cout<<"!!!"<<endl;
+   unsigned int key = ((protoKey) % 
+   (TWO_P_TWENTYFOUR * TWO_P_FOUR * TWO_P_FOUR - 1));
 
+   srand ((unsigned int)key);
+   for (int i=0; i<30;i++){
+      cout<<std::rand()%(26)+65;
+   }
+   cout<<endl;
+   srand ((unsigned int)key);
+   for (int i=0; i<30;i++){
+      cout<<std::rand()%(26)+65;
+   }
+   cout<<endl;  
+         
+         
+}
 
 
 
