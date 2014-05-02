@@ -153,13 +153,31 @@ int main(int argc, char *argv[])
    //myfile.write(buffer, 2);
    //myfile.close();
    
+   FileIO myFile;//FileIO has been tested, and appears to work...
+   
+   myFile.textOpenFile("Data/PasswordTest.txt", false);
+   
    
    Encryter Bromo;
    system("PAUSE");
    std::string password = "TESING STUFF";
-   std::getline (std::cin, password);//Unlimited size of passwords
+   std::string newPass;
+   //std::getline (std::cin, password);//Unlimited size of passwords
    //std::cin.getline(password, 64);//Passwords are up to 64 chars in size
-   Bromo.passwordToInt(password);
+   //Bromo.passwordToInt(password);
+   
+   //std::string tesomalksnf = "k45ty4k65hj4jm132gh1n354sd5g4a654a56w4f68wera464faw6e84f6a8w4ef684aw6e4fa6w8e4f68we46f4aw68e4fa6ds5f4";
+   //cout << tesomalksnf.length()<<endl;
+   for (int i=0; i<10; i++){
+      cout<<i<<endl;
+      system("PAUSE");
+      newPass.clear();
+      if (!myFile.readLine(&newPass)) break;
+      cout<<newPass<<endl;
+      cout<<Bromo.passwordToHashInt(newPass)<<" Hash things!"<<endl;
+      
+   }
+   
    //Bromo.keygenChars();
 //   char qwer[16]="asd";
 //   char* keyName=qwer;
@@ -170,9 +188,7 @@ int main(int argc, char *argv[])
    MyContainer Aso;
    SelectScreens ScreenControl;
    
-   FileIO myFile;//FileIO has been tested, and appears to work...
-   
-   //myFile.dataOpenFile("Data/test.bin", true);
+
 
    // int asdf = 0;
     

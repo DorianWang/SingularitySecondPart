@@ -232,97 +232,64 @@ outputFileAntiCipher.textOpenFile(fileName, true);
     
 }
 
-//http://www.cse.yorku.ca/~oz/hash.html
-//Knuth's Sorting and Searching
-unsigned int Encryter::passwordToInt(std::string password)
-{
-   int arrayPrimes[NUM_PRIMES] = {59233, 49157, 32647, 
-   99083, 158003, 779347, 2141, 8501};
+unsigned int Encryter::hashString( const string &key) {
+   long long hashVal = 0;
    
-   //2^32 = 4294967296
-   //2^31 - 1 = 2147483647
+   int arrayLargePrimes[13]={978857489, 694846171, 961990429, 
+   982451581, 674506409, 963287929, 674511707, 677404667, 685269437, 
+   685263743, 967395713, 690473681, 693809153};
    
-   //978857489 967395713 961990429 982451581 963287929 
-   //674506409 674511707 677404667 685269437 685263743 690473681 693809153 694846171 
-   int arrayLargePrimes[13]={978857489, 967395713, 961990429, 
-   982451581, 963287929, 674506409, 674511707, 677404667, 685269437, 
-   685263743, 690473681, 693809153, 694846171};
-   
-   //16859341  16904803  17096459  18347759 25047901  28977719  30798371  32452837  
-   //15480901  15466951  13380331  7643873 4172041 15482917  
    int arrayMediumPrimes[14]={16859341, 16904803, 17096459, 18347759, 25047901, 
    28977719, 30798371, 32452837, 15480901, 
    15466951, 13380331, 7643873, 4172041, 15482917};
       
-   //  9569473   9571907   
-   //3516599 1383323 540629 524287
    int arraySmallPrimes[26] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 
    29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};
-
    
+   int primeCounter = (key[0]*arrayMediumPrimes[key[0]%14])%26;
+   
+   for(int i = 0; i<key.length();  i++){
+     hashVal = ((arraySmallPrimes[primeCounter]*hashVal)%TWO_P_THIRTY_ONE_PRIME)
+     +key[i];
+      if (primeCounter>=25){
+         primeCounter = 0;
+         continue;
+      }
+      primeCounter++;
+   }
+   hashVal = hashVal * (arrayLargePrimes[arraySmallPrimes[primeCounter%26]]
+    - arrayLargePrimes[arraySmallPrimes[(primeCounter+1)%26]]);
 
- int hash( const string &key, int tableSize) {
-   int hashVal = 0;
-
-   for(int i = 0; i<key.length();  i++)
-     hashVal = 37*hashVal+key[i];
-
-   hashVal %= tableSize;
-
-   if(hashVal<0)
-     hashVal += tableSize;
-
-   return hashVal;
+   if(hashVal<0){
+     hashVal = hashVal*(-1);// += tableSize;
+   }
+   return (hashVal%TWO_P_THIRTY_ONE_PRIME);
  }
 
 
-   
-   if (password.length()<5){return 0;}//Passwords must be a minimum length.
-   
-   int primesSelected[4];
-   unsigned int AllCharsMult = 1;
-   unsigned int AllCharAdded = 0;
-   
-   for (int i=0;i<password.length(); i++){
-      AllCharsMult = (AllCharsMult * password.at(i)) % TWO_P_THIRTY + 1;
-      AllCharAdded += (AllCharAdded + password.at(i)) % TWO_P_THIRTY + 1;
-   }
-   
-   for (int i=0; i<4;i++){
-      primesSelected[i] = arrayPrimes[(AllCharsMult * i * (password.at(0)-20)) % (AllCharAdded % NUM_PRIMES+1)];
-   }
-   long long protoKey = AllCharsMult % TWO_P_SIXTEEN
-    + AllCharsMult % TWO_P_THIRTY//(TWO_P_TWENTYFOUR * 64)//2^30
-    //+ AllCharsMult % TWO_P_FOUR
-    + AllCharsMult % primesSelected[1]//99083
-    + AllCharsMult % primesSelected[2]//158003
-    + (AllCharsMult * AllCharAdded * primesSelected[3]) % 
-    (TWO_P_TWENTYFOUR * TWO_P_FOUR);
-    + (AllCharsMult - AllCharAdded) % primesSelected[4]//2141
-    //+ (AllCharsMult ^ AllCharAdded) % 2
-   ;
-   cout<<"!!!"<<endl;
-   protoKey = (protoKey * (primesSelected[2]-primesSelected[1]));
-   if (protoKey<TWO_P_THIRTY){//TWO_P_SIXTY){
-      protoKey = protoKey * (protoKey % primesSelected[4]);
-   }
-   // protoKey = (protoKey * (primesSelected[3] - primesSelected[2]))%(TWO_P_THIRTY*TWO_P_THIRTY);
-   cout<<"!!!"<<endl;
-   unsigned int key = ((protoKey) % 
-   (TWO_P_TWENTYFOUR * TWO_P_FOUR * TWO_P_FOUR - 1));
 
+//http://www.cse.yorku.ca/~oz/hash.html
+//Knuth's Sorting and Searching
+std::string Encryter::passwordToHashInt(std::string password)
+{
+   std::string empty;
+   empty += '0';
+   if (password.length()<5){return empty;}//Passwords must be a minimum length.
+   if (password.length()>63){return empty;}//Passwords cannot be too large;
+   unsigned int key = hashString(password);
+   std::string hashInts;
+   int passwordLength = password.length();
+   int twicePassLength = passwordLength*2;
    srand ((unsigned int)key);
-   for (int i=0; i<30;i++){
-      cout<<std::rand()%(26)+65;
+   for (int i=0; i<twicePassLength;i++){
+      hashInts+=std::rand()%256;//Return to 256 later
    }
-   cout<<endl;
-   srand ((unsigned int)key);
-   for (int i=0; i<30;i++){
-      cout<<std::rand()%(26)+65;
-   }
-   cout<<endl;  
-         
-         
+
+//   srand ((unsigned int)key);
+//   for (int i=0; i<twicePassLength;i++){
+//      hashInts+=std::rand()%(256);
+//   }
+return hashInts;    
 }
 
 

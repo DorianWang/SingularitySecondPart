@@ -10,6 +10,7 @@
 #define TWO_P_TWENTYFOUR 0x1000000
 #define TWO_P_THIRTY 0x40000000
 #define TWO_P_SIXTY 0x1000000000000000LL
+#define TWO_P_THIRTY_ONE_PRIME 0x7FFFFFFFLL  //2^31 - 1 = 2147483647
 
 #define NUM_PRIMES 8
 
@@ -39,7 +40,8 @@ public:
 
 int keygenChars(char* charSpace, char* scrambledCipher, char* antiCipher, bool *cipherType);
 int keygenInts(bool* cipherType, int numCiphers, char* keyName);
-unsigned int passwordToInt(std::string password);
+std::string passwordToHashInt(std::string password);
+unsigned int hashString( const string &key);
 //Enigma machine like cipher, not really too secure...
 
 //http://codereview.stackexchange.com/questions/44196/enigma-simulator-performance
