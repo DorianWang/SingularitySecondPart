@@ -270,20 +270,20 @@ unsigned int Encryter::hashString( const string &key) {
 
 //http://www.cse.yorku.ca/~oz/hash.html
 //Knuth's Sorting and Searching
-std::string Encryter::passwordToHashInt(std::string password)
+unsigned int Encryter::passwordToHashInt(std::string password)
 {
    std::string empty;
    empty += '0';
-   if (password.length()<5){return empty;}//Passwords must be a minimum length.
-   if (password.length()>63){return empty;}//Passwords cannot be too large;
+   if (password.length()<5){return 0;}//Passwords must be a minimum length.
+   if (password.length()>63){return 0;}//Passwords cannot be too large;
    unsigned int key = hashString(password);
    std::string hashInts;
    int passwordLength = password.length();
    int twicePassLength = passwordLength*2;
-   srand ((unsigned int)key);
-   for (int i=0; i<twicePassLength;i++){
-      hashInts+=std::rand()%256;//Return to 256 later
-   }
+   
+//   for (int i=0; i<twicePassLength;i++){
+//      hashInts+=std::rand()%256;//Return to 256 later
+//   }
 
 //   srand ((unsigned int)key);
 //   for (int i=0; i<twicePassLength;i++){

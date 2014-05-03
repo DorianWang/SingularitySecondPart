@@ -86,6 +86,16 @@ int poi(int size, ...)
    cout<<j<<"qqq"<<endl;
 }
 
+std::string createTestCases(int testCaseSize)
+{
+   std::string output;
+   for (int i=0; i<testCaseSize;i++){
+      output+= rand() % 255 + 1;
+   }
+   
+   return output;
+}
+
 void swap(int*a, int*b)
 {
 int temp = *a;
@@ -96,11 +106,7 @@ int temp = *a;
 
 int main(int argc, char *argv[])
 {
-    //char asdf=176;
-    //char asdfg=177;
-    //char asdfgh=178;
-    //char qwe = 43;
-    cout<<"asdfasdfasdf"<<endl;
+    srand (time(NULL));
     //cout<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
     //cout<<asdfgh<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
     //219 -> 178 -> 177 -> 176 -> 43
@@ -162,21 +168,32 @@ int main(int argc, char *argv[])
    system("PAUSE");
    std::string password = "TESING STUFF";
    std::string newPass;
+   std::vector<std::string> testCases ;
    //std::getline (std::cin, password);//Unlimited size of passwords
    //std::cin.getline(password, 64);//Passwords are up to 64 chars in size
    //Bromo.passwordToInt(password);
    
-   //std::string tesomalksnf = "k45ty4k65hj4jm132gh1n354sd5g4a654a56w4f68wera464faw6e84f6a8w4ef684aw6e4fa6w8e4f68we46f4aw68e4fa6ds5f4";
-   //cout << tesomalksnf.length()<<endl;
-   for (int i=0; i<10; i++){
+   int k=0;
+   
+   for (int testCaseSize=5; testCaseSize<10; testCaseSize++){
+      while(true){
+         testCases.push_back(createTestCases(testCaseSize)); 
+         if (k>5){
+         k=0; break;   
+         k++;
+         }   
+      }
+   }
+   for (int i=0; i<testCases.size(); i++){
       cout<<i<<endl;
-      system("PAUSE");
       newPass.clear();
-      if (!myFile.readLine(&newPass)) break;
+      newPass = testCases[i];
+      if (newPass.empty()) break;
       cout<<newPass<<endl;
       cout<<Bromo.passwordToHashInt(newPass)<<" Hash things!"<<endl;
       
    }
+   //srand ((unsigned int)key);
    
    //Bromo.keygenChars();
 //   char qwer[16]="asd";

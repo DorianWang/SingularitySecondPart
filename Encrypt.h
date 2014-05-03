@@ -40,7 +40,7 @@ public:
 
 int keygenChars(char* charSpace, char* scrambledCipher, char* antiCipher, bool *cipherType);
 int keygenInts(bool* cipherType, int numCiphers, char* keyName);
-std::string passwordToHashInt(std::string password);
+unsigned int passwordToHashInt(std::string password);
 unsigned int hashString( const string &key);
 //Enigma machine like cipher, not really too secure...
 
