@@ -1,6 +1,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <algorithm>
 
 //MUSIC! http://www.youtube.com/watch?v=nDyzVV_e7WM&list=LL5I3vUh2iNfQ3pCU3sodYRA&shuffle=167714
 
@@ -86,9 +87,10 @@ int poi(int size, ...)
    cout<<j<<"qqq"<<endl;
 }
 
-std::string createTestCases(int testCaseSize)
+std::vector <std::string> createTestCases(int testCaseSize)
 {
-   std::string output;
+   std::string temp;
+   std::vector <std::string> output;
    for (int i=0; i<testCaseSize;i++){
       output+= rand() % 255 + 1;
    }
@@ -169,6 +171,8 @@ int main(int argc, char *argv[])
    std::string password = "TESING STUFF";
    std::string newPass;
    std::vector<std::string> testCases ;
+   std::vector<unsigned int> testAnswers;
+   unsigned int tempInt;
    //std::getline (std::cin, password);//Unlimited size of passwords
    //std::cin.getline(password, 64);//Passwords are up to 64 chars in size
    //Bromo.passwordToInt(password);
@@ -177,11 +181,12 @@ int main(int argc, char *argv[])
    
    for (int testCaseSize=5; testCaseSize<10; testCaseSize++){
       while(true){
+         cout<<testCaseSize<<endl;
          testCases.push_back(createTestCases(testCaseSize)); 
          if (k>5){
          k=0; break;   
-         k++;
-         }   
+         }  
+         k++; 
       }
    }
    for (int i=0; i<testCases.size(); i++){
@@ -190,10 +195,11 @@ int main(int argc, char *argv[])
       newPass = testCases[i];
       if (newPass.empty()) break;
       cout<<newPass<<endl;
-      cout<<Bromo.passwordToHashInt(newPass)<<" Hash things!"<<endl;
-      
+      tempInt = Bromo.passwordToHashInt(newPass);
+      cout<<tempInt<<" Hash things!"<<endl;
+      testAnswers.push_back(tempInt);
    }
-   //srand ((unsigned int)key);
+   std::sort (testAnswers.begin(), testAnswers.end());
    
    //Bromo.keygenChars();
 //   char qwer[16]="asd";

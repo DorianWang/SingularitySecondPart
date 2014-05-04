@@ -246,7 +246,7 @@ unsigned int Encryter::hashString( const string &key) {
    int arraySmallPrimes[26] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 
    29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};
    
-   int primeCounter = (key[0]*arrayMediumPrimes[key[0]%14])%26;
+   unsigned int primeCounter = (key[0]*arrayMediumPrimes[key[0]%14])%26;
    
    for(int i = 0; i<key.length();  i++){
      hashVal = ((arraySmallPrimes[primeCounter]*hashVal)%TWO_P_THIRTY_ONE_PRIME)
@@ -257,7 +257,9 @@ unsigned int Encryter::hashString( const string &key) {
       }
       primeCounter++;
    }
-   hashVal = hashVal * (arrayLargePrimes[arraySmallPrimes[primeCounter%26]]
+
+   
+   hashVal = hashVal * (arrayLargePrimes[arraySmallPrimes[primeCounter%26]%13]
     - arrayLargePrimes[arraySmallPrimes[(primeCounter+1)%26]]);
 
    if(hashVal<0){
@@ -277,19 +279,18 @@ unsigned int Encryter::passwordToHashInt(std::string password)
    if (password.length()<5){return 0;}//Passwords must be a minimum length.
    if (password.length()>63){return 0;}//Passwords cannot be too large;
    unsigned int key = hashString(password);
-   std::string hashInts;
-   int passwordLength = password.length();
-   int twicePassLength = passwordLength*2;
+
+   //int passwordLength = password.length();
+   //int twicePassLength = passwordLength*2;
    
 //   for (int i=0; i<twicePassLength;i++){
 //      hashInts+=std::rand()%256;//Return to 256 later
 //   }
-
 //   srand ((unsigned int)key);
 //   for (int i=0; i<twicePassLength;i++){
 //      hashInts+=std::rand()%(256);
 //   }
-return hashInts;    
+return key;    
 }
 
 
