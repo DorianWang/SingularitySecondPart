@@ -247,10 +247,13 @@ unsigned int Encryter::hashString( const string &key) {
    29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101};
    
    unsigned int primeCounter = (key[0]*arrayMediumPrimes[key[0]%14])%26;
-   
+   unsigned int allCharsTogether = 0;
    for(int i = 0; i<key.length();  i++){
      hashVal = ((arraySmallPrimes[primeCounter]*hashVal)%TWO_P_THIRTY_ONE_PRIME)
      +key[i];
+
+      allCharsTogether = allCharsTogether % TWO_P_THIRTY_ONE_PRIME +key[i];
+      
       if (primeCounter>=25){
          primeCounter = 0;
          continue;
@@ -265,7 +268,8 @@ unsigned int Encryter::hashString( const string &key) {
    if(hashVal<0){
      hashVal = hashVal*(-1);// += tableSize;
    }
-   return (hashVal%TWO_P_THIRTY_ONE_PRIME);
+   cout<<hashVal<<" "<<allCharsTogether<<endl;
+   return ((hashVal + allCharsTogether)%TWO_P_THIRTY_ONE_PRIME);
  }
 
 
@@ -276,7 +280,7 @@ unsigned int Encryter::passwordToHashInt(std::string password)
 {
    std::string empty;
    empty += '0';
-   if (password.length()<5){return 0;}//Passwords must be a minimum length.
+   //if (password.length()<5){return 0;}//Passwords must be a minimum length.
    if (password.length()>63){return 0;}//Passwords cannot be too large;
    unsigned int key = hashString(password);
 

@@ -232,35 +232,10 @@ int main(int argc, char *argv[])
       tempInt = Bromo.passwordToHashInt(newPass);
       cout<<tempInt<<" Hash things!"<<endl;
       testAnswers.push_back(tempInt);
+      //system("PAUSE");
    }
-   cout<<"Is this bad?"<<vectorSize<<endl;
-   std::sort (testAnswers.begin(), testAnswers.end());
-   system("PAUSE");
-   int numMult=0; unsigned int currentNumFound = testAnswers[0];
-   
-   for(int i=0; i<vectorSize;i++){
-           cout<<i<<endl;
-      while(true){
-         if (i==(vectorSize-1)){
-            cout<<"The END!"<<endl;
-            break;
-         }
-         
-         if (currentNumFound!=testAnswers[i]){
-            i--;
-            currentNumFound = testAnswers[i+1];
-            cout<<"There are "<<numMult<<" of the number "
-            <<testAnswers[i+1]<<endl;
-            numMult = 1;
-            break;
-         }
-         numMult++;
-         i++;
-         cout<<i<<" "<<numMult<<testAnswers[i]<<endl;
-         system("PAUSE");
-      }
-   }
-   
+
+
 //   for(int i=0; i<vectorSize;i++){
 //      while(true){
 //         if (i!=vectorSize-1){
