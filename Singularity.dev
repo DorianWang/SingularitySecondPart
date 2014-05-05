@@ -27,7 +27,7 @@ CustomMakefile=
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
-CompilerSettings=0000000000000001000000
+CompilerSettings=0000000001000001000000
 
 [Unit2]
 FileName=Bases.cpp
@@ -271,9 +271,9 @@ BuildCmd=
 FileName=Depreciated.cpp
 CompileCpp=1
 Folder=Stuff
-Compile=1
-Link=1
+Compile=0
+Link=0
 Priority=1000
 OverrideBuildCmd=0
-BuildCmd=
+BuildCmd=$(CPP) -c Depreciated.cpp -o Depreciated.o $(CXXFLAGS)
 

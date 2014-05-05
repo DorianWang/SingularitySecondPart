@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <algorithm>
+#include <sstream>
 
 //MUSIC! http://www.youtube.com/watch?v=nDyzVV_e7WM&list=LL5I3vUh2iNfQ3pCU3sodYRA&shuffle=167714
 
@@ -89,39 +90,50 @@ int poi(int size, ...)
 
 std::vector <std::string> createTestCases(int testCaseSize)
 {
+   cout<<testCaseSize<<endl;
    std::string temp;
    std::vector <std::string> output;
+   int counter=0;
    char allChars[52];//All the chars I want. Only letters for now.
    //65 - 90, 97 - 122
+   cout<<"Stuff!"<<endl;
    for (int i='a';i<='z';i++){
       allChars[i-'a']=i;    
    }
    for (int i='A'; i<='Z';i++){
-      allChars[i+'z'-'A'+1] = i;  
+      allChars[i + 'z' - 'a' - 'A' + 1] = i;  
    }
    
+   cout<<"End stuff!"<<endl;
+   cout<<"Why you so sad!"<<" "<<testCaseSize<<endl;
    int currentInt[testCaseSize];//={65};
-   
+   cout<<"Stuff!"<<endl;
    for (int i=0; i<testCaseSize;i++){
-      currentInt[i] = allChars[0];    
+      currentInt[i] = allChars[0] - 'a';    
    }
-   
+   cout<<"End stuff!"<<endl;
    while(true){
                
       for (int i=testCaseSize-1; i>=0;i--){
          if (currentInt[i]>=52){
-            if (i==(testCaseSize-1)){
+            if (i==(0)){
                return output;
             }
             currentInt[i-1]+=1; currentInt[i] = 0;
             
          }
-      for (int )
-         
       }
+      
+      for (int i = 0; i<testCaseSize; i++){
+         temp += allChars[currentInt[i]];
+      }
+      output.push_back(temp);
+      temp.clear();
+      cout<<counter<<" loop!"<<endl;
+      counter++;
+      
    currentInt[testCaseSize-1]+=1;
    }
-   return output;
 }
 
 void swap(int*a, int*b)
@@ -204,28 +216,72 @@ int main(int argc, char *argv[])
    //Bromo.passwordToInt(password);
    
    int k=0;
-   
-   for (int testCaseSize=5; testCaseSize<10; testCaseSize++){
-      while(true){
-         cout<<testCaseSize<<endl;
-         testCases.push_back(createTestCases(testCaseSize)); 
-         if (k>5){
-         k=0; break;   
-         }  
-         k++; 
-      }
-   }
-   for (int i=0; i<testCases.size(); i++){
+   testCases = createTestCases(2);//(testCaseSize)
+   int vectorSize = testCases.size();
+   cout<<vectorSize<<endl;
+   system("PAUSE");
+
+   for (int i=0; i<vectorSize;i++){
       cout<<i<<endl;
       newPass.clear();
       newPass = testCases[i];
-      if (newPass.empty()) break;
+      if (newPass.empty()){
+         break;
+      }
       cout<<newPass<<endl;
       tempInt = Bromo.passwordToHashInt(newPass);
       cout<<tempInt<<" Hash things!"<<endl;
       testAnswers.push_back(tempInt);
    }
+   cout<<"Is this bad?"<<vectorSize<<endl;
    std::sort (testAnswers.begin(), testAnswers.end());
+   system("PAUSE");
+   int numMult=0; unsigned int currentNumFound = testAnswers[0];
+   
+   for(int i=0; i<vectorSize;i++){
+           cout<<i<<endl;
+      while(true){
+         if (i==(vectorSize-1)){
+            cout<<"The END!"<<endl;
+            break;
+         }
+         
+         if (currentNumFound!=testAnswers[i]){
+            i--;
+            currentNumFound = testAnswers[i+1];
+            cout<<"There are "<<numMult<<" of the number "
+            <<testAnswers[i+1]<<endl;
+            numMult = 1;
+            break;
+         }
+         numMult++;
+         i++;
+         cout<<i<<" "<<numMult<<testAnswers[i]<<endl;
+         system("PAUSE");
+      }
+   }
+   
+//   for(int i=0; i<vectorSize;i++){
+//      while(true){
+//         if (i!=vectorSize-1){
+//            break;
+//         }
+//         
+//         if (currentNumFound!=testAnswers[i]){
+//            i--;
+//            currentNumFound = testAnswers[i];
+//            newPass.clear();
+//            newPass += "There are ";
+//            neewPass += numMult;
+//            cout<<"There are "<<numMult<<" of the number "
+//            <<testAnswers[i]<<endl;
+//            numMult = 1;
+//            break;
+//         }
+//         numMult++;
+//         i++;
+//      }
+//   }
    
    //Bromo.keygenChars();
 //   char qwer[16]="asd";
