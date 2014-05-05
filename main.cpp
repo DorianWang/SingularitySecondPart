@@ -91,10 +91,36 @@ std::vector <std::string> createTestCases(int testCaseSize)
 {
    std::string temp;
    std::vector <std::string> output;
-   for (int i=0; i<testCaseSize;i++){
-      output+= rand() % 255 + 1;
+   char allChars[52];//All the chars I want. Only letters for now.
+   //65 - 90, 97 - 122
+   for (int i='a';i<='z';i++){
+      allChars[i-'a']=i;    
+   }
+   for (int i='A'; i<='Z';i++){
+      allChars[i+'z'-'A'+1] = i;  
    }
    
+   int currentInt[testCaseSize];//={65};
+   
+   for (int i=0; i<testCaseSize;i++){
+      currentInt[i] = allChars[0];    
+   }
+   
+   while(true){
+               
+      for (int i=testCaseSize-1; i>=0;i--){
+         if (currentInt[i]>=52){
+            if (i==(testCaseSize-1)){
+               return output;
+            }
+            currentInt[i-1]+=1; currentInt[i] = 0;
+            
+         }
+      for (int )
+         
+      }
+   currentInt[testCaseSize-1]+=1;
+   }
    return output;
 }
 
