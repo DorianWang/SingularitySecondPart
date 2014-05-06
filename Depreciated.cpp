@@ -195,41 +195,7 @@ if (myfile.is_open()){
 //   system("PAUSE");
 //   myFile.writeBuffer();
 
-//
-//   
-//   cout<<"Is this bad?"<<vectorSize<<endl;
-//   std::sort (testAnswers.begin(), testAnswers.end());
-//   system("PAUSE");
-//   int numMult=0; unsigned int currentNumFound = testAnswers[0];
-//   for (int i=0; i<20;i++){
-//      cout<<testAnswers[i]<<endl;
-//   }
-//   
-//   for(int i=0; i<vectorSize;i++){
-//           cout<<i<<endl;
-//      while(true){
-//         if (i==(vectorSize-1)){
-//            cout<<"The END!"<<endl;
-//            break;
-//         }
-//         
-//         if (currentNumFound!=testAnswers[i]){
-//            i--;
-//            currentNumFound = testAnswers[i+1];
-//            if (numMult>2){
-//               cout<<"There are "<<numMult<<" of the number "
-//               <<testAnswers[i+1]<<endl;
-//            }
-//            numMult = 0;
-//            break;
-//         }
-//         numMult++;
-//         i++;
-//         cout<<i<<" "<<numMult<<" "<<testAnswers[i]<<endl;
-//         //system("PAUSE");
-//      }
-//   }
-//   
+
 
 
 

@@ -18,9 +18,9 @@ Order=0,16,17,12,11,22
 [Editor_0]
 Open=1
 Top=1
-CursorCol=1
-CursorRow=238
-TopLine=208
+CursorCol=28
+CursorRow=304
+TopLine=58
 LeftChar=1
 [Editor_3]
 Open=0
@@ -158,7 +158,7 @@ LeftChar=1
 [Editor_22]
 Open=1
 Top=0
-CursorCol=1
-CursorRow=198
-TopLine=188
+CursorCol=6
+CursorRow=184
+TopLine=166
 LeftChar=1

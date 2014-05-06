@@ -88,15 +88,30 @@ int poi(int size, ...)
    cout<<j<<"qqq"<<endl;
 }
 
+int powerTo(int base, int exponential){
+   unsigned int output = 1;
+   if (exponential<=0){
+      return 1;//No fractions!   
+   }
+   
+   for (int i=0; i<exponential; i++){
+      output = output * exponential;
+   }
+   
+   return output;
+}
+
 std::vector <std::string> createTestCases(int testCaseSize)
 {
    cout<<testCaseSize<<endl;
    std::string temp;
    std::vector <std::string> output;
+   std::vector <std::string> inputOutput;
+   output.reserve(powerTo(52, testCaseSize) + powerTo(52, testCaseSize/2));
    int counter=0;
    char allChars[52];//All the chars I want. Only letters for now.
    //65 - 90, 97 - 122
-   cout<<"Stuff!"<<endl;
+   //cout<<"Stuff!"<<endl;
    for (int i='a';i<='z';i++){
       allChars[i-'a']=i;    
    }
@@ -104,19 +119,25 @@ std::vector <std::string> createTestCases(int testCaseSize)
       allChars[i + 'z' - 'a' - 'A' + 1] = i;  
    }
    
-   cout<<"End stuff!"<<endl;
-   cout<<"Why you so sad!"<<" "<<testCaseSize<<endl;
+   //cout<<"End stuff!"<<endl;
+   //cout<<"Why you so sad!"<<" "<<testCaseSize<<endl;
    int currentInt[testCaseSize];//={65};
-   cout<<"Stuff!"<<endl;
+   
    for (int i=0; i<testCaseSize;i++){
       currentInt[i] = allChars[0] - 'a';    
    }
-   cout<<"End stuff!"<<endl;
+
    while(true){
                
       for (int i=testCaseSize-1; i>=0;i--){
+         cout<<"One loop done!"<<endl;
          if (currentInt[i]>=52){
             if (i==(0)){
+               if (testCaseSize>1){
+                  inputOutput = createTestCases(testCaseSize - 1);
+                  output.insert(output.end(), inputOutput.begin(), inputOutput.end());
+               }
+               
                return output;
             }
             currentInt[i-1]+=1; currentInt[i] = 0;
@@ -129,7 +150,6 @@ std::vector <std::string> createTestCases(int testCaseSize)
       }
       output.push_back(temp);
       temp.clear();
-      cout<<counter<<" loop!"<<endl;
       counter++;
       
    currentInt[testCaseSize-1]+=1;
@@ -205,21 +225,23 @@ int main(int argc, char *argv[])
    
    
    Encryter Bromo;
-   system("PAUSE");
+   //system("PAUSE");
    std::string password = "TESING STUFF";
    std::string newPass;
    std::vector<std::string> testCases ;
    std::vector<unsigned int> testAnswers;
    unsigned int tempInt;
+   stringstream ss;
+   int numCollisions = 0;
    //std::getline (std::cin, password);//Unlimited size of passwords
    //std::cin.getline(password, 64);//Passwords are up to 64 chars in size
    //Bromo.passwordToInt(password);
    
    int k=0;
-   testCases = createTestCases(2);//(testCaseSize)
+   testCases = createTestCases(4);//(testCaseSize)
    int vectorSize = testCases.size();
    cout<<vectorSize<<endl;
-   system("PAUSE");
+   //system("PAUSE");
 
    for (int i=0; i<vectorSize;i++){
       cout<<i<<endl;
@@ -230,10 +252,63 @@ int main(int argc, char *argv[])
       }
       cout<<newPass<<endl;
       tempInt = Bromo.passwordToHashInt(newPass);
-      cout<<tempInt<<" Hash things!"<<endl;
+      //cout<<tempInt<<" Hash things!"<<endl;
       testAnswers.push_back(tempInt);
       //system("PAUSE");
    }
+
+
+   
+   cout<<"Is this bad?"<<vectorSize<<endl;
+   std::sort (testAnswers.begin(), testAnswers.end());
+   //system("PAUSE");
+   int numMult=0; unsigned int currentNumFound = testAnswers[0];
+   for (int i=0; i<20;i++){
+      cout<<testAnswers[i]<<endl;
+   }
+   
+   for(int i=0; i<vectorSize;i++){
+           cout<<i<<endl;
+      while(true){
+         if (i==(vectorSize-1)){
+            cout<<"The END!"<<endl;
+            break;
+         }
+         
+         if (currentNumFound!=testAnswers[i]){
+            i--;
+            currentNumFound = testAnswers[i+1];
+            if (numMult>2){
+               cout<<"There are "<<numMult<<" of the number "
+               <<testAnswers[i+1]<<endl;
+               ss<<"There are "<<numMult<<" of the number "
+               <<testAnswers[i+1]<<endl;
+               numCollisions +=numMult;
+               myFile.bufferLines(ss.str());
+               ss.str( std::string() );
+               ss.clear();
+            }
+            numMult = 0;
+            break;
+         }
+         numMult++;
+         i++;
+         cout<<i<<" "<<numMult<<" "<<testAnswers[i]<<endl;
+         //system("PAUSE");
+      }
+   }
+   ss.str( std::string() );
+   ss.clear();
+   ss<<numCollisions<<" "<<vectorSize<<endl;
+   myFile.bufferLines(ss.str());
+   ss.str( std::string() );
+   ss.clear();
+   float percentError=0.000;
+   percentError = (float)numCollisions / (float)vectorSize;
+   percentError = percentError*100.000;
+   ss<<"The percent collision was "<<percentError<<"% !"<<endl;
+   myFile.bufferLines(ss.str());
+   myFile.writeBuffer();
 
 
 //   for(int i=0; i<vectorSize;i++){
@@ -283,7 +358,7 @@ int main(int argc, char *argv[])
     
    //I don't want to reach this, should I remove it?
    
-   
+   cout<<"I'm done!"<<endl;
    system("PAUSE");
    
    return EXIT_SUCCESS;
