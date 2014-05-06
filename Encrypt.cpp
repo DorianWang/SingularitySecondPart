@@ -284,20 +284,29 @@ unsigned int Encryter::passwordToHashInt(std::string password)
    if (password.length()>63){return 0;}//Passwords cannot be too large;
    unsigned int key = hashString(password);
 
-   //int passwordLength = password.length();
-   //int twicePassLength = passwordLength*2;
-   
-//   for (int i=0; i<twicePassLength;i++){
-//      hashInts+=std::rand()%256;//Return to 256 later
-//   }
-//   srand ((unsigned int)key);
-//   for (int i=0; i<twicePassLength;i++){
-//      hashInts+=std::rand()%(256);
-//   }
 return key;    
 }
 
-
+std::vector <std::string> decryptFile(FileIO* myFile)
+{
+   std::string fileInput;
+   std::string decryptedLine;
+   std::vector <std::string> output;
+   output.reserve(myFile.)
+   while(myFile.readLine(fileInput)){
+      decryptedLine = decryptString(fileInput);                         
+      output
+      decryptedLine
+      decryptedLine.clear();
+      fileInput.clear();
+   }
+   
+   
+   
+   
+   
+   
+} 
 
 
 

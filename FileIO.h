@@ -80,6 +80,7 @@ private:
 
 int lineCounter;
 int dataCounter;
+int fileLength;
 vector <std::string> lineBuffer;
 std::string lineBufferBuffer;//For extra storage...
 vector <char> dataBuffer;

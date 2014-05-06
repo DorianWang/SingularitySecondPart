@@ -16,10 +16,25 @@ FileIO::~FileIO()
 
 
 
-bool writeDwarf()
+void getFileLength()
 {
-   int asdf;  
+   fileLength = 0;
+   if(!isBinary){//Not a binary file, therefore it is a text file
+   while (std::getline(myfile, line))
+      ++number_of_lines;
+   std::cout << "Number of lines in text file: " << number_of_lines;   
+   }
+   if ()
+   fileLength = 
 
+}
+
+void fileConstructor()
+{
+   lineCounter = 0;
+   dataCounter = 0;
+  
+     
 }
 
 std::string FileIO::getFileName()
