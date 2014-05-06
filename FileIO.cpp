@@ -16,25 +16,32 @@ FileIO::~FileIO()
 
 
 
-void getFileLength()
+void FileIO::getFileLength()
 {
    fileLength = 0;
    if(!isBinary){//Not a binary file, therefore it is a text file
-   while (std::getline(myfile, line))
-      ++number_of_lines;
-   std::cout << "Number of lines in text file: " << number_of_lines;   
+      goStart(1);
+      std::string line;
+      while (std::getline(myfile, line)){
+         ++fileLength;
+      }
+      goStart(1);
    }
-   if ()
-   fileLength = 
+   
+   if (isBinary){
+      std::streampos fsize = 0;
+      goEnd(1);
+      fileLength = myfile.tellg() - fsize;
+      goStart(1);
+   }
 
 }
 
-void fileConstructor()
+void FileIO::fileConstructor()
 {
    lineCounter = 0;
    dataCounter = 0;
-  
-     
+   getFileLength();
 }
 
 std::string FileIO::getFileName()
@@ -115,6 +122,7 @@ int FileIO::textOpenFile(std::string filePath, bool isFirstTime)
       myfile.open(filePath.c_str(), ios::out | ios::in);
       isBinary=false;
       fileLength=0;
+      fileConstructor();
       return 1;
    }
    
@@ -122,6 +130,7 @@ int FileIO::textOpenFile(std::string filePath, bool isFirstTime)
    
    if (myfile.is_open()){
       isBinary=false;
+      fileConstructor();
       return 1;
    }
     
@@ -137,6 +146,7 @@ int FileIO::dataOpenFile(std::string filePath, bool isFirstTime)
       myfile.open(filePath.c_str(), ios::out | ios::in);
       isBinary=true;
       fileLength=0;
+      fileConstructor();
       return 1;
    }
    
@@ -144,6 +154,7 @@ int FileIO::dataOpenFile(std::string filePath, bool isFirstTime)
    
    if (myfile.is_open()){
       isBinary=true;
+      fileConstructor();
       return 1;
    }
     
@@ -182,12 +193,14 @@ int FileIO::textOpenFile()
       myfile.open(filePath.c_str(), ios::out | ios::in);
       isBinary=false;
       fileLength=0;
+      fileConstructor();
       return 1;
    }
    
    myfile.open(filePath.c_str(), ios::out | ios::in);
    if (myfile.is_open()){
       isBinary=false;
+      fileConstructor();
       return 1;
    }
 }
@@ -226,6 +239,7 @@ int FileIO::dataOpenFile()
       myfile.open(filePath.c_str(), ios::out | ios::in | ios::binary);
       isBinary=true;
       fileLength=0;
+      fileConstructor();
       return 1;
    }
    
@@ -235,7 +249,7 @@ int FileIO::dataOpenFile()
    myfile.seekg (0, myfile.end);
    fileLength = myfile.tellg();
    myfile.seekg (0, myfile.beg);
-   
+   fileConstructor();
    return 1;
 }
 
@@ -301,6 +315,10 @@ int FileIO::readLine(std::string *output)
    std::string input;
    
    getline( myfile, input );
+   if (input.length()==0){
+      return 0;
+   }
+   
    *output = input;
    return 1;
 }

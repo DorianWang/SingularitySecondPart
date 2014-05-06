@@ -113,49 +113,12 @@ int main(int argc, char *argv[])
    char buffer[16];
    buffer[0]='0';buffer[1]='1';buffer[2]='5';buffer[3]='h';//buffer[4]='c';buffer[5]='d';buffer[6]='q';buffer[7]='h';
    buffer[8]='Q';buffer[9]=0;
-   //cout<<sizeof(asdf)<<endl;
-   //*((float*)(buffer)) = asdf;
-//   *((int*)(buffer+sizeof(float))) = asdfs;
-//   cout<< *((float*)buffer)<<endl;
-//   cout<< *((int*)(buffer+sizeof(float)))<<endl;
-   
-   
-//   char buffer2[5];
-//   buffer2[4]=0;
-//   void* test;
-//   test = (char*)asdfs;
-//   
-//   unsigned char bytes[4];
-//unsigned long n = 175;
-//
-//
-//for (int i=0;i<sizeof(int);i++){
-//   bytes[0] = (n >> 24) & 0xFF;
-//   bytes[1] = (n >> 16) & 0xFF;
-//   bytes[2] = (n >> 8) & 0xFF;
-//   bytes[3] = n & 0xFF;
-//}
-//   cout<<buffer2<<endl;
-   
-//   std::string empty;
-//   std::string ijn = "zxcv";
-//   cout<<empty<<endl;
-//   empty+="asdf";
-//   cout<<empty<<" "<<empty.length()<<endl;
-//   empty+="qwer";
-//   cout<<empty<<" "<<empty.length()<<endl;
-//   empty+=ijn;
-//   cout<<empty<<" "<<empty.length()<<endl;
-   
-   //fstream myfile;
-   //myfile.open("D:/Asdf.bin",  ios::out | ios::in | ios::binary);
-   //myfile.open("Data/Asdfg.bin",  ios::out | ios::binary);//creates the file if it doesn't exist yet
-   //myfile.write(buffer, 2);
-   //myfile.close();
-   
+
    FileIO myFile;//FileIO has been tested, and appears to work...
+   std::string asos;
    
-   myFile.textOpenFile("Data/PasswordTest.txt", false);
+
+   cout<<asos.length()<<endl;;
    
    
    Encryter Bromo;

@@ -292,11 +292,10 @@ std::vector <std::string> decryptFile(FileIO* myFile)
    std::string fileInput;
    std::string decryptedLine;
    std::vector <std::string> output;
-   output.reserve(myFile.)
-   while(myFile.readLine(fileInput)){
-      decryptedLine = decryptString(fileInput);                         
-      output
-      decryptedLine
+   //output.reserve(myFile.)
+   while((*myFile).readLine(&fileInput)){
+      //decryptedLine = decryptString(fileInput);                         
+      output.push_back(decryptedLine);
       decryptedLine.clear();
       fileInput.clear();
    }

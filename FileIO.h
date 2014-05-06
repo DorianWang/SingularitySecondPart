@@ -23,7 +23,7 @@ fstream myfile;//input and output
 std::string filePath;
 bool isBinary;
 bool isOpen;
-int fileLength;
+unsigned long long fileLength;
 bool dataInLineBuffer;
 
 //Functions
@@ -75,12 +75,15 @@ int clearBuffer(int line);
 
 int closeFile(); void closeFile(bool asdf);
 
+void getFileLength();
+void fileConstructor();
+
 ;
 private:
 
 int lineCounter;
 int dataCounter;
-int fileLength;
+
 vector <std::string> lineBuffer;
 std::string lineBufferBuffer;//For extra storage...
 vector <char> dataBuffer;
