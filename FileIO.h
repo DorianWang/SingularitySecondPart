@@ -47,6 +47,7 @@ int dataOpenFile(std::string filePath, bool isFirstTime);
 
 //reading data
 int readLine(std::string *output);
+int readWholeLine(std::string *output);
 int readIntData(int *output);
 int readData(int dataType, int arrayLength, ...);
 

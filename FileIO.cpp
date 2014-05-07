@@ -323,6 +323,23 @@ int FileIO::readLine(std::string *output)
    return 1;
 }
 
+int FileIO::readWholeLine(std::string *output)
+{
+   if (!myfile.good()){
+      return 0;
+   }
+   
+   std::string input;
+   
+   getline( myfile, input );
+   if (input.length()==0){
+      return 0;
+   }
+   input = char(0);
+   *output = input;
+   return 1;
+}
+
 // It is limited to 512 bytes per pull. 
 // Multiple executions may be required to get all data.
 // http://stackoverflow.com/questions

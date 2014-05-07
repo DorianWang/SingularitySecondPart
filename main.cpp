@@ -115,9 +115,19 @@ int main(int argc, char *argv[])
    buffer[8]='Q';buffer[9]=0;
 
    FileIO myFile;//FileIO has been tested, and appears to work...
-   std::string asos;
    
-
+   myFile.textOpenFile("Data/Aso.txt", false);
+   std::string asos;
+   std::vector <std::string> fileBuffer;
+   
+   while(myFile.readWholeLine(&asos)){
+      fileBuffer.push_back(asos);                              
+   }
+   
+   for (int i=0; i<fileBuffer.size();i++){
+   cout<<fileBuffer[i];
+   }
+   
    cout<<asos.length()<<endl;;
    
    
