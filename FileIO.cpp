@@ -333,11 +333,12 @@ int FileIO::readWholeLine(std::string *output)
    
    getline( myfile, input );
    if (input.length()==0){
-      return 0;
+      return 1;//Empty line...
    }
-   input = char(0);
-   *output = input;
-   return 1;
+   stringstream ss;
+   ss<<input<<endl;
+   *output = ss.str();
+   return 2;
 }
 
 // It is limited to 512 bytes per pull. 

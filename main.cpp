@@ -120,16 +120,16 @@ int main(int argc, char *argv[])
    std::string asos;
    std::vector <std::string> fileBuffer;
    
-   while(myFile.readWholeLine(&asos)){
+   while(myFile.readLine(&asos)){
       fileBuffer.push_back(asos);                              
    }
    
    for (int i=0; i<fileBuffer.size();i++){
-   cout<<fileBuffer[i];
+      cout<<fileBuffer[i]<<"!"<<endl;;
    }
    
-   cout<<asos.length()<<endl;;
-   
+   //cout<<asos.length()<<endl;;
+
    
    Encryter Bromo;
 
