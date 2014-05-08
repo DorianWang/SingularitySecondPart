@@ -103,7 +103,7 @@ if (cipherType[4]==true){
    
    
    std::vector<char> antiCipher (vectorCounter); int temp = 0;
-   system("PAUSE");
+
    for (int j = 0; j<vectorCounter; j++){
       for (int k=0; k<vectorCounter; k++){
          if (cipherScrambled[j]==cipherCharSpace[k]){
@@ -119,14 +119,8 @@ if (cipherType[4]==true){
    copy(path.begin(), path.end(), ostream_iterator<char>(cout, " "));
    */
    
-   for (int i=0;i<vectorCounter;i++){
-      cout<< cipherCharSpace[i];   
-   }
-   cout<<endl;
-   
    for(int i=0; i<vectorCounter; i++){charSpace[i]=cipherCharSpace[i];}
-   cout<<endl;
-   cout<<"stuff"<<endl;
+
 
    for(int i=0; i<vectorCounter; i++){scrambledCipher[i]=cipherScrambled[i];}
    
@@ -190,53 +184,66 @@ return cipherIntSpace;
 //The keyname is a name, and does not need to have a file extension. The function will add one.
 int Encryter::keygenInts(bool* cipherType, int numCiphers, char* keyName)
 {
-    
-//bool cipherType[5];
 int vectorCounter=0;
-   
-   //testing
+
    for (int q=0; q<5; q++){cipherType[q]=true;};
     
    std::vector<int> cipherIntSpace;
    std::vector<int> cipherScrambled;
    std::vector<int> antiCipherInts;
-   
    cipherIntSpace = createCharSpace(cipherType);
-    
-char cipherSalt[vectorCounter];
-char antiCipherSalt[vectorCounter];
-char charSpace[vectorCounter];//All the characters possible in the cipher.
+   
+vectorCounter = cipherIntSpace.size();
+//char cipherSalt[vectorCounter];
+//char antiCipherSalt[vectorCounter];
+//char charSpace[vectorCounter];//All the characters possible in the cipher.
 int temp;
 
-std::string fileName = "Data/";
+std::string fileName;
 fileName += keyName;
+fileName += ".cip";
 FileIO outputFileCipher;
 FileIO outputFileAntiCipher;
 outputFileCipher.textOpenFile(fileName, true);
+fileName.clear(); fileName +=keyName; fileName += ".acp";
 outputFileAntiCipher.textOpenFile(fileName, true);
 
+stringstream ss;
 //creating ciphers
    for (int i=0;i<numCiphers;i++){
           
-      int check = keygenChars(charSpace, cipherSalt, antiCipherSalt, cipherType);
-      if (check!=vectorCounter){/*What happened?*/};
+      //int check = keygenChars(charSpace, cipherSalt, antiCipherSalt, cipherType);
+      //if (check!=vectorCounter){/*What happened?*/};
           
       cipherScrambled = cipherIntSpace;
       
-      std::random_shuffle ( cipherScrambled.begin(), cipherScrambled.end() );
-      
-      
-      antiCipherInts.resize(vectorCounter,0);
-      //Makes the vector a size of vectorCounter, and fills it with 0s.
+      std::random_shuffle ( cipherScrambled.begin(), cipherScrambled.end(), myRand);
+      for (int k=0; k<vectorCounter; k++){
+         ss<<cipherScrambled[k];
+      }
+      cout<<ss.str()<<endl;
+      outputFileCipher.bufferLines(ss.str());
+      ss.str(std::string());
+      ss.clear();
+      antiCipherInts.resize(vectorCounter + 1,0);
+      //Makes the vector a size of vectorCounter plus one, and fills it with 0s.
       
       for (int j=0;j<vectorCounter;j++){  
          temp = cipherScrambled[j];
          antiCipherInts[temp]=j;
       }
-          
-          
+      
+      for (int k=0; k<vectorCounter; k++){
+         ss<<antiCipherInts[k];
+      }
+      outputFileAntiCipher.bufferLines(ss.str());
+      ss.str(std::string());
+      ss.clear();
    }
 
+outputFileCipher.writeBuffer();
+outputFileAntiCipher.writeBuffer();
+return 1;
 }
 
 
@@ -338,18 +345,21 @@ std::vector <std::string> decryptFile(FileIO* myFile)
       fileInput.clear();
    }
    
-   
-   
-   
-   
+
    
 } 
 
+int Encryter::createAllCiphers(bool* cipherType, int numCiphers, char* keyName, char* folderName, int totalNumCiphers)
+{
+   stringstream ss;
+   for (int i=0; i<totalNumCiphers; i++){
+      ss<<folderName<<"/"<<keyName;
+      keygenInts(cipherType, numCiphers, ss.str().c_str());
+   }
+return 1;
 
 
 
-
-
-
+}
 
 

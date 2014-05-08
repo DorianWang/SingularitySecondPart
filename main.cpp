@@ -132,11 +132,12 @@ int main(int argc, char *argv[])
 
    
    Encryter Bromo;
+   bool cipherType[5];
+   Bromo.keygenInts(cipherType, 4, "MyFirstCipher");
 
 
 
 
-   
    MyContainer Aso;
    SelectScreens ScreenControl;
 
