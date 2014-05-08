@@ -237,18 +237,32 @@ outputFileAntiCipher.textOpenFile(fileName, true);
           
    }
 
-    
 }
 
-int Encryter::keygenIntsCharMap()
+
+
+//The returned cipher is true for cipher, and false for anticipher.
+std::vector <int> Encryter::keygenIntsCharMap(unsigned int passwordHash, bool* cipherType, bool cipherToReturn)
 {
    std::vector <int> cipherIntSpace;
-   cipherIntSpace = createCharSpace();
+   cipherIntSpace = createCharSpace(cipherType);
    std::vector<int> cipherScrambled;
+   std::vector <int> antiCipher;
+   int temp = 0;
+   int vectorCounter = cipherIntSpace.size();
+   
+   srand(passwordHash);
    std::random_shuffle ( cipherScrambled.begin(), cipherScrambled.end() , myRand);
-
-    
-    
+   
+   if (cipherToReturn){
+      return cipherScrambled;
+   }
+   
+   for (int j=0;j<vectorCounter;j++){  
+      temp = cipherScrambled[j];
+      antiCipher[temp]=j;
+   }
+   return antiCipher;
 }
 
 
