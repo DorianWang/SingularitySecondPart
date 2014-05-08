@@ -145,34 +145,39 @@ return vectorCounter;
 std::vector <int> Encryter::createCharSpace(bool* cipherType)
 {
 std::vector <int> cipherIntSpace;           
-
+int vectorCounter = 0;
    if (cipherType[0]==true){
       for (int i='a'-'a';i<'z'-'a'+1;i++){
          cipherIntSpace.push_back(vectorCounter);
+         vectorCounter++;
       }
    }
 
    if (cipherType[1]==true){
       for (int i='A'-'A';i<'Z'-'A' + 1;i++){
          cipherIntSpace.push_back(vectorCounter);
+         vectorCounter++;
       }
    }
 
    if (cipherType[2]==true){
       for (int i=0;i<NUM_IMPORTANT_CHARS;i++){
          cipherIntSpace.push_back(vectorCounter);
+         vectorCounter++;
       }
    }
    
    if (cipherType[3]==true){
       for (int i='0'-'0';i<'9'-'0' + 1;i++){
          cipherIntSpace.push_back(vectorCounter);
+         vectorCounter++;
       }
    }
    
    if (cipherType[4]==true){
       for (int i=0;i<NUM_OTHER_CHARS;i++){
          cipherIntSpace.push_back(vectorCounter);
+         vectorCounter++;
       }
    }
 return cipherIntSpace;
