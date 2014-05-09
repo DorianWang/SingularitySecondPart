@@ -4,6 +4,8 @@
 
 #define NUM_IMPORTANT_CHARS 6
 #define NUM_OTHER_CHARS 23
+#define NUM_LETTERS 26
+#define NUM_NUMBERS 10
 
 #define TWO_P_FOUR 0x10
 #define TWO_P_SIXTEEN 0x10000
@@ -28,9 +30,15 @@ using namespace std;
 typedef struct rotor{
    int setNum;//Different rotors in different sets
    int numChars;//number of characters on the rotor
-   std::string mapping;//gives the mapping rules. For example the map DBCA means ADCB -> DACB
+   //std::string mapping;//gives the mapping rules. For example the map DBCA means ADCB -> DACB
    
    int currentNum;//Where the "Front" of the rotor should be.
+};
+
+typedef struct intRotor{
+   std::vector<int> mapping;
+   int currentNum;//What the rotor has been set to.        
+   bool rotorType;//Type of rotor.
 };
 
 class Encryter

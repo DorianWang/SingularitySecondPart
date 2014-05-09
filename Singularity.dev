@@ -1,7 +1,7 @@
 [Project]
 FileName=Singularity.dev
 Name=Singularity
-UnitCount=23
+UnitCount=24
 Type=1
 Ver=1
 ObjFiles=
@@ -276,4 +276,14 @@ Link=0
 Priority=1000
 OverrideBuildCmd=0
 BuildCmd=$(CPP) -c Depreciated.cpp -o Depreciated.o $(CXXFLAGS)
+
+[Unit24]
+FileName=parseString.cpp
+CompileCpp=1
+Folder=FileIO
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
 

@@ -211,7 +211,16 @@ outputFileAntiCipher.textOpenFile(fileName, true);
 
 
 stringstream ss;
-ss<<numCiphers;
+ss<<numCiphers<<"*";
+for (int i=0; i<5;i++){
+   if (cipherType[i]){
+      ss<<"1";   
+   }    
+   else
+   {
+      ss<<"0";    
+   }
+}
 outputFileCipher.bufferLines(ss.str());
 outputFileAntiCipher.bufferLines(ss.str());
 ss.str(std::string());
@@ -340,6 +349,24 @@ unsigned int Encryter::passwordToHashInt(std::string password)
 return key;    
 }
 
+int Encryter::createAllCiphers(bool* cipherType, int numCiphers, char* keyName, char* folderName, int totalNumCiphers)
+{
+   stringstream ss;
+   for (int i=0; i<totalNumCiphers; i++){
+      ss<<folderName<<"\\"<<keyName<<i;
+      cout<<ss.str()<<endl;
+      keygenInts(cipherType, numCiphers, ss.str());
+      ss.str(std::string()); ss.clear();
+   }
+return 1;
+
+}
+
+
+
+//char cipherChar(char)
+
+
 std::vector <std::string> decryptFile(FileIO* myFile)
 {
    std::string fileInput;
@@ -357,17 +384,30 @@ std::vector <std::string> decryptFile(FileIO* myFile)
    
 } 
 
-int Encryter::createAllCiphers(bool* cipherType, int numCiphers, char* keyName, char* folderName, int totalNumCiphers)
-{
-   stringstream ss;
-   for (int i=0; i<totalNumCiphers; i++){
-      ss<<folderName<<"\\"<<keyName<<i;
-      cout<<ss.str()<<endl;
-      keygenInts(cipherType, numCiphers, ss.str());
-      ss.str(std::string()); ss.clear();
-   }
-return 1;
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
