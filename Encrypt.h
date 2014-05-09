@@ -39,7 +39,7 @@ class Encryter
 public:
 
 int keygenChars(char* charSpace, char* scrambledCipher, char* antiCipher, bool *cipherType);
-int keygenInts(bool* cipherType, int numCiphers, char* keyName);
+int keygenInts(bool* cipherType, int numCiphers, std::string keyName);
 unsigned int passwordToHashInt(std::string password);
 unsigned int hashString( const string &key);
 std::vector <int> createCharSpace(bool* cipherType);

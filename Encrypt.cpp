@@ -182,7 +182,7 @@ return cipherIntSpace;
 //cipherNum is the number of ciphers which should be made. The char mapping will only be made once though.
 //Then char map is basically a salt, preventing brute force guessing.
 //The keyname is a name, and does not need to have a file extension. The function will add one.
-int Encryter::keygenInts(bool* cipherType, int numCiphers, char* keyName)
+int Encryter::keygenInts(bool* cipherType, int numCiphers, std::string keyName)
 {
 int vectorCounter=0;
 
@@ -200,15 +200,23 @@ vectorCounter = cipherIntSpace.size();
 int temp;
 
 std::string fileName;
-fileName += keyName;
+fileName = keyName;
 fileName += ".cip";
 FileIO outputFileCipher;
 FileIO outputFileAntiCipher;
 outputFileCipher.textOpenFile(fileName, true);
-fileName.clear(); fileName +=keyName; fileName += ".acp";
+fileName.clear(); fileName = keyName; fileName += ".acp";
 outputFileAntiCipher.textOpenFile(fileName, true);
 
+
+
 stringstream ss;
+ss<<numCiphers;
+outputFileCipher.bufferLines(ss.str());
+outputFileAntiCipher.bufferLines(ss.str());
+ss.str(std::string());
+ss.clear();
+
 //creating ciphers
    for (int i=0;i<numCiphers;i++){
           
@@ -219,9 +227,9 @@ stringstream ss;
       
       std::random_shuffle ( cipherScrambled.begin(), cipherScrambled.end(), myRand);
       for (int k=0; k<vectorCounter; k++){
-         ss<<cipherScrambled[k];
+         ss<<cipherScrambled[k]<<'*';
       }
-      cout<<ss.str()<<endl;
+      //cout<<ss.str()<<endl;
       outputFileCipher.bufferLines(ss.str());
       ss.str(std::string());
       ss.clear();
@@ -234,7 +242,7 @@ stringstream ss;
       }
       
       for (int k=0; k<vectorCounter; k++){
-         ss<<antiCipherInts[k];
+         ss<<antiCipherInts[k]<<'*';
       }
       outputFileAntiCipher.bufferLines(ss.str());
       ss.str(std::string());
@@ -353,12 +361,12 @@ int Encryter::createAllCiphers(bool* cipherType, int numCiphers, char* keyName, 
 {
    stringstream ss;
    for (int i=0; i<totalNumCiphers; i++){
-      ss<<folderName<<"/"<<keyName;
-      keygenInts(cipherType, numCiphers, ss.str().c_str());
+      ss<<folderName<<"\\"<<keyName<<i;
+      cout<<ss.str()<<endl;
+      keygenInts(cipherType, numCiphers, ss.str());
+      ss.str(std::string()); ss.clear();
    }
 return 1;
-
-
 
 }
 
