@@ -211,7 +211,7 @@ outputFileAntiCipher.textOpenFile(fileName, true);
 
 
 stringstream ss;
-ss<<numCiphers<<"*";
+ss<<numCiphers<<" ";
 for (int i=0; i<5;i++){
    if (cipherType[i]){
       ss<<"1";   
@@ -236,7 +236,7 @@ ss.clear();
       
       std::random_shuffle ( cipherScrambled.begin(), cipherScrambled.end(), myRand);
       for (int k=0; k<vectorCounter; k++){
-         ss<<cipherScrambled[k]<<'*';
+         ss<<cipherScrambled[k]<<' ';
       }
       //cout<<ss.str()<<endl;
       outputFileCipher.bufferLines(ss.str());
@@ -251,7 +251,7 @@ ss.clear();
       }
       
       for (int k=0; k<vectorCounter; k++){
-         ss<<antiCipherInts[k]<<'*';
+         ss<<antiCipherInts[k]<<' ';
       }
       outputFileAntiCipher.bufferLines(ss.str());
       ss.str(std::string());
@@ -362,7 +362,36 @@ return 1;
 
 }
 
-
+int getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myFile)
+{
+   stringstream ss;
+   std::string temp;
+   int counter = 0;
+   (*myFile).readLine(&temp);
+   ss<<temp;
+   ss>>temp;
+   int numCiphers = atoi(temp.c_str());
+   ss>>temp;
+   for (int i=0; i<5; i++){
+      cipherType[i] = (temp[i] ? 1 : 0);
+   }
+   ss.str(std::string()); ss.clear();
+   
+   for (int i=0; i<numCiphers; i++){
+      ss.str(std::string()); ss.clear();
+      (*myFile).readLine(&temp);
+      ss<<temp;
+      while(ss>>temp){
+         rotors[i].mapping[counter] = atoi(temp.c_str());
+         counter ++;
+      }
+      counter = 0;
+   }
+   
+    
+    
+    
+}
 
 //char cipherChar(char)
 
