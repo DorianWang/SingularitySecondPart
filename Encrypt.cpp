@@ -362,7 +362,7 @@ return 1;
 
 }
 
-int getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myFile)
+int Encryter::getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myFile, int maxRotors)
 {
    stringstream ss;
    std::string temp;
@@ -377,20 +377,21 @@ int getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myFile)
    }
    ss.str(std::string()); ss.clear();
    
-   for (int i=0; i<numCiphers; i++){
-      ss.str(std::string()); ss.clear();
-      (*myFile).readLine(&temp);
+   for (int i=0; i < min(numCiphers, maxRotors); i++){
+      ss.str(std::string()); ss.clear(); temp.clear();
+      if (!(*myFile).readLine(&temp)){ return 0;}//Fail at reading the file...
       ss<<temp;
       while(ss>>temp){
-         rotors[i].mapping[counter] = atoi(temp.c_str());
+         rotors[i].mapping.push_back(atoi(temp.c_str()));
          counter ++;
       }
+      rotors[i].rotorLength = counter;
       counter = 0;
    }
    
-    
-    
-    
+   
+   
+   return min(numCiphers, maxRotors);
 }
 
 //char cipherChar(char)

@@ -38,7 +38,8 @@ typedef struct rotor{
 typedef struct intRotor{
    std::vector<int> mapping;
    int currentNum;//What the rotor has been set to.        
-   bool rotorType;//Type of rotor.
+   bool rotorType[5];//Type of rotor.
+   int rotorLength;
 };
 
 class Encryter
@@ -53,6 +54,8 @@ unsigned int hashString( const string &key);
 std::vector <int> createCharSpace(bool* cipherType);
 std::vector <int> keygenIntsCharMap(unsigned int passwordHash, bool* cipherType, bool cipherToReturn);
 int createAllCiphers(bool* cipherType, int numCiphers, char* keyName, char* folderName, int totalNumCiphers);
+
+int getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myFile, int maxRotors);
 //Enigma machine like cipher, not really too secure...
 
 //http://codereview.stackexchange.com/questions/44196/enigma-simulator-performance

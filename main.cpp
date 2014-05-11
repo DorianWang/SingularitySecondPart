@@ -135,7 +135,16 @@ int main(int argc, char *argv[])
    bool cipherType[5];
    //Bromo.keygenInts(cipherType, 4, std::string("MyFirstCipher"));
    Bromo.createAllCiphers(cipherType, 4, "FirstCipher", "Data\\A", 20);
-
+   intRotor rotorArray[16]; bool sdfg[5];
+   FileIO newFile; newFile.textOpenFile("Data\\A\\FirstCipher0.acp", false);
+   int ciphersTaken = Bromo.getCiphersFromFile(rotorArray, sdfg, &newFile, 16);
+   
+   for (int i=0; i<ciphersTaken; i++){
+      for (int j=0; j<(rotorArray[i].rotorLength);j++){
+          cout<<rotorArray[i].mapping[j]<<" ";
+      }
+      cout<<endl;
+   }
 
 
    MyContainer Aso;
