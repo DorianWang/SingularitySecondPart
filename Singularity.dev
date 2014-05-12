@@ -1,7 +1,7 @@
 [Project]
 FileName=Singularity.dev
 Name=Singularity
-UnitCount=24
+UnitCount=25
 Type=1
 Ver=1
 ObjFiles=
@@ -281,6 +281,16 @@ BuildCmd=$(CPP) -c Depreciated.cpp -o Depreciated.o $(CXXFLAGS)
 FileName=parseString.cpp
 CompileCpp=1
 Folder=FileIO
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit25]
+FileName=EncryptConverter.cpp
+CompileCpp=1
+Folder=FileEncryt
 Compile=1
 Link=1
 Priority=1000
