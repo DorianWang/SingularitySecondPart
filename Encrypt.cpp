@@ -386,6 +386,9 @@ int Encryter::getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myF
          counter ++;
       }
       rotors[i].rotorLength = counter;
+      for (int j=0;j<5;j++){
+         rotors[i].rotorType[j] = cipherType[j];
+      }
       counter = 0;
    }
    
@@ -396,15 +399,100 @@ int Encryter::getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myF
 
 //char cipherChar(char)
 
+int charToCipherInt(bool* cipherType, char input)
+{
+   char importantChars[NUM_IMPORTANT_CHARS]={'.', ',', '!', ' ', '?', 'a'};
+   char numbers[10];
+   // : = 58, " = 34, \ = 92, / = 47
+   char otherChars[NUM_OTHER_CHARS]={'@', '#', '$', '%', '^', '&', '*', '(', ')', ';', 'a', 'b', 'c', 'd', '~', '<', '>', '-', '_', '=', '+', '{', '}'};     
+    
+   int typeCounter = 0;
+   if (cipherType[0]){
+      if(input>='a'&&input<='z'){
+         return 
+      }
+      typeCounter = typeCounter + NUM_LETTERS;
+   }
+   
+   if (cipherType[1]){
+      if(input>='A'&&input<='Z'){
+         return 
+      }
+      typeCounter = typeCounter + NUM_LETTERS;
+   }
+   
+   if (cipherType[2]){
+      for (int i=0; i<NUM_IMPORTANT_CHARS; i++){
+         if(input==otherChars[i]){
+            return 
+         }
+          
+      }
 
-std::vector <std::string> decryptFile(FileIO* myFile)
+      typeCounter = typeCounter + NUM_IMPORTANT_CHARS;
+   }
+
+   if (cipherType[1]==true){
+      for (int i='A'-'A';i<'Z'-'A' + 1;i++){
+         cipherIntSpace.push_back(vectorCounter);
+         vectorCounter++;
+      }
+   }
+
+   if (cipherType[2]==true){
+      for (int i=0;i<NUM_IMPORTANT_CHARS;i++){
+         cipherIntSpace.push_back(vectorCounter);
+         vectorCounter++;
+      }
+   }
+   
+   if (cipherType[3]==true){
+      for (int i='0'-'0';i<'9'-'0' + 1;i++){
+         cipherIntSpace.push_back(vectorCounter);
+         vectorCounter++;
+      }
+   }
+   
+   if (cipherType[4]==true){
+      for (int i=0;i<NUM_OTHER_CHARS;i++){
+         cipherIntSpace.push_back(vectorCounter);
+         vectorCounter++;
+      }
+   }
+    
+    
+    
+    
+}
+
+std::string encryptString(intRotor* rotors, int numRotors, std::string input)
+{
+   std::string output; std::vector <int> tempRotor;
+   for (int i=0; i<input.length(); i++){
+      for (int j=0; j<numRotors;j++){
+         tempRotor.clear();
+         for (int k = rotors[j].currentNum; k < rotors[j].rotorLength; k++){
+            tempRotor.push_back(rotors[j].mapping[k]);
+         }
+      
+         for (int k=0; k < rotors[j].currentNum; k++){
+            tempRotor.push_back(rotors[j].mapping[k]);
+         }
+      }
+          
+   }
+            
+            
+}
+
+std::vector <std::string> decryptFile(FileIO* myFile, unsigned int hashPass)
 {
    std::string fileInput;
    std::string decryptedLine;
    std::vector <std::string> output;
    //output.reserve(myFile.)
    while((*myFile).readLine(&fileInput)){
-      //decryptedLine = decryptString(fileInput);
+      //decryptedLine = encryptString(fileInput);
       output.push_back(decryptedLine);
       decryptedLine.clear();
       fileInput.clear();
