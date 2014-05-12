@@ -64,18 +64,12 @@ int getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myFile, int m
 
 //Can I add more ciphers? Fewer?
 
-
+int charToCipherInt(bool* cipherType, char input);
+int cipherIntToChar(bool* cipherType, int input);
 
 
 private:
 //Primes: 59233, 49157, 32647, 99083, 158003, 779347, 2141, 8501 
-
-
-int charToCipherInt(bool* cipherType, char input);
-
-
-
-
 
 
 };

@@ -54,7 +54,7 @@ return -1; //not in cipher
 }
 
 
-char cipherIntToChar(bool* cipherType, int input)
+char Encryter::cipherIntToChar(bool* cipherType, int input)
 {
 
    char importantChars[NUM_IMPORTANT_CHARS]={'.', ',', '!', ' ', '?', 'a'};
@@ -65,7 +65,7 @@ char cipherIntToChar(bool* cipherType, int input)
    
    int typeCounter = 0; int temp = 0;
    if (cipherType[0]){
-      temp = input - NUM_LETTERS;
+      temp = input - typeCounter;
       if(temp>=0&&temp<NUM_LETTERS){
          return input + 'a';// + typeCounter;
       }
@@ -73,43 +73,39 @@ char cipherIntToChar(bool* cipherType, int input)
    }
    
    if (cipherType[1]){
-      temp = input - NUM_LETTERS;
-      if(input>='A'&&input<='Z'){
-         return input - 'A' + typeCounter;
+      temp = input - typeCounter;
+      if(temp>=0&&temp<NUM_LETTERS){
+         return temp + 'A';
       }
       typeCounter = typeCounter + NUM_LETTERS;
    }
    
    if (cipherType[2]){
-      for (int i=0; i<NUM_IMPORTANT_CHARS; i++){
-         if(input==otherChars[i]){
-            return i + typeCounter;
-         }
+      temp = input - typeCounter;
+      if(temp<NUM_IMPORTANT_CHARS&&temp>=0){
+         return importantChars[temp];
       }
       typeCounter = typeCounter + NUM_IMPORTANT_CHARS;
    }
 
    if (cipherType[3]){
-      if(input<='9'&&input>='0'){
-         return input - '0' + typeCounter;
+      temp = input - typeCounter;
+      if(temp<NUM_NUMBERS&&temp>=0){
+         return temp + '0';
       }
       typeCounter = typeCounter + NUM_NUMBERS;
    }
    
    if (cipherType[4]){
-      for (int i=0; i<NUM_OTHER_CHARS; i++){
-         if(input==otherChars[i]){
-            return i + typeCounter;
-         }
+      temp = input - typeCounter;
+      if(temp<NUM_OTHER_CHARS&&temp>=0){
+         return temp + typeCounter;
       }
       //typeCounter = typeCounter + NUM_OTHER_CHARS;
       //Not needed...
    }
     
-return -1; //not in cipher
-     
-     
-
+return 0; //not in cipher
 }
      
      

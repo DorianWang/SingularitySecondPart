@@ -397,7 +397,34 @@ int Encryter::getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myF
    return min(numCiphers, maxRotors);
 }
 
-//char cipherChar(char)
+bool iterateRotor(intRotor* rotor)
+{
+   rotor.currentNum++;
+   int temp = rotor -> mapping[rotor -> mapping.back()];
+   rotor -> mapping.insert(rotor -> mapping.begin(), temp);
+   rotor -> mapping.pop_back();
+   
+   if (rotor.currentNum>=rotor.numChars){
+      return true;   
+   }
+     
+     
+}
+
+
+char cipherChar(char input, intRotor* rotors, int numRotors)
+{
+int inputNum = charToCipherInt(rotors[0].rotorType, input);     
+int tempInt = inputNum;
+   for (int i=0; i<numRotors; i++){
+      tempInt = rotors[i].mapping[tempInt];
+   }
+
+   for (int i=0)
+   if ()
+   
+   return cipherIntToChar(rotors.rotorType, tempInt);  
+}
 
 
 std::string encryptString(intRotor* rotors, int numRotors, std::string input)
@@ -405,14 +432,7 @@ std::string encryptString(intRotor* rotors, int numRotors, std::string input)
    std::string output; std::vector <int> tempRotor;
    for (int i=0; i<input.length(); i++){
       for (int j=0; j<numRotors;j++){
-         tempRotor.clear();
-         for (int k = rotors[j].currentNum; k < rotors[j].rotorLength; k++){
-            tempRotor.push_back(rotors[j].mapping[k]);
-         }
-      
-         for (int k=0; k < rotors[j].currentNum; k++){
-            tempRotor.push_back(rotors[j].mapping[k]);
-         }
+         
       }
           
    }

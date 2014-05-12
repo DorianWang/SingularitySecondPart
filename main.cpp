@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
    Encryter Bromo;
    bool cipherType[5];
    //Bromo.keygenInts(cipherType, 4, std::string("MyFirstCipher"));
-   Bromo.createAllCiphers(cipherType, 4, "FirstCipher", "Data\\A", 20);
+   //Bromo.createAllCiphers(cipherType, 4, "FirstCipher", "Data\\A", 20);
    intRotor rotorArray[16]; bool sdfg[5];
    FileIO newFile; newFile.textOpenFile("Data\\A\\FirstCipher0.acp", false);
    int ciphersTaken = Bromo.getCiphersFromFile(rotorArray, sdfg, &newFile, 16);
