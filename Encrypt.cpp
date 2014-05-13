@@ -1,13 +1,33 @@
 
 #include "Encrypt.h"
 
+Encrypter::Encrypter()
+{
+   //char importantChars[NUM_IMPORTANT_CHARS]={'.', ',', '!', ' ', '?', 'a'};
+   char tempArrayOne[NUM_IMPORTANT_CHARS] = {'.', ',', '!', ' ', '?', 'a'};
+   
+   for (int i=0; i<NUM_IMPORTANT_CHARS; i++){
+      importantChars[i] = tempArrayOne[i];
+   }
+   
+   // : = 58, " = 34, \ = 92, / = 47
+   //char otherChars[NUM_OTHER_CHARS]={'@', '#', '$', '%', '^', '&', '*', '(', ')', ';', 'a', 'b', 'c', 'd', '~', '<', '>', '-', '_', '=', '+', '{', '}'};     
+   char tempArrayTwo[NUM_OTHER_CHARS] = {'@', '#', '$', '%', '^', '&', '*', '(', ')', ';', 'a', 'b', 'c', 'd', '~', '<', '>', '-', '_', '=', '+', '{', '}'}; 
+   for (int i=0; i<NUM_IMPORTANT_CHARS; i++){
+      otherChars[i] = tempArrayTwo[i];
+   }
+   
+   importantChars[5] = 34; 
+   otherChars[11] = 47; otherChars[12] = 58; otherChars[13] = 92;
+                
+}
 
 
 
 //int randInt = rand() % 262144;//65536 (16*16*16*16*4)4*2^4^4, or 2^18
 int myRand (int i) { return std::rand()%(i);}
 
-int Encryter::keygenChars(char* charSpace, char* scrambledCipher, char* antiCipherChars, bool *cipherType) //For creating new rotors, reflectors and things
+int Encrypter::keygenChars(char* charSpace, char* scrambledCipher, char* antiCipherChars, bool *cipherType) //For creating new rotors, reflectors and things
 {
    //I think I'll split them into 5 pieces. alphabet, upperAlphabet, numbers, important characters, and extras
    char alphabet[26];
@@ -136,7 +156,7 @@ return vectorCounter;
 }
 
 //Creates the charspace required...
-std::vector <int> Encryter::createCharSpace(bool* cipherType)
+std::vector <int> Encrypter::createCharSpace(bool* cipherType)
 {
 std::vector <int> cipherIntSpace;           
 int vectorCounter = 0;
@@ -182,7 +202,7 @@ return cipherIntSpace;
 //cipherNum is the number of ciphers which should be made. The char mapping will only be made once though.
 //Then char map is basically a salt, preventing brute force guessing.
 //The keyname is a name, and does not need to have a file extension. The function will add one.
-int Encryter::keygenInts(bool* cipherType, int numCiphers, std::string keyName)
+int Encrypter::keygenInts(bool* cipherType, int numCiphers, std::string keyName)
 {
 int vectorCounter=0;
 
@@ -266,7 +286,7 @@ return 1;
 
 
 //The returned cipher is true for cipher, and false for anticipher.
-std::vector <int> Encryter::keygenIntsCharMap(unsigned int passwordHash, bool* cipherType, bool cipherToReturn)
+std::vector <int> Encrypter::keygenIntsCharMap(unsigned int passwordHash, bool* cipherType, bool cipherToReturn)
 {
    std::vector <int> cipherIntSpace;
    cipherIntSpace = createCharSpace(cipherType);
@@ -294,7 +314,7 @@ std::vector <int> Encryter::keygenIntsCharMap(unsigned int passwordHash, bool* c
 
 
 
-unsigned int Encryter::hashString( const string &key) {
+unsigned int Encrypter::hashString( const string &key) {
    long long hashVal = 0;
    
    int arrayLargePrimes[13]={978857489, 694846171, 961990429, 
@@ -338,7 +358,7 @@ unsigned int Encryter::hashString( const string &key) {
 
 //http://www.cse.yorku.ca/~oz/hash.html
 //Knuth's Sorting and Searching
-unsigned int Encryter::passwordToHashInt(std::string password)
+unsigned int Encrypter::passwordToHashInt(std::string password)
 {
    std::string empty;
    empty += '0';
@@ -349,7 +369,7 @@ unsigned int Encryter::passwordToHashInt(std::string password)
 return key;    
 }
 
-int Encryter::createAllCiphers(bool* cipherType, int numCiphers, char* keyName, char* folderName, int totalNumCiphers)
+int Encrypter::createAllCiphers(bool* cipherType, int numCiphers, char* keyName, char* folderName, int totalNumCiphers)
 {
    stringstream ss;
    for (int i=0; i<totalNumCiphers; i++){
@@ -362,7 +382,7 @@ return 1;
 
 }
 
-int Encryter::getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myFile, int maxRotors)
+int Encrypter::getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myFile, int maxRotors)
 {
    stringstream ss;
    std::string temp;
@@ -397,7 +417,7 @@ int Encryter::getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myF
    return min(numCiphers, maxRotors);
 }
 
-bool Encryter::iterateRotor(intRotor* rotor)
+bool Encrypter::iterateRotor(intRotor* rotor)
 {
    (*rotor).currentNum++;
    int temp = rotor -> mapping[rotor -> mapping.back()];
@@ -412,7 +432,7 @@ bool Encryter::iterateRotor(intRotor* rotor)
 }
 
 //Works for both ciphers and anti-ciphers!
-char Encryter::cipherChar(char input, intRotor* rotors, int numRotors)
+char Encrypter::cipherChar(char input, intRotor* rotors, int numRotors)
 {
    if (numRotors == 0){ return 0; }     
 
@@ -430,7 +450,7 @@ int tempInt = inputNum; int counter = 0;
 }
 
 
-std::string Encryter::encryptString(intRotor* rotors, int numRotors, std::string input)
+std::string Encrypter::encryptString(intRotor* rotors, int numRotors, std::string input)
 {
    std::string output; std::vector <int> tempRotor;
    for (int i=0; i<input.length(); i++){
@@ -440,7 +460,15 @@ std::string Encryter::encryptString(intRotor* rotors, int numRotors, std::string
             
 }
 
-std::vector <std::string> decryptFile(FileIO* myFile, unsigned int hashPass)
+//change this
+std::string Encrypter::passwordAndCipherFile(FileIO* myFile)
+{
+            
+            
+            
+}
+
+std::vector <std::string> Encrypter::decryptFile(FileIO* myFile, unsigned int hashPass)
 {
    std::string fileInput;
    std::string decryptedLine;

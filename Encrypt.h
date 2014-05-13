@@ -42,10 +42,17 @@ typedef struct intRotor{
    int rotorLength;
 };
 
-class Encryter
+class Encrypter
 {
 
 public:
+
+Encrypter();
+char importantChars[NUM_IMPORTANT_CHARS];//={'.', ',', '!', ' ', '?', 'a'};
+   // : = 58, " = 34, \ = 92, / = 47
+char otherChars[NUM_OTHER_CHARS];//={'@', '#', '$', '%', '^', '&', '*', '(', ')', ';', 'a', 'b', 'c', 'd', '~', '<', '>', '-', '_', '=', '+', '{', '}'};     
+   //importantChars[5] = 34; 
+   //otherChars[11] = 47; otherChars[12] = 58; otherChars[13] = 92;
 
 int charToCipherInt(bool* cipherType, char input);
 char cipherIntToChar(bool* cipherType, int input);
@@ -64,7 +71,7 @@ bool iterateRotor(intRotor* rotor);
 
 char cipherChar(char input, intRotor* rotors, int numRotors);
 std::string encryptString(intRotor* rotors, int numRotors, std::string input);
-
+std::vector <std::string> decryptFile(FileIO* myFile, unsigned int hashPass);
 
 private:
 //Primes: 59233, 49157, 32647, 99083, 158003, 779347, 2141, 8501 

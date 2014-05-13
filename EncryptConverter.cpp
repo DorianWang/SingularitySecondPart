@@ -1,7 +1,7 @@
 #include "Encrypt.h"
 
 
-int Encryter::charToCipherInt(bool* cipherType, char input)
+int Encrypter::charToCipherInt(bool* cipherType, char input)
 {
    char importantChars[NUM_IMPORTANT_CHARS]={'.', ',', '!', ' ', '?', 'a'};
    // : = 58, " = 34, \ = 92, / = 47
@@ -54,14 +54,10 @@ return -1; //not in cipher
 }
 
 
-char Encryter::cipherIntToChar(bool* cipherType, int input)
+char Encrypter::cipherIntToChar(bool* cipherType, int input)
 {
 
-   char importantChars[NUM_IMPORTANT_CHARS]={'.', ',', '!', ' ', '?', 'a'};
-   // : = 58, " = 34, \ = 92, / = 47
-   char otherChars[NUM_OTHER_CHARS]={'@', '#', '$', '%', '^', '&', '*', '(', ')', ';', 'a', 'b', 'c', 'd', '~', '<', '>', '-', '_', '=', '+', '{', '}'};     
-   importantChars[5] = 34; 
-   otherChars[11] = 47; otherChars[12] = 58; otherChars[13] = 92;
+   
    
    int typeCounter = 0; int temp = 0;
    if (cipherType[0]){
