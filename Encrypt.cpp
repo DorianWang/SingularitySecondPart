@@ -460,12 +460,15 @@ std::string Encrypter::encryptString(intRotor* rotors, int numRotors, std::strin
             
 }
 
-//change this
-std::string Encrypter::passwordAndCipherFile(FileIO* myFile)
+//Password files are formated like ACDRINDS "endl" /PASSWORD/
+std::string Encrypter::passwordAndCipherFile(FileIO* myFile, std::string* cipherString)
 {
-            
-            
-            
+   std::string fileInput;
+   (*myFile).readLine(&fileInput);
+   *cipherString = fileInput;
+   fileInput.clear();
+   (*myFile).readLine(&fileInput);
+   return fileInput;
 }
 
 std::vector <std::string> Encrypter::decryptFile(FileIO* myFile, unsigned int hashPass)
