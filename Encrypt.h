@@ -47,6 +47,9 @@ class Encryter
 
 public:
 
+int charToCipherInt(bool* cipherType, char input);
+char cipherIntToChar(bool* cipherType, int input);
+
 int keygenChars(char* charSpace, char* scrambledCipher, char* antiCipher, bool *cipherType);
 int keygenInts(bool* cipherType, int numCiphers, std::string keyName);
 unsigned int passwordToHashInt(std::string password);
@@ -56,16 +59,11 @@ std::vector <int> keygenIntsCharMap(unsigned int passwordHash, bool* cipherType,
 int createAllCiphers(bool* cipherType, int numCiphers, char* keyName, char* folderName, int totalNumCiphers);
 
 int getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myFile, int maxRotors);
-//Enigma machine like cipher, not really too secure...
 
-//http://codereview.stackexchange.com/questions/44196/enigma-simulator-performance
-//http://www.dreamincode.net/forums/topic/233977-enigma-machine-rotors/
-//http://en.wikipedia.org/wiki/Typex
+bool iterateRotor(intRotor* rotor);
 
-//Can I add more ciphers? Fewer?
-
-int charToCipherInt(bool* cipherType, char input);
-int cipherIntToChar(bool* cipherType, int input);
+char cipherChar(char input, intRotor* rotors, int numRotors);
+std::string encryptString(intRotor* rotors, int numRotors, std::string input);
 
 
 private:
@@ -75,3 +73,15 @@ private:
 };
 
 #endif
+
+//Enigma machine like cipher, not really too secure...
+
+//http://codereview.stackexchange.com/questions/44196/enigma-simulator-performance
+//http://www.dreamincode.net/forums/topic/233977-enigma-machine-rotors/
+//http://en.wikipedia.org/wiki/Typex
+
+//Can I add more ciphers? Fewer?
+
+
+
+
