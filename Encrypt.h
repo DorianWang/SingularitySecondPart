@@ -66,12 +66,15 @@ std::vector <int> keygenIntsCharMap(unsigned int passwordHash, bool* cipherType,
 int createAllCiphers(bool* cipherType, int numCiphers, char* keyName, char* folderName, int totalNumCiphers);
 
 int getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myFile, int maxRotors);
+int readCiphersFromFiles(std::string cipherString, intRotor* rotors);
 
 bool iterateRotor(intRotor* rotor);
 
 char cipherChar(char input, intRotor* rotors, int numRotors);
 std::string encryptString(intRotor* rotors, int numRotors, std::string input);
-std::vector <std::string> decryptFile(FileIO* myFile, unsigned int hashPass);
+
+std::vector <std::string> decryptFile(FileIO* myFile, intRotor* rotors, int numRotors);
+int decryptFileWithPassword(std::string password, std::string cipherString, FileIO* myTextFile)
 
 int createPasswordFile(std::string fileName, std::string password, std::string cipherString);
 std::string passwordAndCipherFile(std::string fileName, std::string* cipherString);

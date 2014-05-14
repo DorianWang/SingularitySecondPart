@@ -379,7 +379,6 @@ int Encrypter::createAllCiphers(bool* cipherType, int numCiphers, char* keyName,
       ss.str(std::string()); ss.clear();
    }
 return 1;
-
 }
 
 int Encrypter::getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myFile, int maxRotors)
@@ -411,8 +410,6 @@ int Encrypter::getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* my
       }
       counter = 0;
    }
-   
-   
    
    return min(numCiphers, maxRotors);
 }
@@ -456,11 +453,10 @@ std::string Encrypter::encryptString(intRotor* rotors, int numRotors, std::strin
    for (int i=0; i<input.length(); i++){
       output += cipherChar(input.at(i), rotors, numRotors);
    }
-            
-            
+   return output;
 }
 
-//Password files are formated like ACDRINDS "endl" /PASSWORD/
+//Password files are formated like AC2DR4IN1DS5 "endl" /PASSWORD/
 std::string Encrypter::passwordAndCipherFile(std::string fileName, std::string* cipherString)
 {
    FileIO myFile; //Password files are .SPW
@@ -482,7 +478,7 @@ int Encrypter::createPasswordFile(std::string fileName, std::string password, st
    return 1;
 }
 
-std::vector <std::string> Encrypter::decryptFile(FileIO* myFile, unsigned int hashPass)
+std::vector <std::string> Encrypter::decryptFile(FileIO* myFile, intRotor* rotors, int numRotors)
 {
    std::string fileInput;
    std::string decryptedLine;
@@ -497,9 +493,25 @@ std::vector <std::string> Encrypter::decryptFile(FileIO* myFile, unsigned int ha
    
 } 
 
-int decryptFileWithPassword()
+int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors)
 {
+   int stringLength = cipherString.length();
+   if ((stringLength % 3) != 0){ return 0;} //String is not formatted properly
+   for (int i=0; i<cipherString.length(); i++){
+       
+   }
     
+}
+
+int Encrypter::decryptFileWithPassword(std::string password, std::string cipherString, FileIO* myTextFile)
+{
+   intRotor rotors[cipherString.length() / 2 + 1];
+   readCiphersFromFile(cipherString, rotors)
+    
+    
+    
+    
+   
     
     
     
