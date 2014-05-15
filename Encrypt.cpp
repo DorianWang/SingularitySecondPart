@@ -499,9 +499,11 @@ int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors)
    int stringLength = cipherString.length();
    char FolderLetter = 'A'; int cipherNum = 0; int cipherLineInFile = 0;
    if ((stringLength % 3) != 0){ return 0;} //String is not formatted properly
-   for (int i=0; i<cipherString.length(); i++){
+   for (int i = 0; i < stringLength; i = i){
       FolderLetter = cipherString.at(i); i++;
       cipherNum = cipherString.at(i) - 'A'; i++;
+      cipherLineInFile = cipherString.at(i) - 'A'; i++;
+      myFile.open();
    }
     
 }
@@ -512,14 +514,9 @@ int Encrypter::decryptFileWithPassword(std::string password, std::string cipherS
    readCiphersFromFile(cipherString, rotors)
     
     
-    
-    
-   
-    
-    
+
     
 }
-
 
 
 

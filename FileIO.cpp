@@ -548,8 +548,7 @@ return arrayLength;
 int FileIO::closeFile()
 {
    if (isOpen){
-      myfile.close(); 
-      isOpen = false; 
+      closeFile(true);
       return 1;
    }  
    return 0;
@@ -558,7 +557,11 @@ int FileIO::closeFile()
 
 void FileIO::closeFile(bool asdf)
 {
+   lineCounter = 0;
+   dataCounter = 0; 
+   dataInLineBuffer = false;
    myfile.close(); 
+   clearBuffer();
    isOpen = false;
 }
 

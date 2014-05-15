@@ -74,10 +74,12 @@ char cipherChar(char input, intRotor* rotors, int numRotors);
 std::string encryptString(intRotor* rotors, int numRotors, std::string input);
 
 std::vector <std::string> decryptFile(FileIO* myFile, intRotor* rotors, int numRotors);
-int decryptFileWithPassword(std::string password, std::string cipherString, FileIO* myTextFile)
+int decryptFileWithPassword(std::string password, std::string cipherString, FileIO* myTextFile);
 
 int createPasswordFile(std::string fileName, std::string password, std::string cipherString);
 std::string passwordAndCipherFile(std::string fileName, std::string* cipherString);
+
+void closeFile();
 
 private:
 //Primes: 59233, 49157, 32647, 99083, 158003, 779347, 2141, 8501 
