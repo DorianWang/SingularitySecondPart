@@ -495,10 +495,13 @@ std::vector <std::string> Encrypter::decryptFile(FileIO* myFile, intRotor* rotor
 
 int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors)
 {
+   FileIO myFile;
    int stringLength = cipherString.length();
+   char FolderLetter = 'A'; int cipherNum = 0; int cipherLineInFile = 0;
    if ((stringLength % 3) != 0){ return 0;} //String is not formatted properly
    for (int i=0; i<cipherString.length(); i++){
-       
+      FolderLetter = cipherString.at(i); i++;
+      cipherNum = cipherString.at(i) - 'A'; i++;
    }
     
 }
