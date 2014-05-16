@@ -467,6 +467,7 @@ void FileIO::clearBuffer()
    lineBuffer.clear();
    lineBufferBuffer.clear();
    lineCounter=0;
+   dataBuffer.clear();
 }
 
 //clears the buffer after line #(line), and sets the counter to that line.

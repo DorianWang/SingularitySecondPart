@@ -498,12 +498,16 @@ int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors)
    FileIO myFile;
    int stringLength = cipherString.length();
    char FolderLetter = 'A'; int cipherNum = 0; int cipherLineInFile = 0;
+   std::string filePath;
+   std::string normalPath = "Data\\";
    if ((stringLength % 3) != 0){ return 0;} //String is not formatted properly
    for (int i = 0; i < stringLength; i = i){
       FolderLetter = cipherString.at(i); i++;
       cipherNum = cipherString.at(i) - 'A'; i++;
       cipherLineInFile = cipherString.at(i) - 'A'; i++;
-      myFile.open();
+      filePath = normalPath + FolderLetter;
+      filepath += "\\"; filePath += 
+      myFile.textOpenFile()
    }
     
 }
