@@ -74,18 +74,19 @@ if (filePath.length()+1>MAX_FILE_PATH){
    return false;   
 }
 
-int successNum = DeleteFile(filePath.c_str());     
+int successNum = DeleteFile(filePath.c_str());
+return successNum;
 }
 
 int winCnrl::deleteFolder(std::string folderPath, std::string* folderName)
 {
     
-if (folderName == NULL){
+if (folderName != NULL){
    folderPath = directoryPath + *folderName;
 }
-std::vector <WIN32_FIND_DATA> allItems;
+std::vector<WIN32_FIND_DATA> allItems;
 
-if (folderPath.length()+1>MAX_FILE_PATH){
+if (folderPath.length() + 1>MAX_FILE_PATH){
    return -1;//Uh oh...   
 }
 
@@ -118,8 +119,7 @@ for (int i=0; i<numItemsInFolder; i++){
    }
    
 }
-    
-    
+return RemoveDirectory(folderPath.c_str());
 }
 
 

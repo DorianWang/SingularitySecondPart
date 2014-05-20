@@ -42,6 +42,7 @@ char f;
 #include "keys.h"
 #include "CursorOptions.h"
 #include "Screens.h"
+#include "WindowsIntegration.h"
 
 
 #include "Painter.h"
@@ -130,31 +131,37 @@ int main(int argc, char *argv[])
    
    //cout<<asos.length()<<endl;;
 
-   
+   winCnrl Dempo;
    Encrypter Bromo;
    bool cipherType[5];
-   //Bromo.keygenInts(cipherType, 4, std::string("MyFirstCipher"));
+   Bromo.keygenInts(cipherType, 4, std::string("MyFirstCipher"));
    Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\A", 26);
    Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\B", 26);
    Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\C", 26);
    Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\D", 26);
    Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\E", 26);
    Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\F", 26);
-   intRotor rotorArray[16]; bool sdfg[5];
-   FileIO newFile; newFile.textOpenFile("Data\\A\\FirstCipher0.acp", false);
-   int ciphersTaken = Bromo.getCiphersFromFile(rotorArray, sdfg, &newFile, 16);
-   
-   for (int i=0; i<ciphersTaken; i++){
-      for (int j=0; j<(rotorArray[i].rotorLength);j++){
-          cout<<rotorArray[i].mapping[j]<<" ";
-      }
-      cout<<endl;
-   }
 
+
+//   intRotor rotorArray[16]; bool sdfg[5];
+//   FileIO newFile; newFile.textOpenFile("Data\\A\\FirstCipher0.acp", false);
+//   int ciphersTaken = Bromo.getCiphersFromFile(rotorArray, sdfg, &newFile, 16);
+   
+//   for (int i=0; i<ciphersTaken; i++){
+//      for (int j=0; j<(rotorArray[i].rotorLength);j++){
+//          cout<<rotorArray[i].mapping[j]<<" ";
+//      }
+//      cout<<endl;
+//   }
+
+std::string folderStuff = "Stuff\\";
+
+Dempo.directoryPath = "D:\\Test\\";
+//Dempo.deleteFolder("asdfasdf", NULL);
 
    MyContainer Aso;
    SelectScreens ScreenControl;
-
+   //cout<<Dempo.deleteFile(Dempo.getExecutablePath(), false)<<endl;
 
    // int asdf = 0;
     
@@ -168,6 +175,10 @@ int main(int argc, char *argv[])
    //^Important for code n' stuff
     
    //I don't want to reach this, should I remove it?
+   
+   
+cout<<RemoveDirectory("D:\\Test\\New Folder")<<endl;
+   
    
    cout<<"I'm done!"<<endl;
    system("PAUSE");
