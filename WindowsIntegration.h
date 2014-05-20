@@ -21,12 +21,15 @@ class winCnrl
 
 
 public:
-std::string directoryPath;
+std::string directoryPath; //Example "C:/asdf/folder/another/"
 bool directorySet;
 
 
-bool findAllFiles(char* fileName);
-       
+int findAllFiles(char* fileName, std::vector<WIN32_FIND_DATA>* outputArray);
+std::string getExecutablePath();
+bool deleteFile(std::string fileName, bool isInDir);
+int deleteFolder(std::string folderPath, std::string *folderName);
+
 private:
 
 std::vector <WIN32_FIND_DATA> allItemsInformation;
