@@ -506,8 +506,9 @@ int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors)
       cipherNum = cipherString.at(i) - 'A'; i++;
       cipherLineInFile = cipherString.at(i) - 'A'; i++;
       filePath = normalPath + FolderLetter;
-      filepath += "\\"; filePath += 
-      myFile.textOpenFile()
+      filePath += "\\"; 
+      filePath += "Stuff";//Temporary
+      myFile.textOpenFile();
    }
     
 }
@@ -515,7 +516,7 @@ int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors)
 int Encrypter::decryptFileWithPassword(std::string password, std::string cipherString, FileIO* myTextFile)
 {
    intRotor rotors[cipherString.length() / 2 + 1];
-   readCiphersFromFile(cipherString, rotors)
+//   readCiphersFromFile(cipherString, rotors)
     
     
 
