@@ -214,8 +214,8 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
-
-.acp
-.cip
+#myCiphers. These are too large, and should be moved with a flash drive.
+*.acp
+*.cip
 
 
