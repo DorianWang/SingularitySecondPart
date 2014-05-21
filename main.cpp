@@ -155,11 +155,13 @@ int main(int argc, char *argv[])
 //   }
 
 std::string folderStuff = "Stuff\\";
+std::string folderStuffs = "asdfasdf";
 
 std::string tempNameFolder = "asdfasdf";
 Dempo.directoryPath = "D:\\Test\\";
 //Dempo.deleteFolder("asdfasdf", NULL);
-cout<<Dempo.deleteFolder("asdfasdf", &tempNameFolder)<<endl;
+//cout<<Dempo.deleteFolder(&folderStuff, &tempNameFolder)<<endl;
+cout<<Dempo.deleteFolder(NULL, &tempNameFolder)<<endl;
 
    MyContainer Aso;
    SelectScreens ScreenControl;
