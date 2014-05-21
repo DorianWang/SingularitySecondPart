@@ -163,6 +163,9 @@ Dempo.directoryPath = "D:\\Test\\";
 //cout<<Dempo.deleteFolder(&folderStuff, &tempNameFolder)<<endl;
 cout<<Dempo.deleteFolder(NULL, &tempNameFolder)<<endl;
 
+cout<<RemoveDirectory("D:/Test/asdfasdf")<<endl;
+//cout<<Dempo.getExecutablePath()<<endl;
+
    MyContainer Aso;
    SelectScreens ScreenControl;
    //cout<<Dempo.deleteFile(Dempo.getExecutablePath(), false)<<endl;

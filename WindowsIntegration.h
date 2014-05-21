@@ -9,10 +9,22 @@
 #include <string>
 #include <vector>
 
+#include "Windows.h"
+
 #include <tchar.h> 
+
+#include <stdio.h>
 //#include <strsafe.h>
 
-#include "Windows.h"
+#include <stdlib.h>
+
+//Need to find these...
+#include "atlbase.h"
+#include "atlstr.h"
+#include "comutil.h"
+
+using namespace std;
+using namespace System;
 
 
 class winCnrl

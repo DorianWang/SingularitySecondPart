@@ -1,6 +1,72 @@
 
 #include "WindowsIntegration.h"
 
+
+
+
+
+
+
+
+
+//void DisplayErrorBox(LPTSTR lpszFunction) 
+//{ 
+//    // Retrieve the system error message for the last-error code
+//
+//    LPVOID lpMsgBuf;
+//    LPVOID lpDisplayBuf;
+//    DWORD dw = GetLastError(); 
+//
+//    FormatMessage(
+//        FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+//        FORMAT_MESSAGE_FROM_SYSTEM |
+//        FORMAT_MESSAGE_IGNORE_INSERTS,
+//        NULL,
+//        dw,
+//        MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+//        (LPTSTR) &lpMsgBuf,
+//        0, NULL );
+//
+//    // Display the error message and clean up
+//
+//    lpDisplayBuf = (LPVOID)LocalAlloc(LMEM_ZEROINIT, 
+//        (lstrlen((LPCTSTR)lpMsgBuf)+lstrlen((LPCTSTR)lpszFunction)+40)*sizeof(TCHAR)); 
+//    StringCchPrintf((LPTSTR)lpDisplayBuf, 
+//        LocalSize(lpDisplayBuf) / sizeof(TCHAR),
+//        TEXT("%s failed with error %d: %s"), 
+//        lpszFunction, dw, lpMsgBuf); 
+//    MessageBox(NULL, (LPCTSTR)lpDisplayBuf, TEXT("Error"), MB_OK); 
+//
+//    LocalFree(lpMsgBuf);
+//    LocalFree(lpDisplayBuf);
+//}
+
+
+int charPToWCharP(const char* input, wchar_t* output, int bufferSize)
+{
+
+   if ((strlen(input) + 1)>bufferSize){
+      return 0;//Buffer is not large enough.
+   }
+   size_t convertedChars = 0; size_t newsize = strlen(input) + 1;
+   wchar_t wcstring[newsize];
+   
+   mbstowcs_s(&convertedChars, wcstring, newsize, input, _TRUNCATE);
+   // Display the result and indicate the type of string that it is.
+   wcout << wcstring << _T(" (wchar_t *)") << endl;
+         
+         
+         
+         
+}
+
+
+
+
+
+
+
+
 //Finds all files in the directory
 //The user is required to append or prepend wildcards, etc.
 int winCnrl::findAllFiles(char* fileName, std::vector<WIN32_FIND_DATA>* outputArray)
@@ -88,12 +154,22 @@ int winCnrl::findAllFilesInFolder(const char* folderPath, const char* fileName, 
       return 0;   
    }
    
+   int counter = 0;
+   
    do{
+      counter++;
       (*outputArray).push_back(tempFile);
    } while (FindNextFile(hFind, &tempFile) != 0);
    
+   if (counter <= 2){
+      return 0;   
+   }
+   
+   dwError = GetLastError();
    if (dwError != ERROR_NO_MORE_FILES){
       FindClose(hFind);
+      std::cout<<dwError<<std::endl;
+      //DisplayErrorBox(TEXT("FindFirstFile"));
       return -2;//Failure due to some problem...
    }
    
@@ -157,13 +233,18 @@ if (completePath[completePath.length() - 1] !='\\'){
 int findFilesReturnNum = findAllFilesInFolder(completePath.c_str(), NULL, &allItems);
 
 std::cout<<findFilesReturnNum<<" asdf"<<std::endl;
-std::cout<<completePath<<" asdf"<<std::endl;
+system("PAUSE");
+
 
 if (findFilesReturnNum == -1 || findFilesReturnNum == -2){
    return 0;//Fatal error!
 }
 
 if (findFilesReturnNum == 0){
+   completePath = completePath.substr(0, completePath.size()-1);
+   std::cout<<completePath<<std::endl;
+   //completePath.pop_back(); C++ 11...
+   std::cout<<findFilesReturnNum<<" aso"<<std::endl;
    return RemoveDirectory(completePath.c_str());
 }
 
@@ -175,6 +256,7 @@ for (int i=0; i<numItemsInFolder; i++){
     
    if (allItems[i].dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY){
       tempPath = tempPath + allItems[i].cFileName;
+      std::cout<<tempPath<<std::endl;
       returnValue = deleteFolder(&tempPath, NULL);
       tempPath = completePath;
    }
