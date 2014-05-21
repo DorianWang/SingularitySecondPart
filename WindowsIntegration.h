@@ -26,6 +26,8 @@ bool directorySet;
 
 
 int findAllFiles(char* fileName, std::vector<WIN32_FIND_DATA>* outputArray);
+int findAllFilesInFolder(char* folderPath, char* fileName, std::vector<WIN32_FIND_DATA>* outputArray);
+
 std::string getExecutablePath();
 bool deleteFile(std::string fileName, bool isInDir);
 int deleteFolder(std::string folderPath, std::string *folderName);

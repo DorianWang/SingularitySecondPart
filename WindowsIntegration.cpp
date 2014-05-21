@@ -57,9 +57,23 @@ TCHAR szDir[MAX_FILE_PATH];
    return 1;
 }
 
-int winCnrl::findAllFilesInFolder(char* fileName, std::vector<WIN32_FIND_DATA>* outputArray)
+//Incomplete
+//fodlerPath must be appended with a slash.
+int winCnrl::findAllFilesInFolder(char* folderPath, char* fileName, std::vector<WIN32_FIND_DATA>* outputArray)
 {
-    
+   if (folderName == NULL  || outputArray == NULL){
+      return -1;//Pointers cannot be null  
+   }
+   std::string filePath = folderPath;
+   
+   if (fileName != NULL){
+      folderPath+=fileName;   
+   }
+   else
+   {
+      folderPath+="*";
+   }
+    std::string folder;
 }
 
 std::string winCnrl::getExecutablePath()

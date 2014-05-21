@@ -159,7 +159,7 @@ std::string folderStuff = "Stuff\\";
 std::string tempNameFolder = "asdfasdf";
 Dempo.directoryPath = "D:\\Test\\";
 //Dempo.deleteFolder("asdfasdf", NULL);
-Dempo.deleteFolder("asdfasdf", &tempNameFolder);
+cout<<Dempo.deleteFolder("asdfasdf", &tempNameFolder)<<endl;
 
    MyContainer Aso;
    SelectScreens ScreenControl;
