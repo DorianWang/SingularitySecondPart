@@ -132,15 +132,15 @@ int main(int argc, char *argv[])
    //cout<<asos.length()<<endl;;
 
    winCnrl Dempo;
-   Encrypter Bromo;
-   bool cipherType[5];
-   Bromo.keygenInts(cipherType, 4, std::string("MyFirstCipher"));
-   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\A", 26);
-   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\B", 26);
-   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\C", 26);
-   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\D", 26);
-   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\E", 26);
-   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\F", 26);
+//   Encrypter Bromo;
+//   bool cipherType[5];
+//   Bromo.keygenInts(cipherType, 4, std::string("MyFirstCipher"));
+//   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\A", 26);
+//   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\B", 26);
+//   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\C", 26);
+//   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\D", 26);
+//   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\E", 26);
+//   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\F", 26);
 
 
 //   intRotor rotorArray[16]; bool sdfg[5];
@@ -156,8 +156,10 @@ int main(int argc, char *argv[])
 
 std::string folderStuff = "Stuff\\";
 
+std::string tempNameFolder = "asdfasdf";
 Dempo.directoryPath = "D:\\Test\\";
 //Dempo.deleteFolder("asdfasdf", NULL);
+Dempo.deleteFolder("asdfasdf", &tempNameFolder);
 
    MyContainer Aso;
    SelectScreens ScreenControl;
@@ -177,7 +179,7 @@ Dempo.directoryPath = "D:\\Test\\";
    //I don't want to reach this, should I remove it?
    
    
-cout<<RemoveDirectory("D:\\Test\\New Folder")<<endl;
+cout<<DeleteFile("D:\\Test\\Things.txt")<<endl;
    
    
    cout<<"I'm done!"<<endl;

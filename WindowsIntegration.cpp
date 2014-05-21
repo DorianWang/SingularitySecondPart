@@ -6,6 +6,8 @@
 int winCnrl::findAllFiles(char* fileName, std::vector<WIN32_FIND_DATA>* outputArray)
 {
 
+directorySet = true;//Temporary thing
+
 if (directorySet == false){
    return -1;//Directory is not set   
 }
@@ -53,6 +55,11 @@ TCHAR szDir[MAX_FILE_PATH];
    
    FindClose(hFind);
    return 1;
+}
+
+int winCnrl::findAllFilesInFolder(char* fileName, std::vector<WIN32_FIND_DATA>* outputArray)
+{
+    
 }
 
 std::string winCnrl::getExecutablePath()
