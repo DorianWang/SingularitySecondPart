@@ -44,35 +44,38 @@
 // http://www.cplusplus.com/reference/cstdlib/mbtowc/
 int winCnrl::charPToWCharP(const char* input, wchar_t* output, int bufferSize)
 {
-
+         std::cout<<"qwer"<<std::endl;
    if ((strlen(input) + 1)>bufferSize){
       return 0;//Buffer is not large enough.
    }
+         std::cout<<"qwer"<<std::endl;
    size_t newsize = strlen(input) + 1;
    wchar_t wcstring[newsize];
-   size_t max = strlen(input);
+   size_t max = strlen(input); int length = 0;
+   int counter = 0;
    
-   
-  mbtowc (NULL, NULL, 0);  /* reset mbtowc */
-
-  while (max>0) {
-    length = mbtowc(&dest,pt,max);
-    if (length<1) break;
-    printf ("[%lc]",dest);
-    pt+=length; max-=length;
-  }
-   
-   for (int i=0; i<newsize; i++){
-      mbtowc
+   mbtowc (NULL, NULL, 0);  /* reset mbtowc */
+   //std::cout<<"qwer"<<std::endl;
+   //std::cout<<max<<" "<<bufferSize<<std::endl;
+   while (max>0&&bufferSize>counter) {
+      length = mbtowc(&(wcstring[counter]), (input + counter), max);
+      if (length<1){ 
+               std::cout<<"qwers"<<std::endl;
+         break;
+      }
+      //std::cout<<"qwer"<<std::endl;
+      printf ("[%lc]",wcstring[counter]);
+      std::cout<<wcstring[counter]<<std::endl;
+      counter+=length; max-=length;
    }
+   
+
+      //mbtowc
+   
    
    //mbstowcs_s(&convertedChars, wcstring, newsize, input, _TRUNCATE);
    // Display the result and indicate the type of string that it is.
-   wcout << wcstring << _T(" (wchar_t *)") << endl;
-         
-         
-         
-         
+   //wcout << wcstring << _T(" (wchar_t *)") << endl;    
 }
 
 
