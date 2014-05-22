@@ -161,9 +161,11 @@ std::string tempNameFolder = "asdfasdf";
 Dempo.directoryPath = "D:\\Test\\";
 //Dempo.deleteFolder("asdfasdf", NULL);
 //cout<<Dempo.deleteFolder(&folderStuff, &tempNameFolder)<<endl;
-//cout<<Dempo.deleteFolder(NULL, &tempNameFolder)<<endl;
 
-std::string something = "D:/Test/1";
+
+std::string something = "D:/Test/Stuff/";
+std::string something2 = "D:/Test/";
+std::string something3 = "Stuff/";
 wchar_t stuffs[512];
 
 
@@ -172,6 +174,19 @@ wchar_t stuffs[512];
 
 //Returns one is true, else 0;
 cout<<RemoveDirectory(something.c_str())<<endl;
+
+std::vector<WIN32_FIND_DATA> uaehr;
+
+
+cout<<Dempo.findAllFilesInFolder(something.c_str(), NULL, &uaehr)<<" asdf"<<endl;
+//^ Yey! It works now!
+cout<<Dempo.deleteFolder(NULL, &something3)<<endl;
+
+uaehr.clear();
+
+
+
+cout<<Dempo.findAllFilesInFolder(something.c_str(), NULL, &uaehr)<<" asdf"<<endl;
 
 //cout<<Dempo.getExecutablePath()<<endl;
 
@@ -212,9 +227,6 @@ printf ("%lc", newLine);
    //^Important for code n' stuff
     
    //I don't want to reach this, should I remove it?
-   
-   
-cout<<DeleteFile("D:\\Test\\Things.txt")<<endl;
    
    
    cout<<"I'm done!"<<endl;

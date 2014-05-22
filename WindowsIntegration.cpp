@@ -111,7 +111,12 @@ DWORD dwError=0;
 TCHAR szDir[MAX_FILE_PATH];
 
    if (fileName == NULL){
-      filePath = directoryPath + "\\*";//Search for all files and folders.
+
+      filePath = directoryPath;
+      if (filePath.at(filePath.length() - 1) != '/' || filePath.at(filePath.length() - 1) != '\\'){
+         filePath +='/';//Appends a slash if there is not one already.   
+      } 
+      filePath += "*";//Search for all files and folders.
    }
    else
    {
@@ -133,6 +138,7 @@ TCHAR szDir[MAX_FILE_PATH];
    do
    {
       (*outputArray).push_back(tempFile);
+      std::cout<<tempFile.cFileName<<std::endl;
    } while (FindNextFile(hFind, &tempFile) != 0);
     
    dwError = GetLastError();
@@ -158,6 +164,9 @@ int winCnrl::findAllFilesInFolder(const char* folderPath, const char* fileName, 
    }
    else
    {
+      if (!(filePath.at(filePath.length() - 1) != '/' || filePath.at(filePath.length() - 1) != '\\')){
+         filePath +='/';//Appends a slash if there is not one already.   
+      }
       filePath+="*";
    }
    
@@ -169,9 +178,11 @@ int winCnrl::findAllFilesInFolder(const char* folderPath, const char* fileName, 
    
    DWORD dwError=0;
    WIN32_FIND_DATA tempFile; HANDLE hFind = INVALID_HANDLE_VALUE;
+   
    hFind = FindFirstFile(filePath.c_str(), &tempFile);
    
    if (hFind == INVALID_HANDLE_VALUE){
+      std::cout<<"afejbhku"<<std::endl;
       return 0;   
    }
    
@@ -180,9 +191,11 @@ int winCnrl::findAllFilesInFolder(const char* folderPath, const char* fileName, 
    do{
       counter++;
       (*outputArray).push_back(tempFile);
+      std::cout<<tempFile.cFileName<<std::endl;
    } while (FindNextFile(hFind, &tempFile) != 0);
    
    if (counter <= 2){
+      std::cout<<"iuqwehfiuheb"<<std::endl;
       return 0;   
    }
    
@@ -247,7 +260,7 @@ if (completePath.length() + 3 > MAX_FILE_PATH){
    return -1;//Uh oh...   
 }
 
-if (completePath[completePath.length() - 1] !='\\'){
+if (!(completePath[completePath.length() - 1] !='\\' || completePath[completePath.length() - 1] != '/')){
    completePath += "\\";
 }
 
@@ -273,7 +286,7 @@ int numItemsInFolder = allItems.size(); bool returnValue = true;
 
 std::string tempPath = completePath;
 
-for (int i=0; i<numItemsInFolder; i++){
+for (int i=2; i<numItemsInFolder; i++){
     
    if (allItems[i].dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY){
       tempPath = tempPath + allItems[i].cFileName;
