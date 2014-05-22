@@ -65,10 +65,13 @@ int winCnrl::charPToWCharP(const char* input, wchar_t* output, int bufferSize)
       }
       //std::cout<<"qwer"<<std::endl;
       printf ("[%lc]",wcstring[counter]);
+      output[counter] = wcstring[counter];
       std::cout<<wcstring[counter]<<std::endl;
       counter+=length; max-=length;
    }
-   
+   wchar_t newLine = '\n';
+   output[counter] = newLine;
+   return counter;
 
       //mbtowc
    

@@ -163,15 +163,38 @@ Dempo.directoryPath = "D:\\Test\\";
 //cout<<Dempo.deleteFolder(&folderStuff, &tempNameFolder)<<endl;
 //cout<<Dempo.deleteFolder(NULL, &tempNameFolder)<<endl;
 
-//cout<<RemoveDirectory("D:/Test/asdfasdf")<<endl;
+std::string something = "D:/Test/1";
+wchar_t stuffs[512];
+
+
+//int lengthWString = Dempo.charPToWCharP(something.c_str(), stuffs, 512);
+//stuffs
+
+//Returns one is true, else 0;
+cout<<RemoveDirectory(something.c_str())<<endl;
+
 //cout<<Dempo.getExecutablePath()<<endl;
 
 std::string ijn = "Testing stuff";
 
-wchar_t stuffs[512];
 
-Dempo.charPToWCharP(ijn.c_str(), stuffs, 512);
 
+//Dempo.charPToWCharP(ijn.c_str(), stuffs, 512);
+
+int counters = 0;
+
+wchar_t newLine = '\n';
+
+//while(stuffs[counters]!=newLine){
+//printf ("%lc",stuffs[counters]);
+////std::wcout<<stuffs[counters]<<endl;
+//counters++;
+//}
+
+
+printf ("%lc", newLine);
+
+//cout<<endl;
 
    MyContainer Aso;
    SelectScreens ScreenControl;
