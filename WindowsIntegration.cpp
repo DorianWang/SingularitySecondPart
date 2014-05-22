@@ -41,17 +41,32 @@
 //    LocalFree(lpDisplayBuf);
 //}
 
-
-int charPToWCharP(const char* input, wchar_t* output, int bufferSize)
+// http://www.cplusplus.com/reference/cstdlib/mbtowc/
+int winCnrl::charPToWCharP(const char* input, wchar_t* output, int bufferSize)
 {
 
    if ((strlen(input) + 1)>bufferSize){
       return 0;//Buffer is not large enough.
    }
-   size_t convertedChars = 0; size_t newsize = strlen(input) + 1;
+   size_t newsize = strlen(input) + 1;
    wchar_t wcstring[newsize];
+   size_t max = strlen(input);
    
-   mbstowcs_s(&convertedChars, wcstring, newsize, input, _TRUNCATE);
+   
+  mbtowc (NULL, NULL, 0);  /* reset mbtowc */
+
+  while (max>0) {
+    length = mbtowc(&dest,pt,max);
+    if (length<1) break;
+    printf ("[%lc]",dest);
+    pt+=length; max-=length;
+  }
+   
+   for (int i=0; i<newsize; i++){
+      mbtowc
+   }
+   
+   //mbstowcs_s(&convertedChars, wcstring, newsize, input, _TRUNCATE);
    // Display the result and indicate the type of string that it is.
    wcout << wcstring << _T(" (wchar_t *)") << endl;
          

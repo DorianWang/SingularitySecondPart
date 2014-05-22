@@ -18,13 +18,8 @@
 
 #include <stdlib.h>
 
-//Need to find these...
-#include "atlbase.h"
-#include "atlstr.h"
-#include "comutil.h"
 
-using namespace std;
-using namespace System;
+//using namespace System;
 
 
 class winCnrl
@@ -36,6 +31,7 @@ public:
 std::string directoryPath; //Example "C:/asdf/folder/another/"
 bool directorySet;
 
+int charPToWCharP(const char* input, wchar_t* output, int bufferSize);
 
 int findAllFiles(char* fileName, std::vector<WIN32_FIND_DATA>* outputArray);
 int findAllFilesInFolder(const char* folderPath, const char* fileName, std::vector<WIN32_FIND_DATA>* outputArray);
