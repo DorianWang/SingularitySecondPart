@@ -17,7 +17,7 @@
 //#include <strsafe.h>
 
 #include <stdlib.h>
-
+#include <Shlwapi.h>
 
 //using namespace System;
 

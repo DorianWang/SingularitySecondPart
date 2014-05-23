@@ -279,7 +279,11 @@ if (findFilesReturnNum == 0){
    std::cout<<completePath<<std::endl;
    //completePath.pop_back(); C++ 11...
    std::cout<<findFilesReturnNum<<" aso"<<std::endl;
-   return RemoveDirectory(completePath.c_str());
+   
+   if (PathIsDirectoryEmpty(completePath.c_str()) != false){
+      return RemoveDirectory(completePath.c_str());
+   }
+   
 }
 
 int numItemsInFolder = allItems.size(); bool returnValue = true;
@@ -296,7 +300,10 @@ for (int i=2; i<numItemsInFolder; i++){
    }
    else
    {
-      returnValue = deleteFile(completePath + allItems[i].cFileName, false);
+      tempPath += allItems[i].cFileName;
+      returnValue = DeleteFile(tempPath.c_str());
+      
+      tempPath = completePath;
    }
    
    if (!returnValue){
