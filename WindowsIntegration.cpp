@@ -265,8 +265,8 @@ if (!!(completePath[completePath.length() - 1] !='\\' && completePath[completePa
 
 int findFilesReturnNum = findAllFilesInFolder(completePath.c_str(), NULL, &allItems);
 
-std::cout<<findFilesReturnNum<<" asdf"<<std::endl;
-system("PAUSE");
+//std::cout<<findFilesReturnNum<<" asdf"<<std::endl;
+//system("PAUSE");
 
 
 if (findFilesReturnNum == -1 || findFilesReturnNum == -2){
@@ -277,7 +277,7 @@ if (findFilesReturnNum == 0){
    completePath = completePath.substr(0, completePath.size()-1);
    std::cout<<completePath<<std::endl;
    //completePath.pop_back(); C++ 11...
-   std::cout<<findFilesReturnNum<<" aso"<<std::endl;
+   //std::cout<<findFilesReturnNum<<" aso"<<std::endl;
    
    //if (PathIsDirectoryEmpty(completePath.c_str()) != false){
       //return RemoveDirectory(completePath.c_str());
@@ -296,7 +296,7 @@ std::cout<<allItems[i].cFileName<<std::endl;
    if (allItems[i].dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY){
       
       if (allItems[i].cFileName == ".." || allItems[i].cFileName == "."){
-            
+         std::cout<<"???"<<std::endl;
       }
       
       tempPath = tempPath + allItems[i].cFileName;
@@ -313,6 +313,7 @@ std::cout<<allItems[i].cFileName<<std::endl;
    }
    
    if (!returnValue){
+      std::cout<<">>>"<<std::endl;
       return returnValue;   
    }
    
