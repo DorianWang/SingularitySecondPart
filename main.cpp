@@ -173,20 +173,20 @@ wchar_t stuffs[512];
 //stuffs
 
 //Returns one is true, else 0;
-cout<<RemoveDirectory(something.c_str())<<endl;
+//cout<<RemoveDirectory(something.c_str())<<endl;
 
 std::vector<WIN32_FIND_DATA> uaehr;
 
 
-cout<<Dempo.findAllFilesInFolder(something.c_str(), NULL, &uaehr)<<" asdf"<<endl;
+//cout<<Dempo.findAllFilesInFolder(something.c_str(), NULL, &uaehr)<<" asdf"<<endl;
 //^ Yey! It works now!
 cout<<Dempo.deleteFolder(NULL, &something3)<<endl;
 
-uaehr.clear();
+//uaehr.clear();
 
 
 
-cout<<Dempo.findAllFilesInFolder(something.c_str(), NULL, &uaehr)<<" asdf"<<endl;
+//cout<<Dempo.findAllFilesInFolder(something.c_str(), NULL, &uaehr)<<" asdf"<<endl;
 
 //cout<<Dempo.getExecutablePath()<<endl;
 
@@ -198,7 +198,7 @@ std::string ijn = "Testing stuff";
 
 int counters = 0;
 
-wchar_t newLine = '\n';
+//wchar_t newLine = '\n';
 
 //while(stuffs[counters]!=newLine){
 //printf ("%lc",stuffs[counters]);
@@ -207,7 +207,7 @@ wchar_t newLine = '\n';
 //}
 
 
-printf ("%lc", newLine);
+//printf ("%lc", newLine);
 
 //cout<<endl;
 

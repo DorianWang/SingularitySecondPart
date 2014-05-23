@@ -182,7 +182,7 @@ int winCnrl::findAllFilesInFolder(const char* folderPath, const char* fileName, 
    hFind = FindFirstFile(filePath.c_str(), &tempFile);
    
    if (hFind == INVALID_HANDLE_VALUE){
-      std::cout<<"afejbhku"<<std::endl;
+      //std::cout<<"afejbhku"<<std::endl;
       return 0;   
    }
    
@@ -191,11 +191,11 @@ int winCnrl::findAllFilesInFolder(const char* folderPath, const char* fileName, 
    do{
       counter++;
       (*outputArray).push_back(tempFile);
-      std::cout<<tempFile.cFileName<<std::endl;
+      //std::cout<<tempFile.cFileName<<std::endl;
    } while (FindNextFile(hFind, &tempFile) != 0);
    
    if (counter <= 2){
-      std::cout<<"iuqwehfiuheb"<<std::endl;
+      //std::cout<<"iuqwehfiuheb"<<std::endl;
       return 0;   
    }
    
@@ -251,7 +251,6 @@ else
    {
       completePath = *folderPath;   
    }
-
 }
 
 std::vector<WIN32_FIND_DATA> allItems;
@@ -260,7 +259,7 @@ if (completePath.length() + 3 > MAX_FILE_PATH){
    return -1;//Uh oh...   
 }
 
-if (!(completePath[completePath.length() - 1] !='\\' || completePath[completePath.length() - 1] != '/')){
+if (!!(completePath[completePath.length() - 1] !='\\' && completePath[completePath.length() - 1] != '/')){
    completePath += "\\";
 }
 
@@ -280,9 +279,9 @@ if (findFilesReturnNum == 0){
    //completePath.pop_back(); C++ 11...
    std::cout<<findFilesReturnNum<<" aso"<<std::endl;
    
-   if (PathIsDirectoryEmpty(completePath.c_str()) != false){
-      return RemoveDirectory(completePath.c_str());
-   }
+   //if (PathIsDirectoryEmpty(completePath.c_str()) != false){
+      //return RemoveDirectory(completePath.c_str());
+   //}
    
 }
 
@@ -291,8 +290,15 @@ int numItemsInFolder = allItems.size(); bool returnValue = true;
 std::string tempPath = completePath;
 
 for (int i=2; i<numItemsInFolder; i++){
-    
+
+std::cout<<allItems[i].cFileName<<std::endl;
+
    if (allItems[i].dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY){
+      
+      if (allItems[i].cFileName == ".." || allItems[i].cFileName == "."){
+            
+      }
+      
       tempPath = tempPath + allItems[i].cFileName;
       std::cout<<tempPath<<std::endl;
       returnValue = deleteFolder(&tempPath, NULL);
