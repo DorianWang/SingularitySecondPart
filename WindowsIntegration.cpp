@@ -307,14 +307,20 @@ std::cout<<allItems[i].cFileName<<std::endl;
    else
    {
       tempPath += allItems[i].cFileName;
+      std::cout<<tempPath<<std::endl;
       returnValue = DeleteFile(tempPath.c_str());
       
       tempPath = completePath;
    }
    
-   if (!returnValue){
-      std::cout<<">>>"<<std::endl;
-      return returnValue;   
+   if (returnValue<0){
+      std::cout<<returnValue<<" BAD"<<std::endl;
+      //return returnValue;   
+   }
+   
+   if (returnValue>=0){
+      std::cout<<returnValue<<std::endl;
+      //return returnValue;
    }
    
 }
