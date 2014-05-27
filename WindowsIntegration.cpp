@@ -324,8 +324,9 @@ std::cout<<allItems[i].cFileName<<std::endl;
    }
    
 }
-
-return RemoveDirectory(completePath.c_str());
+int returnThings = RemoveDirectory(completePath.c_str());
+std::cout<<"Folder deletion of "<<completePath<<" was "<<returnThings<<std::endl;
+return returnThings;
 }
 
 
