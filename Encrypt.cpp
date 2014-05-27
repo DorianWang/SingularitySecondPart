@@ -493,6 +493,7 @@ std::vector <std::string> Encrypter::decryptFile(FileIO* myFile, intRotor* rotor
    
 } 
 
+//cipherString is formatted like ABCBCDBDC -> groups of 3...
 int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors)
 {
    FileIO myFile;
@@ -508,7 +509,13 @@ int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors)
       filePath = normalPath + FolderLetter;
       filePath += "\\"; 
       filePath += "Stuff";//Temporary
-      myFile.textOpenFile();
+      myFile.textOpenFile(filePath, false);
+      
+      while(myFile.readLine()){
+                               
+      }
+      
+      
    }
     
 }

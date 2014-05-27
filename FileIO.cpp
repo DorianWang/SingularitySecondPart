@@ -316,11 +316,11 @@ int FileIO::readLine(std::string *output)
    
    getline( myfile, input );
    if (input.length()==0){
-      return 0;
+      return 1;
    }
    
    *output = input;
-   return 1;
+   return 2;
 }
 
 int FileIO::readWholeLine(std::string *output)

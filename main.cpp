@@ -180,8 +180,8 @@ std::vector<WIN32_FIND_DATA> uaehr;
 
 //cout<<Dempo.findAllFilesInFolder(something.c_str(), NULL, &uaehr)<<" asdf"<<endl;
 //^ Yey! It works now!
-cout<<Dempo.deleteFolder(NULL, &something3)<<endl;
-cout<<RemoveDirectory("D:\\Test\\Stuff\\qwer\\qwerqwer")<<" aukshfiuh "<<"D:\\Test\\Stuff\\qwer\\qwerqwer"<<endl;
+//cout<<Dempo.deleteFolder(NULL, &something3)<<endl;
+//cout<<RemoveDirectory("D:\\Test\\Stuff\\qwer\\qwerqwer")<<" aukshfiuh "<<"D:\\Test\\Stuff\\qwer\\qwerqwer"<<endl;
 //uaehr.clear();
 
 
