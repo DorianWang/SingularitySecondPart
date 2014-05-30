@@ -373,7 +373,13 @@ int Encrypter::createAllCiphers(bool* cipherType, int numCiphers, char* keyName,
 {
    stringstream ss;
    for (int i=0; i<totalNumCiphers; i++){
-      ss<<folderName<<"\\"<<keyName<<i;
+      ss<<folderName<<"\\";
+      
+      if (keyName != NULL){
+         ss<<keyName;
+      }
+      
+      ss<<i;
       cout<<ss.str()<<endl;
       keygenInts(cipherType, numCiphers, ss.str());
       ss.str(std::string()); ss.clear();
@@ -494,28 +500,39 @@ std::vector <std::string> Encrypter::decryptFile(FileIO* myFile, intRotor* rotor
 } 
 
 //cipherString is formatted like ABCBCDBDC -> groups of 3...
-int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors)
+int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors, std::string cipherName)
 {
    FileIO myFile;
    int stringLength = cipherString.length();
    char FolderLetter = 'A'; int cipherNum = 0; int cipherLineInFile = 0;
    std::string filePath;
    std::string normalPath = "Data\\";
+   
+   std::string input; int count = 0; int cipherNameLength = cipherName.length();
+   
    if ((stringLength % 3) != 0){ return 0;} //String is not formatted properly
+   
    for (int i = 0; i < stringLength; i = i){
       FolderLetter = cipherString.at(i); i++;
       cipherNum = cipherString.at(i) - 'A'; i++;
       cipherLineInFile = cipherString.at(i) - 'A'; i++;
       filePath = normalPath + FolderLetter;
       filePath += "\\"; 
-      filePath += "Stuff";//Temporary
+      if (cipherNameLength == 0){
+         filePath+=cipherName;   
+      }
+      filePath += cipherNum;
+      cout<<filePath<<" This is the filePath found..."<<endl;
       myFile.textOpenFile(filePath, false);
       
-      while(myFile.readLine()){
-                               
+      while(myFile.readLine(&input)){
+         count++;
+         if (count == cipherNum + 1){
+            break;//cipher found
+         }
       }
-      
-      
+      cout<<input<<" I read this!"<<endl;
+      count = 0;
    }
     
 }

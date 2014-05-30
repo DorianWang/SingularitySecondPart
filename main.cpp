@@ -132,15 +132,18 @@ int main(int argc, char *argv[])
    //cout<<asos.length()<<endl;;
 
    winCnrl Dempo;
-//   Encrypter Bromo;
-//   bool cipherType[5];
+   Encrypter Bromo;
+   bool cipherType[5];
 //   Bromo.keygenInts(cipherType, 4, std::string("MyFirstCipher"));
-//   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\A", 26);
-//   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\B", 26);
-//   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\C", 26);
-//   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\D", 26);
-//   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\E", 26);
-//   Bromo.createAllCiphers(cipherType, 6, "FirstCipher", "Data\\F", 26);
+//   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\A", 26);
+//   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\B", 26);
+//   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\C", 26);
+//   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\D", 26);
+//   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\E", 26);
+//   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\F", 26);
+   std::string tempst = "ABCDEFAAA";
+   intRotor intsStuff[50];
+   cout<<Bromo.readCiphersFromFiles(tempst, intsStuff, "")<<"!!!"<<endl;
 
 
 //   intRotor rotorArray[16]; bool sdfg[5];
@@ -158,15 +161,15 @@ std::string folderStuff = "Stuff\\";
 std::string folderStuffs = "asdfasdf";
 
 std::string tempNameFolder = "asdfasdf";
-Dempo.directoryPath = "D:\\Test\\";
+//Dempo.directoryPath = "D:\\Test\\";
 //Dempo.deleteFolder("asdfasdf", NULL);
 //cout<<Dempo.deleteFolder(&folderStuff, &tempNameFolder)<<endl;
 
 
-std::string something = "D:/Test/Stuff/";
-std::string something2 = "D:/Test/";
-std::string something3 = "Stuff/";
-wchar_t stuffs[512];
+//std::string something = "D:/Test/Stuff/";
+//std::string something2 = "D:/Test/";
+//std::string something3 = "Stuff/";
+//wchar_t stuffs[512];
 
 
 //int lengthWString = Dempo.charPToWCharP(something.c_str(), stuffs, 512);

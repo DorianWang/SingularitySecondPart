@@ -61,12 +61,13 @@ int keygenChars(char* charSpace, char* scrambledCipher, char* antiCipher, bool *
 int keygenInts(bool* cipherType, int numCiphers, std::string keyName);
 unsigned int passwordToHashInt(std::string password);
 unsigned int hashString( const string &key);
+
 std::vector <int> createCharSpace(bool* cipherType);
 std::vector <int> keygenIntsCharMap(unsigned int passwordHash, bool* cipherType, bool cipherToReturn);
 int createAllCiphers(bool* cipherType, int numCiphers, char* keyName, char* folderName, int totalNumCiphers);
 
 int getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myFile, int maxRotors);
-int readCiphersFromFiles(std::string cipherString, intRotor* rotors);
+int readCiphersFromFiles(std::string cipherString, intRotor* rotors, std::string cipherName);
 
 bool iterateRotor(intRotor* rotor);
 
