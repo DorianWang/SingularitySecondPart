@@ -6,6 +6,8 @@
 #define NUM_OTHER_CHARS 23
 #define NUM_LETTERS 26
 #define NUM_NUMBERS 10
+#define MAX_CIPHER_SIZE 92
+
 
 #define TWO_P_FOUR 0x10
 #define TWO_P_SIXTEEN 0x10000
@@ -80,7 +82,7 @@ int decryptFileWithPassword(std::string password, std::string cipherString, File
 int createPasswordFile(std::string fileName, std::string password, std::string cipherString);
 std::string passwordAndCipherFile(std::string fileName, std::string* cipherString);
 
-intRotor stringToCipher(std::string cipherIn, bool cipherType[]);
+intRotor stringToCipher(std::string cipherIn, bool cipherType[], int* errorNum);
 
 void closeFile();
 
