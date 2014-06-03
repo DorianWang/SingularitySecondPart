@@ -103,8 +103,44 @@ char Encrypter::cipherIntToChar(bool* cipherType, int input)
     
 return 0; //not in cipher
 }
+
+int predictedCipherSize(bool cipherType[])
+{
+   int typeCounter = 0;
+   if (cipherType[0]){
+      typeCounter = typeCounter + NUM_LETTERS;
+   }
+   
+   if (cipherType[1]){
+      typeCounter = typeCounter + NUM_LETTERS;
+   }
+   
+   if (cipherType[2]){
+      typeCounter = typeCounter + NUM_IMPORTANT_CHARS;
+   }
+
+   if (cipherType[3]){
+      typeCounter = typeCounter + NUM_NUMBERS;
+   }
+   
+   if (cipherType[4]){
+      typeCounter = typeCounter + NUM_OTHER_CHARS;
+   }
+    
+}
+
      
-     
+intRotor Encrypter::stringToCipher(std::string cipherIn, bool cipherType[])
+{
+         
+         
+         
+         
+         
+         
+         
+}
+         
 
 
 

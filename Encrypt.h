@@ -80,6 +80,8 @@ int decryptFileWithPassword(std::string password, std::string cipherString, File
 int createPasswordFile(std::string fileName, std::string password, std::string cipherString);
 std::string passwordAndCipherFile(std::string fileName, std::string* cipherString);
 
+intRotor stringToCipher(std::string cipherIn, bool cipherType[]);
+
 void closeFile();
 
 private:

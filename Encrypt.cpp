@@ -507,6 +507,7 @@ int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors, 
    char FolderLetter = 'A'; int cipherNum = 0; int cipherLineInFile = 0;
    std::string filePath;
    std::string normalPath = "Data\\";
+   bool rotorType[5]; int numRotors = 0;
    
    std::string input; int count = 0; int cipherNameLength = cipherName.length();
    
@@ -526,11 +527,26 @@ int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors, 
       myFile.textOpenFile(filePath, false);
       
       while(myFile.readLine(&input)){
+         if (count == 0){ 
+            int temp = 0;
+            while(input[temp]!= ' '&&input[temp]<='9'&&input[temp]>='0'){
+               numRotors = 10*numRotors + input[temp] - '0'
+            }
+            temp++;
+            for (int j=0; j<5; j++){
+               rotorType[j] = input[temp];
+               temp++;    
+            }
+            temp = 0;
+            
+            if (rotor)
+         }
          count++;
          if (count == cipherNum + 1){
             break;//cipher found
          }
       }
+      numRotors = 0;
       cout<<input<<" I read this!"<<endl;
       count = 0;
    }
