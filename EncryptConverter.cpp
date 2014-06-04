@@ -152,14 +152,14 @@ intRotor Encrypter::stringToCipher(std::string cipherIn, bool cipherType[], int*
       *errorNum = -1;   
       return tempOutput;
    }
-   tempOutput.mapping = tempCipher;
+   tempOutput.mapping = tempCipher; //Set the mapping
    
    for (int i=0; i<5; i++){
-      tempOutput.rotorType[i] = cipherType[i];    
+      tempOutput.rotorType[i] = cipherType[i]; //Sets the rotor type to the requested type
    }
-   tempOutput.rotorLength = predictedCipherSize;
-   tempOutput.currentNum = 0;
-   
+   tempOutput.rotorLength = predictedCipherSize;//Set the rotor's size
+   tempOutput.currentNum = 0;//Sets the rotor to 0. This should be changed for use.
+   return tempOutput;//Return!
 }
          
 
