@@ -24,6 +24,7 @@
 #include <vector>
 #include <ctime>      
 #include <cstdlib>      // std::rand, std::srand  
+#include <cstdarg>
 
 #include "FileIO.h"
 
@@ -42,6 +43,11 @@ typedef struct intRotor{
    int currentNum;//What the rotor has been set to.        
    bool rotorType[5];//Type of rotor.
    int rotorLength;
+};
+
+typedef struct byteRotor{
+   unsigned char mapping[256];//All ascii characters.
+   int currentNum;
 };
 
 class Encrypter

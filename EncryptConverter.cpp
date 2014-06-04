@@ -133,7 +133,7 @@ int predictedCipherSize(bool cipherType[])
 intRotor Encrypter::stringToCipher(std::string cipherIn, bool cipherType[], int* errorNum)
 {
    intRotor tempOutput;
-   tempOutput.rotorLength = predictedCipherSize(cipherType);
+   tempOutput.rotorLength = predictedCipherSize(cipherType); //Set the rotor's size
    std::vector <int> tempCipher;
    
    int stringLength = cipherIn.length();
@@ -148,7 +148,7 @@ intRotor Encrypter::stringToCipher(std::string cipherIn, bool cipherType[], int*
       pch = strtok(NULL, " ");
    }
    
-   if (tempCipher.size() != predictedCipherSize)}{
+   if (tempCipher.size() != tempOutput.rotorLength){
       *errorNum = -1;   
       return tempOutput;
    }
@@ -157,7 +157,6 @@ intRotor Encrypter::stringToCipher(std::string cipherIn, bool cipherType[], int*
    for (int i=0; i<5; i++){
       tempOutput.rotorType[i] = cipherType[i]; //Sets the rotor type to the requested type
    }
-   tempOutput.rotorLength = predictedCipherSize;//Set the rotor's size
    tempOutput.currentNum = 0;//Sets the rotor to 0. This should be changed for use.
    return tempOutput;//Return!
 }

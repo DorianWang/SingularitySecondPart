@@ -283,7 +283,19 @@ outputFileAntiCipher.writeBuffer();
 return 1;
 }
 
+//This will take a cipher, and shuffle it according to the hash.
+int shuffleCipher (unsigned int hash, int typeCipher, ...)
+{
+   va_list args;
+   va_start(args, typeCipher);
+   srand(hash);
+   
+   if (typeCipher = 1){
+      intRotor* cipher = va_arg(args, intRotor*);
+   }
 
+   std::random_shuffle ( cipherScrambled.begin(), cipherScrambled.end() , myRand);
+}
 
 //The returned cipher is true for cipher, and false for anticipher.
 std::vector <int> Encrypter::keygenIntsCharMap(unsigned int passwordHash, bool* cipherType, bool cipherToReturn)
@@ -295,8 +307,7 @@ std::vector <int> Encrypter::keygenIntsCharMap(unsigned int passwordHash, bool* 
    int temp = 0;
    int vectorCounter = cipherIntSpace.size();
    
-   srand(passwordHash);
-   std::random_shuffle ( cipherScrambled.begin(), cipherScrambled.end() , myRand);
+
    
    if (cipherToReturn){
       return cipherScrambled;
@@ -530,7 +541,7 @@ int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors, 
          if (count == 0){ 
             int temp = 0;
             while(input[temp]!= ' '&&input[temp]<='9'&&input[temp]>='0'){
-               numRotors = 10*numRotors + input[temp] - '0'
+               numRotors = 10*numRotors + input[temp] - '0';
             }
             temp++;
             for (int j=0; j<5; j++){
@@ -539,7 +550,7 @@ int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors, 
             }
             temp = 0;
             
-            if (rotor)
+            //if (rotor)
          }
          count++;
          if (count == cipherNum + 1){

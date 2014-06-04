@@ -144,7 +144,7 @@ int main(int argc, char *argv[])
    std::string tempst = "ABCDEFAAA";
    intRotor intsStuff[50];
    cout<<Bromo.readCiphersFromFiles(tempst, intsStuff, "")<<"!!!"<<endl;
-
+   cout<<(char)248<<endl;
 
 //   intRotor rotorArray[16]; bool sdfg[5];
 //   FileIO newFile; newFile.textOpenFile("Data\\A\\FirstCipher0.acp", false);
