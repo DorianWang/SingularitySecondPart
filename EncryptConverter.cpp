@@ -157,9 +157,9 @@ intRotor Encrypter::stringToCipher(std::string cipherIn, bool cipherType[], int*
    for (int i=0; i<5; i++){
       tempOutput.rotorType[i] = cipherType[i];    
    }
-         
-         
-         
+   tempOutput.rotorLength = predictedCipherSize;
+   tempOutput.currentNum = 0;
+   
 }
          
 
