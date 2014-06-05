@@ -39,14 +39,14 @@ typedef struct rotor{
 };
 
 typedef struct intRotor{
-   std::vector<int> mapping;
+   std::vector<unsigned int> mapping;
    int currentNum;//What the rotor has been set to.        
    bool rotorType[5];//Type of rotor.
    int rotorLength;
 };
 
 typedef struct byteRotor{
-   unsigned char mapping[256];//All ascii characters.
+   std::vector<unsigned char> mapping;//[256] All ascii characters.
    int currentNum;
 };
 

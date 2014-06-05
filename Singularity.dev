@@ -1,7 +1,7 @@
 [Project]
 FileName=Singularity.dev
 Name=Singularity
-UnitCount=27
+UnitCount=28
 Type=1
 Ver=1
 ObjFiles=
@@ -20,7 +20,7 @@ ObjectOutput=
 OverrideOutput=0
 OverrideOutputName=Singularity.exe
 HostApplication=
-Folders=Bases,Container,CursorMod,FileEncryt,FileIO,Keys,Painter,Screens,Stuff,WindowsStuff
+Folders=Bases,Container,CursorMod,FileEncryt,FileIO,Keys,Networking,Painter,Screens,Stuff,WindowsStuff
 CommandLine=
 UseCustomMakefile=0
 CustomMakefile=
@@ -311,6 +311,16 @@ BuildCmd=
 FileName=WindowsIntegration.cpp
 CompileCpp=1
 Folder=WindowsStuff
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit28]
+FileName=Server.cpp
+CompileCpp=1
+Folder=Networking
 Compile=1
 Link=1
 Priority=1000

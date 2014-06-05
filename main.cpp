@@ -115,19 +115,22 @@ int main(int argc, char *argv[])
    buffer[0]='0';buffer[1]='1';buffer[2]='5';buffer[3]='h';//buffer[4]='c';buffer[5]='d';buffer[6]='q';buffer[7]='h';
    buffer[8]='Q';buffer[9]=0;
 
-//   FileIO myFile;//FileIO has been tested, and appears to work...
-//   
-//   myFile.textOpenFile("Data/Aso.txt", false);
-//   std::string asos;
-//   std::vector <std::string> fileBuffer;
-//   
-//   while(myFile.readLine(&asos)){
-//      fileBuffer.push_back(asos);                              
-//   }
-//   
-//   for (int i=0; i<fileBuffer.size();i++){
-//      cout<<fileBuffer[i]<<"!"<<endl;;
-//   }
+   FileIO myFile;//FileIO has been tested, and appears to work...
+   //However, there is more testing to be done!
+
+   myFile.textOpenFile("Data/Aso.txt", false);
+   std::string asos;
+   std::vector <std::string> fileBuffer;
+  
+   while(myFile.readLine(&asos)){
+      fileBuffer.push_back(asos);                              
+   }
+   
+   for (int i=0; i<fileBuffer.size();i++){
+      cout<<fileBuffer[i]<<"!"<<endl;;
+   }
+   
+   myFile.closeFile()
    
    //cout<<asos.length()<<endl;;
 

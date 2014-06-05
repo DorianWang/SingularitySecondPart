@@ -306,6 +306,7 @@ int FileIO::goPos(int isRead, int position)
     
 }
 
+//Reads one line from the file, and
 int FileIO::readLine(std::string *output)
 {
    if (!myfile.good()){
@@ -323,6 +324,7 @@ int FileIO::readLine(std::string *output)
    return 2;
 }
 
+//Reads a line from the file, and then appends an endline to it.
 int FileIO::readWholeLine(std::string *output)
 {
    if (!myfile.good()){
@@ -507,7 +509,7 @@ void FileIO::writeBuffer(bool clearData)
    }
 }
 
-//Does not increment the counter
+//Does not increment the counter, and instead adds to the currently stored line.
 void FileIO::bufferAddition(std::string input)
 { 
    //lineBuffer[lineCounter]+=input;
@@ -546,6 +548,7 @@ for (int j=0; j<arrayLength;j++){
 return arrayLength;
 }
 
+//Closes the file if and only if there is one open
 int FileIO::closeFile()
 {
    if (isOpen){
@@ -556,6 +559,7 @@ int FileIO::closeFile()
    
 }
 
+//Closes the file, clears the buffer, etc...
 void FileIO::closeFile(bool asdf)
 {
    lineCounter = 0;

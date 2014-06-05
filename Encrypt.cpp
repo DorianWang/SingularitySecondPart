@@ -290,11 +290,21 @@ int shuffleCipher (unsigned int hash, int typeCipher, ...)
    va_start(args, typeCipher);
    srand(hash);
    
-   if (typeCipher = 1){
+   if (typeCipher == 1){
       intRotor* cipher = va_arg(args, intRotor*);
+      std::random_shuffle ( cipher -> mapping.begin(), cipher -> mapping.end() , myRand);
+      va_end(args);
+      return 1;
    }
-
-   std::random_shuffle ( cipherScrambled.begin(), cipherScrambled.end() , myRand);
+   
+   if (typeCipher == 2){
+      byteRotor* cipher = va_arg(args, byteRotor*);
+      std::random_shuffle ( cipher -> mapping.begin(), cipher -> mapping.end() , myRand);
+      va_end(args);
+      return 1;
+   }
+va_end(args);
+return 0;
 }
 
 //The returned cipher is true for cipher, and false for anticipher.
