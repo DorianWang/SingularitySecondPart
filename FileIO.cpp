@@ -15,7 +15,7 @@ FileIO::~FileIO()
 };
 
 
-
+//Goes to the end of the file, checks the length, and then goes tot eh start.
 void FileIO::getFileLength()
 {
    fileLength = 0;
@@ -236,7 +236,7 @@ int FileIO::dataOpenFile()
    if (newFile){
       myfile.open(filePath.c_str(), ios::out | ios::binary);//creates the file
       myfile.close();
-      myfile.open(filePath.c_str(), ios::out | ios::in | ios::binary);
+      myfile.open(filePath.c_str(), ios::out | ios::in | ios::binary);//Actually leaves it open.
       isBinary=true;
       fileLength=0;
       fileConstructor();
@@ -247,7 +247,7 @@ int FileIO::dataOpenFile()
    isBinary=true;
    
    myfile.seekg (0, myfile.end);
-   fileLength = myfile.tellg();
+   fileLength = myfile.tellg();//Finds the length of the file.
    myfile.seekg (0, myfile.beg);
    fileConstructor();
    return 1;
@@ -306,7 +306,7 @@ int FileIO::goPos(int isRead, int position)
     
 }
 
-//Reads one line from the file, and
+//Reads one line from the file, and returns it.
 int FileIO::readLine(std::string *output)
 {
    if (!myfile.good()){
