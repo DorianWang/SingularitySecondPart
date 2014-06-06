@@ -347,12 +347,10 @@ int FileIO::readWholeLine(std::string *output)
 // Multiple executions may be required to get all data.
 // http://stackoverflow.com/questions
 // /1579719/variable-number-of-parameters-in-function-in-c
-int FileIO::readData(int dataType, int arrayLength, ...)
+char* FileIO::readData(int dataLength, int arrayLength, ...)
 {
-//For dataType, 
-//0 for int, 1 for char, 2 for float, 3 for double, 4 for short, 
-//5 for long long, 6 for unsigned int...
-//7 for unsigned short,  More may be added later.
+//For dataLength, 
+//this affects how many bytes are taken from the file per arrayLength.
 
 //returns 0 for failure, else 1
 

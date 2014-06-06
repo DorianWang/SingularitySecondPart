@@ -132,6 +132,9 @@ int main(int argc, char *argv[])
    
    myFile.closeFile()
    
+   myFile.dataOpenFile("Data/Aso.bin", true);
+   myFile.
+   
    //cout<<asos.length()<<endl;;
 
    winCnrl Dempo;

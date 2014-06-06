@@ -5,11 +5,11 @@ CPP  = g++.exe -D__DEBUG__
 CC   = gcc.exe -D__DEBUG__
 WINDRES = windres.exe
 RES  = 
-OBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o pixelPainter.o typeChanger.o parseString.o EncryptConverter.o WindowsIntegration.o $(RES)
-LINKOBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o pixelPainter.o typeChanger.o parseString.o EncryptConverter.o WindowsIntegration.o $(RES)
-LIBS =  -L"E:/programs/Dev-Cpp/lib" -lgdi32  -g3 
-INCS =  -I"E:/programs/Dev-Cpp/include" 
-CXXINCS =  -I"E:/programs/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2/backward"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2"  -I"E:/programs/Dev-Cpp/include" 
+OBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o pixelPainter.o typeChanger.o parseString.o EncryptConverter.o WindowsIntegration.o Server.o $(RES)
+LINKOBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o pixelPainter.o typeChanger.o parseString.o EncryptConverter.o WindowsIntegration.o Server.o $(RES)
+LIBS =  -L"D:/_Cpp/Dev-Cpp/lib" -lgdi32  -g3 
+INCS =  -I"D:/_Cpp/Dev-Cpp/include" 
+CXXINCS =  -I"D:/_Cpp/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"D:/_Cpp/Dev-Cpp/include/c++/3.4.2/backward"  -I"D:/_Cpp/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"D:/_Cpp/Dev-Cpp/include/c++/3.4.2"  -I"D:/_Cpp/Dev-Cpp/include" 
 BIN  = Singularity.exe
 CXXFLAGS = $(CXXINCS)   -fexpensive-optimizations -g3
 CFLAGS = $(INCS)   -fexpensive-optimizations -g3
@@ -70,3 +70,6 @@ EncryptConverter.o: EncryptConverter.cpp
 
 WindowsIntegration.o: WindowsIntegration.cpp
 	$(CPP) -c WindowsIntegration.cpp -o WindowsIntegration.o $(CXXFLAGS)
+
+Server.o: Server.cpp
+	$(CPP) -c Server.cpp -o Server.o $(CXXFLAGS)

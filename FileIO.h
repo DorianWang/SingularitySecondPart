@@ -40,14 +40,18 @@ bool writeDwarf();
 //opening files
 int createFile();
 
+//If isFirstTime is true, the file will be created, closed and then reopened.
+//Attempting to use a file without creating it first will not work.
 int textOpenFile();
 int textOpenFile(std::string fileName, bool isFirstTime);
 int dataOpenFile();
 int dataOpenFile(std::string filePath, bool isFirstTime);
 
+
 //reading data
 int readLine(std::string *output);
 int readWholeLine(std::string *output);
+
 int readIntData(int *output);
 int readData(int dataType, int arrayLength, ...);
 
@@ -58,9 +62,10 @@ int goPos(int isRead, int position);
 
 //Writing data
 int writeDataToFile(char* data, int length);
+int writeData(int dataLength, int arrayLength, ...);
+
 int writeLine(std::string output);
 int writeStringText(std::string output);
-int writeData(int dataLength, int arrayLength, ...);
 
 //Other stuff
 std::string getFileName(bool isBinary);
