@@ -130,10 +130,15 @@ int main(int argc, char *argv[])
       cout<<fileBuffer[i]<<"!"<<endl;;
    }
    
-   myFile.closeFile()
+   myFile.closeFile();
    
    myFile.dataOpenFile("Data/Aso.bin", true);
-   myFile.
+   int intArray[4] = {2, 4, 6, 8};
+   int newArray[4];
+   myFile.writeData(sizeof(int), 4, intArray);
+   int* stuff;
+   myFile.readData(sizeof(int), 4, intArray)
+   
    
    //cout<<asos.length()<<endl;;
 
