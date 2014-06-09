@@ -343,11 +343,11 @@ int FileIO::readWholeLine(std::string *output)
    return 2;
 }
 
-// It is limited to 512 bytes per pull. 
+// It is limited to 2048 bytes per pull. 
 // Multiple executions may be required to get all data.
 // http://stackoverflow.com/questions
 // /1579719/variable-number-of-parameters-in-function-in-c
-char* FileIO::readData(int dataLength, int arrayLength, ...)
+int FileIO::readData(int dataLength, int arrayLength, int* errorNum, ...)
 {
 //For dataLength, 
 //this affects how many bytes are taken from the file per arrayLength.
@@ -356,52 +356,53 @@ char* FileIO::readData(int dataLength, int arrayLength, ...)
 
    //int *asdf;
    //512*4
-   char *buffer= new char [2048];
+   char *buffer= new char [MAX_BUFFER];
    //char * buffer = new char [length];
-   //This stores 128 4 byte objects (such as integers), or 64 doubles.
+   //This stores 512 4 byte objects (such as integers), or 256 doubles.
    char* output;
    //void * temp;
    int bytesToGet=4;
    int totalBytesToGet=0;
    int j = 0;
-   if (dataType>=5||dataType<=-1){
+   if (dataLength>=MAX_DATA_LENGTH||dataLength<=-1){
       delete [] buffer;
       return 0;
    }
    
-   if (dataType==1){ bytesToGet = 1; cout<<"Yey!"<<endl;}
-   
-   if (dataType==3||dataType==5){ bytesToGet = 8;}
-   
-   if (dataType==4){ bytesToGet = 2;}
-   
    va_list ap;
-   va_start(ap, arrayLength);//Gets the pointer to the function parameter list
+   va_start(ap, errorNum);//Gets the pointer to the function parameter list
 
    output = va_arg(ap, char*);//This allows for modification, and pointer arithmatic
    va_end(ap);//closes list, important...
    
-   if (output==NULL){
+   if (output == NULL){
       cout<<"???"<<endl;  
       delete [] buffer; 
+      *errorNum = -1;//Input error
       return 0;
    }
 
+
+   totalBytesToGet = (bytesToGet * arrayLength);
+   if (totalBytesToGet>MAX_BUFFER){
+      delete [] buffer;
+      *errorNum = -1;//Input error
+      return 0;
+   }
+   
+   goStart(1);//Temporary
    //read bytes, chance to fail...
-   totalBytesToGet = (bytesToGet*arrayLength);
-   goStart(1);
    myfile.read(buffer, totalBytesToGet);
    int bytesRead = myfile.gcount();
    
    if (bytesRead!=totalBytesToGet){
-      myfile.seekg(bytesRead*(-1), myfile.cur);
-      cout<<bytesRead<<", "<<totalBytesToGet<<endl;
-      cout<<(int)buffer[0]<<" "<<(int)buffer[1]<<endl;
+      goStart(1);//Goes to start, temporary.
+      myfile.clear();
       cout<<"asdf"<<endl;
       system("PAUSE");
-      cout<<"???"<<endl; 
       delete [] buffer;
-      return bytesRead*(-1);//Bad stuff, note that all bad returns are negative
+      *errorNum = -2;//Read error, not enough bytes to get.
+      return -1 * bytesRead;//Bad stuff, note that all bad returns are zero.
    }
    
    //if (myfile.eof()&&myfile.fail()) return 0; //hit end of file...
@@ -412,7 +413,7 @@ char* FileIO::readData(int dataLength, int arrayLength, ...)
    system("PAUSE");
 
    delete [] buffer;
-return 1;
+   return 1;
 
 }
 

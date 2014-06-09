@@ -10,6 +10,9 @@
 #include <cstdlib>
 #include <vector>
 
+#define BUFFER_SIZE 2048
+#define MAX_DATA_LENGTH 256
+
 #include "typeChanger.h"
 
 using namespace std;
@@ -53,7 +56,7 @@ int readLine(std::string *output);
 int readWholeLine(std::string *output);
 
 int readIntData(int *output);
-int readData(int dataType, int arrayLength, ...);
+int readData(int dataLength, int arrayLength, int* errorNum, ...);
 
 //moving the read/write
 int goStart(int isRead);
