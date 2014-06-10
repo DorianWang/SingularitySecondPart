@@ -118,27 +118,41 @@ int main(int argc, char *argv[])
    FileIO myFile;//FileIO has been tested, and appears to work...
    //However, there is more testing to be done!
 
-   myFile.textOpenFile("Data/Aso.txt", false);
-   std::string asos;
-   std::vector <std::string> fileBuffer;
-  
-   while(myFile.readLine(&asos)){
-      fileBuffer.push_back(asos);                              
-   }
+//   myFile.textOpenFile("Data/Aso.txt", false);
+//   std::string asos;
+//   std::vector <std::string> fileBuffer;
+//  
+//   while(myFile.readLine(&asos)){
+//      fileBuffer.push_back(asos);                              
+//   }
+//   
+//   for (int i=0; i<fileBuffer.size();i++){
+//      cout<<fileBuffer[i]<<"!"<<endl;;
+//   }
    
-   for (int i=0; i<fileBuffer.size();i++){
-      cout<<fileBuffer[i]<<"!"<<endl;;
-   }
-   
-   myFile.closeFile();
+//   myFile.closeFile();
    
    myFile.dataOpenFile("Data/Aso.bin", true);
-   int intArray[4] = {2, 4, 6, 8};
-   int newArray[4];
-   myFile.writeData(sizeof(int), 4, intArray);
-   int* stuff;
-   myFile.readData(sizeof(int), 4, intArray)
+   int intArray[5] = {65, 66, 67, 68, 69};
+   char strings[] = "This is another test!!";//21
+   char inputString[22];//
+   int newArray[5];
+   cout<<myFile.writeData(sizeof(int), 5, intArray)<<endl;
+   cout<<myFile.writeData(sizeof(char), 23, strings)<<endl;
+   myFile.goStart(1);
+   int otherStuff;
+   int* stuff = &otherStuff;
+   myFile.readData(sizeof(int), 5, stuff, newArray);
+   cout<<otherStuff<<endl;
    
+   myFile.readData(sizeof(char), 22, stuff, inputString);
+   cout<<otherStuff<<endl;
+   
+   for (int i=0; i<5; i++){
+      cout<<newArray[i]<<" ";    
+   }
+   cout<<inputString;
+   cout<<endl;
    
    //cout<<asos.length()<<endl;;
 
@@ -153,9 +167,9 @@ int main(int argc, char *argv[])
 //   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\E", 26);
 //   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\F", 26);
    std::string tempst = "ABCDEFAAA";
-   intRotor intsStuff[50];
-   cout<<Bromo.readCiphersFromFiles(tempst, intsStuff, "")<<"!!!"<<endl;
-   cout<<(char)248<<endl;
+   //intRotor intsStuff[50];
+   //cout<<Bromo.readCiphersFromFiles(tempst, intsStuff, "")<<"!!!"<<endl;
+   //cout<<(char)248<<endl;
 
 //   intRotor rotorArray[16]; bool sdfg[5];
 //   FileIO newFile; newFile.textOpenFile("Data\\A\\FirstCipher0.acp", false);

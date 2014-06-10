@@ -354,13 +354,10 @@ int FileIO::readData(int dataLength, int arrayLength, int* errorNum, ...)
 
 //returns 0 for failure, else 1
 
-   //int *asdf;
-   //512*4
    char *buffer= new char [MAX_BUFFER];
    //char * buffer = new char [length];
    //This stores 512 4 byte objects (such as integers), or 256 doubles.
-   char* output;
-   //void * temp;
+   char* output; //void * temp;
    int bytesToGet=4;
    int totalBytesToGet=0;
    int j = 0;
@@ -390,13 +387,13 @@ int FileIO::readData(int dataLength, int arrayLength, int* errorNum, ...)
       return 0;
    }
    
-   goStart(1);//Temporary
+   //goStart(1);//Temporary
    //read bytes, chance to fail...
    myfile.read(buffer, totalBytesToGet);
    int bytesRead = myfile.gcount();
    
    if (bytesRead!=totalBytesToGet){
-      goStart(1);//Goes to start, temporary.
+      //goStart(1);//Goes to start, temporary.
       myfile.clear();
       cout<<"asdf"<<endl;
       system("PAUSE");
@@ -410,8 +407,8 @@ int FileIO::readData(int dataLength, int arrayLength, int* errorNum, ...)
    for (int i=0;i<(arrayLength*bytesToGet);i++){
       *(output+i) = buffer[i];
    }
-   system("PAUSE");
-
+   //system("PAUSE");
+   *errorNum = 1;
    delete [] buffer;
    return 1;
 
@@ -533,18 +530,16 @@ va_list ap;
 char* dataBytes;
 va_start(ap, arrayLength);
 
-//for (int i=0;i<arrayLength;i++){
    dataBytes = va_arg(ap, char*);
-//}
-va_end(ap);
-for (int j=0; j<arrayLength;j++){
-   if (!(writeDataToFile(dataBytes, dataLength))){
-      return j;
-   }
-   dataBytes=dataBytes+dataLength;//I forgot to change the variable. Derp.
-}
 
-return arrayLength;
+va_end(ap);
+
+if (!(writeDataToFile(dataBytes, dataLength * arrayLength))){
+   return 0;
+}
+   dataBytes=dataBytes+dataLength;//I forgot to change the variable. Derp.
+   return 1;
+//return arrayLength;
 }
 
 //Closes the file if and only if there is one open

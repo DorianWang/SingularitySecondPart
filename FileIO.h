@@ -10,7 +10,7 @@
 #include <cstdlib>
 #include <vector>
 
-#define BUFFER_SIZE 2048
+#define MAX_BUFFER 2048
 #define MAX_DATA_LENGTH 256
 
 #include "typeChanger.h"
