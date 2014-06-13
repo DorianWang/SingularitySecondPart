@@ -218,4 +218,5 @@ pip-log.txt
 *.acp
 *.cip
 
-
+#object files
+*.obj
