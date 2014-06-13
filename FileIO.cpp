@@ -358,7 +358,7 @@ int FileIO::readData(int dataLength, int arrayLength, int* errorNum, ...)
    //char * buffer = new char [length];
    //This stores 512 4 byte objects (such as integers), or 256 doubles.
    char* output; //void * temp;
-   int bytesToGet=4;
+   int bytesToGet=dataLength;
    int totalBytesToGet=0;
    int j = 0;
    if (dataLength>=MAX_DATA_LENGTH||dataLength<=-1){

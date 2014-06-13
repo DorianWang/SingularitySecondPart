@@ -134,23 +134,24 @@ int main(int argc, char *argv[])
    
    myFile.dataOpenFile("Data/Aso.bin", true);
    int intArray[5] = {65, 66, 67, 68, 69};
-   char strings[] = "This is another test!!";//21
-   char inputString[22];//
+   char strings[23] = "This is another test!!";//22
+   char inputString[23];//
    int newArray[5];
    cout<<myFile.writeData(sizeof(int), 5, intArray)<<endl;
    cout<<myFile.writeData(sizeof(char), 23, strings)<<endl;
-   myFile.goStart(1);
-   int otherStuff;
+   cout<<myFile.goStart(1)<<endl;
+   int otherStuff = 0;
    int* stuff = &otherStuff;
    myFile.readData(sizeof(int), 5, stuff, newArray);
-   cout<<otherStuff<<endl;
+   cout<<otherStuff<<" Debug!"<<endl;
    
-   myFile.readData(sizeof(char), 22, stuff, inputString);
+   myFile.readData(sizeof(char), 23, stuff, inputString);
    cout<<otherStuff<<endl;
    
    for (int i=0; i<5; i++){
       cout<<newArray[i]<<" ";    
    }
+   cout<<endl;
    cout<<inputString;
    cout<<endl;
    
