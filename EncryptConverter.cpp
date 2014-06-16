@@ -161,6 +161,28 @@ intRotor Encrypter::stringToCipher(std::string cipherIn, bool cipherType[], int*
    return tempOutput;//Return!
 }
          
+byteRotor Encrypter::stringToCipher(std::string cipherIn)
+{
+   int stringLength = cipherIn.length();//This should always be the same. Testing?
+   std::vector <unsigned char> tempCipher; byteRotor output;
+   char tempString[MAX_BYTE_CIPHER_SIZE] = cipherIn.c_str();
+   char*pch;
+   pch = strtok (tempString," ");
+   while(pch != NULL){
+      tempCipher.push_back(atoi(pch));
+      pch = strtok(NULL, " ");
+   }
+   output.mapping = tempCipher;
+   output.currentNum = 0;
+   return output;
+}
+
+
+
+
+
+
+
 
 
 

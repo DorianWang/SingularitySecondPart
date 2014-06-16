@@ -303,6 +303,7 @@ int shuffleCipher (unsigned int hash, int typeCipher, ...)
       va_end(args);
       return 1;
    }
+   
 va_end(args);
 return 0;
 }
@@ -574,15 +575,92 @@ int Encrypter::readCiphersFromFiles(std::string cipherString, intRotor* rotors, 
     
 }
 
+int Encrypter::readCiphersFromFiles(std::string cipherString, byteRotor* rotors, std::string cipherName)
+{
+   FileIO myFile;
+   int stringLength = cipherString.length();
+   char FolderLetter = 'A'; int cipherNum = 0; int cipherLineInFile = 0;
+   std::string filePath;
+   std::string normalPath = "Data\\Byte_Rotors";
+   bool rotorType[5]; int numRotors = 0;
+   
+   std::string input; int count = 0; int cipherNameLength = cipherName.length();
+   
+   if ((stringLength % 3) != 0){ return 0;} //String is not formatted properly
+   
+   for (int i = 0; i < stringLength; i = i){
+      FolderLetter = cipherString.at(i); i++;
+      cipherNum = cipherString.at(i) - 'A'; i++;
+      cipherLineInFile = cipherString.at(i) - 'A'; i++;
+      filePath = normalPath + FolderLetter;
+      filePath += "\\"; 
+      if (cipherNameLength == 0){
+         filePath+=cipherName;   
+      }
+      filePath += cipherNum;
+      cout<<filePath<<" This is the filePath found..."<<endl;
+      myFile.textOpenFile(filePath, false);
+      
+      while(myFile.readLine(&input)){
+         count++;
+         if (count == cipherNum){
+            rotors[numRotors] = stringToCipher(input);
+            numRotors++;
+            break;//cipher found
+         }
+      }
+      
+      //numRotors = 0;
+      cout<<input<<" I read this!"<<endl;
+      count = 0;
+   }
+    
+}
+
+
 int Encrypter::decryptFileWithPassword(std::string password, std::string cipherString, FileIO* myTextFile)
 {
    intRotor rotors[cipherString.length() / 2 + 1];
 //   readCiphersFromFile(cipherString, rotors)
     
-    
+}
 
+int Encrypter::fileToFileEncrypt(FileIO* sourceFile, FileIO* destinationFile, std::string password)
+{
+//Add stuff here!    
+}
+
+
+int Encrypter::dataToFile(FileIO* destinationFile, char* data, int cipherType, std::string password)
+{
+   
+    
+    
+    
     
 }
+
+int Encrypter::cipherChar(char input, byteRotor* rotors, intnumRotors)
+{
+   asdf    
+    
+    
+}
+
+int Encrypter::gameHighScoreEncryption(FileIO* destinationFile, char* data, std::string cipherString)
+{
+   //cipherString is temporarily AAABBBCCCDDD
+   std::string temp = "AAABBBCCCDDD";
+   cipherString = temp;
+   
+   
+   
+    
+    
+    
+}
+
+
 
 
 

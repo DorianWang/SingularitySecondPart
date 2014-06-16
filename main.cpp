@@ -154,8 +154,22 @@ int main(int argc, char *argv[])
    cout<<endl;
    cout<<inputString;
    cout<<endl;
+   myFile.closeFile();
    
-   //cout<<asos.length()<<endl;;
+   myFile.dataOpenFile("Data/Bromo.bin", true);
+   int otherArray[4] = {4, 5, 6, 7};
+   cout<<myFile.writeData(sizeof(int), 4, otherArray)<<endl;
+   char strings2[23] = "Tihs is another tset??";//22
+   cout<<myFile.writeData(sizeof(char), 23, strings2)<<endl;
+   cout<<myFile.goStart(1)<<endl;   
+   int otherStuff2 = 0;
+   int* stuff2 = &otherStuff2;
+   
+   myFile.readData(sizeof(int), 4, stuff, newArray);
+   cout<<otherStuff<<" Debug!"<<endl;
+   
+   myFile.readData(sizeof(char), 23, stuff, inputString);
+   cout<<otherStuff<<endl;
 
    winCnrl Dempo;
    Encrypter Bromo;

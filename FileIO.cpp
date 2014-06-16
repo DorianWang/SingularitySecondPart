@@ -11,7 +11,7 @@ FileIO::FileIO()
                  
 FileIO::~FileIO()
 {
-   myfile.close();    
+   closeFile(true);
 };
 
 
@@ -41,6 +41,7 @@ void FileIO::fileConstructor()
 {
    lineCounter = 0;
    dataCounter = 0;
+   isOpen = true;
    getFileLength();
 }
 

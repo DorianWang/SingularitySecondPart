@@ -7,6 +7,7 @@
 #define NUM_LETTERS 26
 #define NUM_NUMBERS 10
 #define MAX_CIPHER_SIZE 92
+#define MAX_BYTE_CIPHER_SIZE 768
 
 
 #define TWO_P_FOUR 0x10
@@ -48,6 +49,7 @@ typedef struct intRotor{
 typedef struct byteRotor{
    std::vector<unsigned char> mapping;//[256] All ascii characters.
    int currentNum;
+   //Rotor length is always 256 (for the 256 characters possible)
 };
 
 class Encrypter
@@ -89,6 +91,18 @@ int createPasswordFile(std::string fileName, std::string password, std::string c
 std::string passwordAndCipherFile(std::string fileName, std::string* cipherString);
 
 intRotor stringToCipher(std::string cipherIn, bool cipherType[], int* errorNum);
+
+
+int fileToFileEncrypt(FileIO* sourceFile, FileIO* destinationFile, std::string password);
+
+int dataToFile(FileIO* destinationFile, char* data, int cipherType);
+
+
+//Random stuff
+int gameHighScoreEncryption(FileIO* destinationFile, char* data, std::string cipherString);
+
+
+
 
 void closeFile();
 
