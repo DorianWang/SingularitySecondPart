@@ -609,6 +609,7 @@ int Encrypter::readCiphersFromFiles(std::string cipherString, byteRotor* rotors,
             break;//cipher found
          }
       }
+      myFile.closeFile();
       
       //numRotors = 0;
       cout<<input<<" I read this!"<<endl;
@@ -647,12 +648,19 @@ int Encrypter::cipherChar(char input, byteRotor* rotors, intnumRotors)
     
 }
 
+int Encrypter::keygenBytes(int numCiphers, std::string keyName)
+{
+    
+}
+
+
 int Encrypter::gameHighScoreEncryption(FileIO* destinationFile, char* data, std::string cipherString)
 {
    //cipherString is temporarily AAABBBCCCDDD
    std::string temp = "AAABBBCCCDDD";
    cipherString = temp;
-   
+   byteRotor rotors[4];
+   readCiphersFromFiles(temp, rotors, "A")
    
    
     

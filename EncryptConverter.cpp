@@ -168,10 +168,12 @@ byteRotor Encrypter::stringToCipher(std::string cipherIn)
    char tempString[MAX_BYTE_CIPHER_SIZE] = cipherIn.c_str();
    char*pch;
    pch = strtok (tempString," ");
+   
    while(pch != NULL){
       tempCipher.push_back(atoi(pch));
       pch = strtok(NULL, " ");
    }
+   
    output.mapping = tempCipher;
    output.currentNum = 0;
    return output;
