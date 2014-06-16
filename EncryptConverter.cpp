@@ -134,7 +134,7 @@ intRotor Encrypter::stringToCipher(std::string cipherIn, bool cipherType[], int*
 {
    intRotor tempOutput;
    tempOutput.rotorLength = predictedCipherSize(cipherType); //Set the rotor's size
-   std::vector <int> tempCipher;
+   std::vector <unsigned int> tempCipher;
    
    int stringLength = cipherIn.length();
    char tempString[MAX_CIPHER_SIZE];
@@ -165,7 +165,9 @@ byteRotor Encrypter::stringToCipher(std::string cipherIn)
 {
    int stringLength = cipherIn.length();//This should always be the same. Testing?
    std::vector <unsigned char> tempCipher; byteRotor output;
-   char tempString[MAX_BYTE_CIPHER_SIZE] = cipherIn.c_str();
+   char tempString[MAX_BYTE_CIPHER_SIZE];
+   for (int i=0; i<cipherIn.)
+   cipherIn.c_str();
    char*pch;
    pch = strtok (tempString," ");
    

@@ -214,9 +214,7 @@ int vectorCounter=0;
    cipherIntSpace = createCharSpace(cipherType);
    
 vectorCounter = cipherIntSpace.size();
-//char cipherSalt[vectorCounter];
-//char antiCipherSalt[vectorCounter];
-//char charSpace[vectorCounter];//All the characters possible in the cipher.
+
 int temp;
 
 std::string fileName;
@@ -288,7 +286,11 @@ int shuffleCipher (unsigned int hash, int typeCipher, ...)
 {
    va_list args;
    va_start(args, typeCipher);
-   srand(hash);
+   
+   if (hash != 0){
+      srand(hash);
+   }
+
    
    if (typeCipher == 1){
       intRotor* cipher = va_arg(args, intRotor*);
@@ -330,11 +332,6 @@ std::vector <int> Encrypter::keygenIntsCharMap(unsigned int passwordHash, bool* 
    }
    return antiCipher;
 }
-
-
-
-
-
 
 unsigned int Encrypter::hashString( const string &key) {
    long long hashVal = 0;
@@ -634,23 +631,72 @@ int Encrypter::fileToFileEncrypt(FileIO* sourceFile, FileIO* destinationFile, st
 
 int Encrypter::dataToFile(FileIO* destinationFile, char* data, int cipherType, std::string password)
 {
-   
-    
-    
-    
-    
+   //Will add over summer!
 }
 
-int Encrypter::cipherChar(char input, byteRotor* rotors, intnumRotors)
+int Encrypter::cipherChar(char input, byteRotor* rotors, int numRotors)
 {
-   asdf    
-    
+
+   
     
 }
 
 int Encrypter::keygenBytes(int numCiphers, std::string keyName)
 {
-    
+   if (numCiphers>MAX_CIPHERS_IN_FILE||numCiphers<=0){
+      return 0;
+   }
+   std::string normalPath = "Data\\Byte_Rotors";
+   std::vector <unsigned char> mappingTemplate;
+   std::string tempPath = normalPath;
+   stringstream ss; stringstream output; byteRotor temp; int tempInt = 0;
+   std::vector <unsigned char> antiCipher; antiCipher.reserve(256+1);
+   
+   FileIO cipherFile; FileIO antiCipherFile;
+   
+   for (int i=0; i<256; i++){
+      mappingTemplate.push_back((unsigned char) i);    
+   }
+   
+
+   
+   for (int k=0; k<6; k++){
+      for (int j=0; j<26; j++){
+         temp.mapping = mappingTemplate;
+         
+         ss<<"\\"<<(char)(k+'A')<<keyName<<(int)j;
+         cipherFile.textOpenFile(ss.str() + ".cib", true); 
+         antiCipherFile.textOpenFile(ss.str() + ".acb", true); 
+         ss.str(std::string());
+         ss.clear();
+         for (int i=0; i<numCiphers; i++){
+            shuffleCipher (0, 2, &temp);
+            
+            for (int l=0;l<256;l++){  
+               tempInt = temp.mapping[j];
+               antiCipher[tempInt]=j;
+            }
+            
+            for (int m = 0; m<256; m++){
+               output<<temp.mapping[m]<<" ";
+            }
+            cipherFile.bufferLines(output.str());
+            output.str(std::string());
+            output.clear();
+               
+            for (int m = 0; m<256; m++){
+               output<<antiCipher[m]<<" ";
+            }
+            antiCipherFile.bufferLines(output.str());
+            output.str(std::string());
+            output.clear();
+            
+            temp.mapping = mappingTemplate;
+         }
+         cipherFile.writeBuffer(); antiCipherFile.writeBuffer();
+         cipherFile.closeFile(); antiCipherFile.closeFile();
+      }
+   }
 }
 
 
@@ -660,7 +706,7 @@ int Encrypter::gameHighScoreEncryption(FileIO* destinationFile, char* data, std:
    std::string temp = "AAABBBCCCDDD";
    cipherString = temp;
    byteRotor rotors[4];
-   readCiphersFromFiles(temp, rotors, "A")
+   readCiphersFromFiles(temp, rotors, "A");
    
    
     

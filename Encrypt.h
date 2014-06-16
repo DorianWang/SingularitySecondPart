@@ -9,6 +9,8 @@
 #define MAX_CIPHER_SIZE 92
 #define MAX_BYTE_CIPHER_SIZE 768
 
+#define MAX_CIPHERS_IN_FILE 25
+
 
 #define TWO_P_FOUR 0x10
 #define TWO_P_SIXTEEN 0x10000
@@ -78,6 +80,7 @@ int createAllCiphers(bool* cipherType, int numCiphers, char* keyName, char* fold
 
 int getCiphersFromFile(intRotor* rotors, bool* cipherType, FileIO* myFile, int maxRotors);
 int readCiphersFromFiles(std::string cipherString, intRotor* rotors, std::string cipherName);
+int readCiphersFromFiles(std::string cipherString, byteRotor* rotors, std::string cipherName);
 
 bool iterateRotor(intRotor* rotor);
 
@@ -97,11 +100,14 @@ int fileToFileEncrypt(FileIO* sourceFile, FileIO* destinationFile, std::string p
 
 int dataToFile(FileIO* destinationFile, char* data, int cipherType);
 
+byteRotor stringToCipher(std::string cipherIn);
+int keygenBytes(int numCiphers, std::string keyName);
 
 //Random stuff
 int gameHighScoreEncryption(FileIO* destinationFile, char* data, std::string cipherString);
 
-
+int dataToFile(FileIO* destinationFile, char* data, int cipherType, std::string password);
+int cipherChar(char input, byteRotor* rotors, int numRotors);
 
 
 void closeFile();
