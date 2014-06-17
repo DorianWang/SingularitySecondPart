@@ -64,7 +64,7 @@ int goEnd(int isRead);
 int goPos(int isRead, int position);
 
 //Writing data
-int writeDataToFile(char* data, int length);
+int writeDataToFile(const char* data, int length);
 int writeData(int dataLength, int arrayLength, ...);
 
 int writeLine(std::string output);

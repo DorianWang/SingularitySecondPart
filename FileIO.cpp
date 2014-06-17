@@ -515,7 +515,7 @@ void FileIO::bufferAddition(std::string input)
 }
 
 //Takes data already 
-int FileIO::writeDataToFile(char* data, int length)
+int FileIO::writeDataToFile(const char* data, int length)
 {
    if (myfile.is_open()){
       myfile.write(data, length); return !myfile.fail();
@@ -528,10 +528,10 @@ return 0;
 int FileIO::writeData(int dataLength, int arrayLength, ...){
     
 va_list ap;
-char* dataBytes;
+const char* dataBytes;
 va_start(ap, arrayLength);
 
-   dataBytes = va_arg(ap, char*);
+   dataBytes = va_arg(ap, const char*);
 
 va_end(ap);
 

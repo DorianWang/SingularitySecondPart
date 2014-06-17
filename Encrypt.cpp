@@ -652,6 +652,8 @@ int Encrypter::keygenBytes(int numCiphers, std::string keyName)
    stringstream ss; stringstream output; byteRotor temp; int tempInt = 0;
    std::vector <unsigned char> antiCipher; antiCipher.reserve(256+1);
    
+   std::string tempString; char numCiphersChar = numCiphers;
+   
    FileIO cipherFile; FileIO antiCipherFile;
    
    for (int i=0; i<256; i++){
@@ -664,36 +666,49 @@ int Encrypter::keygenBytes(int numCiphers, std::string keyName)
       for (int j=0; j<26; j++){
          temp.mapping = mappingTemplate;
          
-         ss<<"\\"<<(char)(k+'A')<<keyName<<(int)j;
-         cipherFile.textOpenFile(ss.str() + ".cib", true); 
-         antiCipherFile.textOpenFile(ss.str() + ".acb", true); 
+         ss<<normalPath<<"\\"<<(char)(k + 'A')<<"\\"<<keyName<<(int)j;
+         cipherFile.dataOpenFile(ss.str() + ".cib", true); 
+         antiCipherFile.dataOpenFile(ss.str() + ".acb", true); 
+         cout<<ss.str()<<endl;
+         
+         //Writes the number of ciphers
+         cipherFile.writeData(sizeof(char), 1, &numCiphersChar);
+         cipherFile.writeData(sizeof(char), 1, &numCiphersChar);
+         
          ss.str(std::string());
          ss.clear();
+         
          for (int i=0; i<numCiphers; i++){
-            shuffleCipher (0, 2, &temp);
+            cout<<shuffleCipher (0, 2, &temp)<<endl;
             
             for (int l=0;l<256;l++){  
-               tempInt = temp.mapping[j];
-               antiCipher[tempInt]=j;
+               tempInt = temp.mapping[l];
+               antiCipher[tempInt]=l;
             }
             
+            cout<<endl;
+            
             for (int m = 0; m<256; m++){
-               output<<temp.mapping[m]<<" ";
+               output<<temp.mapping[m];//No need for spaces between characters.
             }
-            cipherFile.bufferLines(output.str());
+            
+            tempString = output.str();
+            
+            cipherFile.writeData(sizeof(unsigned char), 256, tempString.c_str());
             output.str(std::string());
             output.clear();
                
             for (int m = 0; m<256; m++){
-               output<<antiCipher[m]<<" ";
+               output<<antiCipher[m];
             }
-            antiCipherFile.bufferLines(output.str());
+            
+            tempString = output.str();
+            antiCipherFile.writeData(sizeof(unsigned char), 256, tempString.c_str());
             output.str(std::string());
             output.clear();
             
             temp.mapping = mappingTemplate;
          }
-         cipherFile.writeBuffer(); antiCipherFile.writeBuffer();
          cipherFile.closeFile(); antiCipherFile.closeFile();
       }
    }

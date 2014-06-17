@@ -174,6 +174,7 @@ int main(int argc, char *argv[])
    winCnrl Dempo;
    Encrypter Bromo;
    bool cipherType[5];
+   Bromo.keygenBytes(6, "");
 //   Bromo.keygenInts(cipherType, 4, std::string("MyFirstCipher"));
 //   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\A", 26);
 //   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\B", 26);

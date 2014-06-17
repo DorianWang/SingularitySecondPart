@@ -166,7 +166,7 @@ byteRotor Encrypter::stringToCipher(std::string cipherIn)
    int stringLength = cipherIn.length();//This should always be the same. Testing?
    std::vector <unsigned char> tempCipher; byteRotor output;
    char tempString[MAX_BYTE_CIPHER_SIZE];
-   if (cipherIn.length() > MAX_BYTE_CIPHER_SIZE){ return NULL;}//not good...
+   if (cipherIn.length() > MAX_BYTE_CIPHER_SIZE){ output.currentNum = 256; return output;}//not good...
    
    int i=0;
    while (cipherIn.at(i)!=0){
