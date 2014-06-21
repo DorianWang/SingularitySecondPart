@@ -356,3 +356,18 @@ if (myfile.is_open()){
 //   myFile.writeBuffer();
 //
 
+
+//   Keypress keyReader;
+//   
+//   int keyIn;
+//   while(true){
+//      keyIn = keyReader.get_code();
+//      if (keyIn != -1){
+//         cout<<keyIn<<endl;
+//         break;   
+//      }
+//   }
+
+
+
+

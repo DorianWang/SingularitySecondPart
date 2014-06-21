@@ -1,5 +1,5 @@
 
-#include "TakeGmaeMain.h"
+#include "TakeGameMain.h"
 
 
 takeGame::takeGame()

@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
     //cout<<asdfgh<<asdfgh<<qwe<<asdfgh<<qwe<<endl;
     //219 -> 178 -> 177 -> 176 -> 43
    int poiu = 4321;
-   poi(4, &poiu);
+//   poi(4, &poiu);
 
    float asdf = 24;
    int asdfs = 564;
@@ -117,6 +117,7 @@ int main(int argc, char *argv[])
 
    FileIO myFile;//FileIO has been tested, and appears to work...
    //However, there is more testing to be done!
+
 
 //   myFile.textOpenFile("Data/Aso.txt", false);
 //   std::string asos;
@@ -132,49 +133,49 @@ int main(int argc, char *argv[])
    
 //   myFile.closeFile();
    
-   myFile.dataOpenFile("Data/Aso.bin", true);
-   int intArray[5] = {65, 66, 67, 68, 69};
-   char strings[23] = "This is another test!!";//22
-   char inputString[23];//
-   int newArray[5];
-   cout<<myFile.writeData(sizeof(int), 5, intArray)<<endl;
-   cout<<myFile.writeData(sizeof(char), 23, strings)<<endl;
-   cout<<myFile.goStart(1)<<endl;
-   int otherStuff = 0;
-   int* stuff = &otherStuff;
-   myFile.readData(sizeof(int), 5, stuff, newArray);
-   cout<<otherStuff<<" Debug!"<<endl;
-   
-   myFile.readData(sizeof(char), 23, stuff, inputString);
-   cout<<otherStuff<<endl;
-   
-   for (int i=0; i<5; i++){
-      cout<<newArray[i]<<" ";    
-   }
-   cout<<endl;
-   cout<<inputString;
-   cout<<endl;
-   myFile.closeFile();
-   
-   myFile.dataOpenFile("Data/Bromo.bin", true);
-   int otherArray[4] = {4, 5, 6, 7};
-   cout<<myFile.writeData(sizeof(int), 4, otherArray)<<endl;
-   char strings2[23] = "Tihs is another tset??";//22
-   cout<<myFile.writeData(sizeof(char), 23, strings2)<<endl;
-   cout<<myFile.goStart(1)<<endl;   
-   int otherStuff2 = 0;
-   int* stuff2 = &otherStuff2;
-   
-   myFile.readData(sizeof(int), 4, stuff, newArray);
-   cout<<otherStuff<<" Debug!"<<endl;
-   
-   myFile.readData(sizeof(char), 23, stuff, inputString);
-   cout<<otherStuff<<endl;
+//   myFile.dataOpenFile("Data/Aso.bin", true);
+//   int intArray[5] = {65, 66, 67, 68, 69};
+//   char strings[23] = "This is another test!!";//22
+//   char inputString[23];//
+//   int newArray[5];
+//   cout<<myFile.writeData(sizeof(int), 5, intArray)<<endl;
+//   cout<<myFile.writeData(sizeof(char), 23, strings)<<endl;
+//   cout<<myFile.goStart(1)<<endl;
+//   int otherStuff = 0;
+//   int* stuff = &otherStuff;
+//   myFile.readData(sizeof(int), 5, stuff, newArray);
+//   cout<<otherStuff<<" Debug!"<<endl;
+//   
+//   myFile.readData(sizeof(char), 23, stuff, inputString);
+//   cout<<otherStuff<<endl;
+//   
+//   for (int i=0; i<5; i++){
+//      cout<<newArray[i]<<" ";    
+//   }
+//   cout<<endl;
+//   cout<<inputString;
+//   cout<<endl;
+//   myFile.closeFile();
+//   
+//   myFile.dataOpenFile("Data/Bromo.bin", true);
+//   int otherArray[4] = {4, 5, 6, 7};
+//   cout<<myFile.writeData(sizeof(int), 4, otherArray)<<endl;
+//   char strings2[23] = "Tihs is another tset??";//22
+//   cout<<myFile.writeData(sizeof(char), 23, strings2)<<endl;
+//   cout<<myFile.goStart(1)<<endl;   
+//   int otherStuff2 = 0;
+//   int* stuff2 = &otherStuff2;
+//   
+//   myFile.readData(sizeof(int), 4, stuff, newArray);
+//   cout<<otherStuff<<" Debug!"<<endl;
+//   
+//   myFile.readData(sizeof(char), 23, stuff, inputString);
+//   cout<<otherStuff<<endl;
 
    winCnrl Dempo;
    Encrypter Bromo;
    bool cipherType[5];
-   Bromo.keygenBytes(6, "");
+   //Bromo.keygenBytes(6, "");
 //   Bromo.keygenInts(cipherType, 4, std::string("MyFirstCipher"));
 //   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\A", 26);
 //   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\B", 26);
@@ -219,7 +220,7 @@ std::string tempNameFolder = "asdfasdf";
 //Returns one is true, else 0;
 //cout<<RemoveDirectory(something.c_str())<<endl;
 
-std::vector<WIN32_FIND_DATA> uaehr;
+//std::vector<WIN32_FIND_DATA> uaehr;
 
 
 //cout<<Dempo.findAllFilesInFolder(something.c_str(), NULL, &uaehr)<<" asdf"<<endl;
@@ -271,7 +272,6 @@ int counters = 0;
    //^Important for code n' stuff
     
    //I don't want to reach this, should I remove it?
-   
    
    cout<<"I'm done!"<<endl;
    system("PAUSE");
