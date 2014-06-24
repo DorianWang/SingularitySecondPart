@@ -43,6 +43,7 @@ int Keypress::get_code(){
     return -1;//No keys found
 }
 
+//Windows specific
 bool Keypress::get_code(int keyCode)
 {
    switch (keyCode):
@@ -64,10 +65,13 @@ bool Keypress::get_code(int keyCode)
          break;
       case 6:    
          return (GetAsyncKeyState(VK_LBUTTON)||GetAsyncKeyState(VK_RBUTTON))//Any mouse button
+         break;
       case 7:
-         
+         return (GetAsyncKeyState(VK_LBUTTON))//Left mouse button
+         break;
       case 8:
-         
+         return GetAsyncKeyState(VK_RBUTTON);
+         break;
       case 9:
 }
    
