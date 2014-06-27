@@ -70,9 +70,18 @@ bool Keypress::get_code(int keyCode)
          return (GetAsyncKeyState(VK_LBUTTON))//Left mouse button
          break;
       case 8:
-         return GetAsyncKeyState(VK_RBUTTON);
+         return GetAsyncKeyState(VK_RBUTTON);//Right mouse button
          break;
       case 9:
+         return GetAsyncKeyState(VK_CONTROL);//Ctrl key
+         break;
+      case 10:
+         return GetAsyncKeyState(VK_MENU);//Alt key, very strange name
+         break;
+      case 11:
+         return      
+           
+      
 }
    
    
