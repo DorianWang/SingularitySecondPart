@@ -22,7 +22,9 @@ public:
 //entered. It will return -1 if the letter has not been entered.
 int get_code(std::string importantKeys);      
 int get_code();      
-      
+
+bool get_code(int keyCode);
+short get_current_code(int keyCode);
       
 };
 

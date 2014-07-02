@@ -2,6 +2,8 @@
 #ifndef COPTIONS_H
 #define COPTIONS_H 
 
+#include <cstdarg>//Variable lists
+
 #include "windows.h"
 #include "stdio.h"
 
@@ -34,6 +36,8 @@ void changeCursorInsert(HANDLE cHandle, bool insertMode);
 bool changeCursorPos(HANDLE cHandle, short cursorX, short cursorY);
 
 void cursorControl(int optionNum);//Controls all other functions. 0 for cursor visible. 1 for opposite, 2 for colour change, 5 for defaults, etc.
+
+void changeWindowText(char* newText, HANDLE cHandle);//Changes the console's name.
 
 };
 

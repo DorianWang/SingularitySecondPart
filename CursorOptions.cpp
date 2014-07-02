@@ -130,7 +130,6 @@ void COptions::tempColourChange(bool isDiff, HANDLE cHandle, int targetColour)
 void COptions::cursorControl(int optionNum)
 {
      bool debugDetector=true;
-     
      if (optionNum==0){
                        
         if (cursorVisibility==false){
@@ -184,13 +183,14 @@ void COptions::cursorControl(int optionNum)
         debugDetector=false;               
      }
      
-     //beyond this are unused
-     
-     if (optionNum==7){
+     if (optionNum==9){
+        changeWindowText("Stuff", consoleHandle);
         debugDetector=false;               
      }
+
+     //beyond this are unused
      
-     if (optionNum==8){
+     if (optionNum==10){
         debugDetector=false;               
      }
      
@@ -241,6 +241,20 @@ void COptions::changeCursorInsert(HANDLE cHandle, bool insertMode)
    }
    
 }
+
+void COptions::changeWindowText(char* newText, HANDLE cHandle)
+{
+  // SetWindowText(newText , cHandle);
+}
+
+
+
+
+
+
+
+
+
 
 
 

@@ -46,7 +46,7 @@ int Keypress::get_code(){
 //Windows specific
 bool Keypress::get_code(int keyCode)
 {
-   switch (keyCode):
+   switch (keyCode){
           
       case 1:
          return GetAsyncKeyState(VK_RETURN);//Enter key
@@ -64,10 +64,10 @@ bool Keypress::get_code(int keyCode)
          return GetAsyncKeyState(VK_BACK);//Backspace key
          break;
       case 6:    
-         return (GetAsyncKeyState(VK_LBUTTON)||GetAsyncKeyState(VK_RBUTTON))//Any mouse button
+         return (GetAsyncKeyState(VK_LBUTTON)||GetAsyncKeyState(VK_RBUTTON));//Any mouse button
          break;
       case 7:
-         return (GetAsyncKeyState(VK_LBUTTON))//Left mouse button
+         return GetAsyncKeyState(VK_LBUTTON);//Left mouse button
          break;
       case 8:
          return GetAsyncKeyState(VK_RBUTTON);//Right mouse button
@@ -79,14 +79,57 @@ bool Keypress::get_code(int keyCode)
          return GetAsyncKeyState(VK_MENU);//Alt key, very strange name
          break;
       case 11:
-         return      
-           
-      
+         return GetAsyncKeyState(VK_SHIFT);//Shift key
+         break;
+   }
+         
+   return false;
 }
    
-   
-   
-   
+short Keypress::get_current_code(int keyCode)
+{
+   switch (keyCode){
+          
+      case 1:
+         return GetKeyState(VK_RETURN);//Enter key
+         break;
+      case 2:
+         return GetKeyState(VK_ESCAPE);//Escape key
+         break;
+      case 3:
+         return GetKeyState(VK_TAB);//TAB key
+         break;
+      case 4:
+         return GetKeyState(VK_SPACE);//Spacebar
+         break;
+      case 5:
+         return GetKeyState(VK_BACK);//Backspace key
+         break;
+      case 6:    
+         return (GetKeyState(VK_LBUTTON)||GetKeyState(VK_RBUTTON));//Any mouse button
+         break;
+      case 7:
+         return GetKeyState(VK_LBUTTON);//Left mouse button
+         break;
+      case 8:
+         return GetKeyState(VK_RBUTTON);//Right mouse button
+         break;
+      case 9:
+         return GetKeyState(VK_CONTROL);//Ctrl key
+         break;
+      case 10:
+         return GetKeyState(VK_MENU);//Alt key, very strange name
+         break;
+      case 11:
+         return GetKeyState(VK_SHIFT);//Shift key
+         break;
+      case 12:
+         return GetKeyState(VK_CAPITAL);
+         break;
+   }
+         
+   return -1;   
+}
    
    
    

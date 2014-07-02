@@ -118,59 +118,23 @@ int main(int argc, char *argv[])
    FileIO myFile;//FileIO has been tested, and appears to work...
    //However, there is more testing to be done!
 
+   Keypress KeyIn;
+   short a = 0;
 
-//   myFile.textOpenFile("Data/Aso.txt", false);
-//   std::string asos;
-//   std::vector <std::string> fileBuffer;
-//  
-//   while(myFile.readLine(&asos)){
-//      fileBuffer.push_back(asos);                              
+      if(KeyIn.get_code(4)){
+         cout<<"One!"<<" ";
+      }
+      //Nothing is 0, true is -127/65408, and toggled is 1, (toggled and down is 65409/-128)
+
+cout<<(char)201<<(char)194<<endl;
+
+//while (true){
+//   a = KeyIn.get_current_code(12);
+//   if (a != 0&&a != -127&&a!=1){
+//      cout<<a<<"<<"<<endl;
+//      break;
 //   }
-//   
-//   for (int i=0; i<fileBuffer.size();i++){
-//      cout<<fileBuffer[i]<<"!"<<endl;;
-//   }
-   
-//   myFile.closeFile();
-   
-//   myFile.dataOpenFile("Data/Aso.bin", true);
-//   int intArray[5] = {65, 66, 67, 68, 69};
-//   char strings[23] = "This is another test!!";//22
-//   char inputString[23];//
-//   int newArray[5];
-//   cout<<myFile.writeData(sizeof(int), 5, intArray)<<endl;
-//   cout<<myFile.writeData(sizeof(char), 23, strings)<<endl;
-//   cout<<myFile.goStart(1)<<endl;
-//   int otherStuff = 0;
-//   int* stuff = &otherStuff;
-//   myFile.readData(sizeof(int), 5, stuff, newArray);
-//   cout<<otherStuff<<" Debug!"<<endl;
-//   
-//   myFile.readData(sizeof(char), 23, stuff, inputString);
-//   cout<<otherStuff<<endl;
-//   
-//   for (int i=0; i<5; i++){
-//      cout<<newArray[i]<<" ";    
-//   }
-//   cout<<endl;
-//   cout<<inputString;
-//   cout<<endl;
-//   myFile.closeFile();
-//   
-//   myFile.dataOpenFile("Data/Bromo.bin", true);
-//   int otherArray[4] = {4, 5, 6, 7};
-//   cout<<myFile.writeData(sizeof(int), 4, otherArray)<<endl;
-//   char strings2[23] = "Tihs is another tset??";//22
-//   cout<<myFile.writeData(sizeof(char), 23, strings2)<<endl;
-//   cout<<myFile.goStart(1)<<endl;   
-//   int otherStuff2 = 0;
-//   int* stuff2 = &otherStuff2;
-//   
-//   myFile.readData(sizeof(int), 4, stuff, newArray);
-//   cout<<otherStuff<<" Debug!"<<endl;
-//   
-//   myFile.readData(sizeof(char), 23, stuff, inputString);
-//   cout<<otherStuff<<endl;
+//}
 
    winCnrl Dempo;
    Encrypter Bromo;
