@@ -6,15 +6,15 @@
 #include "windows.h"
 
 int Keypress::get_code(std::string importantKeys){
-int ch = getch();
-int i;
+   int ch = getch();
+   int length = importantKeys.length();
 
-for(i=0;i<importantKeys.length();i++){
-        if(ch==importantKeys[i]){
-            return i;                     
-                                 }
-        }
-        return -1;
+   for(int i=0; i<length; i++){
+      if(ch == importantKeys[i]){
+         return i;                     
+      }
+   }
+   return -1;
 }// get_code
 
 //returns 1 for enter, 2 for escape,3 for TAB etc.

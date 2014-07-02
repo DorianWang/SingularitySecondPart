@@ -17,6 +17,9 @@ class Keypress
       
 public:      
       
+      
+//This function takes a string, and returns the index of the letter which has been
+//entered. It will return -1 if the letter has not been entered.
 int get_code(std::string importantKeys);      
 int get_code();      
       
