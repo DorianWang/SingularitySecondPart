@@ -73,7 +73,7 @@ Loot
 
 
 Metals in West Aterha:
-   Weapon materials: Copper, Bronze, Iron, Steel (low and high), trempewter ;
+   Weapon materials: Copper, Bronze, Iron, Steel (low and high), traelmin ;
    Craft materials: Copper, Tin, Brass, Silver, Electrum (used for some spells, purity), Gold ;
    Other "metals" that may be used: thaumium (iron + magic, stronger than low steel), 
    adamantium (very light, strong metal, very valuable), ;
