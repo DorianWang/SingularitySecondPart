@@ -126,8 +126,16 @@ int main(int argc, char *argv[])
       }
       //Nothing is 0, true is -127/65408, and toggled is 1, (toggled and down is 65409/-128)
 
-cout<<(char)201<<(char)194<<endl;
-
+   /*
+   COptions Ebeko;
+   Ebeko.changeCurrentWindowText("Rahfsdkhf");
+   system("PAUSE");
+   SetConsoleTitle("Adventure Game");
+   */
+   //Both work, but the first will only work if the front window is this one. 
+   //The second one always works.
+   
+   
 //while (true){
 //   a = KeyIn.get_current_code(12);
 //   if (a != 0&&a != -127&&a!=1){

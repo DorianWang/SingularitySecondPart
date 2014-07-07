@@ -37,7 +37,7 @@ bool changeCursorPos(HANDLE cHandle, short cursorX, short cursorY);
 
 void cursorControl(int optionNum);//Controls all other functions. 0 for cursor visible. 1 for opposite, 2 for colour change, 5 for defaults, etc.
 
-void changeWindowText(char* newText, HANDLE cHandle);//Changes the console's name.
+void changeCurrentWindowText(const char* newText);//Changes the currently selected console's name.
 
 };
 

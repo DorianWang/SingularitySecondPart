@@ -184,7 +184,7 @@ void COptions::cursorControl(int optionNum)
      }
      
      if (optionNum==9){
-        changeWindowText("Stuff", consoleHandle);
+        //changeWindowText("Stuff", consoleHandle);
         debugDetector=false;               
      }
 
@@ -242,9 +242,12 @@ void COptions::changeCursorInsert(HANDLE cHandle, bool insertMode)
    
 }
 
-void COptions::changeWindowText(char* newText, HANDLE cHandle)
+void COptions::changeCurrentWindowText(const char* newText)//, HWND cHandle)
 {
-  // SetWindowText(newText , cHandle);
+   HWND temp = GetActiveWindow();
+   HWND temp2 = GetForegroundWindow();
+   cout<<temp<<" "<<temp2<<endl;
+   cout<<SetWindowText(temp2, newText)<<endl;;
 }
 
 
