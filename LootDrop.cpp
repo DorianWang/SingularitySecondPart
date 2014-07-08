@@ -59,10 +59,21 @@ Equipment
             Arrow (shaft (wood, metal), head (metal, bone, flint)) ;
             Bolt (wood, metal) ;
       Dart
-      
-      
+         Dartgun
+            Metal (Weapon materials), "tech (requires tech skill)", ;
+         Blowgun
+            wood, bone, metal (weapon materials), ;
+      Gun
+         Metal (Weapon materials), requires tech;
 Consumables
-
+   Healing
+      Potion
+         Weak, Moderate, Strong, Arcane
+      Bandage (or other regular healing items)
+         Small, 
+   Potion
+   
+   Utility
 
 Loot
 
@@ -74,13 +85,19 @@ Loot
 
 Metals in West Aterha:
    Weapon materials: Copper, Bronze, Iron, Steel (low and high), traelmin ;
-   Craft materials: Copper, Tin, Brass, Silver, Electrum (used for some spells, purity), Gold ;
+   Craft materials: Copper, Lead, Tin, Brass, Silver, Electrum (used for some spells, purity), Gold ;
    Other "metals" that may be used: thaumium (iron + magic, stronger than low steel), 
    adamantium (very light, strong metal, very valuable), ;
 Other materials used:
    Weapon materials: wood, stone, bone, flint, ;
    Craft materials: wood, stone, bone, glass, clay, 
 */
+
+
+
+
+
+
 
 
 
