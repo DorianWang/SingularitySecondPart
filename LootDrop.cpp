@@ -69,12 +69,28 @@ Consumables
    Healing
       Potion
          Weak, Moderate, Strong, Arcane
-      Bandage (or other regular healing items)
-         Small, 
-   Potion
-   
+      Bandage (or other regular healing items);
+         Small, Regular, Large
+      Healing powder and other items
+         Food, healing powder, healing salve, syrettes;
+   Mana/magic restores
+      Potion
+         Weak, Moderate, Strong, Arcane;
+      Magic storage
+         Small (mana) capacitor, Large (mana) capacitor, Arcane (mana) capacitor;
+         Crystaline mana, Arcane mana crystal cluster;
    Utility
-
+      Explosives
+         Smokebomb/teargas/flash/other things
+            (effective, -) (smokebomb, teargas, flash), ;
+         Grenade
+            Fragmentation, high explosive, Thaumic, ;
+      Magic - 
+         Spell wands - Multiuse devices that allow anyone to cast a spell (damage dependant on skill and wand quality)
+            (weak, - , empowered, masterwork) Freeze, Flare, Shock, Blind, ;
+         Spell staff - Multiuse devices that allow anyone to cast a spell (damage dependant on skill and staff quality)
+         They store mana as well, require the user to equip them, and boost magic damage, but less than regular ones.
+         (Should be linked to magic tools)
 Loot
 
 
