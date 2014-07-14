@@ -93,7 +93,9 @@ Consumables
             (effective, -) (smokebomb, teargas, flash), ;
          Grenade
             Fragmentation, high explosive, Thaumic, ;
-
+         Flare (lights up target/area, increases accuracy)
+            (Dim, - , Bright) (Flare), (- , Bright)(Magnesium flare [does damage])
+         Tools
 Loot
 
 
