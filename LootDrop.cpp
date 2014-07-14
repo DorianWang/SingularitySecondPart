@@ -43,8 +43,15 @@ Equipment
    Magic Weapons (wands, staffs, etc.)
       Magic tools
          Wand, staff, magic glove, magic crystal, ;
+         Small (mana) capacitor, Large (mana) capacitor, Arcane (mana) capacitor;
       Magic enhancers
          Ward, thaumometer (temp name), ;
+      Spell wands - Multiuse devices that allow anyone to cast a spell (damage dependant on skill and wand quality)
+            (weak, - , empowered, masterwork) Freeze, Flare, Shock, Blind, Prism, Confuse, Weaken, ;
+      Spell staff - Multiuse devices that allow anyone to cast a spell (damage dependant on skill and staff quality)
+      They store mana as well, require the user to equip them, and boost magic damage, but less than regular ones.
+         (weak, - , flawless, masterwork) Every wand spell, upgraded (Flare becomes Flame, shock becomes Electrocute)
+         In addition, staffs have 2 spells, Green grove and Hellfire (First one is special, second deals damage)
    Shields
       Wood, metal (Weapon metals), ;
    Ranged
@@ -77,7 +84,8 @@ Consumables
       Potion
          Weak, Moderate, Strong, Arcane;
       Magic storage
-         Small (mana) capacitor, Large (mana) capacitor, Arcane (mana) capacitor;
+         Elemental crystal cluster (frozen flames, vitrified dew, essence of wind, twisted shadows, shards of light, ;), 
+         Empowered elemental crystal cluster (everything, plus heart of the magi [boosts all elements slightly])
          Crystaline mana, Arcane mana crystal cluster;
    Utility
       Explosives
@@ -85,12 +93,7 @@ Consumables
             (effective, -) (smokebomb, teargas, flash), ;
          Grenade
             Fragmentation, high explosive, Thaumic, ;
-      Magic - 
-         Spell wands - Multiuse devices that allow anyone to cast a spell (damage dependant on skill and wand quality)
-            (weak, - , empowered, masterwork) Freeze, Flare, Shock, Blind, ;
-         Spell staff - Multiuse devices that allow anyone to cast a spell (damage dependant on skill and staff quality)
-         They store mana as well, require the user to equip them, and boost magic damage, but less than regular ones.
-         (Should be linked to magic tools)
+
 Loot
 
 
