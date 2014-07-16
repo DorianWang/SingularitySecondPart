@@ -96,6 +96,8 @@ Consumables
          Flare (lights up target/area, increases accuracy)
             (Dim, - , Bright) (Flare), (- , Bright)(Magnesium flare [does damage])
          Tools
+            (non-tech [tech<2])
+            (tech [tech>=2])
 Loot
 
 
