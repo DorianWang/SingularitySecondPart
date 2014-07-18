@@ -104,7 +104,13 @@ Loot
 
 
 
-
+Items and equipment sometimes have a technology value, an intelligence value, a strength value, and/or a skill value.
+-Technology controls what is required to make it, and who can
+-Intelligence controls use of some easy tech. For example, if self tech value<1, then an
+ intelligence greater than 2 is required for bows.
+-Strength is required for some weapons. Most weapons have a default level of 3 strength or higher to use.
+ Items such as hammers may take more, and something like a taser may take none.
+-Skill values are required to deal complete or even some damage. (Gun skill required to hit targets often.
 
 Metals in West Aterha:
    Weapon materials: Copper, Bronze, Iron, Steel (low and high), traelmin ;
