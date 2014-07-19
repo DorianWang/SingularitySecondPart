@@ -27,6 +27,12 @@ ELEMENT_POISON, ELEMENT_MIND , ELEMENT_TECH, ELEMENT_MUNDANE };//The last three 
 
 //Items can be 
 
+
+//Item dataStorage -> Main type, (second type, third type)*optional*, sentinal, Name
+//Other stuff
+
+
+
 //Item hierarchy
 /*
 All Items (Root)
@@ -102,7 +108,16 @@ Loot
 
 
 
+Money
+   Gold, Silver coins - () Most civilizations accept
+   
+   Paper currency - () civilization must be beyond tech 4, only useful in 
+   economically linked countries not at war.
+      asdf
+   
 
+   
+   
 
 Items and equipment sometimes have a technology value, an intelligence value, a strength value, and/or a skill value.
 -Technology controls what is required to make it, and who can
@@ -112,7 +127,7 @@ Items and equipment sometimes have a technology value, an intelligence value, a 
  Items such as hammers may take more, and something like a taser may take none.
 -Skill values are required to deal complete or even some damage. (Gun skill required to hit targets often.
 
-Metals in West Aterha:
+Metals in West Atwerca:
    Weapon materials: Copper, Bronze, Iron, Steel (low and high), traelmin ;
    Craft materials: Copper, Lead, Tin, Brass, Silver, Electrum (used for some spells, purity), Gold ;
    Other "metals" that may be used: thaumium (iron + magic, stronger than low steel), 
@@ -120,6 +135,41 @@ Metals in West Aterha:
 Other materials used:
    Weapon materials: wood, stone, bone, flint, ;
    Craft materials: wood, stone, bone, glass, clay, 
+   
+   
+   
+   
+Major terrain
+   Mountains
+
+   Hills
+   
+   River
+   
+   Plain
+   
+   etc.
+
+
+
+Local conditions
+   Dirt
+   
+   Stone
+   
+   Grass
+   
+   Slope
+   
+   Cliff
+   
+   Water
+      shallow, deep, ocean (slow, fast, torrential)
+   etc.
+
+
+
+
 */
 
 
