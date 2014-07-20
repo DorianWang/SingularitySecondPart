@@ -28,10 +28,27 @@ ELEMENT_POISON, ELEMENT_MIND , ELEMENT_TECH, ELEMENT_MUNDANE };//The last three 
 //Items can be 
 
 
-//Item dataStorage -> Main type, (second type, third type)*optional*, sentinal, Name
+//Item dataStorage -> Main type, (second type, third type, fourth, etc...)*optional*, sentinal, Name
+//Ohter subgroups, from most to least important
 //Other stuff
 
+/*
+Example
+Equipment.Weapons.Stab^Sword
+Equipment.Weapons.Edge
+(Names, levels, damage, etc)
+flawed, 1 5, 2 8, etc...
 
+(Types, damage modifiers, etc)
+shortsword
+longsword
+ 
+etc...
+
+Materials
+
+
+*/
 
 //Item hierarchy
 /*
