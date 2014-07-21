@@ -31,16 +31,29 @@ ELEMENT_POISON, ELEMENT_MIND , ELEMENT_TECH, ELEMENT_MUNDANE };//The last three 
 
 
 
+
+
+
+
 int getItems()
 {
-   FileIO fileIn;
+   FileIO fileListIn; FileIO fileObjectIn;
    fileIn.textOpenFile(FILE_LIST_PATH, false);
+   std::string tempFileName; int errorNum = 0;
    
-   
+   while(true){
+      errorNum = fileListIn.readLine(&tempFileName)
+      if (errorNum <= 0){
+         break;
+      }       
+      fileObjectIn.textOpenFile(FILE_LIST_PATH, false);//Do I want text or data?
+      //parseFile(&fileObjectIn);
+      fileObjectIn.closeFile();
+   }
    
    
 
-
+fileListIn.closeFile();
 }
 
 
