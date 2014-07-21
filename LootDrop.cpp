@@ -25,23 +25,40 @@ enum itemEnchants { ELEMENT_ICE, ELEMENT_FIRE, ELEMENT_LIGHTNING, ELEMENT_LIGHT,
 ELEMENT_DARK, ELEMENT_LIFE, ELEMENT_NECRO, ELEMENT_WATER, ELEMENT_AIR, ELEMENT_ARCANE,
 ELEMENT_POISON, ELEMENT_MIND , ELEMENT_TECH, ELEMENT_MUNDANE };//The last three aren't really enchants, but...
 
+
+
+int getItems()
+{
+   asdf;
+   FileIO fileIn;
+   
+   
+   
+   
+   
+   
+   asdf;
+
+}
+
+
+
 //Items can be 
 
-
-//Item dataStorage -> Main type, (second type, third type, fourth, etc...)*optional*, sentinal, Name
+//sentinal, Name, sentinal
+//Item dataStorage -> Main type, (second type, third type, fourth, etc...)*optional*
 //Ohter subgroups, from most to least important
 //Other stuff
 
 /*
 Example
-Equipment.Weapons.Stab^Sword
+Equipment.Weapons.Stab^Short Sword^
 Equipment.Weapons.Edge
 (Names, levels, damage, etc)
 flawed, 1 5, 2 8, etc...
 
 (Types, damage modifiers, etc)
-shortsword
-longsword
+
  
 etc...
 
