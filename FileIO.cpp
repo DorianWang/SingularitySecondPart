@@ -15,15 +15,15 @@ FileIO::~FileIO()
 };
 
 
-//Goes to the end of the file, checks the length, and then goes tot eh start.
-void FileIO::getFileLength()
+//Goes to the end of the file, checks the length, and then goes to the start.
+unsigned long long FileIO::getFileLength()
 {
-   fileLength = 0;
+   fileLength = 0; unsigned long long returnInt;
    if(!isBinary){//Not a binary file, therefore it is a text file
       goStart(1);
       std::string line;
       while (std::getline(myfile, line)){
-         ++fileLength;
+         fileLength = fileLength + line.length() + 1;//Length of string plus null terminator
       }
       goStart(1);
    }
@@ -34,7 +34,7 @@ void FileIO::getFileLength()
       fileLength = myfile.tellg() - fsize;
       goStart(1);
    }
-
+returnInt = fileLength; return returnInt;
 }
 
 void FileIO::fileConstructor()
@@ -514,6 +514,59 @@ void FileIO::bufferAddition(std::string input)
    dataInLineBuffer = true;
 }
 
+
+//Takes any array (including single value pointers) and writes it to the file.
+//Returns the number of indexes written to the file.
+//int FileIO::writeData(int dataLength, int arrayLength, ...){
+
+void FileIO::bufferData(const void* input, int sizeOfData, int arrayLength)
+{
+   int dataSize = sizeOfData * arrayLength; char* charInput = (char*)input;
+   for (int i=0; i<dataSize; i++){
+      dataBuffer.push_back(*(charInput + i));
+   }
+}
+
+int FileIO::writeBufferData()
+{
+int temp = 0;
+if (dataBuffer.size()!=0){
+   temp = writeData(sizeof(char), dataBuffer.size(), &(dataBuffer[0]));
+   if (temp>0){
+      clearDataBuffer();
+      return temp;   
+   }
+}
+return 0;
+
+}
+
+int FileIO::writeBufferData(int dummy)//Does not clear buffer
+{
+if (dataBuffer.size()!=0){
+   return writeData(sizeof(char), dataBuffer.size(), &(dataBuffer[0]));
+}
+return 0;
+
+}
+
+
+
+void FileIO::clearDataBuffer()
+{
+   if (dataBuffer.size()>=1){
+      clearDataBuffer(0);
+   }
+}
+
+void FileIO::clearDataBuffer(int dummy)
+{
+   dataBuffer.clear();//Clearing buffer
+   dataBuffer.resize(64);//Resizing buffer
+}
+
+
+
 //Takes data already 
 int FileIO::writeDataToFile(const char* data, int length)
 {
@@ -526,7 +579,11 @@ return 0;
 //Takes any array (including single value pointers) and writes it to the file.
 //Returns the number of indexes written to the file.
 int FileIO::writeData(int dataLength, int arrayLength, ...){
-    
+
+if (dataLength<=0||arrayLength<=0){
+   return 0;   
+}
+
 va_list ap;
 const char* dataBytes;
 va_start(ap, arrayLength);

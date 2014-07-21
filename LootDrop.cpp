@@ -3,10 +3,14 @@
 #define HIGHER_LOOT_CHANCE 18
 #define HIGHEST_LOOT_CHANCE 2
 
+#define FILE_LIST_PATH "Data/fileLoadList.txt"
 
 //These limit players, and creatures armour, clothing and other choices.
 //These refer to the size vs "average" (human size). A large knife is smaller
 //than a normal sword, for example.
+
+#include "LootDrop.h"
+
 enum itemSize { TINY, SMALL, NORMAL, LARGE, GIGANTIC };
 
 //Humanoid (duh), Serpentine (only snakes), Shapeless (Anyone, think cloaks or magic)
@@ -29,15 +33,13 @@ ELEMENT_POISON, ELEMENT_MIND , ELEMENT_TECH, ELEMENT_MUNDANE };//The last three 
 
 int getItems()
 {
-   asdf;
    FileIO fileIn;
+   fileIn.textOpenFile(FILE_LIST_PATH, false);
    
    
    
    
-   
-   
-   asdf;
+
 
 }
 

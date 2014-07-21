@@ -1,7 +1,7 @@
 [Project]
 FileName=Singularity.dev
 Name=Singularity
-UnitCount=33
+UnitCount=34
 Type=1
 Ver=1
 ObjFiles=
@@ -369,6 +369,16 @@ BuildCmd=
 
 [Unit33]
 FileName=LootDrop.cpp
+CompileCpp=1
+Folder=TakeGame/Loot
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit34]
+FileName=LootDrop.h
 CompileCpp=1
 Folder=TakeGame/Loot
 Compile=1
