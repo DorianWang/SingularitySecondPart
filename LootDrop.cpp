@@ -34,7 +34,7 @@ ELEMENT_POISON, ELEMENT_MIND , ELEMENT_TECH, ELEMENT_MUNDANE };//The last three 
 
 
 
-
+//Should be moved to some sort of preloading object...
 int getItems()
 {
    FileIO fileListIn; FileIO fileObjectIn;
