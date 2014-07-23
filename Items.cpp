@@ -1,9 +1,9 @@
 
 #include "Items.h"
 
-int parseItemFile()
+int parseItemFile(FileIO* inputFile)
 {
-    
+   asdf;
     
     
     
