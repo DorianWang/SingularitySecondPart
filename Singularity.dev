@@ -1,7 +1,7 @@
 [Project]
 FileName=Singularity.dev
 Name=Singularity
-UnitCount=37
+UnitCount=39
 Type=1
 Ver=1
 ObjFiles=
@@ -20,7 +20,7 @@ ObjectOutput=
 OverrideOutput=0
 OverrideOutputName=Singularity.exe
 HostApplication=
-Folders=Bases,Container,CursorMod,FileEncryt,FileIO,Keys,Networking,Painter,Screens,Screens/DefaultScreen,Stuff,TakeGame,TakeGame/Combat,TakeGame/Items,TakeGame/Items/Loot,TakeGame/Player,TakeGame/Start,WindowsStuff
+Folders=Bases,Container,CursorMod,FileEncryt,FileIO,Keys,Networking,Painter,Screens,Screens/DefaultScreen,Stuff,TakeGame,TakeGame/Combat,TakeGame/Items,TakeGame/Items/Loot,TakeGame/Player,TakeGame/Start,TreeContainer,WindowsStuff
 CommandLine=
 UseCustomMakefile=0
 CustomMakefile=
@@ -409,6 +409,26 @@ BuildCmd=
 
 [Unit37]
 FileName=ItemStruct.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit38]
+FileName=treeType.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit39]
+FileName=treeType.h
 CompileCpp=1
 Folder=
 Compile=1
