@@ -2,10 +2,10 @@
 
 //Tree container
 
-
+//http://www.cprogramming.com/tutorial/templates.html
 template <class T> treeType::treeType(T input)
 {
-         
+   std::string name;
          
          
          
