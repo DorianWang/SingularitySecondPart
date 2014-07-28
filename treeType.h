@@ -1,4 +1,8 @@
 
+#ifndef TREE_TYPE_H
+#define TREE_TYPE_H 
+
+
 #define MAX_NODES_DEFAULT 32
 //^ no real reason, just logic. Can be overriden by the caller.
 
@@ -11,24 +15,42 @@ template <class T> class treeType
 {
 T tempVar;
 int numNodesMaxPer;
-std::vector <treeType<T>*> childNodes;
-//std::vector <leafType<T>> childData;
+
+std::string label;
+
+treeType<T>* parent;
+
+std::vector < treeType<T>* > childNodes;
+std::vector < leafType<T> > childData;
 
 public:
 
-treeType();
-treeType(int nodeMaxChild);
+treeType(std::string newName);
+treeType(std::string newName, int nodeMaxChild);
+
 
 treeType<T>* findNode(std::string name);//Finds a node with the name of "name";
+treeType<T>* findNode(std::string name, treeType<T>*);
+
+treeType<T>* findChildNode(std::string name);
+treeType<T>* findChildNode(std::string name, treeType<T>*);
 
 bool addNode(std::string name);
 
+leafType<T>* findConnectedLeaf(std::string name);
+
 
 bool deleteNode(std::string name);
-
+void cleanThisNode();
 
 
 };
+
+
+
+
+#endif
+
 
 
 

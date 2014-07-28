@@ -7,5 +7,4 @@
 template <class E> leafType<E>::leafType()
 {
    std::string name;
-   
 }
