@@ -10,7 +10,7 @@ template <class T> treeType<T>::treeType()
 }
 
 //Ask for help
-template <class T> treeType<T>::treeType(T input, int nodeMaxChild)
+template <class T> treeType<T>::treeType(int nodeMaxChild)
 {
    std::string name; 
    if (nodeMaxChild>1){
@@ -22,14 +22,29 @@ template <class T> treeType<T>::treeType(T input, int nodeMaxChild)
    }
 }
 
-template <class T> treeType<T>::addNode(std::string name)
+
+template <class T> treeType<T>* treeType<T>::findNode(std::string name)
+{
+   int a = 0;
+}
+
+
+template <class T> bool treeType<T>::addNode(std::string name)
 {
    
 }
 
-template <class T> treeType<T>::deleteNode(std::string name)
+template <class T> bool treeType<T>::deleteNode(std::string name)
 {
-   
+   treeType<T>* nodeToDelete = findNode(name);
+   if (nodeToDelete != NULL){
+      nodeToDelete -> deleteThisNode();
+      return true;
+   }
+   else
+   {
+      return false;
+   }
 }
 
 template <class T> treeType<T>::deleteThisNode()
