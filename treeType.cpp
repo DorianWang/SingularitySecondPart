@@ -29,8 +29,9 @@ template <class T> treeType<T>* treeType<T>::findNode(std::string name)
    int a = 0;
    for (int i = 0; i<childNodes.size(); i++){
       if (childNodes[i] -> label == name){
-         
+         return childNodes[i];
       }
+      
    }
 }
 
@@ -42,8 +43,10 @@ template <class T> treeType<T>* treeType<T>::findConnectedNode(std::string name)
          return childNodes[i];
       }
    }
+   return NULL;
 }
 
+//Depth first search.
 template <class T> leafType<T>* treeType<T>::findLeaf(std::string name)
 {
    leafType<T>* returnValue;
@@ -63,11 +66,46 @@ template <class T> leafType<T>* treeType<T>::findLeaf(std::string name)
 }
 
 //keyWords must be placed in order of more to less specific (equipment weapon edge, for example)
+//Not complete
 template <class T> leafType<T>* treeType<T>::findLeaf(std::string name, std::string keyWords)
 {
+
+   leafType<T>* returnValue;
+   returnValue = findConnectedLeaf(name);
+   
+   if (returnValue != NULL){
+      return returnValue;
+   }
+
+   std::string firstToken = parseFirstToken(keyWords);
+   
+   returnValue = findConnectedNode(firstToken);
    
 
-
+   
+   std::queue < treeType<T>* > nodeQueue;
+   treeType<T>* tempNode;
+   nodeQueue.push(this);
+   
+   while(!nodeQueue.empty()){
+      tempNode = myqueue.nodeQueue();
+      nodeQueue.pop();
+      returnValue = tempNode -> findConnectedNode(firstToken);
+      
+      if (returnValue != NULL){
+         std::string temp = keyWords;
+         if (temp != keyWords){
+            temp.erase(str.begin(), firstToken.length() + 1);
+         }
+         return findLeaf(name, temp);
+      }
+      
+      for (int i=0; i < tempNode -> childNodes.size(); i++){
+         nodeQueue.push (tempNode -> childNodes[i]);
+      }
+   }
+   
+return NULL;
 }
 
 
@@ -130,6 +168,7 @@ template <class T> bool treeType<T>::deleteNode(treeType<T>* nodeToDelete)
    }
    else
    {
+      isGood = false;//This is not good. It should never happen
       return false;
    }
 }
