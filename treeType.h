@@ -25,6 +25,9 @@ std::vector < leafType<T> > childData;
 
 public:
 
+bool isGood;//Variable should always be true.
+//If not, use may cause undefined behaviour.
+
 treeType(std::string newName);
 treeType(std::string newName, int nodeMaxChild);
 
