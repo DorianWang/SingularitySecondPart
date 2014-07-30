@@ -11,9 +11,17 @@
 #include <vector>
 #include <string>
 
+#include "stringFunctions.h"
+
 #include "leafType.h"
 
-template <class T> class treeType 
+//Resources
+
+//http://www.cprogramming.com/tutorial/templates.html
+
+
+
+template <typename T> class treeType 
 {
 T tempVar;
 int numNodesMaxPer;
@@ -32,6 +40,8 @@ bool isGood;//Variable should always be true.
 
 treeType(std::string newName);
 treeType(std::string newName, int nodeMaxChild);
+~treeType();
+
 
 
 treeType<T>* findNode(std::string name);//Finds a node with the name of "name";
@@ -41,20 +51,37 @@ treeType<T>* findChildNode(std::string name);
 treeType<T>* findChildNode(std::string name, treeType<T>*);
 
 bool addNode(std::string name);
+bool addLeaf(std::string name, T data);
+
+leafType<T>* findLeaf(std::string name);
+leafType<T>* findLeaf(std::string name, std::string keyWords);
 
 leafType<T>* findConnectedLeaf(std::string name);
+treeType<T>* findConnectedNode(std::string name);
 
 
 bool deleteNode(std::string name);
+bool deleteNode(treeType<T>* nodeToDelete);
 void cleanThisNode();
 
+std::string listNodePath()
+;;
+};;
 
-};
-
-
-
+#include "treeType.cpp"
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
 
 
 

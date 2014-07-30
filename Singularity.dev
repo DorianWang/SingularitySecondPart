@@ -1,7 +1,7 @@
 [Project]
 FileName=Singularity.dev
 Name=Singularity
-UnitCount=42
+UnitCount=43
 Type=1
 Ver=1
 ObjFiles=
@@ -20,7 +20,7 @@ ObjectOutput=
 OverrideOutput=0
 OverrideOutputName=Singularity.exe
 HostApplication=
-Folders=Bases,Container,CursorMod,FileEncryt,FileIO,Keys,Networking,Painter,Screens,Screens/DefaultScreen,Stuff,TakeGame,TakeGame/Combat,TakeGame/Items,TakeGame/Items/Loot,TakeGame/Player,TakeGame/Start,TreeStuff,TreeStuff/Leaf,WindowsStuff
+Folders=Bases,Container,CursorMod,FileEncryt,FileIO,Keys,Networking,Painter,RandomUtilities,Screens,Screens/DefaultScreen,Stuff,TakeGame,TakeGame/Combat,TakeGame/Items,TakeGame/Items/Loot,TakeGame/Player,TakeGame/Start,TreeStuff,TreeStuff/Leaf,WindowsStuff
 CommandLine=
 UseCustomMakefile=0
 CustomMakefile=
@@ -460,7 +460,17 @@ BuildCmd=
 [Unit42]
 FileName=stringFunctions.cpp
 CompileCpp=1
-Folder=
+Folder=RandomUtilities
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit43]
+FileName=stringFunctions.h
+CompileCpp=1
+Folder=RandomUtilities
 Compile=1
 Link=1
 Priority=1000

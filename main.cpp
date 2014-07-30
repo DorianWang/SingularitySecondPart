@@ -44,6 +44,9 @@ char f;
 #include "Screens.h"
 #include "WindowsIntegration.h"
 
+#include "treeType.h"
+
+
 
 #include "Painter.h"
 #include "Encrypt.h"
@@ -245,11 +248,34 @@ int counters = 0;
     
    //I don't want to reach this, should I remove it?
    
+   
+   
+   //treeType <int> aephoro("asdf", 4);
+   
+   //aephoro.addNode("node1");
+   //aephoro.addNode("node2");
+   
+   cout<<NULL + "asdf"<<endl;
+   
+   
+   
    cout<<"I'm done!"<<endl;
    system("PAUSE");
    
    return EXIT_SUCCESS;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

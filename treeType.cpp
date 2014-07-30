@@ -2,12 +2,13 @@
 #include "treeType.h"
 //Tree container
 
-//http://www.cprogramming.com/tutorial/templates.html
+//Constructors and Destructors ----------------------------------------------------------------------
 template <class T> treeType<T>::treeType(std::string newName)
 {
    label = newName;
    numNodesMaxPer = MAX_NODES_DEFAULT;//Any number of nodes per node, rational limit of 20 or so...
    isGood = true;
+   parent = NULL;
 }
 
 //Ask for help
@@ -21,7 +22,16 @@ template <class T> treeType<T>::treeType(std::string newName, int nodeMaxChild)
    {
       numNodesMaxPer = MAX_NODES_DEFAULT;    
    }
+   parent = NULL;
 }
+
+template <class T> treeType<T>::~treeType()
+{
+   cleanThisNode();//Prepares node for deletion, in case it hasn't been done yet.
+}
+
+//Constructors and Destructors ----------------------------------------------------------------------
+
 
 
 template <class T> treeType<T>* treeType<T>::findNode(std::string name)
@@ -57,7 +67,7 @@ template <class T> leafType<T>* treeType<T>::findLeaf(std::string name)
    }
 
    for (int i = 0; i < childNodes.size(); i++){
-      returnValue = childNodes[i] -> findLeaf(std::string name);
+      returnValue = childNodes[i] -> findLeaf(name);
       if (returnValue != NULL){
          return returnValue;
       }
@@ -69,7 +79,7 @@ template <class T> leafType<T>* treeType<T>::findLeaf(std::string name)
 //Not complete
 template <class T> leafType<T>* treeType<T>::findLeaf(std::string name, std::string keyWords)
 {
-
+   stringFunc strParser;
    leafType<T>* returnValue;
    returnValue = findConnectedLeaf(name);
    
@@ -77,7 +87,7 @@ template <class T> leafType<T>* treeType<T>::findLeaf(std::string name, std::str
       return returnValue;
    }
 
-   std::string firstToken = parseFirstToken(keyWords);
+   std::string firstToken = strParser.parseFirstToken(keyWords, ". ");
    
    returnValue = findConnectedNode(firstToken);
    
@@ -88,14 +98,14 @@ template <class T> leafType<T>* treeType<T>::findLeaf(std::string name, std::str
    nodeQueue.push(this);
    
    while(!nodeQueue.empty()){
-      tempNode = myqueue.nodeQueue();
+      tempNode = nodeQueue.front();
       nodeQueue.pop();
       returnValue = tempNode -> findConnectedNode(firstToken);
       
       if (returnValue != NULL){
          std::string temp = keyWords;
          if (temp != keyWords){
-            temp.erase(str.begin(), firstToken.length() + 1);
+            temp.erase(temp.begin(), firstToken.length() + 1);
          }
          return findLeaf(name, temp);
       }
@@ -123,6 +133,12 @@ template <class T> leafType<T>* treeType<T>::findConnectedLeaf(std::string name)
 
 
 
+
+
+
+//IO ---------------------------------------------------------------------------
+
+
 template <class T> bool treeType<T>::addNode(std::string name)
 {
    if (name == label){
@@ -134,6 +150,7 @@ template <class T> bool treeType<T>::addNode(std::string name)
    }
    
    treeType<T>* temp = new treeType<T>(name);
+   temp -> parent = this;
    childNodes.push_back(temp);
    return true;
 }
@@ -141,7 +158,12 @@ template <class T> bool treeType<T>::addNode(std::string name)
 
 
 
+template <class T> bool treeType<T>::addLeaf(std::string name, T data)
+{
+   //asdf;
+}
 
+//End IO -----------------------------------------------------------------------
 
 //Node Deletion ----------------------------------------------------------------
 
@@ -188,10 +210,22 @@ template <class T> void treeType<T>::cleanThisNode()
 //End Node Deletion ------------------------------------------------------------
 
 
+//Misc -----------------------------------------------------------------------
+
+template <class T> std::string treeType<T>::listNodePath()
+{
+   if (parent == NULL){
+      return "asdf";
+   }
+   
+   
+   
+   
+   
+}
 
 
-
-
+//End Misc ----------------------------------------------------------
 
 
 

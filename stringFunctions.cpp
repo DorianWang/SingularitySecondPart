@@ -1,6 +1,8 @@
 
+#include "stringFunctions.h"
 
-std::string parseFirstToken(std::string input, const char* delim)
+
+std::string stringFunc::parseFirstToken(std::string input, const char* delim)
 {
    std::string output; int inputLength = input.length();
    int delimLength = strlen(delim);
