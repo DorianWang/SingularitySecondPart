@@ -418,7 +418,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit38]
-FileName=treeType.cpp
+FileName=treeType.inl
 CompileCpp=1
 Folder=TreeStuff
 Compile=1
