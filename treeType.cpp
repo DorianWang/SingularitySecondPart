@@ -2,7 +2,8 @@
 #include "treeType.h"
 //Tree container
 
-//Constructors and Destructors ----------------------------------------------------------------------
+//Constructors and Destructors -------------------------------------------------
+
 template <class T> treeType<T>::treeType(std::string newName)
 {
    label = newName;
@@ -30,10 +31,11 @@ template <class T> treeType<T>::~treeType()
    cleanThisNode();//Prepares node for deletion, in case it hasn't been done yet.
 }
 
-//Constructors and Destructors ----------------------------------------------------------------------
+//End Constructors and Destructors ---------------------------------------------
 
 
 
+//Node/Leaf Search -------------------------------------------------------------
 template <class T> treeType<T>* treeType<T>::findNode(std::string name)
 {
    int a = 0;
@@ -130,9 +132,7 @@ template <class T> leafType<T>* treeType<T>::findConnectedLeaf(std::string name)
    return NULL;
 }
 
-
-
-
+//End Node/Leaf Search ---------------------------------------------------------
 
 
 
@@ -164,6 +164,8 @@ template <class T> bool treeType<T>::addLeaf(std::string name, T data)
 }
 
 //End IO -----------------------------------------------------------------------
+
+
 
 //Node Deletion ----------------------------------------------------------------
 
@@ -215,13 +217,10 @@ template <class T> void treeType<T>::cleanThisNode()
 template <class T> std::string treeType<T>::listNodePath()
 {
    if (parent == NULL){
-      return "asdf";
+      return label;//Head node
    }
    
-   
-   
-   
-   
+   return parent -> listNodePath() + "." + label;
 }
 
 

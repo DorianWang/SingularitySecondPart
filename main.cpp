@@ -250,10 +250,10 @@ int counters = 0;
    
    
    
-   //treeType <int> aephoro("asdf", 4);
+   treeType <int> aephoro("asdf");
    
-   //aephoro.addNode("node1");
-   //aephoro.addNode("node2");
+   aephoro.addNode("node1");
+   aephoro.addNode("node2");
    
    cout<<NULL + "asdf"<<endl;
    
