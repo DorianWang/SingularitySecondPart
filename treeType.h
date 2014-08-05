@@ -68,7 +68,7 @@ std::string listNodePath()
 ;;
 };;
 
-#include "treeType.cpp"
+#include "treeType.inl"
 
 #endif
 

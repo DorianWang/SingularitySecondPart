@@ -36,6 +36,7 @@ template <class T> treeType<T>::~treeType()
 
 
 //Node/Leaf Search -------------------------------------------------------------
+
 template <class T> treeType<T>* treeType<T>::findNode(std::string name)
 {
    int a = 0;

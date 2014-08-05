@@ -43,6 +43,7 @@ char f;
 #include "CursorOptions.h"
 #include "Screens.h"
 #include "WindowsIntegration.h"
+#include "stringFunctions.h"
 
 #include "treeType.h"
 
@@ -255,7 +256,8 @@ int counters = 0;
    aephoro.addNode("node1");
    aephoro.addNode("node2");
    
-   cout<<NULL + "asdf"<<endl;
+   treeType <int> * treePointer;
+   
    
    
    

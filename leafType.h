@@ -12,8 +12,9 @@ std::string label;
 
 public:
 
-leafType();
-
+leafType(std::string name, E dataIn);
+E* getDataPointer();
+E getData();
 
 
 };
