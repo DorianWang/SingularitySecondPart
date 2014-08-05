@@ -257,7 +257,7 @@ int counters = 0;
    aephoro.addNode("node2");
    
    treeType <int> * treePointer;
-   
+   treePointer = aephoro.childNodes[0];
    
    
    
