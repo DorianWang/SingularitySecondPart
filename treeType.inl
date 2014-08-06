@@ -156,13 +156,13 @@ template <class T> bool treeType<T>::addNode(std::string name)
    return true;
 }
 
-
-
-
 template <class T> bool treeType<T>::addLeaf(std::string name, T data)
 {
-   //asdf;
+   leafType<T> newLeaf (name, data);
+   childData.push_back(newLeaf);
 }
+
+
 
 //End IO -----------------------------------------------------------------------
 
@@ -210,7 +210,13 @@ template <class T> void treeType<T>::cleanThisNode()
    childNodes.clear();
 }
 
+template <class T> void treeType<T>::deleteLeaf(std::string name)
+{
+   
+}
+
 //End Node Deletion ------------------------------------------------------------
+
 
 
 //Misc -----------------------------------------------------------------------
@@ -224,6 +230,13 @@ template <class T> std::string treeType<T>::listNodePath()
    return parent -> listNodePath() + "." + label;
 }
 
+template <class T> treeType<T>* treeType<T>::getNodeAtIndex(int index)
+{
+   if (childNodes.size()>index&&index>=0){
+      return childNodes[index];
+   }
+   return NULL;//NULL pointer if out of range
+}
 
 //End Misc ----------------------------------------------------------
 

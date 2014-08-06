@@ -64,7 +64,8 @@ bool deleteNode(std::string name);
 bool deleteNode(treeType<T>* nodeToDelete);
 void cleanThisNode();
 
-std::string listNodePath()
+std::string listNodePath();
+treeType<T>* getNodeAtIndex(int index);
 ;;
 };;
 
