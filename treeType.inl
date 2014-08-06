@@ -212,7 +212,11 @@ template <class T> void treeType<T>::cleanThisNode()
 
 template <class T> void treeType<T>::deleteLeaf(std::string name)
 {
-   
+   for (int i = 0; i<childNodes.size(); i++){
+      if (childData[i].label == name){
+         childNodes.remove(i);
+      }
+   }
 }
 
 //End Node Deletion ------------------------------------------------------------
