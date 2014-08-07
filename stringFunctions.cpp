@@ -16,3 +16,17 @@ std::string stringFunc::parseFirstToken(std::string input, const char* delim)
    }
    return output;
 }
+
+std::string stringFunc::popFirstToken(std::string input, const char* delim)
+{
+   std::string output; int inputLength = input.length();
+   std::string temp = parseFirstToken(input, delim)
+   return output;
+}
+
+
+std::vector <std::string> stringFunc::parseAllTokens(std::string input, const char* delim)
+{
+   std::vector <std::string> tempVector;
+   tempVector.push_back()
+}

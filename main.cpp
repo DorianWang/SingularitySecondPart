@@ -8,7 +8,7 @@
 
 
 
-using namespace std;
+//using namespace std;
 
 struct interactObject
 {
@@ -257,13 +257,22 @@ int counters = 0;
    aephoro.addNode("node2");
    
    treeType <int> * treePointer;
-   treePointer = aephoro.getNodeAtIndex(0);
+   treePointer = aephoro.getNodeAtIndex(1);
+   if (treePointer){
+      cout<<treePointer -> getName()<<endl;
+      treePointer -> addNode("node3");
+   }
+   treePointer = treePointer -> getNodeAtIndex(0);
    
-   
+   cout<<treePointer -> listNodePath()<<endl;//It works!
    
    cout<<"I'm done!"<<endl;
    system("PAUSE");
    
+   
+   
+
+ 
    return EXIT_SUCCESS;
 }
 

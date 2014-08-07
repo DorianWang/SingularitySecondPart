@@ -4,15 +4,17 @@
 
 #include <vector>
 #include <string>
+#include "treeType.h"
 
 template <class E> class leafType 
 {
 E dataStored;
 std::string label;
+//treeType <E> * parent;
 
 public:
 
-leafType(std::string name, E dataIn);
+leafType(std::string name, E dataIn);//, treeType<E>* newParent);
 E* getDataPointer();
 E getData();
 

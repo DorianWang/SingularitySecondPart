@@ -158,7 +158,7 @@ template <class T> bool treeType<T>::addNode(std::string name)
 
 template <class T> bool treeType<T>::addLeaf(std::string name, T data)
 {
-   leafType<T> newLeaf (name, data);
+   leafType<T> newLeaf (name, data);//, this);
    childData.push_back(newLeaf);
 }
 
@@ -219,6 +219,7 @@ template <class T> void treeType<T>::deleteLeaf(std::string name)
    }
 }
 
+
 //End Node Deletion ------------------------------------------------------------
 
 
@@ -240,6 +241,11 @@ template <class T> treeType<T>* treeType<T>::getNodeAtIndex(int index)
       return childNodes[index];
    }
    return NULL;//NULL pointer if out of range
+}
+
+template <class T> std::string treeType<T>::getName()
+{
+   return label;
 }
 
 //End Misc ----------------------------------------------------------
