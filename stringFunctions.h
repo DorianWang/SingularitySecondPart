@@ -4,14 +4,15 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
 //It only works if I have the class. Why?
 class stringFunc
 {
 
 std::string parseFirstToken(std::string input, const char* delim);
-
-
+std::string popFirstToken(std::string input, const char* delim);
+std::vector <std::string> parseAllTokens(std::string input, const char* delim);
 
 };
 

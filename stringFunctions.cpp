@@ -20,7 +20,12 @@ std::string stringFunc::parseFirstToken(std::string input, const char* delim)
 std::string stringFunc::popFirstToken(std::string input, const char* delim)
 {
    std::string output; int inputLength = input.length();
-   std::string temp = parseFirstToken(input, delim)
+   std::string temp = parseFirstToken(input, delim);
+   
+   if (temp == input){ return NULL; }
+   
+   input.erase(0, temp.length());
+   output = input;
    return output;
 }
 
@@ -28,5 +33,8 @@ std::string stringFunc::popFirstToken(std::string input, const char* delim)
 std::vector <std::string> stringFunc::parseAllTokens(std::string input, const char* delim)
 {
    std::vector <std::string> tempVector;
-   tempVector.push_back()
+   //tempVector.push_back();
 }
+
+
+
