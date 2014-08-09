@@ -266,6 +266,17 @@ int counters = 0;
    
    cout<<treePointer -> listNodePath()<<endl;//It works!
    
+   std::string nodePath = treePointer -> listNodePath();
+   
+   stringFunc asdfa;
+   
+   std::vector <std::string> tokenVector = asdfa.parseAllTokens(nodePath, ". ");
+   
+   for (int i=0; i<tokenVector.size(); i++){
+      cout<<tokenVector[i]<<" -> ";
+   }
+   cout<<endl;
+   
    cout<<"I'm done!"<<endl;
    system("PAUSE");
    

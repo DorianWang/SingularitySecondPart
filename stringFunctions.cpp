@@ -66,7 +66,6 @@ std::string stringFunc::tokensToString(std::vector <std::string> input, const ch
       }
    }
    
-   
    return output;
 }
 
