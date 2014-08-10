@@ -65,22 +65,6 @@ ELEMENT_POISON, ELEMENT_MIND , ELEMENT_TECH, ELEMENT_MUNDANE };//The last three 
 //Ohter subgroups, from most to least important
 //Other stuff
 
-/*
-Example
-Equipment.Weapons.Stab^Short Sword^
-Equipment.Weapons.Edge
-(Names, levels, damage, etc)
-flawed, 1 5, 2 8, etc...
-
-(Types, damage modifiers, etc)
-
- 
-etc...
-
-Materials
-
-
-*/
 
 //Item hierarchy
 /*

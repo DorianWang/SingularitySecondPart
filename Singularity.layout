@@ -228,9 +228,9 @@ LeftChar=1
 [Editor_32]
 Open=1
 Top=0
-CursorCol=3
-CursorRow=35
-TopLine=86
+CursorCol=1
+CursorRow=67
+TopLine=68
 LeftChar=1
 [Editor_33]
 Open=0
@@ -305,7 +305,7 @@ LeftChar=1
 [Editor_43]
 Open=1
 Top=1
-CursorCol=5
-CursorRow=28
-TopLine=17
+CursorCol=22
+CursorRow=15
+TopLine=1
 LeftChar=1
