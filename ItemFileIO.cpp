@@ -1,123 +1,6 @@
 
 #include "Items.h"
 
-typedef struct descriptorEffects
-{
-   std::string descriptorName;
-   int lowLvlLmt;
-   int highLvlLmt;
-   short damageEffectChange;
-   float damageEffectMod;
-   
-   bool isUnique; //Tells the game to look at this differently
-   std::string pathToUniqueEffects;
-}
-
-
-typedef struct equipmentTypeBase
-{
-   std::string singularName;
-   std::string pluralName;
-   std::vector <descriptorEffects> descriptor;
-   
-   short size;
-   short weight;
-   int baseDamage; //Note that damage can be negative...
-   float damageIncrItemLvl;
-   float damageIncrUserLvl;
-   unsigned char assocSkill; 
-   short enchantType; //Mostly for staffs, but also for some other things
-   
-   std::string primaryItemType;
-   std::string secondaryItemTypes;
-   std::vector <unsigned char> uses;
-   std::vector <unsigned char> materials;
-   
-   bool isUnique; //Tells the game to look at this differently
-   std::string pathToUniqueEffects;
-}
-
-typedef struct consumeTypeBase
-{
-   std::string singularName;
-   std::string pluralName;
-   short size;
-   short weight;
-   int effectStrength;
-   float effectIncrItemLvl;
-   float effectIncrUserLvl;//For healing items, etc.
-   unsigned char assocSkill;
-   
-   std::string primaryItemType;
-   std::string secondaryItemTypes;
-   std::vector <unsigned char> uses;
-   
-   bool isUnique; //Tells the game to look at this differently
-   std::string pathToUniqueEffects;
-}
-
-
-
-typedef struct equipmentType
-{
-   std::string singularName;
-   std::string pluralName;
-   std::string descriptor;
-   
-   short size;
-   short weight;
-   int baseDamage; //Note that damage can be negative...
-   float damageIncrItemLvl;
-   float damageIncrUserLvl;
-   unsigned char assocSkill; 
-   short enchantType; //Mostly for staffs, but also for some other things
-   
-   std::string primaryItemType;
-   std::string secondaryItemTypes;
-   std::vector <unsigned char> uses;
-   std::vector <unsigned char> materials;
-   
-   int itemLevel;
-   
-   bool isUnique; //Tells the game to look at this differently
-   std::string pathToUniqueEffects;
-   
-   equipmentTypeBase* itemBase;
-}
-
-typedef struct consumeType
-{
-   std::string singularName;
-   std::string pluralName;
-   short size;
-   short weight;
-   int effectStrength;
-   float effectIncrItemLvl;
-   float effectIncrUserLvl;//For healing items, etc.
-   unsigned char assocSkill;
-   
-   int itemLevel;
-   
-   std::string primaryItemType;
-   std::string secondaryItemTypes;
-   std::vector <unsigned char> uses;
-   
-   bool isUnique; //Tells the game to look at this differently
-   std::string pathToUniqueEffects;
-   
-   equipmentTypeBase* consumeTypeBase;
-}
-
-typedef struct junkType
-{
-   std::string singularName;
-   std::string pluralName;
-   short size;
-   short weight;
-   
-   std::string primaryItemType;
-   std::string secondaryItemTypes;
-   std::vector <unsigned char> uses;
 
 /*
 How do I plan to make the item files?
@@ -174,7 +57,23 @@ Good 5 18 *1
 
 */
 
-
+//The master item file list lists every item file which must be included in the game.
+//This function will load all the items into memory.
+int itemParser(std::string pathToMasterItemFileList)
+{
+   FileIO inputFileNameList;
+   inputFileNameList.textOpenFile(pathToMasterItemFileList, false);
+   bool fileIsGood = true; int returnInt = 0; std::string inputLine;
+   
+   //Item file reading
+   while(fileIsGood){
+      returnInt = inputFileNameList.readLine(&inputLine);
+      if (returnInt<1){ return 0; }
+   }
+   FileIO inputFile;
+   
+   
+}
 
 
 

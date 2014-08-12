@@ -17,6 +17,140 @@ CRYSTAL_MANA, EXPLODE_DISABLE, EXPLODE_DAMAGE, EXPLODE_FLARE,
 };
 
 
+typedef struct descriptorEffects
+{
+   std::string descriptorName;
+   int lowLvlLmt;
+   int highLvlLmt;
+   short damageEffectChange;
+   float damageEffectMod;
+   
+   bool isUnique; //Tells the game to look at this differently
+   std::string pathToUniqueEffects;
+   
+   int valueIncrease; 
+   float valueMod;
+};
+
+
+typedef struct equipmentTypeBase
+{
+   std::string singularName;
+   std::string pluralName;
+   std::vector <descriptorEffects> descriptor;
+   
+   short size;
+   short weight;
+   int baseDamage; //Note that damage can be negative...
+   float damageIncrItemLvl;
+   float damageIncrUserLvl;
+   unsigned char assocSkill; 
+   short enchantType; //Mostly for staffs, but also for some other things
+   
+   std::string primaryItemType;
+   std::string secondaryItemTypes;
+   std::vector <unsigned char> uses;
+   std::vector <unsigned char> materials;
+   
+   bool isUnique; //Tells the game to look at this differently
+   std::string pathToUniqueEffects;
+   
+   int value;
+};
+
+typedef struct consumeTypeBase
+{
+   std::string singularName;
+   std::string pluralName;
+   short size;
+   short weight;
+   int effectStrength;
+   float effectIncrItemLvl;
+   float effectIncrUserLvl;//For healing items, etc.
+   unsigned char assocSkill;
+   
+   std::string primaryItemType;
+   std::string secondaryItemTypes;
+   std::vector <unsigned char> uses;
+   
+   bool isUnique; //Tells the game to look at this differently
+   std::string pathToUniqueEffects;
+   
+   int value;
+};
+
+
+
+typedef struct equipmentType
+{
+   std::string singularName;
+   std::string pluralName;
+   std::string descriptor;
+   
+   short size;
+   short weight;
+   int baseDamage; //Note that damage can be negative...
+   float damageIncrItemLvl;
+   float damageIncrUserLvl;
+   unsigned char assocSkill; 
+   short enchantType; //Mostly for staffs, but also for some other things
+   
+   std::string primaryItemType;
+   std::string secondaryItemTypes;
+   std::vector <unsigned char> uses;
+   std::vector <unsigned char> materials;
+   
+   int itemLevel;
+   
+   bool isUnique; //Tells the game to look at this differently
+   std::string pathToUniqueEffects;
+   
+   equipmentTypeBase* itemBase;
+
+   int value;
+};
+
+typedef struct consumeType
+{
+   std::string singularName;
+   std::string pluralName;
+   short size;
+   short weight;
+   int effectStrength;
+   float effectIncrItemLvl;
+   float effectIncrUserLvl;//For healing items, etc.
+   unsigned char assocSkill;
+   
+   int itemLevel;
+   
+   std::string primaryItemType;
+   std::string secondaryItemTypes;
+   std::vector <unsigned char> uses;
+   
+   bool isUnique; //Tells the game to look at this differently
+   std::string pathToUniqueEffects;
+   
+   equipmentTypeBase* consumeTypeBase;
+   
+   int value;
+};
+
+typedef struct junkType
+{
+   std::string singularName;
+   std::string pluralName;
+   short size;
+   short weight;
+   
+   std::string primaryItemType;
+   std::string secondaryItemTypes;
+   std::vector <unsigned char> uses;
+   
+   int value;
+};
+
+
+
 
 class itemSet
 {
