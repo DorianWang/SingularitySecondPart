@@ -5,16 +5,12 @@
 class basicChar
 {
    std::string nameShown;
-   int lowLvlLmt;
-   int highLvlLmt;
-   short damageEffectChange;
-   float damageEffectMod;
+   std::string species;
    
-   bool isUnique; //Tells the game to look at this differently
-   std::string pathToUniqueEffects;
+   std::string description;
    
-   int valueIncrease; 
-   float valueMod;
+   unsigned char tag;
+   //location type? 
 };
 
 
