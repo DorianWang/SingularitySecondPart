@@ -10,7 +10,6 @@ class basicChar
    std::string description;
    
    unsigned char tag;
-   //location type? 
 };
 
 

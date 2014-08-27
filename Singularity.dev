@@ -1,7 +1,7 @@
 [Project]
 FileName=Singularity.dev
 Name=Singularity
-UnitCount=46
+UnitCount=47
 Type=1
 Ver=1
 ObjFiles=
@@ -20,7 +20,7 @@ ObjectOutput=
 OverrideOutput=0
 OverrideOutputName=Singularity.exe
 HostApplication=
-Folders=Bases,Container,CursorMod,FileEncryt,FileIO,Keys,Networking,Painter,RandomUtilities,Screens,Screens/DefaultScreen,Stuff,TakeGame,TakeGame/Combat,TakeGame/Interactives,TakeGame/Items,TakeGame/Items/Loot,TakeGame/NPCs,TakeGame/Player,TakeGame/Start,TreeStuff,TreeStuff/Leaf,WindowsStuff
+Folders=Bases,Container,CursorMod,FileEncryt,FileIO,Keys,Networking,Painter,RandomUtilities,Screens,Screens/DefaultScreen,Stuff,TakeGame,TakeGame/Combat,TakeGame/Interactives,TakeGame/Items,TakeGame/Items/Loot,TakeGame/Locations,TakeGame/NPCs,TakeGame/Player,TakeGame/Start,TreeStuff,TreeStuff/Leaf,WindowsStuff
 CommandLine=
 UseCustomMakefile=0
 CustomMakefile=
@@ -501,6 +501,16 @@ BuildCmd=
 FileName=Interactive.h
 CompileCpp=1
 Folder=TakeGame/Interactives
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit47]
+FileName=Locations.h
+CompileCpp=1
+Folder=TakeGame/Locations
 Compile=1
 Link=1
 Priority=1000
