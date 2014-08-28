@@ -17,8 +17,10 @@ class advancedLocation : public basicLocation
 {
    
 public:
-   std::vector <advancedLocation*> connections;
+   unsigned char numConnections;
+   advancedLocation* connections[10];
    //0 is north, 1 is west, .. 3 is east, 4 is up, 5 is down, 6 is NE, 9 is SE, etc.
+   //If there is nothing in that direction, NULL will be found.
 
    std::vector <advancedInteractive> objects;
    

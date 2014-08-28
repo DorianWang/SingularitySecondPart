@@ -4,6 +4,7 @@
 
 class basicChar
 {
+public:
    std::string nameShown;
    std::string species;
    
