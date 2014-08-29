@@ -13,7 +13,13 @@ public:
    unsigned char tag;
 };
 
+class advancedChar : public basicChar
+{
+public:
 
+   int temporaryVariable;
+
+};
 
 
 

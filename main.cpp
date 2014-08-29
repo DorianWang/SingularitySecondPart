@@ -122,6 +122,11 @@ int main(int argc, char *argv[])
    FileIO myFile;//FileIO has been tested, and appears to work...
    //However, there is more testing to be done!
 
+//   myFile.textOpenFile("Data/Maps/Thing.txt", false);
+//   std::string them;
+//   myFile.readLine(&them);
+//   cout<<them<<endl;
+   
    Keypress KeyIn;
    short a = 0;
 
@@ -249,41 +254,39 @@ int counters = 0;
     
    //I don't want to reach this, should I remove it?
    
-   
-   
-   treeType <int> aephoro("asdf");
-   
-   aephoro.addNode("node1");
-   aephoro.addNode("node2");
-   
-   treeType <int> * treePointer;
-   treePointer = aephoro.getNodeAtIndex(1);
-   if (treePointer){
-      cout<<treePointer -> getName()<<endl;
-      treePointer -> addNode("node3");
-   }
-   treePointer = treePointer -> getNodeAtIndex(0);
-   
-   cout<<treePointer -> listNodePath()<<endl;//It works!
-   
-   std::string nodePath = treePointer -> listNodePath();
-   
-   stringFunc asdfa;
-   
-   std::vector <std::string> tokenVector = asdfa.parseAllTokens(nodePath, ". ");
-   
-   for (int i=0; i<tokenVector.size(); i++){
-      cout<<tokenVector[i]<<" -> ";
-   }
-   cout<<endl;
-   
+//   
+//   
+//   treeType <int> aephoro("asdf");
+//   
+//   aephoro.addNode("node1");
+//   aephoro.addNode("node2");
+//   
+//   treeType <int> * treePointer;
+//   treePointer = aephoro.getNodeAtIndex(1);
+//   if (treePointer){
+//      cout<<treePointer -> getName()<<endl;
+//      treePointer -> addNode("node3");
+//   }
+//   treePointer = treePointer -> getNodeAtIndex(0);
+//   
+//   cout<<treePointer -> listNodePath()<<endl;//It works!
+//   
+//   std::string nodePath = treePointer -> listNodePath();
+//   
+//   stringFunc asdfa;
+//   
+//   std::vector <std::string> tokenVector = asdfa.parseAllTokens(nodePath, ". ");
+//   
+//   for (int i=0; i<tokenVector.size(); i++){
+//      cout<<tokenVector[i]<<" -> ";
+//   }
+//   cout<<endl;
+//   
    cout<<"I'm done!"<<endl;
    system("PAUSE");
    
    
-   
 
- 
    return EXIT_SUCCESS;
 }
 
