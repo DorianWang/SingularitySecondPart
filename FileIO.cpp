@@ -355,13 +355,14 @@ int FileIO::readData(int dataLength, int arrayLength, int* errorNum, ...)
 
 //returns 0 for failure, else 1
 
-   char *buffer= new char [MAX_BUFFER];
+   char* buffer= new char [MAX_BUFFER];
    //char * buffer = new char [length];
    //This stores 512 4 byte objects (such as integers), or 256 doubles.
    char* output; //void * temp;
    int bytesToGet=dataLength;
    int totalBytesToGet=0;
    int j = 0;
+   *errorNum = 0;
    if (dataLength>=MAX_DATA_LENGTH||dataLength<=-1){
       delete [] buffer;
       return 0;
@@ -370,7 +371,7 @@ int FileIO::readData(int dataLength, int arrayLength, int* errorNum, ...)
    va_list ap;
    va_start(ap, errorNum);//Gets the pointer to the function parameter list
 
-   output = va_arg(ap, char*);//This allows for modification, and pointer arithmatic
+   output = va_arg(ap, char*);//This allows for modification, and pointer arithmetic
    va_end(ap);//closes list, important...
    
    if (output == NULL){

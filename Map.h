@@ -7,6 +7,7 @@
 class mapType
 {
 
+int numLocations;
 std::vector <advancedLocation*> locations;
 //Array of all locations;
 
