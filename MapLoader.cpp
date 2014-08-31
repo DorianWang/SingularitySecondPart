@@ -1,7 +1,7 @@
 
 #include "MapLoader.h"
 
-int mapLoader::readMapFile(std::string mapName)
+int mapLoader::readMapFile(std::string mapName, mapType* map)
 {
    FileIO mapFile;
    mapFile.dataOpenFile(MAP_FOLDER + mapName, false);
@@ -16,10 +16,25 @@ int mapLoader::readMapFile(std::string mapName)
    }
    
    for (int i=0; i < numLocationsFound; i++){
-      //Get each location here
+      readLocations(&mapFile, map);
    }
    
+}
+
+int readLocations(FileIO* mapFile, mapType* map)
+{
+   int numFound = -1;
+   int errorType = 0;
    
+   mapFile.readData(INT_SIZE, 1, &errorType, &numFound);
+   //Temporary
    
    
 }
+   
+   
+   
+   
+   
+   
+   

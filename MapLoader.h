@@ -15,7 +15,7 @@ class mapLoader
       
       
 public:
-   int readMapFile(std::string mapName);
+   int readMapFile(std::string mapName, mapType* map);
 
 
 

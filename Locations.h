@@ -8,6 +8,12 @@
 #include "Interactive.h"
 #include "NPC.h"
 
+typedef struct mapCoord
+{
+   short xCoord;
+   short yCoord;
+}
+
 class basicLocation
 {
 
@@ -25,7 +31,8 @@ class advancedLocation : public basicLocation
 public:
    unsigned char numConnections;
    
-   char xCoord; char yCoord;//These are set in the map loading, with location
+   mapCoord thisCoord;
+   //This is set in the map loading, with location
    //at index 0 being {0,0}.
    
    short connections[10];
@@ -38,6 +45,8 @@ public:
    std::vector <advancedInteractive> objects;
    
    std::vector <advancedChar> characters;
+   
+   std::vector <enemyChar> enemies;
    
    unsigned short tag;//This allows on enter/exit effects;
 };
