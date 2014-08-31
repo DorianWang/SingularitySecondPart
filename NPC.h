@@ -18,13 +18,27 @@ class advancedChar : public basicChar
 public:
 
    int temporaryVariable;
+   int faction; //Who is this? Who do they belong to?
 
 };
 
+class enemyChar : public advancedChar
+{
 
+public:
+   bool isHostile;//If it is not hostile, it will not attack first.
+   //equipmentContainer equipItems;
+   
+
+}
 
 
 
 
 
 #endif
+
+
+
+
+
