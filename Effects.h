@@ -15,7 +15,12 @@ enum mapEffects
    
 };
 
-
+typedef struct mapEffectsAdvanced
+{
+   mapEffects effect;
+   int effectStrength;
+   
+};
 
 
 
