@@ -12,7 +12,7 @@ typedef struct mapCoord
 {
    short xCoord;
    short yCoord;
-}
+};
 
 class basicLocation
 {
