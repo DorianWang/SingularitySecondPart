@@ -2,6 +2,22 @@
 #ifndef NPC_H
 #define NPC_H
 
+
+typedef struct stats
+{
+//I need to add a function that controls changes to prevent any funny stuff.
+   unsigned short intelligence;
+   unsigned short wisdom;
+   unsigned short charisma;
+   unsigned short strength;
+   unsigned short agility;
+   unsigned short endurance;
+   
+   
+   unsigned char techKnowledge;
+};
+
+
 class basicChar
 {
 public:
@@ -22,12 +38,14 @@ public:
 
 };
 
-class enemyChar : public advancedChar
+class fightingChar : public advancedChar
 {
 
 public:
    bool isHostile;//If it is not hostile, it will not attack first.
    //equipmentContainer equipItems;
+   
+   
    
 
 }

@@ -19,7 +19,7 @@ typedef struct mapEffectsAdvanced
 {
    mapEffects effect;
    int effectStrength;
-   
+   int descriptionIndex;
 };
 
 

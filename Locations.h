@@ -46,7 +46,7 @@ public:
    
    std::vector <advancedChar> characters;
    
-   std::vector <enemyChar> enemies;
+   std::vector <fightingChar> enemies;
    
    unsigned short tag;//This allows on enter/exit effects;
 };
