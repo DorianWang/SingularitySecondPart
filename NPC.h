@@ -13,8 +13,14 @@ typedef struct stats
    unsigned short agility;
    unsigned short endurance;
    
-   
+   unsigned char magicKnowledge;
    unsigned char techKnowledge;
+   
+   char basePhysicalResistance;
+   char baseMagicResistance;
+   
+   int baseHealth;
+   int baseMana;
 };
 
 
