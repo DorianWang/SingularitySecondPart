@@ -9,6 +9,9 @@ class takeGame
    
 public: 
    
+   std::vector <bool> globalBooleans;
+   std::vector <int> globalInts;
+   
    takeGame();
    ~takeGame();
 

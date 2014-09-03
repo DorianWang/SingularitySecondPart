@@ -1,7 +1,7 @@
 [Project]
 FileName=Singularity.dev
 Name=Singularity
-UnitCount=52
+UnitCount=53
 Type=1
 Ver=1
 ObjFiles=
@@ -561,6 +561,16 @@ BuildCmd=
 FileName=Effects.h
 CompileCpp=1
 Folder=TakeGame/Map/Effects
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit53]
+FileName=Player.h
+CompileCpp=1
+Folder=TakeGame/Player
 Compile=1
 Link=1
 Priority=1000

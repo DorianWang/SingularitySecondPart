@@ -13,6 +13,9 @@ typedef struct stats
    unsigned short agility;
    unsigned short endurance;
    
+   unsigned short tempOne;
+   unsigned short tempTwo;
+   
    unsigned char magicKnowledge;
    unsigned char techKnowledge;
    
@@ -21,6 +24,10 @@ typedef struct stats
    
    int baseHealth;
    int baseMana;
+   
+   int unassignedOne;
+   int unassignedTwo;
+   
 };
 
 
@@ -41,7 +48,7 @@ public:
 
    int temporaryVariable;
    int faction; //Who is this? Who do they belong to?
-
+   std::vector <short> unassignedVars;
 };
 
 class fightingChar : public advancedChar
@@ -50,11 +57,11 @@ class fightingChar : public advancedChar
 public:
    bool isHostile;//If it is not hostile, it will not attack first.
    //equipmentContainer equipItems;
-   
-   
+   std::vector <short> unassignedVars;
+   stats thisStats;
    
 
-}
+};
 
 
 
