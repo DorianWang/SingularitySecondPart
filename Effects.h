@@ -1,6 +1,6 @@
 
-#ifndef EFFECTS_MAP_H
-#define EFFECTS_MAP_H
+#ifndef EFFECTS_GAME_H
+#define EFFECTS_GAME_H
 
 
 enum allEffects
@@ -10,29 +10,27 @@ enum allEffects
    MOD_BASE_MGC_RST, MOD_BASE_PHYS_RST, 
    
    
+   SPAWN_ENTITY, 
    
-   
-   
-   
-   KILL_PLAYER, KILL_ENEMY, 
+   KILL_ENTITY, 
 };
 
-typedef struct mapEffectsAdvanced
+typedef struct baseEffects
 {
-   mapEffects effect;
-   int effectStrength;
-   int descriptionIndex;
+   allEffects effect;
 };
 
-
-
-
-
-
-
-
-
-
+typedef struct advancedEffects
+{
+   baseEffects* primaryEffect;
+   int effectStrength;
+   int effectType;
+   int descriptionIndex;
+   bool effectTypeDependant;
+};
+//Effects that modify stats use effectType for a timer. -1 for permanant, 0 for 
+//until next heal, and otherwise the time in ticks until it goes away.
+//timing dependant effects use their effectType as well as description.
 
 
 
