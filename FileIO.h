@@ -75,6 +75,7 @@ int writeStringText(std::string output);
 //Other stuff
 std::string getFileName(bool isBinary);
 int deleteFile(std::string *fileName);
+bool checkIfOpen();
 
 //Line buffer stuff, to allow for storage in the object. More convienient.
 void bufferLines(std::string input);

@@ -344,7 +344,7 @@ int FileIO::readWholeLine(std::string *output)
    return 2;
 }
 
-// It is limited to 2048 bytes per pull. 
+// It is limited to MAX_BUFFER bytes per pull. 
 // Multiple executions may be required to get all data.
 // http://stackoverflow.com/questions
 // /1579719/variable-number-of-parameters-in-function-in-c
@@ -401,7 +401,7 @@ int FileIO::readData(int dataLength, int arrayLength, int* errorNum, ...)
       system("PAUSE");
       delete [] buffer;
       *errorNum = -2;//Read error, not enough bytes to get.
-      return -1 * bytesRead;//Bad stuff, note that all bad returns are zero.
+      return -1 * bytesRead;//Bad stuff, note that all bad returns are less than one.
    }
    
    //if (myfile.eof()&&myfile.fail()) return 0; //hit end of file...
@@ -599,6 +599,17 @@ if (!(writeDataToFile(dataBytes, dataLength * arrayLength))){
    dataBytes=dataBytes+dataLength;//I forgot to change the variable. Derp.
    return 1;
 //return arrayLength;
+}
+
+bool FileIO::checkIfOpen()
+{
+   if (myfile.is_open()){
+      isOpen = true;
+      return isOpen;
+   }
+   
+   isOpen = false;
+   return isOpen;
 }
 
 //Closes the file if and only if there is one open

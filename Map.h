@@ -7,7 +7,7 @@
 typedef struct locationWithExtras
 {
    advancedLocation* locationPointer;
-   std::vector <short> effects;
+   std::vector <int> effects;//Temporary
 };
 
 
@@ -15,10 +15,10 @@ class mapType
 {
 
 int numLocations;
-std::vector <advancedLocation*> locations;
+std::vector <locationWithExtras*> locations;
 //Array of all locations;
 
-std::vector <advancedLocation*> 
+//std::vector <locationWithExtras*> effectLocations
 
 
 
