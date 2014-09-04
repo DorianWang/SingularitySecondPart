@@ -3,11 +3,13 @@
 #define MAP_H
 
 #include "Locations.h"
+#include "Effects.h"
 
 typedef struct locationWithExtras
 {
-   advancedLocation* locationPointer;
-   std::vector <int> effects;//Temporary
+   advancedLocation locationPointer;
+   std::vector <int> effects;//This stores the index of the effect in the effect
+//array.
 };
 
 
@@ -15,7 +17,7 @@ class mapType
 {
 
 int numLocations;
-std::vector <locationWithExtras*> locations;
+std::vector <locationWithExtras> locations;
 //Array of all locations;
 
 //std::vector <locationWithExtras*> effectLocations

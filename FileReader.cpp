@@ -30,9 +30,6 @@ void takeGameFileReader::initialize()
    
    resetMasterFile(masterFileName);
 
-
-
-
 }
 
 
@@ -62,6 +59,45 @@ void takeGameFileReader::resetMasterFile(std::string input)
    }
 
 }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
    
    

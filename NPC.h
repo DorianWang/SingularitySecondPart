@@ -39,7 +39,7 @@ public:
    
    std::string description;
    
-   unsigned char tag;
+   unsigned short tag;
 };
 
 class advancedChar : public basicChar
