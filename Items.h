@@ -155,6 +155,7 @@ typedef struct junkType
 
 typedef struct inventory
 {
+   int carryingCapacity;
    std::vector <equipmentType> equipment;
    
    std::vector <int> currentlyEquiped;

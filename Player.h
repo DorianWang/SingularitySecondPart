@@ -8,6 +8,7 @@
 class playerChar : public fightingChar
 {
 
+int baseCarryingCapacity;
 
 
 
