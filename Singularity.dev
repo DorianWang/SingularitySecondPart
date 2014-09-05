@@ -268,7 +268,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit23]
-FileName=Depreciated.cpp
+FileName=Depreciated.inl
 CompileCpp=1
 Folder=Stuff
 Compile=0

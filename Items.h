@@ -2,6 +2,7 @@
 #define ITEMS_H 
 
 #include "FileIO.h"
+#include "treeType.h"
 
 enum usesEquip {
 EQUIP_HAND, EQUIP_CHEST, EQUIP_HEAD, EQUIP_ARM, EQUIP_LEG, EQUIP_FOOT, EQUIP_NECK, 
@@ -152,12 +153,29 @@ typedef struct junkType
 
 
 
+typedef struct inventory
+{
+   std::vector <equipmentType> equipment;
+   
+   std::vector <int> currentlyEquiped;
+   
+   std::vector <consumeType> consumables;
+   
+   std::vector <junkType> shinyThings;
+   
+};
+
+
+
+
 class itemSet
 {
 
 //Tree implementation
-
-
+//equipmentType
+//consumeType
+//junkType
+public:
 
 
 
@@ -166,4 +184,22 @@ class itemSet
 };
 
 
+
+
+
+
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+

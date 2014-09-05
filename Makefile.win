@@ -5,8 +5,8 @@ CPP  = g++.exe -D__DEBUG__
 CC   = gcc.exe -D__DEBUG__
 WINDRES = windres.exe
 RES  = 
-OBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o pixelPainter.o typeChanger.o parseString.o EncryptConverter.o WindowsIntegration.o Server.o TakeGameMain.o ScreenType.o LootDrop.o Items.o treeType.o leafType.o stringFunctions.o ItemFileIO.o Map.o MapLoader.o $(RES)
-LINKOBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o pixelPainter.o typeChanger.o parseString.o EncryptConverter.o WindowsIntegration.o Server.o TakeGameMain.o ScreenType.o LootDrop.o Items.o treeType.o leafType.o stringFunctions.o ItemFileIO.o Map.o MapLoader.o $(RES)
+OBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o pixelPainter.o typeChanger.o parseString.o EncryptConverter.o WindowsIntegration.o Server.o TakeGameMain.o ScreenType.o LootDrop.o Items.o treeType.o leafType.o stringFunctions.o ItemFileIO.o Map.o MapLoader.o FileReader.o $(RES)
+LINKOBJ  = main.o Bases.o keys.o CursorOptions.o Screens.o Painter.o FileIO.o Container.o ScreensSwitch.o Encrypt.o pixelPainter.o typeChanger.o parseString.o EncryptConverter.o WindowsIntegration.o Server.o TakeGameMain.o ScreenType.o LootDrop.o Items.o treeType.o leafType.o stringFunctions.o ItemFileIO.o Map.o MapLoader.o FileReader.o $(RES)
 LIBS =  -L"E:/programs/Dev-Cpp/lib" -lgdi32  -g3 
 INCS =  -I"E:/programs/Dev-Cpp/include" 
 CXXINCS =  -I"E:/programs/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2/backward"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"E:/programs/Dev-Cpp/include/c++/3.4.2"  -I"E:/programs/Dev-Cpp/include" 
@@ -103,3 +103,6 @@ Map.o: Map.cpp
 
 MapLoader.o: MapLoader.cpp
 	$(CPP) -c MapLoader.cpp -o MapLoader.o $(CXXFLAGS)
+
+FileReader.o: FileReader.cpp
+	$(CPP) -c FileReader.cpp -o FileReader.o $(CXXFLAGS)

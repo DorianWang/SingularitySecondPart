@@ -64,34 +64,7 @@ char f;
 bool cursorVisibility = false;
 bool cursorSmall = true;
 
-int poi(int size, ...)
-{
-   va_list ap;
-   int j=0;
-   char* asdf;
-   va_start(ap, size); //Requires the last fixed parameter (to get the address)
-   asdf=va_arg(ap, char*); //Requires the type to cast to. Increments ap to the next argument.
-   va_end(ap);
-   cout<<sizeof(asdf)<<"asdfasdf"<<endl;
-   int counter=0;
-   
-   for (int i=0;i<(size/4)-1;i++){
-      cout<<(int)((unsigned char)(*(asdf+i*4)))<<"."<<endl; 
-      counter=i;
-   }
-   cout<<(char)((unsigned char)(*(asdf+counter*(4+1)+1)))<<"."<<endl; 
-   cout<<(char)((unsigned char)(*(asdf+counter*(4+1)+2)))<<"."<<endl;
-   //Yey! I can read/write structures!
-   
-   //for (int i=3;i>=0;i--){
-//      cout<<(int)((unsigned char)(*(asdf+i)))<<"."<<endl; 
-//      j = (j*256) + (int)((unsigned char)(*(asdf+i)));
-//   }
-   
-//   
-   
-   cout<<j<<"qqq"<<endl;
-}
+
 
 
 
@@ -252,7 +225,6 @@ int counters = 0;
    //ScreenControl.mainScreen(VERSION_NUM);
    //^Important for code n' stuff
     
-   //I don't want to reach this, should I remove it?
    
 //   
 //   
