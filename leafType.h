@@ -1,12 +1,12 @@
 
 #ifndef LEAF_TYPE_H
-#define LEAF_TYPE_H 
+#define LEAF_TYPE_H
 
 #include <vector>
 #include <string>
-#include "treeType.h"
 
-template <class E> class leafType 
+
+template <class E> class leafType
 {
 E dataStored;
 std::string label;

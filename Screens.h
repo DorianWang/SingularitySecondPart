@@ -1,6 +1,6 @@
 
 #ifndef SCREENS_H
-#define SCREENS_H 
+#define SCREENS_H
 
 #include <fstream>
 #include <vector>
@@ -24,7 +24,7 @@
 #define SCREEN_HEIGHT 24
 #define SCREEN_WIDTH 80
 
-#define NUM_FUNCTIONS 
+#define NUM_FUNCTIONS
 
 using namespace std;
 
@@ -33,9 +33,9 @@ using namespace std;
 //{
 //};
 
-typedef struct treeNodeBinary
+struct treeNodeBinary
 {
-        
+
 int intData;
 int metaData;
 char moreMetaData;
@@ -87,9 +87,9 @@ int dwarfGame(int difficulty);
 
 ;;
 private:
-        
-int stringThing(int inputNum, int outputNum, int stringLength);        
-        
+
+int stringThing(int inputNum, int outputNum, int stringLength);
+
 
 };
 

@@ -1,6 +1,6 @@
 
 #ifndef TREE_TYPE_H
-#define TREE_TYPE_H 
+#define TREE_TYPE_H
 
 
 #define MAX_NODES_DEFAULT 32
@@ -21,7 +21,7 @@
 
 
 
-template <typename T> class treeType 
+template <typename T> class treeType
 {
 T tempVar;
 int numNodesMaxPer;

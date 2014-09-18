@@ -25,22 +25,21 @@ class takeGameFileReader
    std::string currentFileName;
 
    bool isFileCompiled;
-   
+
    public:
-   
-   
+
+
    bool isFileOpen;
-   
+
    takeGameFileReader(std::string inputMasterFileName);
    ~takeGameFileReader();
-   
+
    void initialize();
-   
-   std::string masterFileName;
+
    void resetMasterFile(std::string input);
 };
 
-#endif 
+#endif
 
 
 

@@ -21,7 +21,7 @@ template <class T> treeType<T>::treeType(std::string newName, int nodeMaxChild)
    }
    else
    {
-      numNodesMaxPer = MAX_NODES_DEFAULT;    
+      numNodesMaxPer = MAX_NODES_DEFAULT;
    }
    parent = NULL;
 }
@@ -44,7 +44,7 @@ template <class T> treeType<T>* treeType<T>::findNode(std::string name)
       if (childNodes[i] -> label == name){
          return childNodes[i];
       }
-      
+
    }
 }
 
@@ -85,39 +85,40 @@ template <class T> leafType<T>* treeType<T>::findLeaf(std::string name, std::str
    stringFunc strParser;
    leafType<T>* returnValue;
    returnValue = findConnectedLeaf(name);
-   
+
    if (returnValue != NULL){
       return returnValue;
    }
 
    std::string firstToken = strParser.parseFirstToken(keyWords, ". ");
-   
-   returnValue = findConnectedNode(firstToken);
-   
 
-   
+   returnValue = findConnectedNode(firstToken);
+
+
+
    std::queue < treeType<T>* > nodeQueue;
    treeType<T>* tempNode;
    nodeQueue.push(this);
-   
+
    while(!nodeQueue.empty()){
       tempNode = nodeQueue.front();
       nodeQueue.pop();
       returnValue = tempNode -> findConnectedNode(firstToken);
-      
+
       if (returnValue != NULL){
          std::string temp = keyWords;
          if (temp != keyWords){
-            temp.erase(temp.begin(), firstToken.length() + 1);
+            //temp.erase(temp.begin(), firstToken.length() + 1);
+            temp.erase(0, firstToken.length() + 1);
          }
          return findLeaf(name, temp);
       }
-      
+
       for (int i=0; i < tempNode -> childNodes.size(); i++){
          nodeQueue.push (tempNode -> childNodes[i]);
       }
    }
-   
+
 return NULL;
 }
 
@@ -143,13 +144,13 @@ template <class T> leafType<T>* treeType<T>::findConnectedLeaf(std::string name)
 template <class T> bool treeType<T>::addNode(std::string name)
 {
    if (name == label){
-      return false;//Not good. Do not add duplicates   
+      return false;//Not good. Do not add duplicates
    }
-   
+
    if (childNodes.size() >= numNodesMaxPer){
       return false;
    }
-   
+
    treeType<T>* temp = new treeType<T>(name);
    temp -> parent = this;
    childNodes.push_back(temp);
@@ -231,7 +232,7 @@ template <class T> std::string treeType<T>::listNodePath()
    if (parent == NULL){
       return label;//Head node
    }
-   
+
    return parent -> listNodePath() + "." + label;
 }
 

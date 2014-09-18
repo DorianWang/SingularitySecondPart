@@ -1,6 +1,6 @@
 
 #ifndef ENCRYPT_H
-#define ENCRYPT_H 
+#define ENCRYPT_H
 
 #define NUM_IMPORTANT_CHARS 6
 #define NUM_OTHER_CHARS 23
@@ -25,11 +25,13 @@
 #include <string>
 #include <algorithm>
 #include <vector>
-#include <ctime>      
-#include <cstdlib>      // std::rand, std::srand  
+#include <ctime>
+#include <cstdlib>      // std::rand, std::srand
 #include <cstdarg>
 
 #include "FileIO.h"
+#include <stdio.h>
+#include <string.h>
 
 using namespace std;
 
@@ -37,13 +39,13 @@ typedef struct rotor{
    int setNum;//Different rotors in different sets
    int numChars;//number of characters on the rotor
    //std::string mapping;//gives the mapping rules. For example the map DBCA means ADCB -> DACB
-   
+
    int currentNum;//Where the "Front" of the rotor should be.
 };
 
 typedef struct intRotor{
    std::vector<unsigned int> mapping;
-   int currentNum;//What the rotor has been set to.        
+   int currentNum;//What the rotor has been set to.
    bool rotorType[5];//Type of rotor.
    int rotorLength;
 };
@@ -62,8 +64,8 @@ public:
 Encrypter();
 char importantChars[NUM_IMPORTANT_CHARS];//={'.', ',', '!', ' ', '?', 'a'};
    // : = 58, " = 34, \ = 92, / = 47
-char otherChars[NUM_OTHER_CHARS];//={'@', '#', '$', '%', '^', '&', '*', '(', ')', ';', 'a', 'b', 'c', 'd', '~', '<', '>', '-', '_', '=', '+', '{', '}'};     
-   //importantChars[5] = 34; 
+char otherChars[NUM_OTHER_CHARS];//={'@', '#', '$', '%', '^', '&', '*', '(', ')', ';', 'a', 'b', 'c', 'd', '~', '<', '>', '-', '_', '=', '+', '{', '}'};
+   //importantChars[5] = 34;
    //otherChars[11] = 47; otherChars[12] = 58; otherChars[13] = 92;
 
 int charToCipherInt(bool* cipherType, char input);
@@ -113,7 +115,7 @@ int cipherChar(char input, byteRotor* rotors, int numRotors);
 void closeFile();
 
 private:
-//Primes: 59233, 49157, 32647, 99083, 158003, 779347, 2141, 8501 
+//Primes: 59233, 49157, 32647, 99083, 158003, 779347, 2141, 8501
 
 
 };

@@ -1,6 +1,6 @@
 
 #ifndef SCREEN_TYPE_H
-#define SCREEN_TYPE_H 
+#define SCREEN_TYPE_H
 
 #include <iostream>
 #include <vector>
@@ -10,7 +10,7 @@
 #define SCREEN_WIDTH 80
 #define SCREEN_HEIGHT 25
 
-typedef struct letterButton
+struct letterButton
 {
    std::string buttonName;
    unsigned char buttonType;
@@ -24,7 +24,7 @@ class screenType
 {
 
 public:
-       
+
 screenType();
 ~screenType();
 

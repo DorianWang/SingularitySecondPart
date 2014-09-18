@@ -9,11 +9,11 @@
 
 class mapLoader
 {
-      
-      
-      
+
+
+
 public:
-   int readMapFile(std::string mapName, mapType* map);
+   int readMapFile(std::string mapName);//, mapType* map);
 
 
 

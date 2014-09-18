@@ -1,6 +1,6 @@
 
 #ifndef TAKE_GAME_H
-#define TAKE_GAME_H 
+#define TAKE_GAME_H
 
 #include "MapLoader.h"
 #include "UsefulHeaders.h"
@@ -8,16 +8,16 @@
 
 class takeGame
 {
-   
-   
-   
-public: 
-   
+
+
+
+public:
+
    std::vector <bool> globalBooleans;
    std::vector <int> globalInts;
-   
-   std::vector <mapType> mapArray;
-   
+
+   //std::vector <mapType> mapArray;
+
    takeGame();
    ~takeGame();
 

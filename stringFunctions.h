@@ -2,9 +2,12 @@
 #ifndef STR_FUNCTIONS_H
 #define STR_FUNCTIONS_H
 
-#include <string>
+#include <stdio.h>
 #include <iostream>
 #include <vector>
+#include <cstdio>
+#include <string.h>
+
 
 //It only works if I have the class. Why?
 class stringFunc
