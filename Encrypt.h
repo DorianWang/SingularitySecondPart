@@ -35,7 +35,7 @@
 
 using namespace std;
 
-typedef struct rotor{
+struct rotor{
    int setNum;//Different rotors in different sets
    int numChars;//number of characters on the rotor
    //std::string mapping;//gives the mapping rules. For example the map DBCA means ADCB -> DACB
@@ -43,14 +43,14 @@ typedef struct rotor{
    int currentNum;//Where the "Front" of the rotor should be.
 };
 
-typedef struct intRotor{
+struct intRotor{
    std::vector<unsigned int> mapping;
    int currentNum;//What the rotor has been set to.
    bool rotorType[5];//Type of rotor.
    int rotorLength;
 };
 
-typedef struct byteRotor{
+struct byteRotor{
    std::vector<unsigned char> mapping;//[256] All ascii characters.
    int currentNum;
    //Rotor length is always 256 (for the 256 characters possible)

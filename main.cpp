@@ -12,29 +12,29 @@
 
 struct interactObject
 {
-   std::string nameObject;     
-   int objectType;     
+   std::string nameObject;
+   int objectType;
    int objectAlignment; //what it is (hostile, friendly, neutral, etc)
-   int numUse;  
+   int numUse;
    int specialType;//normally 0, different for other things
 };
 
 struct tile
 {
    char tileSymbol;
-   interactObject tileEntities;     
+   interactObject tileEntities;
    int xCoord;
-   int yCoord;     
+   int yCoord;
 };
 
-typedef struct tester
+struct tester
 {
 int a;
 int b;
 int c;
 int d;
 char e;
-char f;        
+char f;
 };
 
 #include "Container.h"
@@ -71,7 +71,7 @@ bool cursorSmall = true;
 void swap(int*a, int*b)
 {
 int temp = *a;
-*a=*b;     
+*a=*b;
 *b = temp;
 }
 
@@ -99,7 +99,7 @@ int main(int argc, char *argv[])
 //   std::string them;
 //   myFile.readLine(&them);
 //   cout<<them<<endl;
-   
+
    Keypress KeyIn;
    short a = 0;
 
@@ -114,10 +114,10 @@ int main(int argc, char *argv[])
    system("PAUSE");
    SetConsoleTitle("Adventure Game");
    */
-   //Both work, but the first will only work if the front window is this one. 
+   //Both work, but the first will only work if the front window is this one.
    //The second one always works.
-   
-   
+
+
 //while (true){
 //   a = KeyIn.get_current_code(12);
 //   if (a != 0&&a != -127&&a!=1){
@@ -145,7 +145,7 @@ int main(int argc, char *argv[])
 //   intRotor rotorArray[16]; bool sdfg[5];
 //   FileIO newFile; newFile.textOpenFile("Data\\A\\FirstCipher0.acp", false);
 //   int ciphersTaken = Bromo.getCiphersFromFile(rotorArray, sdfg, &newFile, 16);
-   
+
 //   for (int i=0; i<ciphersTaken; i++){
 //      for (int j=0; j<(rotorArray[i].rotorLength);j++){
 //          cout<<rotorArray[i].mapping[j]<<" ";
@@ -215,24 +215,24 @@ int counters = 0;
    //cout<<Dempo.deleteFile(Dempo.getExecutablePath(), false)<<endl;
 
    // int asdf = 0;
-    
+
    // for (int i =1; i<17;i++){
    // asdf=toggleColour(consoleHandle);
    // cout<<"hello"<<asdf<<endl;
    // Sleep(750);
    // }
-    
+
    //ScreenControl.mainScreen(VERSION_NUM);
    //^Important for code n' stuff
-    
-   
-//   
-//   
+
+
+//
+//
 //   treeType <int> aephoro("asdf");
-//   
+//
 //   aephoro.addNode("node1");
 //   aephoro.addNode("node2");
-//   
+//
 //   treeType <int> * treePointer;
 //   treePointer = aephoro.getNodeAtIndex(1);
 //   if (treePointer){
@@ -240,24 +240,24 @@ int counters = 0;
 //      treePointer -> addNode("node3");
 //   }
 //   treePointer = treePointer -> getNodeAtIndex(0);
-//   
+//
 //   cout<<treePointer -> listNodePath()<<endl;//It works!
-//   
+//
 //   std::string nodePath = treePointer -> listNodePath();
-//   
+//
 //   stringFunc asdfa;
-//   
+//
 //   std::vector <std::string> tokenVector = asdfa.parseAllTokens(nodePath, ". ");
-//   
+//
 //   for (int i=0; i<tokenVector.size(); i++){
 //      cout<<tokenVector[i]<<" -> ";
 //   }
 //   cout<<endl;
-//   
+//
    cout<<"I'm done!"<<endl;
    system("PAUSE");
-   
-   
+
+
 
    return EXIT_SUCCESS;
 }

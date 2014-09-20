@@ -54,6 +54,9 @@
 		<Unit filename="Interactive.h">
 			<Option virtualFolder="FirstGameStuff/map/" />
 		</Unit>
+		<Unit filename="ItemDeclaration.h">
+			<Option virtualFolder="FirstGameStuff/Items/" />
+		</Unit>
 		<Unit filename="ItemFileIO.cpp">
 			<Option virtualFolder="FirstGameStuff/Items/" />
 		</Unit>
