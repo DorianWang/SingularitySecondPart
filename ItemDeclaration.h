@@ -154,15 +154,28 @@ class keyItemType : itemBaseType
 class inventory
 {
 public:
+   int carryingCapacityWeight;
+   int carryingCapacitySize;
+
+   inventory::inventory();
+   inventory::~inventory();
+
    int showInventory();//The return will be changed later...
    void sortInventory();
 
    bool addItem(int itemType, ...); //Change int into an enum?
    bool removeItem(int itemType, std::string itemName);
 
+   int isOverloaded();//Returns 0 for no, 1 for slightly, 2 for quite a bit, and 3 for crushing weight (basically can't move).
+
+   int changeCarryWeight();
+   int changeCarrySize();
+
 private:
 
-   int carryingCapacity;
+   int currentStorageWeight;
+   int currentStorageSpace;
+
    std::vector <equipmentType> equipment;
 
    std::vector <equipmentType*> currentlyEquiped;
