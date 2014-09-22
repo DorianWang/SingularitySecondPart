@@ -8,7 +8,7 @@ inventory::inventory()
    carryingCapacityWeight = 0;
    carryingCapacitySize = 0;
 
-   isOverloaded = 0;
+   overloadedCheck = false;
 
    currentlySortedAs = 0;//Unsorted
 
@@ -32,12 +32,21 @@ inventory::~inventory()
 
 
 
+void inventory::sortInventory(char sortType)
+{
+
+
+
+}
+
 
 
 
 int inventory::isOverloaded()
 {
    int halfWeightCap = carryingCapacityWeight/2; int halfSizeCap = carryingCapacitySize/2;
+
+   overloadedCheck = true;
 
    if (currentStorageWeight - 1 > carryingCapacityWeight * 2)
    ||(currentStorageSpace - 1 > carryingCapacitySize * 2){

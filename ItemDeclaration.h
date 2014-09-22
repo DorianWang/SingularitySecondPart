@@ -14,7 +14,7 @@ enum usesEquip {
 EQUIP_HAND, EQUIP_CHEST, EQUIP_HEAD, EQUIP_ARM, EQUIP_LEG, EQUIP_FOOT, EQUIP_NECK,
 EQUIP_SYMMETRY, EQUIP_EDGE, STAB, CRUSH, MAGIC_BOOST, MANA_BOOST, STAFF_BOOST,
 SHIELD, BOW, CROSSBOW, DART_GUN, DART_BLOW, GUN,
-LEVER, TOOL_NO_TECH, TOOL_TECH, TOOL_UNIQUE, KEY
+LEVER, TOOL_NO_TECH, TOOL_TECH, TOOL_UNIQUE
 };
 
 
@@ -90,7 +90,7 @@ class consumeTypeBase : itemBaseType
 
    std::string primaryItemType;
    std::string secondaryItemTypes;
-   std::vector <unsigned char> uses;
+   std::vector <usesConsume> uses;
 
 };
 
@@ -162,6 +162,9 @@ class keyItemType : itemBaseType
 class inventory
 {
 public:
+
+   bool overloadedCheck;
+
    int carryingCapacityWeight;
    int carryingCapacitySize;
 

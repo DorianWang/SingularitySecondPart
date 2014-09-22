@@ -11,7 +11,7 @@
 1410886173 source:d:\doriancode\singularitysecondpart\encrypt.cpp
 	"Encrypt.h"
 
-1411058769 d:\doriancode\singularitysecondpart\encrypt.h
+1411403992 d:\doriancode\singularitysecondpart\encrypt.h
 	<iostream>
 	<string>
 	<algorithm>
@@ -71,9 +71,10 @@
 1410886173 source:d:\doriancode\singularitysecondpart\itemfileio.cpp
 	"Items.h"
 
-1411061499 d:\doriancode\singularitysecondpart\items.h
+1411403992 d:\doriancode\singularitysecondpart\items.h
 	"FileIO.h"
 	"treeType.h"
+	"ItemDeclaration.h"
 
 1411060270 d:\doriancode\singularitysecondpart\treetype.h
 	<iostream>
@@ -98,9 +99,8 @@
 1411060443 d:\doriancode\singularitysecondpart\treetype.inl
 	"treeType.h"
 
-1410886173 source:d:\doriancode\singularitysecondpart\items.cpp
+1411061571 source:d:\doriancode\singularitysecondpart\items.cpp
 	"Items.h"
-	"ItemFileIO.cpp"
 
 1410886173 d:\doriancode\singularitysecondpart\itemfileio.cpp
 	"Items.h"
@@ -486,4 +486,9 @@
 1411075666 source:d:\dorian's programs\singularitysecondpart\maploader.cpp
 	"MapLoader.h"
 	"Map.h"
+
+1411407482 d:\doriancode\singularitysecondpart\itemdeclaration.h
+	"iostream"
+	"string"
+	"vector"
 
