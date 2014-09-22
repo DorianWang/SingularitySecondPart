@@ -2,6 +2,14 @@
 #define ITEMDECLARATION_H
 
 
+//User defined folding points
+//This one contains header files
+//{
+#include "iostream"
+#include "string"
+#include "vector"
+//}
+
 enum usesEquip {
 EQUIP_HAND, EQUIP_CHEST, EQUIP_HEAD, EQUIP_ARM, EQUIP_LEG, EQUIP_FOOT, EQUIP_NECK,
 EQUIP_SYMMETRY, EQUIP_EDGE, STAB, CRUSH, MAGIC_BOOST, MANA_BOOST, STAFF_BOOST,
@@ -157,11 +165,13 @@ public:
    int carryingCapacityWeight;
    int carryingCapacitySize;
 
-   inventory::inventory();
-   inventory::~inventory();
+   unsigned char currentlySortedAs;
+
+   inventory();
+   ~inventory();
 
    int showInventory();//The return will be changed later...
-   void sortInventory();
+   void sortInventory(char sortType);
 
    bool addItem(int itemType, ...); //Change int into an enum?
    bool removeItem(int itemType, std::string itemName);
@@ -170,13 +180,14 @@ public:
 
    int changeCarryWeight();
    int changeCarrySize();
+   int testItem(int weight, int size);//This will return the overloaded int if the item used is added.
 
 private:
 
    int currentStorageWeight;
    int currentStorageSpace;
 
-   std::vector <equipmentType> equipment;
+   std::vector <equipmentType*> equipment;
 
    std::vector <equipmentType*> currentlyEquiped;
 

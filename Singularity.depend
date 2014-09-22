@@ -334,7 +334,10 @@
 1411075666 d:\dorian's programs\singularitysecondpart\treetype.inl
 	"treeType.h"
 
-1411164353 d:\dorian's programs\singularitysecondpart\itemdeclaration.h
+1411351537 d:\dorian's programs\singularitysecondpart\itemdeclaration.h
+	"iostream"
+	"string"
+	"vector"
 
 1404518123 source:d:\dorian's programs\singularitysecondpart\keys.cpp
 	<iostream>
@@ -355,7 +358,7 @@
 1405981482 d:\dorian's programs\singularitysecondpart\lootdrop.h
 	"FileIO.h"
 
-1409877160 source:d:\dorian's programs\singularitysecondpart\main.cpp
+1411164655 source:d:\dorian's programs\singularitysecondpart\main.cpp
 	<cstdlib>
 	<iostream>
 	<algorithm>
