@@ -2,12 +2,26 @@
 #define ITEMDECLARATION_H
 
 
+
+
+
 //User defined folding points
 //This one contains header files
 //{
 #include "iostream"
 #include "string"
 #include "vector"
+//}
+
+// #define
+//{
+#define SORT_BY_ALPHABET 'a'
+#define SORT_BY_SIZE 's'
+#define SORT_BY_WEIGHT 'w'
+#define SORT_BY_VALUE 'v'
+#define SORT_BY_UNIQUE 'u'
+
+#define MAX_CHANGES_BUBBLE_SORT 4
 //}
 
 enum usesEquip {
@@ -50,6 +64,8 @@ class itemBaseType
    std::string pluralName;
    std::string descriptor;
 
+//https://www.youtube.com/watch?v=Dgvz5FLSNcg&feature=youtu.be&t=9h18m50s
+
    short size;
    short weight;
 
@@ -82,6 +98,7 @@ class equipmentTypeBase : itemBaseType
 
 class consumeTypeBase : itemBaseType
 {
+//https://www.youtube.com/watch?v=Dgvz5FLSNcg&feature=youtu.be&t=9h18m50s
 
    int effectStrength;
    float effectIncrItemLvl;
@@ -118,7 +135,7 @@ class equipmentType : itemBaseType
 
 };
 
-class consumeType : itemBaseType
+class consumeType : itemBaseType //https://www.youtube.com/watch?v=Dgvz5FLSNcg&feature=youtu.be&t=9h18m50s
 {
 
    int effectStrength;
@@ -152,7 +169,7 @@ class keyItemType : itemBaseType
 {
    std::string primaryItemType;
    std::string secondaryItemTypes;
-   std::vector <unsigned char> uses;
+   std::vector <unsigned char> uses; //https://www.youtube.com/watch?v=Dgvz5FLSNcg&feature=youtu.be&t=9h18m50s
 
    unsigned short tag;
 };
@@ -168,7 +185,8 @@ public:
    int carryingCapacityWeight;
    int carryingCapacitySize;
 
-   unsigned char currentlySortedAs;
+   char currentlySortedAs;
+   long long numberChangesSinceLastSort;
 
    inventory();
    ~inventory();
@@ -194,11 +212,11 @@ private:
 
    std::vector <equipmentType*> currentlyEquiped;
 
-   std::vector <consumeType> consumables;
+   std::vector <consumeType*> consumables;
 
-   std::vector <junkType> shinyThings;
+   std::vector <junkType*> shinyThings;
 
-   std::vector <keyItemType> keyItems;
+   std::vector <keyItemType*> keyItems;
 
 };
 
