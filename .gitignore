@@ -223,3 +223,7 @@ pip-log.txt
 #object files
 *.obj
 *.o
+
+#Future save files. 
+#I don't know how big these will get, so I'm putting them here.
+*.sls
