@@ -43,10 +43,7 @@ void inventory::sortInventory(char sortType)
 
    if (sortType == SORT_BY_ALPHABET){
       if (resorting){//Bubble sort, for the best case of n operations!
-         for (int j = 0; j < 12; j++){
-            //TODO
-            //http://www.algolist.net/Algorithms/Sorting/Quicksort
-         }
+
       }
       for (int i = 0; i < equipment.size(); i++){
 

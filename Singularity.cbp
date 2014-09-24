@@ -5,7 +5,7 @@
 		<Option title="Singularity" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Depreciated\FileIO_Depreciated\;Depreciated\;FirstGameStuff\Items\;treeType\;_Main\;FirstGameStuff\map\;FirstGameStuff\;Utilities\;Depreciated\KeyIO_Depreciated\;Encrypt\;" />
+		<Option virtualFolders="Depreciated\FileIO_Depreciated\;Depreciated\;FirstGameStuff\Items\;treeType\;_Main\;FirstGameStuff\map\;FirstGameStuff\;Utilities\;Depreciated\KeyIO_Depreciated\;Encrypt\;FirstGameStuff\Items\InventorySorter\;" />
 		<Build>
 			<Target title="default">
 				<Option output="Singularity" prefix_auto="1" extension_auto="1" />
@@ -118,6 +118,9 @@
 		</Unit>
 		<Unit filename="WindowsIntegration.cpp" />
 		<Unit filename="WindowsIntegration.h" />
+		<Unit filename="inventorySorter.cpp">
+			<Option virtualFolder="FirstGameStuff/Items/InventorySorter/" />
+		</Unit>
 		<Unit filename="keys.cpp">
 			<Option virtualFolder="Depreciated/KeyIO_Depreciated/" />
 		</Unit>
