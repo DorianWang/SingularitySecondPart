@@ -60,6 +60,7 @@ struct descriptorEffects
 
 class itemBaseType
 {
+   public:
    std::string singularName;
    std::string pluralName;
    std::string descriptor;

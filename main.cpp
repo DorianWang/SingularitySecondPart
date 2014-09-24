@@ -254,6 +254,13 @@ int counters = 0;
 //   }
 //   cout<<endl;
 //
+
+
+   std::string StringOne = "AAA";
+   std::string StringTwo = "BBB";
+
+   cout<<StringOne.compare(StringTwo)<<endl;
+
    cout<<"I'm done!"<<endl;
    system("PAUSE");
 

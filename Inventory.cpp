@@ -39,7 +39,7 @@ void inventory::sortInventory(char sortType)
       resorting = true;
    }
    currentlySortedAs = sortType;
-   MAX_CHANGES_BUBBLE_SORT = 0;
+
 
    if (sortType == SORT_BY_ALPHABET){
       if (resorting){//Bubble sort, for the best case of n operations!

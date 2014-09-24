@@ -334,7 +334,7 @@
 1411075666 d:\dorian's programs\singularitysecondpart\treetype.inl
 	"treeType.h"
 
-1411351537 d:\dorian's programs\singularitysecondpart\itemdeclaration.h
+1411594651 d:\dorian's programs\singularitysecondpart\itemdeclaration.h
 	"iostream"
 	"string"
 	"vector"
@@ -491,4 +491,7 @@
 	"iostream"
 	"string"
 	"vector"
+
+1411594630 source:d:\dorian's programs\singularitysecondpart\inventory.cpp
+	"ItemDeclaration.h"
 

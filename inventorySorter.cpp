@@ -7,21 +7,32 @@
 
 //http://stackoverflow.com/questions/5386834/c-get-base-class-object-from-derived-class-pointer
 //I'll test this later, as it has a low chance of working the way I want...
+//The first item will be the one earlier in the sorted list.
 int sortByBaseName(itemBaseType one, itemBaseType two)
 {
-    if (one.singularName.compare(two.singularName)){
-        //not done
-    }
+   //{
 
-}
+   int compareValue = one.singularName.compare(two.singularName);
+
+   if ()
+   /*
+   std::string StringOne = "AAA";
+   std::string StringTwo = "BBB";
+
+   cout<<StringOne.compare(StringTwo)<<endl;
+   This returns -1.
+   */
+   //}
+};
 
 
 
 
-
-void sortEquipment ((std::vector <equipmentType*>)* inputArray, const char sortType)
+/*
+int sortEquipment ((std::vector <equipmentType*>)* inputArray, const char sortType)
 {
-    for (int j = 0; j < inputArray; j++){
+   int asdf = inputArray -> size();
+    for (int j = 0; j < asdf; j++){
             //TODO
             //http://www.algolist.net/Algorithms/Sorting/Quicksort
     }
@@ -30,7 +41,7 @@ void sortEquipment ((std::vector <equipmentType*>)* inputArray, const char sortT
 }
 
 
-
+*/
 
 
 
