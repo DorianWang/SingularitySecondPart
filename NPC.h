@@ -3,7 +3,7 @@
 #define NPC_H
 
 
-typedef struct stats
+struct stats
 {
 //I need to add a function that controls changes to prevent any funny stuff.
    unsigned short intelligence;
@@ -12,22 +12,22 @@ typedef struct stats
    unsigned short strength;
    unsigned short agility;
    unsigned short endurance;
-   
+
    unsigned short tempOne;
    unsigned short tempTwo;
-   
+
    unsigned char magicKnowledge;
    unsigned char techKnowledge;
-   
+
    char basePhysicalResistance;
    char baseMagicResistance;
-   
+
    int baseHealth;
    int baseMana;
-   
+
    int unassignedOne;
    int unassignedTwo;
-   
+
 };
 
 
@@ -36,9 +36,9 @@ class basicChar
 public:
    std::string nameShown;
    std::string species;
-   
+
    std::string description;
-   
+
    unsigned short tag;
 };
 
@@ -59,7 +59,7 @@ public:
    //equipmentContainer equipItems;
    std::vector <short> unassignedVars;
    stats thisStats;
-   
+
 
 };
 

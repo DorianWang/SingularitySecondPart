@@ -10,11 +10,15 @@
 //The first item will be the one earlier in the sorted list.
 int sortByBaseName(itemBaseType one, itemBaseType two)
 {
-   //{
+
 
    int compareValue = one.singularName.compare(two.singularName);
 
-   if ()
+   if ((compareValue == -1) || (compareValue == 0)){
+      return 0; //No switch, the two strings are good where they are.
+   }
+   return 1; //Switch required
+   //{
    /*
    std::string StringOne = "AAA";
    std::string StringTwo = "BBB";
@@ -23,6 +27,16 @@ int sortByBaseName(itemBaseType one, itemBaseType two)
    This returns -1.
    */
    //}
+};
+
+int sortByBaseSize(itemBaseType one, itemBaseType two)
+{
+
+   if (one.size <= two.size){
+      return 0; //No switch, the two strings are good where they are.
+   }
+   return 1; //Switch required
+
 };
 
 
