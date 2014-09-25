@@ -7,15 +7,14 @@
 
 //http://stackoverflow.com/questions/5386834/c-get-base-class-object-from-derived-class-pointer
 //I'll test this later, as it has a low chance of working the way I want...
-//The first item will be the one earlier in the sorted list.
+//The first item will be the one earlier in the sorted list, and first in alphabetical order.
 int sortByBaseName(itemBaseType one, itemBaseType two)
 {
-
 
    int compareValue = one.singularName.compare(two.singularName);
 
    if ((compareValue == -1) || (compareValue == 0)){
-      return 0; //No switch, the two strings are good where they are.
+      return 0; //No switch, the two items are good where they are.
    }
    return 1; //Switch required
    //{
@@ -29,11 +28,23 @@ int sortByBaseName(itemBaseType one, itemBaseType two)
    //}
 };
 
+//Orders by smallest to biggest
 int sortByBaseSize(itemBaseType one, itemBaseType two)
 {
 
    if (one.size <= two.size){
-      return 0; //No switch, the two strings are good where they are.
+      return 0; //No switch, the two items are good where they are.
+   }
+   return 1; //Switch required
+
+};
+
+//Orders by smallest to biggest.
+int sortByBaseWeight(itemBaseType one, itemBaseType two)
+{
+
+   if (one.weight <= two.weight){
+      return 0; //No switch, the two items are good where they are.
    }
    return 1; //Switch required
 
