@@ -5,7 +5,7 @@
 		<Option title="Singularity" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Depreciated\FileIO_Depreciated\;Depreciated\;FirstGameStuff\Items\;treeType\;_Main\;FirstGameStuff\map\;FirstGameStuff\;Utilities\;Depreciated\KeyIO_Depreciated\;Encrypt\;FirstGameStuff\Items\InventorySorter\;" />
+		<Option virtualFolders="DataStructures\LinkedList\;DataStructures\;DataStructures\treeType\;FirstGameStuff\map\;FirstGameStuff\;Utilities\;FirstGameStuff\Items\;FirstGameStuff\Items\InventorySorter\;Depreciated\KeyIO_Depreciated\;_Main\;Depreciated\FileIO_Depreciated\;Encrypt\;" />
 		<Build>
 			<Target title="default">
 				<Option output="Singularity" prefix_auto="1" extension_auto="1" />
@@ -19,10 +19,10 @@
 		<Unit filename="Bases.cpp" />
 		<Unit filename="Bases.h" />
 		<Unit filename="Container.cpp">
-			<Option virtualFolder="Utilities/" />
+			<Option virtualFolder="DataStructures/LinkedList/" />
 		</Unit>
 		<Unit filename="Container.h">
-			<Option virtualFolder="Utilities/" />
+			<Option virtualFolder="DataStructures/LinkedList/" />
 		</Unit>
 		<Unit filename="CursorOptions.cpp">
 			<Option virtualFolder="Utilities/" />
@@ -128,10 +128,10 @@
 			<Option virtualFolder="Depreciated/KeyIO_Depreciated/" />
 		</Unit>
 		<Unit filename="leafType.cpp">
-			<Option virtualFolder="treeType/" />
+			<Option virtualFolder="DataStructures/treeType/" />
 		</Unit>
 		<Unit filename="leafType.h">
-			<Option virtualFolder="treeType/" />
+			<Option virtualFolder="DataStructures/treeType/" />
 		</Unit>
 		<Unit filename="main.cpp">
 			<Option virtualFolder="_Main/" />
@@ -145,10 +145,10 @@
 			<Option virtualFolder="Utilities/" />
 		</Unit>
 		<Unit filename="treeType.h">
-			<Option virtualFolder="treeType/" />
+			<Option virtualFolder="DataStructures/treeType/" />
 		</Unit>
 		<Unit filename="treeType.inl">
-			<Option virtualFolder="treeType/" />
+			<Option virtualFolder="DataStructures/treeType/" />
 		</Unit>
 		<Unit filename="typeChanger.cpp">
 			<Option virtualFolder="Utilities/" />

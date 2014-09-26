@@ -3,7 +3,9 @@
 #define TREE_TYPE_H
 
 
-#define MAX_NODES_DEFAULT 32
+//http://stackoverflow.com/questions/14173260/creating-shared-libraries-in-c-for-osx
+
+#define MAX_CHILD_NODES_DEFAULT 32
 //^ no real reason, just logic. Can be overriden by the caller.
 
 #include <iostream>

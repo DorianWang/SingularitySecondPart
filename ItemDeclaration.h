@@ -21,7 +21,8 @@
 #define SORT_BY_VALUE 'v'
 #define SORT_BY_UNIQUE 'u'
 
-#define MAX_CHANGES_BUBBLE_SORT 4
+#define MAX_CHANGES_INSERT_SORT 4
+#define MAX_ITEMS_INSERT_SORT 8
 //}
 
 enum usesEquip {
@@ -204,6 +205,8 @@ public:
    int changeCarrySize();
    int testItem(int weight, int size);//This will return the overloaded int if the item used is added.
 
+   int sortEquipment (const char sortType);
+
 private:
 
    int currentStorageWeight;
@@ -218,6 +221,13 @@ private:
    std::vector <junkType*> shinyThings;
 
    std::vector <keyItemType*> keyItems;
+
+   //Sorting functions >>>
+   int sortByBaseName(itemBaseType one, itemBaseType two);
+   int sortByBaseSize(itemBaseType one, itemBaseType two);
+   int sortByBaseWeight(itemBaseType one, itemBaseType two);
+   int sortByBaseValue(itemBaseType one, itemBaseType two);
+   // <<<
 
 };
 

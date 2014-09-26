@@ -21,7 +21,7 @@ template <class T> treeType<T>::treeType(std::string newName, int nodeMaxChild)
    }
    else
    {
-      numNodesMaxPer = MAX_NODES_DEFAULT;
+      numNodesMaxPer = MAX_CHILD_NODES_DEFAULT;
    }
    parent = NULL;
 }

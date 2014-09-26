@@ -35,7 +35,7 @@ inventory::~inventory()
 void inventory::sortInventory(char sortType)
 {
    bool resorting = false;
-   if (currentlySortedAs == sortType && numberChangesSinceLastSort <= MAX_CHANGES_BUBBLE_SORT){
+   if (currentlySortedAs == sortType && numberChangesSinceLastSort <= MAX_CHANGES_INSERT_SORT){
       resorting = true;
    }
    currentlySortedAs = sortType;

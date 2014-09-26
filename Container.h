@@ -1,68 +1,44 @@
 
 #ifndef CONTAINER_H
-#define CONTAINER_H 
+#define CONTAINER_H
 
 #include <string>
 #include <iostream>
 
-#define EMPTY_NUM -1
 
 using namespace std;
 
-struct linkedListInt{
-int data;
 
-linkedListInt* pointerForward;
-linkedListInt* pointerBack;
-};
 
-//struct linkedListString{//please do not use
-//std::string data;
-//
-//linkedListString* pointerForward;
-//linkedListString* pointerBack;
-//};
-
-struct listHeadInt{
-int counter;//length of list       
-       
-linkedListInt* pointerBack;
-};
-
-//struct listHeadString{
-//int counter;//length of list       
-//       
-//linkedListString* pointerBack;
-//};
-
-class MyContainer
+template <typename E> class linkedListNode
 {
+   public:
+   linkedListNode <E>* P_Prev;//Pointer to the parent node of this one.
+   linkedListNode <E>* P_Next;//Pointer to the node next in the list.
 
-//int lastValue;
-//int emptyValue;
-int length;
+   E data;
 
-//linkedListString* lastValueStr;
-//linkedListString firstLinkStr;
-
-
+};
 
 
-//linkedListInt firstLinkInt;
 
-listHeadInt headInt;//first node, holds counter and pointer to next node
-listHeadInt* P_Head;//pointer to head node
+template <typename D> class linkedList
+{
+unsigned int length;//Current length of the linked list
 
-linkedListInt* lastValueInt;//pointer to the last value in the list
+
+linkedListNode <D>* headNode;
+linkedListNode <D>* lastNode;//pointer to the last value in the list
 
 public:
-//MyContainer(std::string firstValue);
-MyContainer();//int firstValueInt);
+
+linkedList();
+~linkedList();
 
 //int pushBack(std::string addValue);
-int pushBack(int addValue);
+int pushBack(D addValue);
 
-int width();
+int size();
 void recount();
 bool removeInvalid(int remove);
 
@@ -70,15 +46,17 @@ int popFront();
 int popBack();
 int valueAt(int numNode);
 
-bool changeLength(int lengthChange);
+int deleteNode(unsigned int nodeNum);
 
-int giveNode(linkedListInt** output, int numNode);//pointer to pointer
-int deleteNode(int nodeNum);
-
-//int pushFront(std::string addValue);
-int pushFront(int addValue);
+int pushFront(D addValue);
 ;
 };
+
+
+
+
+
+
 
 #endif
 
