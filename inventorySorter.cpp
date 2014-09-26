@@ -65,7 +65,7 @@ int inventory::sortByBaseValue(itemBaseType one, itemBaseType two)
 
 int inventory::sortInventory (const char sortType)
 {
-   int asdf = inputArray -> size();
+   int asdf;// = inputArray -> size();
     for (int j = 0; j < asdf; j++){
             //TODO
             //http://www.algolist.net/Algorithms/Sorting/Quicksort

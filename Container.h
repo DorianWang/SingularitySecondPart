@@ -17,7 +17,6 @@ template <typename E> class linkedListNode
    linkedListNode <E>* P_Next;//Pointer to the node next in the list.
 
    E data;
-
 };
 
 
@@ -30,25 +29,27 @@ unsigned int length;//Current length of the linked list
 linkedListNode <D>* headNode;
 linkedListNode <D>* lastNode;//pointer to the last value in the list
 
+linkedListNode <D>* getNodePointer(unsigned int numNode);
+
 public:
 
 linkedList();
 ~linkedList();
 
-//int pushBack(std::string addValue);
-int pushBack(D addValue);
+void pushBack(D addValue);
+void pushFront(D addValue);
 
-int size();
-void recount();
-bool removeInvalid(int remove);
+unsigned int size();
 
-int popFront();
-int popBack();
-int valueAt(int numNode);
+D popFront(bool* errorBool);
+D popBack(bool* errorBool);
+
+D valueAt(unsigned int numNode, bool* errorBool);
 
 int deleteNode(unsigned int nodeNum);
+void changeLength(int numToChange);
 
-int pushFront(D addValue);
+
 ;
 };
 

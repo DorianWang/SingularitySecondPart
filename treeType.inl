@@ -7,7 +7,7 @@
 template <class T> treeType<T>::treeType(std::string newName)
 {
    label = newName;
-   numNodesMaxPer = MAX_NODES_DEFAULT;//Any number of nodes per node, rational limit of 20 or so...
+   numNodesMaxPer = MAX_CHILD_NODES_DEFAULT;//Any number of nodes per node, rational limit of 20 or so...
    isGood = true;
    parent = NULL;
 }

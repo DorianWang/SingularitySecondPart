@@ -3,7 +3,7 @@
 #include "Container.h"
 
 
-template <class D> linkedList<D>::linkedList()//int firstValueInt)
+template <class D> linkedList<D>::linkedList()
 {
    length = 0; //empty
    headNode = NULL;
@@ -17,7 +17,7 @@ template <class D> linkedList<D>::~linkedList()
 }
 
 //Refactored
-template <class D> int linkedList<D>::size()
+template <class D> unsigned int linkedList<D>::size()
 {
    return length;
 }
@@ -39,7 +39,7 @@ template <class D> void linkedList<D>::pushBack(D inputData)
    else
    {
       lastNode -> P_Next = newNode;
-      newNode -> data = addValue;
+      newNode -> data = inputData;
 
       newNode -> P_Next = NULL;
       newNode -> P_Prev = lastNode;
@@ -52,7 +52,7 @@ template <class D> void linkedList<D>::pushBack(D inputData)
 //Refactored
 template <class D> void linkedList<D>::pushFront(D inputData)
 {
-   linkedListNode <D>* newNode = new linkedListNode;
+   linkedListNode <D>* newNode = new linkedListNode <D>;
    linkedListNode <D>* P_oldFront;//Temporary storage.
 
    if (length == 0){
@@ -78,14 +78,14 @@ template <class D> D linkedList<D>::popFront(bool* errorBool)
 {
 
    if (length == 0){
-      errorBool* = true;//Failure
+      *errorBool = true;//Failure
       return 0;//failure; nothing to remove
    }
 
    D tempData = headNode -> data; //Temporary data storage.
 
    deleteNode(headNode);
-   errorBool* = false;//No error.
+   *errorBool = false;//No error.
    return tempData;
 
 }
@@ -96,71 +96,86 @@ template <class D> D linkedList<D>::popBack(bool* errorBool)
 {
 
    if (length == 0){
-      errorBool* = true;
+      *errorBool = true;
       return 0;//failure; There is nothing to pop off
    }
 
    D tempData = lastNode -> data; //Temporary data storage.
 
-   errorBool* = false;//No error.
+   *errorBool = false;//No error.
    deleteNode(lastNode);
    return tempData;
 
 }
 
 
-//Gives the value at the node specified. Node 0 is the first node.
-template <class D> int linkedList<D>::valueAt(unsigned int numNode, bool* errorBool)
+//Gives the value at the node specified. Node 1 is the first node.
+//Watch this to make sure it works...
+//Refactored
+template <class D> D linkedList<D>::valueAt(unsigned int numNode, bool* errorBool)
 {
    if (numNode > length){
-      errorBool* = true;//Error, selected node does not exist.
+      *errorBool = true;//Error, selected node does not exist.
       return 0;
    }
 
-   unsigned int halfTest = length / 2;
+   linkedListNode <D>* selectedNode = getNodePointer(numNode);
 
-   if ()
-
-   linkedListNode* currentNode = headNode;
-
-   for (int i = 0; i < numNode; i++){
-      asdf
-
+   if (selectedNode != NULL){
+      *errorBool = false;//No error.
+      return selectedNode -> data;
    }
 
-
+   *errorBool = true;//Something broke...
+   return 0;
 }
 
-template <class D> int linkedList::deleteNode(int nodeNum)
+//Watch this to make sure it works...
+//Refactored
+template <class D> linkedListNode <D>* linkedList<D>::getNodePointer(unsigned int numNode)
 {
-   linkedListInt *temp;
-   linkedListInt *forward;
-   linkedListInt *backward;
+   if (length < numNode){ return NULL; }
 
-   if (length == 0){
-      return -1;//nothing to delete...
-   }
+   unsigned int halfTest = length / 2;
+   linkedListNode <D>* currentNode;
 
-   if (length == 0){
-      return popBack();
-   }
-
-   if (giveNode(&temp,nodeNum)==1){
-      backward = temp -> pointerBack;
-      forward = temp -> pointerForward;
-      if (forward!=NULL){
-         forward -> pointerBack = backward;
+   if (numNode < halfTest){
+      currentNode = headNode;
+      for (int i = 0; i < numNode - 1; i++){
+         currentNode = currentNode -> P_Next;
       }
-      if (backward!=NULL){
-         backward -> pointerForward = forward;
-      }
-      delete temp;
-      return 1;
+      return currentNode;
    }
+
+   currentNode = lastNode;
+   for (int i = length; i > numNode; i--){
+      currentNode = currentNode -> P_Prev;
+   }
+   return currentNode;
 }
 
+//Refactored
+template <class D> int linkedList<D>::deleteNode(unsigned int nodeNum)
+{
+   linkedListNode <D>* temp;
 
+   if (length == 0){
+      return 0;//nothing to delete...
+   }
 
+   temp = getNodePointer(nodeNum);
+
+   temp -> P_Next -> P_Prev = temp -> P_Prev;//The node after the deleted one's forward pointer is set.
+   temp -> P_Prev -> P_Next = temp -> P_Next;//The node before the deleted one's next pointer is set.
+
+   delete temp;
+   return 1;
+}
+
+template <class D> void linkedList<D>::changeLength(int numToChange)
+{
+   length = length + numToChange;
+};
 
 
 

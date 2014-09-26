@@ -194,7 +194,6 @@ public:
    ~inventory();
 
    int showInventory();//The return will be changed later...
-   void sortInventory(char sortType);
 
    bool addItem(int itemType, ...); //Change int into an enum?
    bool removeItem(int itemType, std::string itemName);
@@ -205,7 +204,8 @@ public:
    int changeCarrySize();
    int testItem(int weight, int size);//This will return the overloaded int if the item used is added.
 
-   int sortEquipment (const char sortType);
+   int sortInventory (const char sortType);
+   void reverseInventory();
 
 private:
 

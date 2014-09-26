@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
 1410886172 source:d:\doriancode\singularitysecondpart\bases.cpp
 
-1410886172 source:d:\doriancode\singularitysecondpart\container.cpp
+1411753316 source:d:\doriancode\singularitysecondpart\container.cpp
 	"Container.h"
 
-1410886172 d:\doriancode\singularitysecondpart\container.h
+1411753316 d:\doriancode\singularitysecondpart\container.h
 	<string>
 	<iostream>
 
@@ -76,7 +76,7 @@
 	"treeType.h"
 	"ItemDeclaration.h"
 
-1411060270 d:\doriancode\singularitysecondpart\treetype.h
+1411749566 d:\doriancode\singularitysecondpart\treetype.h
 	<iostream>
 	<queue>
 	<vector>
@@ -96,7 +96,7 @@
 	<vector>
 	<string>
 
-1411060443 d:\doriancode\singularitysecondpart\treetype.inl
+1411753068 d:\doriancode\singularitysecondpart\treetype.inl
 	"treeType.h"
 
 1411061571 source:d:\doriancode\singularitysecondpart\items.cpp
@@ -124,7 +124,7 @@
 1410886173 d:\doriancode\singularitysecondpart\lootdrop.h
 	"FileIO.h"
 
-1410886173 source:d:\doriancode\singularitysecondpart\main.cpp
+1411667904 source:d:\doriancode\singularitysecondpart\main.cpp
 	<cstdlib>
 	<iostream>
 	<algorithm>
@@ -178,7 +178,7 @@
 	"Locations.h"
 	"Effects.h"
 
-1410886173 d:\doriancode\singularitysecondpart\locations.h
+1411667904 d:\doriancode\singularitysecondpart\locations.h
 	<string>
 	<vector>
 	"Interactive.h"
@@ -186,7 +186,7 @@
 
 1410886173 d:\doriancode\singularitysecondpart\interactive.h
 
-1410886173 d:\doriancode\singularitysecondpart\npc.h
+1411667904 d:\doriancode\singularitysecondpart\npc.h
 
 1410886173 d:\doriancode\singularitysecondpart\effects.h
 
@@ -487,11 +487,17 @@
 	"MapLoader.h"
 	"Map.h"
 
-1411499034 d:\doriancode\singularitysecondpart\itemdeclaration.h
+1411753023 d:\doriancode\singularitysecondpart\itemdeclaration.h
 	"iostream"
 	"string"
 	"vector"
 
 1411594630 source:d:\dorian's programs\singularitysecondpart\inventory.cpp
+	"ItemDeclaration.h"
+
+1411753037 source:d:\doriancode\singularitysecondpart\inventory.cpp
+	"ItemDeclaration.h"
+
+1411753054 source:d:\doriancode\singularitysecondpart\inventorysorter.cpp
 	"ItemDeclaration.h"
 

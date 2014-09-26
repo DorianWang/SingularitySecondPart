@@ -197,20 +197,8 @@ std::string tempNameFolder = "asdfasdf";
 
 int counters = 0;
 
-//wchar_t newLine = '\n';
 
-//while(stuffs[counters]!=newLine){
-//printf ("%lc",stuffs[counters]);
-////std::wcout<<stuffs[counters]<<endl;
-//counters++;
-//}
-
-
-//printf ("%lc", newLine);
-
-//cout<<endl;
-
-   MyContainer Aso;
+   linkedList <int> Aso();
    SelectScreens ScreenControl;
    //cout<<Dempo.deleteFile(Dempo.getExecutablePath(), false)<<endl;
 

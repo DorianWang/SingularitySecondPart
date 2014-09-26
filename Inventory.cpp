@@ -30,7 +30,7 @@ inventory::~inventory()
 
 
 
-
+/*
 
 void inventory::sortInventory(char sortType)
 {
@@ -60,7 +60,7 @@ void inventory::sortInventory(char sortType)
 
 }
 
-
+*/
 
 
 int inventory::isOverloaded()
