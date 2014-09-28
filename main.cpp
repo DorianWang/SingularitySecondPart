@@ -202,13 +202,7 @@ int counters = 0;
    SelectScreens ScreenControl;
    //cout<<Dempo.deleteFile(Dempo.getExecutablePath(), false)<<endl;
 
-   // int asdf = 0;
-
-   // for (int i =1; i<17;i++){
-   // asdf=toggleColour(consoleHandle);
-   // cout<<"hello"<<asdf<<endl;
-   // Sleep(750);
-   // }
+   Aso.
 
    //ScreenControl.mainScreen(VERSION_NUM);
    //^Important for code n' stuff

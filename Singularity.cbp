@@ -31,7 +31,9 @@
 			<Option virtualFolder="Utilities/" />
 		</Unit>
 		<Unit filename="Depreciated.inl" />
-		<Unit filename="Effects.h" />
+		<Unit filename="Effects.h">
+			<Option virtualFolder="FirstGameStuff/" />
+		</Unit>
 		<Unit filename="Encrypt.cpp">
 			<Option virtualFolder="Encrypt/" />
 		</Unit>

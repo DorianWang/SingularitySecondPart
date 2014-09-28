@@ -12,17 +12,16 @@ template <class D> linkedList<D>::linkedList()
 
 template <class D> linkedList<D>::~linkedList()
 {
-   //Add recursive deletion code here.
-   //TODO
+   deleteAllNodes();
 }
 
-//Refactored
+
 template <class D> unsigned int linkedList<D>::size()
 {
    return length;
 }
 
-//Refactored
+
 template <class D> void linkedList<D>::pushBack(D inputData)
 {
    linkedListNode <D>* newNode = new linkedListNode <D>;
@@ -49,7 +48,7 @@ template <class D> void linkedList<D>::pushBack(D inputData)
    }
 }
 
-//Refactored
+
 template <class D> void linkedList<D>::pushFront(D inputData)
 {
    linkedListNode <D>* newNode = new linkedListNode <D>;
@@ -73,7 +72,6 @@ template <class D> void linkedList<D>::pushFront(D inputData)
 
 //This function returns the value of the first node, before deleting it.
 //If this function succeeds, the errorBool will be set false.
-//Refactored
 template <class D> D linkedList<D>::popFront(bool* errorBool)
 {
 
@@ -91,7 +89,6 @@ template <class D> D linkedList<D>::popFront(bool* errorBool)
 }
 
 //Almost the same as the above.
-//Refactored
 template <class D> D linkedList<D>::popBack(bool* errorBool)
 {
 
@@ -111,7 +108,6 @@ template <class D> D linkedList<D>::popBack(bool* errorBool)
 
 //Gives the value at the node specified. Node 1 is the first node.
 //Watch this to make sure it works...
-//Refactored
 template <class D> D linkedList<D>::valueAt(unsigned int numNode, bool* errorBool)
 {
    if (numNode > length){
@@ -131,7 +127,6 @@ template <class D> D linkedList<D>::valueAt(unsigned int numNode, bool* errorBoo
 }
 
 //Watch this to make sure it works...
-//Refactored
 template <class D> linkedListNode <D>* linkedList<D>::getNodePointer(unsigned int numNode)
 {
    if (length < numNode){ return NULL; }
@@ -154,7 +149,7 @@ template <class D> linkedListNode <D>* linkedList<D>::getNodePointer(unsigned in
    return currentNode;
 }
 
-//Refactored
+
 template <class D> int linkedList<D>::deleteNode(unsigned int nodeNum)
 {
    linkedListNode <D>* temp;
@@ -171,6 +166,31 @@ template <class D> int linkedList<D>::deleteNode(unsigned int nodeNum)
    delete temp;
    return 1;
 }
+
+//Deletes the selected node, and
+template <class D> int linkedList<D>::deleteNode(unsigned int nodeNum, int numNodesToDelete)
+{
+
+
+}
+
+//Deletes all nodes with
+template <class D> int linkedList<D>::deleteNode(D typeToDelete)
+{
+
+}
+
+//I hope this works...
+template <class D> int linkedList<D>::deleteAllNodes()
+{
+   linkedListNode <D>* tempNode;
+   for (int i = 0; i < length; i++){
+      tempNode = headNode -> P_Next;
+      delete headNode;
+      headNode = tempNode;
+   }
+}
+
 
 template <class D> void linkedList<D>::changeLength(int numToChange)
 {

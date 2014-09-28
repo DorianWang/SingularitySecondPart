@@ -331,10 +331,10 @@
 	<vector>
 	<string>
 
-1411696811 d:\dorian's programs\singularitysecondpart\treetype.inl
+1411763324 d:\dorian's programs\singularitysecondpart\treetype.inl
 	"treeType.h"
 
-1411695861 d:\dorian's programs\singularitysecondpart\itemdeclaration.h
+1411763324 d:\dorian's programs\singularitysecondpart\itemdeclaration.h
 	"iostream"
 	"string"
 	"vector"
@@ -427,7 +427,7 @@
 
 1411606239 d:\dorian's programs\singularitysecondpart\npc.h
 
-1409775833 d:\dorian's programs\singularitysecondpart\effects.h
+1411869535 d:\dorian's programs\singularitysecondpart\effects.h
 
 1397251643 source:d:\dorian's programs\singularitysecondpart\painter.cpp
 	"Painter.h"
@@ -492,12 +492,15 @@
 	"string"
 	"vector"
 
-1411594630 source:d:\dorian's programs\singularitysecondpart\inventory.cpp
+1411763324 source:d:\dorian's programs\singularitysecondpart\inventory.cpp
 	"ItemDeclaration.h"
 
 1411753037 source:d:\doriancode\singularitysecondpart\inventory.cpp
 	"ItemDeclaration.h"
 
 1411753054 source:d:\doriancode\singularitysecondpart\inventorysorter.cpp
+	"ItemDeclaration.h"
+
+1411763324 source:d:\dorian's programs\singularitysecondpart\inventorysorter.cpp
 	"ItemDeclaration.h"
 

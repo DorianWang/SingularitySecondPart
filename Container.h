@@ -47,7 +47,14 @@ D popBack(bool* errorBool);
 D valueAt(unsigned int numNode, bool* errorBool);
 
 int deleteNode(unsigned int nodeNum);
+
+int deleteNode(unsigned int nodeNum, int numNodesToDelete);
+int deleteNode(D typeToDelete);
+int deleteAllNodes();
+
 void changeLength(int numToChange);
+
+
 
 
 ;
