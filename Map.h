@@ -5,7 +5,7 @@
 #include "Locations.h"
 #include "Effects.h"
 
-typedef struct locationWithExtras
+struct locationWithExtras
 {
    advancedLocation locationPointer;
    std::vector <int> effects;//This stores the index of the effect in the effect

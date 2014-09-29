@@ -46,6 +46,7 @@ char f;
 #include "stringFunctions.h"
 
 #include "treeType.h"
+#include "functionChecker.h"
 
 
 
@@ -74,6 +75,9 @@ int temp = *a;
 *a=*b;
 *b = temp;
 }
+
+
+
 
 
 int main(int argc, char *argv[])
@@ -157,43 +161,6 @@ std::string folderStuff = "Stuff\\";
 std::string folderStuffs = "asdfasdf";
 
 std::string tempNameFolder = "asdfasdf";
-//Dempo.directoryPath = "D:\\Test\\";
-//Dempo.deleteFolder("asdfasdf", NULL);
-//cout<<Dempo.deleteFolder(&folderStuff, &tempNameFolder)<<endl;
-
-
-//std::string something = "D:/Test/Stuff/";
-//std::string something2 = "D:/Test/";
-//std::string something3 = "Stuff/";
-//wchar_t stuffs[512];
-
-
-//int lengthWString = Dempo.charPToWCharP(something.c_str(), stuffs, 512);
-//stuffs
-
-//Returns one is true, else 0;
-//cout<<RemoveDirectory(something.c_str())<<endl;
-
-//std::vector<WIN32_FIND_DATA> uaehr;
-
-
-//cout<<Dempo.findAllFilesInFolder(something.c_str(), NULL, &uaehr)<<" asdf"<<endl;
-//^ Yey! It works now!
-//cout<<Dempo.deleteFolder(NULL, &something3)<<endl;
-//cout<<RemoveDirectory("D:\\Test\\Stuff\\qwer\\qwerqwer")<<" aukshfiuh "<<"D:\\Test\\Stuff\\qwer\\qwerqwer"<<endl;
-//uaehr.clear();
-
-
-
-//cout<<Dempo.findAllFilesInFolder(something.c_str(), NULL, &uaehr)<<" asdf"<<endl;
-
-//cout<<Dempo.getExecutablePath()<<endl;
-
-//std::string ijn = "Testing stuff";
-
-
-
-//Dempo.charPToWCharP(ijn.c_str(), stuffs, 512);
 
 int counters = 0;
 
@@ -202,7 +169,6 @@ int counters = 0;
    SelectScreens ScreenControl;
    //cout<<Dempo.deleteFile(Dempo.getExecutablePath(), false)<<endl;
 
-   Aso.
 
    //ScreenControl.mainScreen(VERSION_NUM);
    //^Important for code n' stuff
@@ -236,6 +202,7 @@ int counters = 0;
 //   }
 //   cout<<endl;
 //
+
 
 
 

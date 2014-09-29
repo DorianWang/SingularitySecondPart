@@ -8,6 +8,7 @@ template <class D> linkedList<D>::linkedList()
    length = 0; //empty
    headNode = NULL;
    lastNode = NULL;
+   hasCompare = checkForCompare(&hasEquivalence);
 }
 
 template <class D> linkedList<D>::~linkedList()
@@ -149,6 +150,27 @@ template <class D> linkedListNode <D>* linkedList<D>::getNodePointer(unsigned in
    return currentNode;
 }
 
+//Returns false when the linked list is done.
+template <class D> bool linkedList<D>::getNextNodePointer(linkedListNode <D>* inputPointer, linkedListNode <D>* output)
+{
+   output = inputPointer -> P_Next;
+   if (output == NULL)
+   {
+      return false
+   }
+return true;
+}
+
+//Returns false when the linked list is done.
+template <class D> bool linkedList<D>::getPrevNodePointer(linkedListNode <D>* inputPointer, linkedListNode <D>* output)
+{
+   output = inputPointer -> P_Prev;
+   if (output == NULL)
+   {
+      return false
+   }
+return true;
+}
 
 template <class D> int linkedList<D>::deleteNode(unsigned int nodeNum)
 {
@@ -174,10 +196,12 @@ template <class D> int linkedList<D>::deleteNode(unsigned int nodeNum, int numNo
 
 }
 
-//Deletes all nodes with
+//Deletes all nodes with an equal D value. Returns the number of objects deleted.
 template <class D> int linkedList<D>::deleteNode(D typeToDelete)
 {
-
+   if (!hasEquivalence){
+      return -1;//No comparison is possible, or at least desired.
+   }
 }
 
 //I hope this works...
@@ -198,8 +222,34 @@ template <class D> void linkedList<D>::changeLength(int numToChange)
 };
 
 
+template <class D> bool linkedList<D>::checkForCompare(bool* equalCheck)
+{
+   if (IsPrimitiveType<D>::value != 1){
+      if (has_greater_than_compare <D, bool (D::*)(D)>::value){
+         if (has_less_than_compare <D, bool (D::*)(D)>::value){
+            if (has_equal_compare<D, bool (D::*)(D)>::value){
+               *equalCheck = true;
+            }
+            else
+            {
+               *equalCheck = false;
+            }
+             return true;
+          }
+      }
 
-
+      if (has_equal_compare<D, bool (D::*)(D)>::value){
+         *equalCheck = true;
+      }
+      else
+      {
+         *equalCheck = false;
+      }
+      return false;
+   }
+*equalCheck = true;
+return true;//Basic data type. Must have compare, or I'll eat my hat.
+}
 
 
 

@@ -5,7 +5,7 @@
 		<Option title="Singularity" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="DataStructures\LinkedList\;DataStructures\;DataStructures\treeType\;FirstGameStuff\map\;FirstGameStuff\;Utilities\;FirstGameStuff\Items\;FirstGameStuff\Items\InventorySorter\;Depreciated\KeyIO_Depreciated\;_Main\;Depreciated\FileIO_Depreciated\;Encrypt\;" />
+		<Option virtualFolders="DataStructures\LinkedList\;DataStructures\;DataStructures\treeType\;FirstGameStuff\map\;FirstGameStuff\;Utilities\;FirstGameStuff\Items\;FirstGameStuff\Items\InventorySorter\;Depreciated\KeyIO_Depreciated\;_Main\;Depreciated\FileIO_Depreciated\;Encrypt\;Depreciated\;" />
 		<Build>
 			<Target title="default">
 				<Option output="Singularity" prefix_auto="1" extension_auto="1" />
@@ -30,7 +30,9 @@
 		<Unit filename="CursorOptions.h">
 			<Option virtualFolder="Utilities/" />
 		</Unit>
-		<Unit filename="Depreciated.inl" />
+		<Unit filename="Depreciated.inl">
+			<Option virtualFolder="Depreciated/" />
+		</Unit>
 		<Unit filename="Effects.h">
 			<Option virtualFolder="FirstGameStuff/" />
 		</Unit>
@@ -120,6 +122,9 @@
 		</Unit>
 		<Unit filename="WindowsIntegration.cpp" />
 		<Unit filename="WindowsIntegration.h" />
+		<Unit filename="functionChecker.h">
+			<Option virtualFolder="Utilities/" />
+		</Unit>
 		<Unit filename="inventorySorter.cpp">
 			<Option virtualFolder="FirstGameStuff/Items/InventorySorter/" />
 		</Unit>

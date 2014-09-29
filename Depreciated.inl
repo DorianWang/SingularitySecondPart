@@ -4,7 +4,7 @@
 //#include <fstream>
 //
 //using namespace std;
-////For dataType, 
+////For dataType,
 ////0 for int, 1 for char, 2 for float, 3 for double, 4 for short, 5 for long long, 6 for unsigned int...
 ////7 for unsigned short,  More may be added later.
 //
@@ -21,24 +21,24 @@
 //   if (dataType>=5||dataType<=-1){
 //      return 0;
 //   }
-//   
+//
 //   if (arrayLength<0) return 0;
-//   
+//
 //   bytesToGet = 1;
-//   
+//
 //   if (dataType==1){ bytesToGet = 1;}
-//   
+//
 //   if (dataType==3||dataType==5){ bytesToGet = 8;}
-//   
+//
 //   if (dataType==4){ bytesToGet = 2;}
-//   
+//
 //   va_list ap;
 //   //va_start(ap, numWanted);
 //
 //   output = va_arg(ap, void *);
-//   
+//
 //   if (output==0) return 0;
-//   
+//
 //   for (j=0;j<arrayLength;j++){
       //read bytes, chance to fail...
       //myfile.read(buffer, bytesToGet);
@@ -71,16 +71,18 @@
 //         case 8:
 //            //*((long long*)output) = *((long long*)((buffer)));
 //            break;
-//           
+//
 //      }
 
    }
    //http://www.dreamincode.net/forums/topic/47339-writing-floats-to-a-file/
    //in.read((char *)&f2,sizeof(float));
    //*((int *)output) = qwer;
-return 1;
+//return 1;
 }//Unfinished
 
+
+/*
 bool getProfile(std::string name)
 {
 
@@ -88,7 +90,7 @@ ifstream myfile;
 std::string fileName;
 fileName= "saves/"+name+".dat";
 myfile.open (fileName.c_str());
- 	
+
    if (myfile.is_open()) {
       cout<<"yey!";
       return true;
@@ -99,19 +101,19 @@ myfile.open (fileName.c_str());
 bool makeProfile(std::string name)
 {
 
-ofstream myfile;  
-std::string fileName;  
-fileName = "saves/"+name+".dat"; 
-myfile.open(fileName.c_str());     
-     
+ofstream myfile;
+std::string fileName;
+fileName = "saves/"+name+".dat";
+myfile.open(fileName.c_str());
+
 if (myfile.is_open()){
-   cout<<"yey!";                   
-   myfile << "Writing this to a file.\n";                        
-}     
-         
+   cout<<"yey!";
+   myfile << "Writing this to a file.\n";
 }
 
-   
+}
+
+*/
 //   switch (dataType) {
 //      case 0:
 //         *((int*)output) = cToI(buffer);
@@ -153,19 +155,19 @@ if (myfile.is_open()){
 //   }
 //   testingSize.a = 1;testingSize.b = 2; testingSize.c = 3; testingSize.d = 4;
 //   testingSize.e = 'q'; testingSize.f = 'w';
-//   
+//
 //   //poi(sizeof(testingSize), &testingSize);
 //   cout<<"..."<<endl;
 //   myFile.goStart(0);
 //   myFile.writeData(sizeof(asos[0]), 512, asos);
-//   
+//
 //   for (int i=0;i<512;i++){
 //      asos[i]=0;
 //   }
-//   
+//
 //   cout<<myFile.readData(0, 512, asos);
 //   system("PAUSE");
-//   
+//
 //   for (int i=0;i<(512/2);i++){//Sort of works... Why?
 //   //   asos[i]=i*2;
 //   cout<<asos[i*2]<<" "<<asos[i*2+1]<<": "<<i<<endl;
@@ -200,13 +202,13 @@ if (myfile.is_open()){
 //int powerTo(int base, int exponential){
 //   unsigned int output = 1;
 //   if (exponential<=0){
-//      return 1;//No fractions!   
+//      return 1;//No fractions!
 //   }
-//   
+//
 //   for (int i=0; i<exponential; i++){
 //      output = output * exponential;
 //   }
-//   
+//
 //   return output;
 //}
 //
@@ -222,22 +224,22 @@ if (myfile.is_open()){
 //   //65 - 90, 97 - 122
 //   //cout<<"Stuff!"<<endl;
 //   for (int i='a';i<='z';i++){
-//      allChars[i-'a']=i;    
+//      allChars[i-'a']=i;
 //   }
 //   for (int i='A'; i<='Z';i++){
-//      allChars[i + 'z' - 'a' - 'A' + 1] = i;  
+//      allChars[i + 'z' - 'a' - 'A' + 1] = i;
 //   }
-//   
+//
 //   //cout<<"End stuff!"<<endl;
 //   //cout<<"Why you so sad!"<<" "<<testCaseSize<<endl;
 //   int currentInt[testCaseSize];//={65};
-//   
+//
 //   for (int i=0; i<testCaseSize;i++){
-//      currentInt[i] = allChars[0] - 'a';    
+//      currentInt[i] = allChars[0] - 'a';
 //   }
 //
 //   while(true){
-//               
+//
 //      for (int i=testCaseSize-1; i>=0;i--){
 //         cout<<"One loop done!"<<endl;
 //         if (currentInt[i]>=52){
@@ -246,21 +248,21 @@ if (myfile.is_open()){
 //                  inputOutput = createTestCases(testCaseSize - 1);
 //                  output.insert(output.end(), inputOutput.begin(), inputOutput.end());
 //               }
-//               
+//
 //               return output;
 //            }
 //            currentInt[i-1]+=1; currentInt[i] = 0;
-//            
+//
 //         }
 //      }
-//      
+//
 //      for (int i = 0; i<testCaseSize; i++){
 //         temp += allChars[currentInt[i]];
 //      }
 //      output.push_back(temp);
 //      temp.clear();
 //      counter++;
-//      
+//
 //   currentInt[testCaseSize-1]+=1;
 //   }
 //}
@@ -281,7 +283,7 @@ if (myfile.is_open()){
 //   //std::getline (std::cin, password);//Unlimited size of passwords
 //   //std::cin.getline(password, 64);//Passwords are up to 64 chars in size
 //   //Bromo.passwordToInt(password);
-//   
+//
 //   int k=0;
 //   testCases = createTestCases(4);//(testCaseSize)
 //   int vectorSize = testCases.size();
@@ -303,7 +305,7 @@ if (myfile.is_open()){
 //   }
 //
 //
-//   
+//
 //   cout<<"Is this bad?"<<vectorSize<<endl;
 //   std::sort (testAnswers.begin(), testAnswers.end());
 //   //system("PAUSE");
@@ -311,7 +313,7 @@ if (myfile.is_open()){
 //   for (int i=0; i<20;i++){
 //      cout<<testAnswers[i]<<endl;
 //   }
-//   
+//
 //   for(int i=0; i<vectorSize;i++){
 //           cout<<i<<endl;
 //      while(true){
@@ -319,7 +321,7 @@ if (myfile.is_open()){
 //            cout<<"The END!"<<endl;
 //            break;
 //         }
-//         
+//
 //         if (currentNumFound!=testAnswers[i]){
 //            i--;
 //            currentNumFound = testAnswers[i+1];
@@ -358,13 +360,13 @@ if (myfile.is_open()){
 
 
 //   Keypress keyReader;
-//   
+//
 //   int keyIn;
 //   while(true){
 //      keyIn = keyReader.get_code();
 //      if (keyIn != -1){
 //         cout<<keyIn<<endl;
-//         break;   
+//         break;
 //      }
 //   }
 
@@ -372,17 +374,17 @@ if (myfile.is_open()){
 //   myFile.textOpenFile("Data/Aso.txt", false);
 //   std::string asos;
 //   std::vector <std::string> fileBuffer;
-//  
+//
 //   while(myFile.readLine(&asos)){
-//      fileBuffer.push_back(asos);                              
+//      fileBuffer.push_back(asos);
 //   }
-//   
+//
 //   for (int i=0; i<fileBuffer.size();i++){
 //      cout<<fileBuffer[i]<<"!"<<endl;;
 //   }
-   
+
 //   myFile.closeFile();
-   
+
 //   myFile.dataOpenFile("Data/Aso.bin", true);
 //   int intArray[5] = {65, 66, 67, 68, 69};
 //   char strings[23] = "This is another test!!";//22
@@ -395,30 +397,30 @@ if (myfile.is_open()){
 //   int* stuff = &otherStuff;
 //   myFile.readData(sizeof(int), 5, stuff, newArray);
 //   cout<<otherStuff<<" Debug!"<<endl;
-//   
+//
 //   myFile.readData(sizeof(char), 23, stuff, inputString);
 //   cout<<otherStuff<<endl;
-//   
+//
 //   for (int i=0; i<5; i++){
-//      cout<<newArray[i]<<" ";    
+//      cout<<newArray[i]<<" ";
 //   }
 //   cout<<endl;
 //   cout<<inputString;
 //   cout<<endl;
 //   myFile.closeFile();
-//   
+//
 //   myFile.dataOpenFile("Data/Bromo.bin", true);
 //   int otherArray[4] = {4, 5, 6, 7};
 //   cout<<myFile.writeData(sizeof(int), 4, otherArray)<<endl;
 //   char strings2[23] = "Tihs is another tset??";//22
 //   cout<<myFile.writeData(sizeof(char), 23, strings2)<<endl;
-//   cout<<myFile.goStart(1)<<endl;   
+//   cout<<myFile.goStart(1)<<endl;
 //   int otherStuff2 = 0;
 //   int* stuff2 = &otherStuff2;
-//   
+//
 //   myFile.readData(sizeof(int), 4, stuff, newArray);
 //   cout<<otherStuff<<" Debug!"<<endl;
-//   
+//
 //   myFile.readData(sizeof(char), 23, stuff, inputString);
 //   cout<<otherStuff<<endl;
 
@@ -433,23 +435,100 @@ if (myfile.is_open()){
 //   va_end(ap);
 //   cout<<sizeof(asdf)<<"asdfasdf"<<endl;
 //   int counter=0;
-//   
+//
 //   for (int i=0;i<(size/4)-1;i++){
-//      cout<<(int)((unsigned char)(*(asdf+i*4)))<<"."<<endl; 
+//      cout<<(int)((unsigned char)(*(asdf+i*4)))<<"."<<endl;
 //      counter=i;
 //   }
-//   cout<<(char)((unsigned char)(*(asdf+counter*(4+1)+1)))<<"."<<endl; 
+//   cout<<(char)((unsigned char)(*(asdf+counter*(4+1)+1)))<<"."<<endl;
 //   cout<<(char)((unsigned char)(*(asdf+counter*(4+1)+2)))<<"."<<endl;
 //   //Yey! I can read/write structures!
-//   
+//
 //   //for (int i=3;i>=0;i--){
-////      cout<<(int)((unsigned char)(*(asdf+i)))<<"."<<endl; 
+////      cout<<(int)((unsigned char)(*(asdf+i)))<<"."<<endl;
 ////      j = (j*256) + (int)((unsigned char)(*(asdf+i)));
 ////   }
-//   
-////   
-//   
+//
+////
+//
 //   cout<<j<<"qqq"<<endl;
 //}
+
+/*
+
+//Dempo.directoryPath = "D:\\Test\\";
+//Dempo.deleteFolder("asdfasdf", NULL);
+//cout<<Dempo.deleteFolder(&folderStuff, &tempNameFolder)<<endl;
+
+
+//std::string something = "D:/Test/Stuff/";
+//std::string something2 = "D:/Test/";
+//std::string something3 = "Stuff/";
+//wchar_t stuffs[512];
+
+
+//int lengthWString = Dempo.charPToWCharP(something.c_str(), stuffs, 512);
+//stuffs
+
+//Returns one is true, else 0;
+//cout<<RemoveDirectory(something.c_str())<<endl;
+
+//std::vector<WIN32_FIND_DATA> uaehr;
+
+
+//cout<<Dempo.findAllFilesInFolder(something.c_str(), NULL, &uaehr)<<" asdf"<<endl;
+//^ Yey! It works now!
+//cout<<Dempo.deleteFolder(NULL, &something3)<<endl;
+//cout<<RemoveDirectory("D:\\Test\\Stuff\\qwer\\qwerqwer")<<" aukshfiuh "<<"D:\\Test\\Stuff\\qwer\\qwerqwer"<<endl;
+//uaehr.clear();
+
+
+
+//cout<<Dempo.findAllFilesInFolder(something.c_str(), NULL, &uaehr)<<" asdf"<<endl;
+
+//cout<<Dempo.getExecutablePath()<<endl;
+
+//std::string ijn = "Testing stuff";
+
+
+
+//Dempo.charPToWCharP(ijn.c_str(), stuffs, 512);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

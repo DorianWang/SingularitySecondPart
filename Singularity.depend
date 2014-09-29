@@ -245,10 +245,12 @@
 
 1389925682 source:d:\dorian's programs\singularitysecondpart\bases.cpp
 
-1395956520 source:d:\dorian's programs\singularitysecondpart\container.cpp
+1411945111 source:d:\dorian's programs\singularitysecondpart\container.cpp
 	"Container.h"
+	<iostream>
 
-1411698054 d:\dorian's programs\singularitysecondpart\container.h
+1411956517 d:\dorian's programs\singularitysecondpart\container.h
+	"functionChecker.h"
 	<string>
 	<iostream>
 
@@ -358,7 +360,7 @@
 1405981482 d:\dorian's programs\singularitysecondpart\lootdrop.h
 	"FileIO.h"
 
-1411599124 source:d:\dorian's programs\singularitysecondpart\main.cpp
+1411954900 source:d:\dorian's programs\singularitysecondpart\main.cpp
 	<cstdlib>
 	<iostream>
 	<algorithm>
@@ -371,6 +373,7 @@
 	"WindowsIntegration.h"
 	"stringFunctions.h"
 	"treeType.h"
+	"functionChecker.h"
 	"Painter.h"
 	"Encrypt.h"
 	"FileIO.h"
@@ -413,7 +416,7 @@
 1409233466 source:d:\dorian's programs\singularitysecondpart\map.cpp
 	"Map.h"
 
-1409863302 d:\dorian's programs\singularitysecondpart\map.h
+1411944251 d:\dorian's programs\singularitysecondpart\map.h
 	"Locations.h"
 	"Effects.h"
 
@@ -503,4 +506,6 @@
 
 1411763324 source:d:\dorian's programs\singularitysecondpart\inventorysorter.cpp
 	"ItemDeclaration.h"
+
+1411955161 d:\dorian's programs\singularitysecondpart\functionchecker.h
 

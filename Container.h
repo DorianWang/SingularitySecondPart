@@ -2,6 +2,8 @@
 #ifndef CONTAINER_H
 #define CONTAINER_H
 
+#include "functionChecker.h"
+
 #include <string>
 #include <iostream>
 
@@ -25,9 +27,16 @@ template <typename D> class linkedList
 {
 unsigned int length;//Current length of the linked list
 
+bool hasCompare;
+bool hasEquivalence;
+
+bool checkForCompare(bool* equalCheck);
 
 linkedListNode <D>* headNode;
 linkedListNode <D>* lastNode;//pointer to the last value in the list
+
+linkedListNode <D>* lastNodeUsed;//pointer that was used last in any function. Set null after use.
+//I might use this for a function.
 
 linkedListNode <D>* getNodePointer(unsigned int numNode);
 
