@@ -16,12 +16,10 @@ template <class D> linkedList<D>::~linkedList()
    deleteAllNodes();
 }
 
-
 template <class D> unsigned int linkedList<D>::size()
 {
    return length;
 }
-
 
 template <class D> void linkedList<D>::pushBack(D inputData)
 {
@@ -48,7 +46,6 @@ template <class D> void linkedList<D>::pushBack(D inputData)
       changeLength(1);
    }
 }
-
 
 template <class D> void linkedList<D>::pushFront(D inputData)
 {
@@ -106,7 +103,6 @@ template <class D> D linkedList<D>::popBack(bool* errorBool)
 
 }
 
-
 //Gives the value at the node specified. Node 1 is the first node.
 //Watch this to make sure it works...
 template <class D> D linkedList<D>::valueAt(unsigned int numNode, bool* errorBool)
@@ -138,36 +134,36 @@ template <class D> linkedListNode <D>* linkedList<D>::getNodePointer(unsigned in
    if (numNode < halfTest){
       currentNode = headNode;
       for (int i = 0; i < numNode - 1; i++){
-         currentNode = currentNode -> P_Next;
+         getNextNodePointer (&currentNode, &currentNode);// -> P_Next;
       }
       return currentNode;
    }
 
    currentNode = lastNode;
    for (int i = length; i > numNode; i--){
-      currentNode = currentNode -> P_Prev;
+      getPrevNodePointer(&currentNode, &currentNode);
    }
    return currentNode;
 }
 
-//Returns false when the linked list is done.
-template <class D> bool linkedList<D>::getNextNodePointer(linkedListNode <D>* inputPointer, linkedListNode <D>* output)
+//Returns false when the output is NULL, so basically when the list is done.
+template <class D> bool linkedList<D>::getNextNodePointer(linkedListNode <D>** inputPointer, linkedListNode <D>** output)
 {
-   output = inputPointer -> P_Next;
+   *output = *inputPointer -> P_Next;
    if (output == NULL)
    {
-      return false
+      return false;
    }
 return true;
 }
 
-//Returns false when the linked list is done.
-template <class D> bool linkedList<D>::getPrevNodePointer(linkedListNode <D>* inputPointer, linkedListNode <D>* output)
+//Returns false when the output is NULL, so basically when the start is reached.
+template <class D> bool linkedList<D>::getPrevNodePointer(linkedListNode <D>** inputPointer, linkedListNode <D>** output)
 {
-   output = inputPointer -> P_Prev;
+   *output = *inputPointer -> P_Prev;
    if (output == NULL)
    {
-      return false
+      return false;
    }
 return true;
 }
@@ -182,17 +178,29 @@ template <class D> int linkedList<D>::deleteNode(unsigned int nodeNum)
 
    temp = getNodePointer(nodeNum);
 
-   temp -> P_Next -> P_Prev = temp -> P_Prev;//The node after the deleted one's forward pointer is set.
-   temp -> P_Prev -> P_Next = temp -> P_Next;//The node before the deleted one's next pointer is set.
+   if (temp -> P_Next != NULL){
+      temp -> P_Next -> P_Prev = temp -> P_Prev;//The node after the deleted one's forward pointer is set.
+   }
+   if (temp -> P_Prev != NULL){
+      temp -> P_Prev -> P_Next = temp -> P_Next;//The node before the deleted one's next pointer is set.
+   }
 
    delete temp;
    return 1;
 }
 
-//Deletes the selected node, and
-template <class D> int linkedList<D>::deleteNode(unsigned int nodeNum, int numNodesToDelete)
+//Deletes the selected node, and finishes when it reaches numNodesToDelete.
+//numNodesToDelete must be a number greater than 0.
+template <class D> int linkedList<D>::deleteNode(unsigned int nodeNum, unsigned int numNodesToDelete)
 {
+   if (nodeNum + numNodes > length || numNodesToDelete < 1){
+      return 0; //No nodes deleted, input invalid.
+   }
 
+   if (nodeNum > length - nodeNum + numNodesToDelete){
+      for (int i = 0; i < numNodesToDelete)
+
+   }
 
 }
 

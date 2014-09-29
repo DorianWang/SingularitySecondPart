@@ -10,7 +10,8 @@
 
 using namespace std;
 
-
+#define MAX_LENGTH_LINKED_LIST 200000000000
+//200 Billion. Do not go over this, or bad things will happen...
 
 template <typename E> class linkedListNode
 {
@@ -39,6 +40,8 @@ linkedListNode <D>* lastNodeUsed;//pointer that was used last in any function. S
 //I might use this for a function.
 
 linkedListNode <D>* getNodePointer(unsigned int numNode);
+bool getNextNodePointer(linkedListNode <D>** inputPointer, linkedListNode <D>** output);
+bool getPrevNodePointer(linkedListNode <D>** inputPointer, linkedListNode <D>** output);
 
 public:
 
@@ -57,7 +60,7 @@ D valueAt(unsigned int numNode, bool* errorBool);
 
 int deleteNode(unsigned int nodeNum);
 
-int deleteNode(unsigned int nodeNum, int numNodesToDelete);
+int deleteNode(unsigned int nodeNum, unsigned int numNodesToDelete);
 int deleteNode(D typeToDelete);
 int deleteAllNodes();
 

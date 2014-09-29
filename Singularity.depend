@@ -4,7 +4,8 @@
 1411753316 source:d:\doriancode\singularitysecondpart\container.cpp
 	"Container.h"
 
-1411753316 d:\doriancode\singularitysecondpart\container.h
+1412017839 d:\doriancode\singularitysecondpart\container.h
+	"functionChecker.h"
 	<string>
 	<iostream>
 
@@ -124,7 +125,7 @@
 1410886173 d:\doriancode\singularitysecondpart\lootdrop.h
 	"FileIO.h"
 
-1411667904 source:d:\doriancode\singularitysecondpart\main.cpp
+1412013581 source:d:\doriancode\singularitysecondpart\main.cpp
 	<cstdlib>
 	<iostream>
 	<algorithm>
@@ -137,6 +138,7 @@
 	"WindowsIntegration.h"
 	"stringFunctions.h"
 	"treeType.h"
+	"functionChecker.h"
 	"Painter.h"
 	"Encrypt.h"
 	"FileIO.h"
@@ -174,7 +176,7 @@
 1410886173 source:d:\doriancode\singularitysecondpart\map.cpp
 	"Map.h"
 
-1410886173 d:\doriancode\singularitysecondpart\map.h
+1412013581 d:\doriancode\singularitysecondpart\map.h
 	"Locations.h"
 	"Effects.h"
 
@@ -188,7 +190,7 @@
 
 1411667904 d:\doriancode\singularitysecondpart\npc.h
 
-1410886173 d:\doriancode\singularitysecondpart\effects.h
+1412013581 d:\doriancode\singularitysecondpart\effects.h
 
 1411060920 source:d:\doriancode\singularitysecondpart\maploader.cpp
 	"MapLoader.h"
@@ -508,4 +510,6 @@
 	"ItemDeclaration.h"
 
 1411955161 d:\dorian's programs\singularitysecondpart\functionchecker.h
+
+1412013581 d:\doriancode\singularitysecondpart\functionchecker.h
 
