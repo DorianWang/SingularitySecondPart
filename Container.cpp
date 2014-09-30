@@ -151,7 +151,7 @@ template <class D> bool linkedList<D>::getNextNodePointer(linkedListNode <D>** i
 {
    if (*inputPointer == NULL){return false;}
    *output = *inputPointer -> P_Next;
-   if (output == NULL)
+   if (*output == NULL)
    {
       return false;
    }
@@ -162,7 +162,7 @@ return true;
 template <class D> bool linkedList<D>::getPrevNodePointer(linkedListNode <D>** inputPointer, linkedListNode <D>** output)
 {
    *output = *inputPointer -> P_Prev;
-   if (output == NULL)
+   if (*output == NULL)
    {
       return false;
    }
@@ -194,14 +194,37 @@ template <class D> int linkedList<D>::deleteNode(unsigned int nodeNum)
 //numNodesToDelete must be a number greater than 0.
 template <class D> int linkedList<D>::deleteNode(unsigned int nodeNum, unsigned int numNodesToDelete)
 {
-   if (nodeNum + numNodes > length || numNodesToDelete < 1){
+   if (nodeNum + numNodesToDelete - 1 > length || numNodesToDelete < 1){
       return 0; //No nodes deleted, input invalid.
    }
 
+   linkedListNode <D>* temp1; linkedListNode <D>* temp2;
+   linkedListNode <D>* startPointer;
+
+
+   //If the distance from the beginning is larger than the distance to the end
    if (nodeNum > length - nodeNum + numNodesToDelete){
-      for (int i = 0; i < numNodesToDelete)
+      temp1 = getNodePointer(nodeNum + numNodesToDelete - 1);
+      startPointer = temp -> P_Next;
+      for (int i = 0; i < numNodesToDelete; i++){
+         temp2 = temp1;
+         getPrevNodePointer(&temp1, &temp1);
+         delete temp2;
+      }
+
+      if (temp1 == NULL){
+         headNode = startPointer;
+         startPointer -> P_Prev = NULL;
+      }
+      else
+      {
+         startPointer -> P_Prev =
+      }
+         return numNodesToDelete;
 
    }
+
+
 
 }
 
@@ -212,12 +235,19 @@ template <class D> int linkedList<D>::deleteNode(D typeToDelete)
       return -1;//No comparison is possible, or at least desired.
    }
    linkedListNode <D>* currentNode = headNode;
+   std::vector <linkedListNode <D>*> deleteQueue;
 
    while (getNextNodePointer(&currentNode, &currentNode)){
-      if ()
-
+      if (currentNode -> E == typeToDelete){
+         deleteQueue.push_back(currentNode);
+      }
    }
 
+
+   for (int i = 0; i < deleteQueue.length(); i++){
+      deleteNode (deleteQueue[i]);
+   }
+return deleteQueue.length();
 }
 
 //I hope this works...
@@ -229,6 +259,7 @@ template <class D> int linkedList<D>::deleteAllNodes()
       delete headNode;
       headNode = tempNode;
    }
+   length = 0;
 }
 
 
@@ -236,6 +267,25 @@ template <class D> void linkedList<D>::changeLength(int numToChange)
 {
    length = length + numToChange;
 };
+
+template <class D> bool linkedList<D>::linkNode(linkedListNode <D>* firstNode, linkedListNode <D>* secondNode)
+{
+   if (firstNode == NULL){
+      if (secondNode == NULL){ return false; } //Why did this happen?
+      secondNode -> P_Prev = NULL;
+      //Should I set it to the head node or not?
+      return true;
+   }
+
+   if (secondNode == NULL){
+      firstNode -> P_Next = NULL;
+      //Should I set this to end node?
+      return true;
+   }
+   firstNode -> P_Next = secondNode;
+   secondNode -> P_Prev = firstNode;
+
+}
 
 
 template <class D> bool linkedList<D>::checkForCompare(bool* equalCheck)

@@ -40,8 +40,12 @@ linkedListNode <D>* lastNodeUsed;//pointer that was used last in any function. S
 //I might use this for a function.
 
 linkedListNode <D>* getNodePointer(unsigned int numNode);
+
 bool getNextNodePointer(linkedListNode <D>** inputPointer, linkedListNode <D>** output);
 bool getPrevNodePointer(linkedListNode <D>** inputPointer, linkedListNode <D>** output);
+
+void changeLength(int numToChange);
+
 
 public:
 
@@ -64,7 +68,7 @@ int deleteNode(unsigned int nodeNum, unsigned int numNodesToDelete);
 int deleteNode(D typeToDelete);
 int deleteAllNodes();
 
-void changeLength(int numToChange);
+
 
 
 
