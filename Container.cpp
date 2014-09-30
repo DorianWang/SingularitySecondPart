@@ -149,6 +149,7 @@ template <class D> linkedListNode <D>* linkedList<D>::getNodePointer(unsigned in
 //Returns false when the output is NULL, so basically when the list is done.
 template <class D> bool linkedList<D>::getNextNodePointer(linkedListNode <D>** inputPointer, linkedListNode <D>** output)
 {
+   if (*inputPointer == NULL){return false;}
    *output = *inputPointer -> P_Next;
    if (output == NULL)
    {
@@ -210,6 +211,13 @@ template <class D> int linkedList<D>::deleteNode(D typeToDelete)
    if (!hasEquivalence){
       return -1;//No comparison is possible, or at least desired.
    }
+   linkedListNode <D>* currentNode = headNode;
+
+   while (getNextNodePointer(&currentNode, &currentNode)){
+      if ()
+
+   }
+
 }
 
 //I hope this works...
