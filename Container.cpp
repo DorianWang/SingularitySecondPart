@@ -205,7 +205,7 @@ template <class D> int linkedList<D>::deleteNode(unsigned int nodeNum, unsigned 
    //If the distance from the beginning is larger than the distance to the end
    if (nodeNum > length - nodeNum + numNodesToDelete){
       temp1 = getNodePointer(nodeNum + numNodesToDelete - 1);
-      startPointer = temp -> P_Next;
+      startPointer = temp1 -> P_Next;
       for (int i = 0; i < numNodesToDelete; i++){
          temp2 = temp1;
          getPrevNodePointer(&temp1, &temp1);
@@ -218,7 +218,7 @@ template <class D> int linkedList<D>::deleteNode(unsigned int nodeNum, unsigned 
       }
       else
       {
-         startPointer -> P_Prev =
+         linkNode(temp1, startPointer);
       }
          return numNodesToDelete;
 
@@ -273,18 +273,18 @@ template <class D> bool linkedList<D>::linkNode(linkedListNode <D>* firstNode, l
    if (firstNode == NULL){
       if (secondNode == NULL){ return false; } //Why did this happen?
       secondNode -> P_Prev = NULL;
-      //Should I set it to the head node or not?
+      headNode = secondNode; //Sets node as the head.
       return true;
    }
 
    if (secondNode == NULL){
       firstNode -> P_Next = NULL;
-      //Should I set this to end node?
+      lastNode = firstNode; //Sets node as the last node.
       return true;
    }
    firstNode -> P_Next = secondNode;
    secondNode -> P_Prev = firstNode;
-
+return true;
 }
 
 

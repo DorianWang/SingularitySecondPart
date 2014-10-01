@@ -6,6 +6,7 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
 
 
 using namespace std;
@@ -68,8 +69,7 @@ int deleteNode(unsigned int nodeNum, unsigned int numNodesToDelete);
 int deleteNode(D typeToDelete);
 int deleteAllNodes();
 
-
-
+bool linkNode(linkedListNode <D>* firstNode, linkedListNode <D>* secondNode);
 
 
 

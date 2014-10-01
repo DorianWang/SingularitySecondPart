@@ -5,7 +5,7 @@
 		<Option title="Singularity" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="DataStructures\LinkedList\;DataStructures\;DataStructures\treeType\;FirstGameStuff\map\;FirstGameStuff\;Utilities\;FirstGameStuff\Items\;FirstGameStuff\Items\InventorySorter\;Depreciated\KeyIO_Depreciated\;_Main\;Depreciated\FileIO_Depreciated\;Encrypt\;Depreciated\;" />
+		<Option virtualFolders="DataStructures\LinkedList\;DataStructures\;DataStructures\treeType\;FirstGameStuff\map\;FirstGameStuff\;Utilities\;FirstGameStuff\Items\;FirstGameStuff\Items\InventorySorter\;Depreciated\KeyIO_Depreciated\;_Main\;Depreciated\FileIO_Depreciated\;Encrypt\;Depreciated\;ConsoleOptions\;" />
 		<Build>
 			<Target title="default">
 				<Option output="Singularity" prefix_auto="1" extension_auto="1" />
@@ -18,6 +18,9 @@
 		</Linker>
 		<Unit filename="Bases.cpp" />
 		<Unit filename="Bases.h" />
+		<Unit filename="ConsoleOptions.h">
+			<Option virtualFolder="ConsoleOptions/" />
+		</Unit>
 		<Unit filename="Container.cpp">
 			<Option virtualFolder="DataStructures/LinkedList/" />
 		</Unit>
@@ -25,10 +28,10 @@
 			<Option virtualFolder="DataStructures/LinkedList/" />
 		</Unit>
 		<Unit filename="CursorOptions.cpp">
-			<Option virtualFolder="Utilities/" />
+			<Option virtualFolder="ConsoleOptions/" />
 		</Unit>
 		<Unit filename="CursorOptions.h">
-			<Option virtualFolder="Utilities/" />
+			<Option virtualFolder="ConsoleOptions/" />
 		</Unit>
 		<Unit filename="Depreciated.inl">
 			<Option virtualFolder="Depreciated/" />

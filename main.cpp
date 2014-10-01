@@ -4,6 +4,13 @@
 #include <algorithm>
 #include <sstream>
 
+#include <windows.h>
+#include "windows.h"
+#include "wincon.h"
+#include "stdio.h"
+
+
+
 //MUSIC! http://www.youtube.com/watch?v=nDyzVV_e7WM&list=LL5I3vUh2iNfQ3pCU3sodYRA&shuffle=167714
 
 
@@ -40,9 +47,8 @@ char f;
 #include "Container.h"
 #include "Bases.h"
 #include "keys.h"
-#include "CursorOptions.h"
+#include "ConsoleOptions.h"
 #include "Screens.h"
-#include "WindowsIntegration.h"
 #include "stringFunctions.h"
 
 #include "treeType.h"
@@ -75,7 +81,6 @@ int temp = *a;
 *a=*b;
 *b = temp;
 }
-
 
 
 
@@ -130,9 +135,10 @@ int main(int argc, char *argv[])
 //   }
 //}
 
-   winCnrl Dempo;
+
    Encrypter Bromo;
    bool cipherType[5];
+   //{
    //Bromo.keygenBytes(6, "");
 //   Bromo.keygenInts(cipherType, 4, std::string("MyFirstCipher"));
 //   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\A", 26);
@@ -140,7 +146,8 @@ int main(int argc, char *argv[])
 //   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\C", 26);
 //   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\D", 26);
 //   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\E", 26);
-//   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\F", 26);
+//   Bromo.createAllCiphers(cipherType, 6, NULL, "Data\\F", 26);\
+//}
    std::string tempst = "ABCDEFAAA";
    //intRotor intsStuff[50];
    //cout<<Bromo.readCiphersFromFiles(tempst, intsStuff, "")<<"!!!"<<endl;
@@ -205,8 +212,7 @@ int counters = 0;
 //   }
 //   cout<<endl;
 //
-
-
+HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 
 
 

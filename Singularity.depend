@@ -247,14 +247,14 @@
 
 1389925682 source:d:\dorian's programs\singularitysecondpart\bases.cpp
 
-1411945111 source:d:\dorian's programs\singularitysecondpart\container.cpp
+1412121916 source:d:\dorian's programs\singularitysecondpart\container.cpp
 	"Container.h"
-	<iostream>
 
-1411956517 d:\dorian's programs\singularitysecondpart\container.h
+1412122006 d:\dorian's programs\singularitysecondpart\container.h
 	"functionChecker.h"
 	<string>
 	<iostream>
+	<vector>
 
 1403056373 source:d:\dorian's programs\singularitysecondpart\encrypt.cpp
 	"Encrypt.h"
