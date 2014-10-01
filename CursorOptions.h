@@ -1,18 +1,19 @@
 
 #ifndef COPTIONS_H
-#define COPTIONS_H 
+#define COPTIONS_H
 
 #include <cstdarg>//Variable lists
 
 #include "windows.h"
 #include "stdio.h"
-
+#include <cstdlib>
+#include <iostream>
 
 using namespace std;
 
 class COptions
 {
-      
+
 bool cursorVisibility;
 bool cursorSmall;
 HANDLE consoleHandle;
@@ -20,13 +21,13 @@ HANDLE consoleHandle;
 int currentColour;
 
 public:
-             
+
 COptions();
 ~COptions();
 
-int toggleColour(HANDLE cHandle);      
+int toggleColour(HANDLE cHandle);
 
-void returnDefault(HANDLE cHandle);     
+void returnDefault(HANDLE cHandle);
 void toggleCursorSize(HANDLE cHandle);
 void toggleCursor(HANDLE cHandle);
 void tempColourChange(bool isDiff, HANDLE cHandle, int targetColour);

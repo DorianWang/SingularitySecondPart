@@ -1,13 +1,14 @@
 # depslib dependency file v1.0
 1410886172 source:d:\doriancode\singularitysecondpart\bases.cpp
 
-1411753316 source:d:\doriancode\singularitysecondpart\container.cpp
+1412186632 source:d:\doriancode\singularitysecondpart\container.cpp
 	"Container.h"
 
-1412017839 d:\doriancode\singularitysecondpart\container.h
+1412186632 d:\doriancode\singularitysecondpart\container.h
 	"functionChecker.h"
 	<string>
 	<iostream>
+	<vector>
 
 1410886173 source:d:\doriancode\singularitysecondpart\encrypt.cpp
 	"Encrypt.h"
@@ -38,14 +39,15 @@
 	<stdio.h>
 	<stdlib.h>
 
-1411058627 source:d:\doriancode\singularitysecondpart\cursoroptions.cpp
+1412188943 source:d:\doriancode\singularitysecondpart\cursoroptions.cpp
 	"CursorOptions.h"
-	<iostream>
 
-1410886172 d:\doriancode\singularitysecondpart\cursoroptions.h
+1412188943 d:\doriancode\singularitysecondpart\cursoroptions.h
 	<cstdarg>
 	"windows.h"
 	"stdio.h"
+	<cstdlib>
+	<iostream>
 
 1410886173 source:d:\doriancode\singularitysecondpart\encryptconverter.cpp
 	"Encrypt.h"
@@ -125,17 +127,20 @@
 1410886173 d:\doriancode\singularitysecondpart\lootdrop.h
 	"FileIO.h"
 
-1412013581 source:d:\doriancode\singularitysecondpart\main.cpp
+1412189457 source:d:\doriancode\singularitysecondpart\main.cpp
 	<cstdlib>
 	<iostream>
 	<algorithm>
 	<sstream>
+	<windows.h>
+	"windows.h"
+	"wincon.h"
+	"stdio.h"
 	"Container.h"
 	"Bases.h"
 	"keys.h"
-	"CursorOptions.h"
+	"ConsoleOptions.h"
 	"Screens.h"
-	"WindowsIntegration.h"
 	"stringFunctions.h"
 	"treeType.h"
 	"functionChecker.h"
@@ -512,4 +517,9 @@
 1411955161 d:\dorian's programs\singularitysecondpart\functionchecker.h
 
 1412013581 d:\doriancode\singularitysecondpart\functionchecker.h
+
+1412189182 d:\doriancode\singularitysecondpart\consoleoptions.h
+	"CursorOptions.h"
+	"cstdlib"
+	<cstdlib>
 

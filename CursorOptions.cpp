@@ -1,7 +1,7 @@
 
 #include "CursorOptions.h"
 
-#include <iostream>
+
 
 //#define ENABLE_INSERT_MODE 0x0020
 //#define ENABLE_EXTENDED_FLAGS 0x0080
@@ -214,12 +214,10 @@ bool COptions::changeCursorPos(HANDLE cHandle, short cursorX, short cursorY)
    coord.X = cursorX;
    coord.Y = cursorY;
 
-   returningNum=SetConsoleCursorPosition(cHandle, coord);
+   returningNum = SetConsoleCursorPosition(cHandle, coord);
 
-   if (returningNum==0){
-
-   return false;
-
+   if (returningNum == 0){
+      return false;
    }
 
    return true;

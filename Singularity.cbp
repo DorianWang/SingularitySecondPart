@@ -18,6 +18,7 @@
 		</Linker>
 		<Unit filename="Bases.cpp" />
 		<Unit filename="Bases.h" />
+		<Unit filename="ConsoleOptions.cpp" />
 		<Unit filename="ConsoleOptions.h">
 			<Option virtualFolder="ConsoleOptions/" />
 		</Unit>

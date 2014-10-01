@@ -212,7 +212,9 @@ int counters = 0;
 //   }
 //   cout<<endl;
 //
-HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+ConsoleOptions testConsole;
+
+testConsole.test();
 
 
 
