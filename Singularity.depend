@@ -39,7 +39,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1412188943 source:d:\doriancode\singularitysecondpart\cursoroptions.cpp
+1412189772 source:d:\doriancode\singularitysecondpart\cursoroptions.cpp
 	"CursorOptions.h"
 
 1412188943 d:\doriancode\singularitysecondpart\cursoroptions.h
@@ -518,8 +518,12 @@
 
 1412013581 d:\doriancode\singularitysecondpart\functionchecker.h
 
-1412189182 d:\doriancode\singularitysecondpart\consoleoptions.h
+1412268533 d:\doriancode\singularitysecondpart\consoleoptions.h
 	"CursorOptions.h"
 	"cstdlib"
 	<cstdlib>
+	<stdexcept>
+
+1412269372 source:d:\doriancode\singularitysecondpart\consoleoptions.cpp
+	"ConsoleOptions.h"
 

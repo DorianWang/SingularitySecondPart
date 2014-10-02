@@ -214,6 +214,7 @@ int counters = 0;
 //
 ConsoleOptions testConsole;
 
+cout<<"Please press the maximize button at the top right of the screen."<<endl;
 testConsole.test();
 
 
