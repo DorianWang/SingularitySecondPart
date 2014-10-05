@@ -14,6 +14,9 @@ int ConsoleOptions::setConsoleSize(unsigned int width, unsigned int height)
       throw runtime_error( "You must be attached to a human." );
    }
 
+      COORD maxSize1 = GetLargestConsoleWindowSize(hConOut);
+   cout<<maxSize1.X << " " <<maxSize1.Y<<endl;
+
    r.Left   = 0;
    r.Top    = 0;
    r.Right  = width -1;
@@ -24,13 +27,15 @@ int ConsoleOptions::setConsoleSize(unsigned int width, unsigned int height)
    c.Y = height;
    SetConsoleScreenBufferSize( hConOut, c );
 
+   COORD maxSize = GetLargestConsoleWindowSize(hConOut);
+   cout<<maxSize.X << " " <<maxSize.Y<<endl;
 
 }
 
 
 int ConsoleOptions::test()
 {
-
+char output[64];
 
 GetConsoleTitle(output, 64);
 cout<<output<<endl;
@@ -50,8 +55,7 @@ SetConsoleTitle("New Test!");
 */
 
 
-   COORD maxSize = GetLargestConsoleWindowSize(hConOut);
-   cout<<maxSize.X << " " <<maxSize.Y<<endl;
+
 
 
 

@@ -306,11 +306,14 @@
 1411075666 d:\dorian's programs\singularitysecondpart\maploader.h
 	"FileIO.h"
 
-1409790022 d:\dorian's programs\singularitysecondpart\usefulheaders.h
+1412455410 d:\dorian's programs\singularitysecondpart\usefulheaders.h
 	<string>
 	<vector>
 	<algorithm>
 	<sstream>
+	"stdio.h"
+	<process.h>
+	<windows.h>
 
 1407815056 source:d:\dorian's programs\singularitysecondpart\itemfileio.cpp
 	"Items.h"
@@ -348,14 +351,14 @@
 	"string"
 	"vector"
 
-1404518123 source:d:\dorian's programs\singularitysecondpart\keys.cpp
+1412465182 source:d:\dorian's programs\singularitysecondpart\keys.cpp
 	<iostream>
 	<cstdlib>
 	"conio.h"
 	"keys.h"
 	"windows.h"
 
-1404518123 d:\dorian's programs\singularitysecondpart\keys.h
+1412465115 d:\dorian's programs\singularitysecondpart\keys.h
 	<string>
 
 1407202834 source:d:\dorian's programs\singularitysecondpart\leaftype.cpp
@@ -367,17 +370,17 @@
 1405981482 d:\dorian's programs\singularitysecondpart\lootdrop.h
 	"FileIO.h"
 
-1411954900 source:d:\dorian's programs\singularitysecondpart\main.cpp
+1412465219 source:d:\dorian's programs\singularitysecondpart\main.cpp
 	<cstdlib>
 	<iostream>
 	<algorithm>
 	<sstream>
+	"UsefulHeaders.h"
 	"Container.h"
 	"Bases.h"
 	"keys.h"
-	"CursorOptions.h"
+	"ConsoleOptions.h"
 	"Screens.h"
-	"WindowsIntegration.h"
 	"stringFunctions.h"
 	"treeType.h"
 	"functionChecker.h"
@@ -387,10 +390,12 @@
 
 1389925742 d:\dorian's programs\singularitysecondpart\bases.h
 
-1404661360 d:\dorian's programs\singularitysecondpart\cursoroptions.h
+1412454039 d:\dorian's programs\singularitysecondpart\cursoroptions.h
 	<cstdarg>
 	"windows.h"
 	"stdio.h"
+	<cstdlib>
+	<iostream>
 
 1411075666 d:\dorian's programs\singularitysecondpart\screens.h
 	<fstream>
@@ -486,9 +491,8 @@
 1401228982 source:d:\dorian's programs\singularitysecondpart\windowsintegration.cpp
 	"WindowsIntegration.h"
 
-1411075666 source:d:\dorian's programs\singularitysecondpart\cursoroptions.cpp
+1412462361 source:d:\dorian's programs\singularitysecondpart\cursoroptions.cpp
 	"CursorOptions.h"
-	<iostream>
 
 1411075666 source:d:\dorian's programs\singularitysecondpart\items.cpp
 	"Items.h"
@@ -526,4 +530,13 @@
 
 1412269372 source:d:\doriancode\singularitysecondpart\consoleoptions.cpp
 	"ConsoleOptions.h"
+
+1412453759 source:d:\dorian's programs\singularitysecondpart\consoleoptions.cpp
+	"ConsoleOptions.h"
+
+1412290013 d:\dorian's programs\singularitysecondpart\consoleoptions.h
+	"CursorOptions.h"
+	"cstdlib"
+	<cstdlib>
+	<stdexcept>
 

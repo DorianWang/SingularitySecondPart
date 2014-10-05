@@ -130,7 +130,7 @@ void COptions::tempColourChange(bool isDiff, HANDLE cHandle, int targetColour)
 void COptions::cursorControl(int optionNum)
 {
      bool debugDetector=true;
-     if (optionNum==0){
+     if (optionNum == 0){
 
         if (cursorVisibility==false){
         toggleCursor(consoleHandle);
@@ -139,7 +139,7 @@ void COptions::cursorControl(int optionNum)
         debugDetector=false;
      }//if cursor is false, make true
 
-     if (optionNum==1){
+     if (optionNum == 1){
 
         if (cursorVisibility){
         toggleCursor(consoleHandle);
@@ -206,7 +206,7 @@ void COptions::cursorControl(int optionNum)
 
 
 
-bool COptions::changeCursorPos(HANDLE cHandle, short cursorX, short cursorY)
+bool COptions::changeCursorPos(short cursorX, short cursorY)
 {
 
    int returningNum;
@@ -214,7 +214,7 @@ bool COptions::changeCursorPos(HANDLE cHandle, short cursorX, short cursorY)
    coord.X = cursorX;
    coord.Y = cursorY;
 
-   returningNum = SetConsoleCursorPosition(cHandle, coord);
+   returningNum = SetConsoleCursorPosition(consoleHandle, coord);
 
    if (returningNum == 0){
       return false;

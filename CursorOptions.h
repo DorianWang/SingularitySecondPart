@@ -34,7 +34,7 @@ void tempColourChange(bool isDiff, HANDLE cHandle, int targetColour);
 void changeCursorInsert(HANDLE cHandle, bool insertMode);
 
 
-bool changeCursorPos(HANDLE cHandle, short cursorX, short cursorY);
+bool changeCursorPos(short cursorX, short cursorY);
 
 void cursorControl(int optionNum);//Controls all other functions. 0 for cursor visible. 1 for opposite, 2 for colour change, 5 for defaults, etc.
 

@@ -7,7 +7,13 @@
 #include <algorithm>
 #include <sstream>
 
-//#include 
+#include "stdio.h"//This does stuff!
+
+#include <process.h>//multi-threading!
+//http://www.codeproject.com/Articles/14746/Multithreading-Tutorial
+
+#include <windows.h>//Windows API
+
 
 
 

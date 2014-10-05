@@ -4,12 +4,7 @@
 #include <algorithm>
 #include <sstream>
 
-#include <windows.h>
-#include "windows.h"
-#include "wincon.h"
-#include "stdio.h"
-
-
+#include "UsefulHeaders.h"
 
 //MUSIC! http://www.youtube.com/watch?v=nDyzVV_e7WM&list=LL5I3vUh2iNfQ3pCU3sodYRA&shuffle=167714
 
@@ -215,14 +210,50 @@ int counters = 0;
 ConsoleOptions testConsole;
 
 cout<<"Please press the maximize button at the top right of the screen."<<endl;
-testConsole.test();
-
-
-
-   cout<<"I'm done!"<<endl;
+testConsole.setConsoleSize(160,60);
+Sleep(1000);
+cout<<"?"<<endl;
+Keypress KeyIO;
    system("PAUSE");
 
+bool keyPressed[4]; bool keyDown[4];
+system("PAUSE");
+KeyIO.get_code(keyPressed, keyDown, "asdf");
+system("PAUSE");
+KeyIO.get_code(keyPressed, keyDown, "asdf");
+std::string inputStuff;
+cin>>inputStuff;
 
+/*
+while(KeyIO.get_code("qwerty") == -1){
+   system("CLS");
+   for (int j = 0; j < 160; j++){
+      for (int i = 0; i < 59; i++){
+         testConsole.cursorOptions.changeCursorPos(j, i);
+         cout<<"e";
+         testConsole.cursorOptions.cursorControl(2);
+      }
+      Sleep(10);
+   }
+
+Sleep(100);
+}
+*/
+
+/*
+testConsole.cursorOptions.changeCursorPos(50, 50);
+cout<<"Is it working?"<<endl;
+testConsole.cursorOptions.changeCursorPos(50, 51);
+cout<<"This should work too!"<<endl;
+Sleep(6000);
+Beep(700, 300);//Beep!
+testConsole.cursorOptions.changeCursorPos(50, 50);
+cout<<"Did this do anything?"<<endl;
+
+   //cout<<"I'm done!"<<endl;
+   //system("PAUSE");
+*/
+cout<<endl;
 
    return EXIT_SUCCESS;
 }
