@@ -541,3 +541,272 @@
 	<cstdlib>
 	<stdexcept>
 
+1405182621 source:c:\github\singularitysecondpart\bases.cpp
+
+1412692834 source:c:\github\singularitysecondpart\consoleoptions.cpp
+	"ConsoleOptions.h"
+
+1412682339 c:\github\singularitysecondpart\consoleoptions.h
+	"CursorOptions.h"
+	"cstdlib"
+	<cstdlib>
+	<stdexcept>
+
+1412682339 c:\github\singularitysecondpart\cursoroptions.h
+	<cstdarg>
+	"windows.h"
+	"stdio.h"
+	<cstdlib>
+	<iostream>
+
+1412166399 source:c:\github\singularitysecondpart\container.cpp
+	"Container.h"
+
+1412166399 c:\github\singularitysecondpart\container.h
+	"functionChecker.h"
+	<string>
+	<iostream>
+	<vector>
+
+1412047064 c:\github\singularitysecondpart\functionchecker.h
+
+1412682339 source:c:\github\singularitysecondpart\cursoroptions.cpp
+	"CursorOptions.h"
+
+1405182622 source:c:\github\singularitysecondpart\encrypt.cpp
+	"Encrypt.h"
+
+1411271773 c:\github\singularitysecondpart\encrypt.h
+	<iostream>
+	<string>
+	<algorithm>
+	<vector>
+	<ctime>
+	<cstdlib>
+	<cstdarg>
+	"FileIO.h"
+	<stdio.h>
+	<string.h>
+
+1409798946 c:\github\singularitysecondpart\fileio.h
+	<string>
+	<fstream>
+	<iostream>
+	<sstream>
+	<cstdarg>
+	<cstdlib>
+	<vector>
+	"typeChanger.h"
+
+1405182625 c:\github\singularitysecondpart\typechanger.h
+	<stdio.h>
+	<stdlib.h>
+
+1405182622 source:c:\github\singularitysecondpart\encryptconverter.cpp
+	"Encrypt.h"
+
+1409798946 source:c:\github\singularitysecondpart\fileio.cpp
+	"FileIO.h"
+
+1409884094 source:c:\github\singularitysecondpart\filereader.cpp
+	"FileReader.h"
+
+1411096472 c:\github\singularitysecondpart\filereader.h
+	"MapLoader.h"
+	"UsefulHeaders.h"
+
+1411096472 c:\github\singularitysecondpart\maploader.h
+	"FileIO.h"
+
+1412684659 c:\github\singularitysecondpart\usefulheaders.h
+	<string>
+	<vector>
+	<algorithm>
+	<sstream>
+	"stdio.h"
+	<process.h>
+	<windows.h>
+	<time.h>
+
+1412047063 source:c:\github\singularitysecondpart\inventory.cpp
+	"ItemDeclaration.h"
+
+1412047064 c:\github\singularitysecondpart\itemdeclaration.h
+	"iostream"
+	"string"
+	"vector"
+
+1412047064 source:c:\github\singularitysecondpart\inventorysorter.cpp
+	"ItemDeclaration.h"
+
+1407815471 source:c:\github\singularitysecondpart\itemfileio.cpp
+	"Items.h"
+
+1411271773 c:\github\singularitysecondpart\items.h
+	"FileIO.h"
+	"treeType.h"
+	"ItemDeclaration.h"
+
+1412047064 c:\github\singularitysecondpart\treetype.h
+	<iostream>
+	<queue>
+	<vector>
+	<string>
+	"stringFunctions.h"
+	"leafType.h"
+	"treeType.inl"
+
+1411096473 c:\github\singularitysecondpart\stringfunctions.h
+	<stdio.h>
+	<iostream>
+	<vector>
+	<cstdio>
+	<string.h>
+
+1411096473 c:\github\singularitysecondpart\leaftype.h
+	<vector>
+	<string>
+
+1412047064 c:\github\singularitysecondpart\treetype.inl
+	"treeType.h"
+
+1411096472 source:c:\github\singularitysecondpart\items.cpp
+	"Items.h"
+
+1412682340 source:c:\github\singularitysecondpart\keys.cpp
+	<iostream>
+	<cstdlib>
+	"conio.h"
+	"keys.h"
+	"windows.h"
+
+1412682340 c:\github\singularitysecondpart\keys.h
+	<string>
+
+1407214712 source:c:\github\singularitysecondpart\leaftype.cpp
+	"leafType.h"
+
+1407640143 source:c:\github\singularitysecondpart\lootdrop.cpp
+	"LootDrop.h"
+
+1405956182 c:\github\singularitysecondpart\lootdrop.h
+	"FileIO.h"
+
+1409280503 source:c:\github\singularitysecondpart\map.cpp
+	"Map.h"
+
+1412047064 c:\github\singularitysecondpart\map.h
+	"Locations.h"
+	"Effects.h"
+
+1411613865 c:\github\singularitysecondpart\locations.h
+	<string>
+	<vector>
+	"Interactive.h"
+	"NPC.h"
+
+1409193385 c:\github\singularitysecondpart\interactive.h
+
+1411613865 c:\github\singularitysecondpart\npc.h
+
+1412047063 c:\github\singularitysecondpart\effects.h
+
+1411096472 source:c:\github\singularitysecondpart\maploader.cpp
+	"MapLoader.h"
+	"Map.h"
+
+1405182623 source:c:\github\singularitysecondpart\painter.cpp
+	"Painter.h"
+
+1405182623 c:\github\singularitysecondpart\painter.h
+	"windows.h"
+	"CursorOptions.h"
+	<string>
+	<cstdlib>
+	<iostream>
+
+1405182625 source:c:\github\singularitysecondpart\pixelpainter.cpp
+	"pixelPainter.h"
+
+1405182625 c:\github\singularitysecondpart\pixelpainter.h
+	<Windows.h>
+	"windows.h"
+	"wingdi.h"
+	"stdio.h"
+	<iostream>
+	<cmath>
+
+1405182623 source:c:\github\singularitysecondpart\screens.cpp
+	"Screens.h"
+
+1411096472 c:\github\singularitysecondpart\screens.h
+	<fstream>
+	<vector>
+	<stdarg.h>
+	<stdio.h>
+	<sstream>
+	<iostream>
+	"Keys.h"
+	"CursorOptions.h"
+	"Painter.h"
+
+1405182623 source:c:\github\singularitysecondpart\screensswitch.cpp
+	"Screens.h"
+
+1405182623 source:c:\github\singularitysecondpart\screentype.cpp
+	"ScreenType.h"
+
+1411096472 c:\github\singularitysecondpart\screentype.h
+	<iostream>
+	<vector>
+	"keys.h"
+
+1405182623 source:c:\github\singularitysecondpart\server.cpp
+
+1407554128 source:c:\github\singularitysecondpart\stringfunctions.cpp
+	"stringFunctions.h"
+
+1405182624 source:c:\github\singularitysecondpart\takegamemain.cpp
+	"TakeGameMain.h"
+
+1411096473 c:\github\singularitysecondpart\takegamemain.h
+	"MapLoader.h"
+	"UsefulHeaders.h"
+	"FileReader.h"
+
+1405182625 source:c:\github\singularitysecondpart\typechanger.cpp
+	"typeChanger.h"
+
+1405182624 source:c:\github\singularitysecondpart\windowsintegration.cpp
+	"WindowsIntegration.h"
+
+1405182624 c:\github\singularitysecondpart\windowsintegration.h
+	<iostream>
+	<string>
+	<vector>
+	"Windows.h"
+	<tchar.h>
+	<stdio.h>
+	<stdlib.h>
+	<Shlwapi.h>
+
+1412699669 source:c:\github\singularitysecondpart\main.cpp
+	<cstdlib>
+	<iostream>
+	<algorithm>
+	<sstream>
+	"UsefulHeaders.h"
+	"Container.h"
+	"Bases.h"
+	"keys.h"
+	"ConsoleOptions.h"
+	"Screens.h"
+	"stringFunctions.h"
+	"treeType.h"
+	"functionChecker.h"
+	"Painter.h"
+	"Encrypt.h"
+	"FileIO.h"
+
+1405182621 c:\github\singularitysecondpart\bases.h
+

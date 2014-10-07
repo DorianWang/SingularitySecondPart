@@ -5,7 +5,7 @@
 		<Option title="Singularity" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="DataStructures\LinkedList\;DataStructures\;DataStructures\treeType\;FirstGameStuff\map\;FirstGameStuff\;Utilities\;FirstGameStuff\Items\;FirstGameStuff\Items\InventorySorter\;Depreciated\KeyIO_Depreciated\;_Main\;Depreciated\FileIO_Depreciated\;Encrypt\;Depreciated\;ConsoleOptions\;" />
+		<Option virtualFolders="DataStructures\LinkedList\;DataStructures\;DataStructures\treeType\;FirstGameStuff\map\;FirstGameStuff\;Utilities\;FirstGameStuff\Items\;FirstGameStuff\Items\InventorySorter\;Depreciated\KeyIO_Depreciated\;_Main\;Depreciated\FileIO_Depreciated\;Encrypt\;Depreciated\;ConsoleOptions\;DataStructures\binaryTreeType\;" />
 		<Build>
 			<Target title="default">
 				<Option output="Singularity" prefix_auto="1" extension_auto="1" />
@@ -126,6 +126,18 @@
 		</Unit>
 		<Unit filename="WindowsIntegration.cpp" />
 		<Unit filename="WindowsIntegration.h" />
+		<Unit filename="binaryNodeType.cpp">
+			<Option virtualFolder="DataStructures/binaryTreeType/" />
+		</Unit>
+		<Unit filename="binaryNodeType.h">
+			<Option virtualFolder="DataStructures/binaryTreeType/" />
+		</Unit>
+		<Unit filename="binaryTree.cpp">
+			<Option virtualFolder="DataStructures/binaryTreeType/" />
+		</Unit>
+		<Unit filename="binaryTree.h">
+			<Option virtualFolder="DataStructures/binaryTreeType/" />
+		</Unit>
 		<Unit filename="functionChecker.h">
 			<Option virtualFolder="Utilities/" />
 		</Unit>

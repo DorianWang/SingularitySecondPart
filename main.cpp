@@ -204,7 +204,9 @@ int counters = 0;
 ConsoleOptions testConsole;
 
 cout<<"Please press the maximize button at the top right of the screen."<<endl;
-testConsole.setConsoleSize(160,62);
+int screenX = 158; int screenY = 61;
+testConsole.setConsoleSize(screenX,screenY);
+testConsole.test();
 Sleep(1000);
 //cout<<"?"<<endl;
 Keypress KeyIO;
@@ -252,8 +254,8 @@ while(true){
    testConsole.cursorOptions.cursorControl(3);
    cout<<"This is a random number test!"<<endl;
 
-   for (int counterPixel = 0; counterPixel < 160000; counterPixel++){
-      x = rand() % 160; y = rand() % 59 + 2;
+   for (int counterPixel = 0; counterPixel < 1600000; counterPixel++){
+      x = rand() % screenX; y = rand() % (screenY - 3) + 2;
       testConsole.cursorOptions.changeCursorPos(x, y);
       cout<<(char)178;
       testConsole.cursorOptions.cursorControl(2);

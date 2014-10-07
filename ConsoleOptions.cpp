@@ -35,11 +35,8 @@ int ConsoleOptions::setConsoleSize(unsigned int width, unsigned int height)
 
 int ConsoleOptions::test()
 {
-char output[64];
 
-GetConsoleTitle(output, 64);
-cout<<output<<endl;
-SetConsoleTitle("New Test!");
+SetConsoleTitle("Programming Club Number Test");
 
 
 
