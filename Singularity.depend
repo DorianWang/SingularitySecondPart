@@ -306,7 +306,7 @@
 1411075666 d:\dorian's programs\singularitysecondpart\maploader.h
 	"FileIO.h"
 
-1412455410 d:\dorian's programs\singularitysecondpart\usefulheaders.h
+1412649097 d:\dorian's programs\singularitysecondpart\usefulheaders.h
 	<string>
 	<vector>
 	<algorithm>
@@ -314,6 +314,7 @@
 	"stdio.h"
 	<process.h>
 	<windows.h>
+	<time.h>
 
 1407815056 source:d:\dorian's programs\singularitysecondpart\itemfileio.cpp
 	"Items.h"
@@ -351,7 +352,7 @@
 	"string"
 	"vector"
 
-1412465182 source:d:\dorian's programs\singularitysecondpart\keys.cpp
+1412470005 source:d:\dorian's programs\singularitysecondpart\keys.cpp
 	<iostream>
 	<cstdlib>
 	"conio.h"
@@ -370,7 +371,7 @@
 1405981482 d:\dorian's programs\singularitysecondpart\lootdrop.h
 	"FileIO.h"
 
-1412465219 source:d:\dorian's programs\singularitysecondpart\main.cpp
+1412649672 source:d:\dorian's programs\singularitysecondpart\main.cpp
 	<cstdlib>
 	<iostream>
 	<algorithm>
@@ -531,7 +532,7 @@
 1412269372 source:d:\doriancode\singularitysecondpart\consoleoptions.cpp
 	"ConsoleOptions.h"
 
-1412453759 source:d:\dorian's programs\singularitysecondpart\consoleoptions.cpp
+1412649436 source:d:\dorian's programs\singularitysecondpart\consoleoptions.cpp
 	"ConsoleOptions.h"
 
 1412290013 d:\dorian's programs\singularitysecondpart\consoleoptions.h

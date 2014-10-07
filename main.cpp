@@ -122,13 +122,7 @@ int main(int argc, char *argv[])
    //The second one always works.
 
 
-//while (true){
-//   a = KeyIn.get_current_code(12);
-//   if (a != 0&&a != -127&&a!=1){
-//      cout<<a<<"<<"<<endl;
-//      break;
-//   }
-//}
+
 
 
    Encrypter Bromo;
@@ -210,12 +204,15 @@ int counters = 0;
 ConsoleOptions testConsole;
 
 cout<<"Please press the maximize button at the top right of the screen."<<endl;
-testConsole.setConsoleSize(160,60);
+testConsole.setConsoleSize(160,62);
 Sleep(1000);
-cout<<"?"<<endl;
+//cout<<"?"<<endl;
 Keypress KeyIO;
    system("PAUSE");
 
+
+
+/*
 bool keyPressed[4]; bool keyDown[4];
 system("PAUSE");
 KeyIO.get_code(keyPressed, keyDown, "asdf");
@@ -224,20 +221,6 @@ KeyIO.get_code(keyPressed, keyDown, "asdf");
 std::string inputStuff;
 cin>>inputStuff;
 
-/*
-while(KeyIO.get_code("qwerty") == -1){
-   system("CLS");
-   for (int j = 0; j < 160; j++){
-      for (int i = 0; i < 59; i++){
-         testConsole.cursorOptions.changeCursorPos(j, i);
-         cout<<"e";
-         testConsole.cursorOptions.cursorControl(2);
-      }
-      Sleep(10);
-   }
-
-Sleep(100);
-}
 */
 
 /*
@@ -253,7 +236,37 @@ cout<<"Did this do anything?"<<endl;
    //cout<<"I'm done!"<<endl;
    //system("PAUSE");
 */
-cout<<endl;
+
+ /* initialize random seed: */
+
+
+  /* generate secret number between 1 and 10: */
+
+
+int x; int y;
+
+while(true){
+   system("CLS");
+
+   testConsole.cursorOptions.changeCursorPos(0, 0);
+   testConsole.cursorOptions.cursorControl(3);
+   cout<<"This is a random number test!"<<endl;
+
+   for (int counterPixel = 0; counterPixel < 160000; counterPixel++){
+      x = rand() % 160; y = rand() % 59 + 2;
+      testConsole.cursorOptions.changeCursorPos(x, y);
+      cout<<(char)178;
+      testConsole.cursorOptions.cursorControl(2);
+      Sleep(0.5);
+   }
+
+   testConsole.cursorOptions.changeCursorPos(0, 1);
+   testConsole.cursorOptions.cursorControl(3);
+   cout<<"Test complete!"<<endl;
+
+Sleep(2000);
+}
+
 
    return EXIT_SUCCESS;
 }

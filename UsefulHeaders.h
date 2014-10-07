@@ -13,6 +13,7 @@
 //http://www.codeproject.com/Articles/14746/Multithreading-Tutorial
 
 #include <windows.h>//Windows API
+#include <time.h>
 
 
 

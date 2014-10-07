@@ -15,7 +15,7 @@ int ConsoleOptions::setConsoleSize(unsigned int width, unsigned int height)
    }
 
       COORD maxSize1 = GetLargestConsoleWindowSize(hConOut);
-   cout<<maxSize1.X << " " <<maxSize1.Y<<endl;
+//   cout<<maxSize1.X << " " <<maxSize1.Y<<endl;
 
    r.Left   = 0;
    r.Top    = 0;
@@ -28,7 +28,7 @@ int ConsoleOptions::setConsoleSize(unsigned int width, unsigned int height)
    SetConsoleScreenBufferSize( hConOut, c );
 
    COORD maxSize = GetLargestConsoleWindowSize(hConOut);
-   cout<<maxSize.X << " " <<maxSize.Y<<endl;
+//   cout<<maxSize.X << " " <<maxSize.Y<<endl;
 
 }
 
