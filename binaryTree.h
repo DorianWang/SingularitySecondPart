@@ -6,8 +6,11 @@
 template <typename T> class binaryTreeType
 {
 
+private:
+binaryNodeType* headNode;
+int currentSize;
 
-
+public:
 
 
 
