@@ -42,7 +42,7 @@
 1412189772 source:d:\doriancode\singularitysecondpart\cursoroptions.cpp
 	"CursorOptions.h"
 
-1412188943 d:\doriancode\singularitysecondpart\cursoroptions.h
+1412785885 d:\doriancode\singularitysecondpart\cursoroptions.h
 	<cstdarg>
 	"windows.h"
 	"stdio.h"
@@ -65,11 +65,15 @@
 1411060920 d:\doriancode\singularitysecondpart\maploader.h
 	"FileIO.h"
 
-1410886173 d:\doriancode\singularitysecondpart\usefulheaders.h
+1412785885 d:\doriancode\singularitysecondpart\usefulheaders.h
 	<string>
 	<vector>
 	<algorithm>
 	<sstream>
+	"stdio.h"
+	<process.h>
+	<windows.h>
+	<time.h>
 
 1410886173 source:d:\doriancode\singularitysecondpart\itemfileio.cpp
 	"Items.h"
@@ -115,7 +119,7 @@
 	"keys.h"
 	"windows.h"
 
-1410886173 d:\doriancode\singularitysecondpart\keys.h
+1412785885 d:\doriancode\singularitysecondpart\keys.h
 	<string>
 
 1410886173 source:d:\doriancode\singularitysecondpart\leaftype.cpp
