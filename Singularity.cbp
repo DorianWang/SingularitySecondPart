@@ -132,10 +132,10 @@
 		<Unit filename="binaryNodeType.h">
 			<Option virtualFolder="DataStructures/binaryTreeType/" />
 		</Unit>
-		<Unit filename="binaryTree.cpp">
+		<Unit filename="binaryTree.h">
 			<Option virtualFolder="DataStructures/binaryTreeType/" />
 		</Unit>
-		<Unit filename="binaryTree.h">
+		<Unit filename="binaryTree.inl">
 			<Option virtualFolder="DataStructures/binaryTreeType/" />
 		</Unit>
 		<Unit filename="functionChecker.h">

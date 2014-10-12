@@ -505,6 +505,47 @@ if (myfile.is_open()){
 
 
 
+int x; int y;
+
+while(true){
+   system("CLS");
+
+   testConsole.cursorOptions.changeCursorPos(0, 0);
+   testConsole.cursorOptions.cursorControl(3);
+   cout<<"This is a random number test!"<<endl;
+
+   for (int counterPixel = 0; counterPixel < 1600000; counterPixel++){
+      x = rand() % screenX; y = rand() % (screenY - 3) + 2;
+      testConsole.cursorOptions.changeCursorPos(x, y);
+      cout<<(char)178;
+      testConsole.cursorOptions.cursorControl(2);
+      Sleep(0.5);
+   }
+
+   testConsole.cursorOptions.changeCursorPos(0, 1);
+   testConsole.cursorOptions.cursorControl(3);
+   cout<<"Test complete!"<<endl;
+
+Sleep(2000);
+}
+
+
+
+
+
+
+
+testConsole.cursorOptions.changeCursorPos(50, 50);
+cout<<"Is it working?"<<endl;
+testConsole.cursorOptions.changeCursorPos(50, 51);
+cout<<"This should work too!"<<endl;
+Sleep(6000);
+Beep(700, 300);//Beep!
+testConsole.cursorOptions.changeCursorPos(50, 50);
+cout<<"Did this do anything?"<<endl;
+
+
+
 
 
 

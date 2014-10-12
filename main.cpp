@@ -47,8 +47,9 @@ char f;
 #include "stringFunctions.h"
 
 #include "treeType.h"
-#include "functionChecker.h"
+//#include "functionChecker.h"
 
+#include "binaryTree.h"
 
 
 #include "Painter.h"
@@ -57,7 +58,7 @@ char f;
 
 
 // global variables
-#define VERSION_NUM 1
+#define VERSION_NUM 0.01
 
 
 
@@ -225,49 +226,19 @@ cin>>inputStuff;
 
 */
 
-/*
-testConsole.cursorOptions.changeCursorPos(50, 50);
-cout<<"Is it working?"<<endl;
-testConsole.cursorOptions.changeCursorPos(50, 51);
-cout<<"This should work too!"<<endl;
-Sleep(6000);
-Beep(700, 300);//Beep!
-testConsole.cursorOptions.changeCursorPos(50, 50);
-cout<<"Did this do anything?"<<endl;
-
-   //cout<<"I'm done!"<<endl;
-   //system("PAUSE");
-*/
-
- /* initialize random seed: */
+treeType<int> testTreeAgain("things");
 
 
-  /* generate secret number between 1 and 10: */
+//binaryTreeType<int> treeTest;
+
+//treeTest.addNode(20);
+
+linkedList<char> testList;
 
 
-int x; int y;
 
-while(true){
-   system("CLS");
-
-   testConsole.cursorOptions.changeCursorPos(0, 0);
-   testConsole.cursorOptions.cursorControl(3);
-   cout<<"This is a random number test!"<<endl;
-
-   for (int counterPixel = 0; counterPixel < 1600000; counterPixel++){
-      x = rand() % screenX; y = rand() % (screenY - 3) + 2;
-      testConsole.cursorOptions.changeCursorPos(x, y);
-      cout<<(char)178;
-      testConsole.cursorOptions.cursorControl(2);
-      Sleep(0.5);
-   }
-
-   testConsole.cursorOptions.changeCursorPos(0, 1);
-   testConsole.cursorOptions.cursorControl(3);
-   cout<<"Test complete!"<<endl;
-
-Sleep(2000);
-}
+   cout<<"I'm done!"<<endl;
+   system("PAUSE");
 
 
    return EXIT_SUCCESS;

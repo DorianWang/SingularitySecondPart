@@ -24,6 +24,11 @@ void setData (E input);
 //Be careful with changing the data stored. It could cause problems with sorting.
 //Basically, use at your own risk.
 
+
+void setUpPointer(binaryNodeType <E>* input);
+void setDownPointer(bool isLeft, binaryNodeType <E>* input);
+
+
 };
 
 #endif // BINARYLEAFTYPE_H_INCLUDED

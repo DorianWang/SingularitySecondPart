@@ -91,6 +91,24 @@ void testPrimative() {
 
 //}
 
+/*
+template<typename U>
+struct is_class
+{
+  typedef char (&yes)[7];
+  typedef char (&no)[3];
+
+  template <typename V>
+  static yes check (int V::*);
+
+  template <typename>
+  static no check (...);
+
+  enum { value = (sizeof(check<T>(0)) == sizeof(yes)) };
+};
+
+*/
+
 template<typename T, typename Sig> struct has_equal_compare {
     template <typename U, U> struct type_check;
     template <typename V> static char (& chk(type_check<Sig, &V::operator== >*))[1];
