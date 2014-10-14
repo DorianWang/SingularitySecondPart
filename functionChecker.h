@@ -91,6 +91,22 @@ void testPrimative() {
 
 //}
 
+template<typename F>
+struct is_class
+{
+  typedef char (&yes)[7];
+  typedef char (&no)[3];
+
+  template <typename U>
+  static yes check (int U::*);
+
+  template <typename>
+  static no check (...);
+
+  enum { value = (sizeof(check<F>(0)) == sizeof(yes)) };
+};
+
+
 /*
 template<typename U>
 struct is_class

@@ -1,5 +1,7 @@
 
 
+/*
+
 #include "Container.h"
 
 
@@ -290,11 +292,6 @@ return true;
 
 template <class D> bool linkedList<D>::checkForCompare(bool* equalCheck)
 {
-   /*
-
-
-
-
 
    if (IsPrimitiveType<D>::VALUE == 0){
       if (has_greater_than_compare <D, bool (D::*)(D)>::VALUE){
@@ -319,21 +316,38 @@ template <class D> bool linkedList<D>::checkForCompare(bool* equalCheck)
       }
       return false;
    }
-   */
 
+   if (IsPrimitiveType<T>::VALUE == 0){
+      if (has_greater_than_compare <T, bool (T::*)(T)>::VALUE){
+         if (has_less_than_compare <T, bool (T::*)(T)>::VALUE){
+            if (has_equal_compare<T, bool (T::*)(T)>::VALUE){
+               *equalCheck = true;
+            }
+            else
+            {
+               *equalCheck = false;
+            }
+             return true;
+          }
+      }
 
-if (is_class(D))
-
+      if (has_equal_compare<T, bool (T::*)(T)>::VALUE){
+         *equalCheck = true;
+      }
+      else
+      {
+         *equalCheck = false;
+      }
+      return false;
+   }
 *equalCheck = true;
-
-
 return true;//Basic data type. Must have compare, or I'll eat my hat.
 }
 
 
 
 
-
+*/
 
 
 
