@@ -130,10 +130,10 @@ userSetCompare = true;
 template <class T> bool binaryTreeType<T>::checkForCompare(bool* equalCheck)
 {
 
-   if (IsPrimitiveType<T>::VALUE == 0){
-      if (has_greater_than_compare <T, bool (T::*)(T)>::VALUE){
-         if (has_less_than_compare <T, bool (T::*)(T)>::VALUE){
-            if (has_equal_compare<T, bool (T::*)(T)>::VALUE){
+   if (IsPrimitiveType<T>::value == 0){
+      if (has_greater_than_compare <T>::value){
+         if (has_less_than_compare <T>::value){
+            if (has_equal_compare<T>::value){
                *equalCheck = true;
             }
             else
@@ -144,7 +144,7 @@ template <class T> bool binaryTreeType<T>::checkForCompare(bool* equalCheck)
           }
       }
 
-      if (has_equal_compare<T, bool (T::*)(T)>::VALUE){
+      if (has_equal_compare<T>::value){
          *equalCheck = true;
       }
       else

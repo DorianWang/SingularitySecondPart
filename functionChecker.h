@@ -1,79 +1,84 @@
 #ifndef FUNCTIONCHECKER_H
 #define FUNCTIONCHECKER_H
 
-
+#include <array>
+#include <iostream>
 
 //IsPrimitiveValue
 //{
+
 template<class T>
 struct IsPrimitiveType {
-    enum { VALUE = 0 };
+    enum { value = 0 };
 };
 
 template<>
 struct IsPrimitiveType<int> {
-    enum { VALUE = 1 };
+    enum { value = 1 };
 };
 
 template<>
 struct IsPrimitiveType<char> {
-    enum { VALUE = 1 };
+    enum { value = 1 };
 };
 template<>
 struct IsPrimitiveType<unsigned char> {
-    enum { VALUE = 1 };
+    enum { value = 1 };
 };
 
 template<>
 struct IsPrimitiveType<signed char> {
-    enum { VALUE = 1 };
+    enum { value = 1 };
 };
 
 template<>
 struct IsPrimitiveType<short> {
-    enum { VALUE = 1 };
+    enum { value = 1 };
 };
 
 template<>
 struct IsPrimitiveType<long> {
-    enum { VALUE = 1 };
+    enum { value = 1 };
 };
 
 template<>
 struct IsPrimitiveType<long long> {
-    enum { VALUE = 1 };
+    enum { value = 1 };
 };
 
 template<>
 struct IsPrimitiveType<unsigned long> {
-    enum { VALUE = 1 };
+    enum { value = 1 };
 };
 
 template<>
 struct IsPrimitiveType<unsigned int> {
-    enum { VALUE = 1 };
+    enum { value = 1 };
 };
 
 template<>
 struct IsPrimitiveType<unsigned short> {
-    enum { VALUE = 1 };
+    enum { value = 1 };
 };
 
 template<>
 struct IsPrimitiveType<double> {
-    enum { VALUE = 1 };
+    enum { value = 1 };
 };
 
 template<>
 struct IsPrimitiveType<float> {
-    enum { VALUE = 1 };
+    enum { value = 1 };
 };
 
 //Just adding this one in for completion.
 template<>
 struct IsPrimitiveType<void> {
-    enum { VALUE = 1 };
+    enum { value = 1 };
 };
+
+
+
 
 // ...
 
@@ -125,27 +130,77 @@ struct is_class
 
 */
 
-template<typename T, typename Sig> struct has_equal_compare {
+
+
+struct Support {}; bool operator<(Support,Support) { return false; }
+struct DoesNotSupport{};
+
+template <class T>
+struct supports_less_than
+{
+  template <typename U>
+  static auto less_than_test(const U* u) -> decltype(*u < *u, char(0))
+  { }
+
+  static std::array<char, 2> less_than_test(...) { }
+
+  static const bool value = (sizeof(less_than_test((T*)0)) == 1);
+};
+
+template <class T>
+struct supports_greater_than
+{
+  template <typename U>
+  static auto less_than_test(const U* u) -> decltype(*u < *u, char(0))
+  { }
+
+  static std::array<char, 2> less_than_test(...) { }
+
+  static const bool value = (sizeof(less_than_test((T*)0)) == 1);
+};
+
+template <class T>
+struct supports_equal_to
+{
+  template <typename U>
+  static auto less_than_test(const U* u) -> decltype(*u < *u, char(0))
+  { }
+
+  static std::array<char, 2> less_than_test(...) { }
+
+  static const bool value = (sizeof(less_than_test((T*)0)) == 1);
+};
+
+/*
+
+
+template<typename T> struct has_equal_compare {
+
+   typedef char yes[1];
+    typedef char no[2];
+
     template <typename U, U> struct type_check;
-    template <typename V> static char (& chk(type_check<Sig, &V::operator== >*))[1];
-    template <typename  > static char (& chk(...))[2];
+    template <typename V> static char (& chk(type_check< bool (T::*)(T), &V::operator== >*))[1];
+    template <typename> static char (& chk(...))[2];
     static bool const value = (sizeof(chk<T>(0)) == 1);
 };
 
-template<typename T, typename Sig> struct has_less_than_compare {
+template<typename T> struct has_less_than_compare {
     template <typename U, U> struct type_check;
-    template <typename V> static char (& chk(type_check<Sig, &V::operator< >*))[1];
-    template <typename  > static char (& chk(...))[2];
+    template <typename V> static char (& chk(type_check< bool (T::*)(T), &V::operator< >*))[1];
+    template <typename> static char (& chk(...))[2];
     static bool const value = (sizeof(chk<T>(0)) == 1);
 };
 
-template<typename T, typename Sig> struct has_greater_than_compare {
+template<typename T> struct has_greater_than_compare {
     template <typename U, U> struct type_check;
-    template <typename V> static char (& chk(type_check<Sig, &V::operator> >*))[1];
-    template <typename  > static char (& chk(...))[2];
+    template <typename V> static char (& chk(type_check< bool (T::*)(T), &V::operator> >*))[1];
+    template <typename> static char (& chk(...))[2];
     static bool const value = (sizeof(chk<T>(0)) == 1);
 };
 
+
+*/
 
 //http://stackoverflow.com/questions/16132123/c-templates-how-to-find-whether-the-template-type-is-a-basic-type-or-a-class
 
