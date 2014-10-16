@@ -151,7 +151,7 @@ template <class T>
 struct supports_greater_than
 {
   template <typename U>
-  static auto less_than_test(const U* u) -> decltype(*u < *u, char(0))
+  static auto greater_than_test(const U* u) -> decltype(*u < *u, char(0))
   { }
 
   static std::array<char, 2> less_than_test(...) { }
