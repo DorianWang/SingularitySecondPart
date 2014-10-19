@@ -53,6 +53,8 @@ public:
 linkedList();
 ~linkedList();
 
+void test();
+
 void pushBack(D addValue);
 void pushFront(D addValue);
 
@@ -77,9 +79,15 @@ bool linkNode(linkedListNode <D>* firstNode, linkedListNode <D>* secondNode);
 };
 
 
+template <typename D> void linkedList<D>::test()
+{
+   std::cout<< (bool)hasCompare<<" "<<(bool)hasEquivalence<<endl;
+}
 
 
-template <class D> linkedList<D>::linkedList()
+
+
+template <class D>  linkedList<D>::linkedList()
 {
    length = 0; //empty
    headNode = NULL;

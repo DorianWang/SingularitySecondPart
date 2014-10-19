@@ -235,6 +235,8 @@ treeType<int> testTreeAgain("things");
 
 linkedList<char> testList;
 
+testList.test();
+
 
 
    cout<<"I'm done!"<<endl;
