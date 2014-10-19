@@ -368,11 +368,10 @@ template <class D> bool linkedList<D>::checkForCompare(bool* equalCheck)
 {
 
    //if (IsPrimitiveType<D>::VALUE != 1){
-   if (is_class<D>::value == true){
-         bool test = has_greater_than_compare <D>::value;
-      if (test){
-         if (has_less_than_compare <D>::value){
-            if (has_equal_compare<D>::value){
+   if (std::is_class<D>::value == true){
+      if (CHECK::opGreaterExists<D>::value){
+         if (CHECK::opLesserExists <D>::value){
+            if (CHECK::opEqualExists<D>::value){
                *equalCheck = true;
             }
             else
@@ -383,7 +382,7 @@ template <class D> bool linkedList<D>::checkForCompare(bool* equalCheck)
           }
       }
 
-      if (has_equal_compare<D>::value){
+      if (CHECK::opEqualExists<D>::value){
          *equalCheck = true;
       }
       else

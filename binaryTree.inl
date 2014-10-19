@@ -126,14 +126,14 @@ userCompare = input;
 userSetCompare = true;
 }
 
-
+#include "functionChecker.h"
 template <class T> bool binaryTreeType<T>::checkForCompare(bool* equalCheck)
 {
 
-   if (IsPrimitiveType<T>::value == 0){
-      if (has_greater_than_compare <T>::value){
-         if (has_less_than_compare <T>::value){
-            if (has_equal_compare<T>::value){
+   if (CHECK::IsPrimitiveType<T>::value == 0){
+      if (CHECK::opGreaterExists <T>::value){
+         if (CHECK::opLesserExists <T>::value){
+            if (CHECK::opEqualExists<T>::value){
                *equalCheck = true;
             }
             else
@@ -144,7 +144,7 @@ template <class T> bool binaryTreeType<T>::checkForCompare(bool* equalCheck)
           }
       }
 
-      if (has_equal_compare<T>::value){
+      if (CHECK::opEqualExists<T>::value){
          *equalCheck = true;
       }
       else
