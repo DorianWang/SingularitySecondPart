@@ -565,16 +565,18 @@
 	<cstdlib>
 	<iostream>
 
-1412166399 source:c:\github\singularitysecondpart\container.cpp
+1413678231 source:c:\github\singularitysecondpart\container.cpp
 	"Container.h"
 
-1412166399 c:\github\singularitysecondpart\container.h
+1413729787 c:\github\singularitysecondpart\container.h
 	"functionChecker.h"
 	<string>
 	<iostream>
 	<vector>
 
-1412047064 c:\github\singularitysecondpart\functionchecker.h
+1413729866 c:\github\singularitysecondpart\functionchecker.h
+	<array>
+	<iostream>
 
 1412682339 source:c:\github\singularitysecondpart\cursoroptions.cpp
 	"CursorOptions.h"
@@ -796,7 +798,7 @@
 	<stdlib.h>
 	<Shlwapi.h>
 
-1412699669 source:c:\github\singularitysecondpart\main.cpp
+1413729722 source:c:\github\singularitysecondpart\main.cpp
 	<cstdlib>
 	<iostream>
 	<algorithm>
@@ -809,7 +811,7 @@
 	"Screens.h"
 	"stringFunctions.h"
 	"treeType.h"
-	"functionChecker.h"
+	"binaryTree.h"
 	"Painter.h"
 	"Encrypt.h"
 	"FileIO.h"
@@ -845,4 +847,18 @@
 
 1413073582 d:\dorian's programs\singularitysecondpart\container.cpp
 	"Container.h"
+
+1413678231 source:c:\github\singularitysecondpart\binarynodetype.cpp
+	"binaryNodeType.h"
+
+1413678231 c:\github\singularitysecondpart\binarynodetype.h
+
+1413678231 c:\github\singularitysecondpart\binarytree.h
+	"UsefulHeaders.h"
+	"functionChecker.h"
+	"binaryNodeType.h"
+	"binaryTree.inl"
+
+1413729911 c:\github\singularitysecondpart\binarytree.inl
+	"binaryTree.h"
 

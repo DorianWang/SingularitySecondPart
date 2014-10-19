@@ -377,7 +377,9 @@ template <class D> bool linkedList<D>::checkForCompare(bool* equalCheck)
 
    //if (IsPrimitiveType<D>::VALUE != 1){
    if (std::is_class<D>::value == true){
+      std::cout<<"This is a class!"<<endl;
       if (CHECK::opGreaterExists<D>::value){
+         cout<<"aasdf"<<endl;
          if (CHECK::opLesserExists <D>::value){
             if (CHECK::opEqualExists<D>::value){
                *equalCheck = true;
@@ -401,6 +403,7 @@ template <class D> bool linkedList<D>::checkForCompare(bool* equalCheck)
    }
 
 
+*equalCheck = true;
 return true;//Basic data type. Must have compare, or I'll eat my hat.
 }
 

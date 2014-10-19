@@ -215,13 +215,13 @@ template<typename T> struct has_greater_than_compare {
   template <typename T>
   struct opGreaterExists // *(T*)(0) can be replaced by *new T[1] also
   {
-    enum { value = (sizeof(*(T*)(0) == *(T*)(0)) != sizeof(noGreaterThan)) };
+    enum { value = (sizeof(*(T*)(0) > *(T*)(0)) != sizeof(noGreaterThan)) };
   };
 
    template <typename T>
   struct opLesserExists // *(T*)(0) can be replaced by *new T[1] also
   {
-    enum { value = (sizeof(*(T*)(0) == *(T*)(0)) != sizeof(noLessThan)) };
+    enum { value = (sizeof(*(T*)(0) < *(T*)(0)) != sizeof(noLessThan)) };
   };
 
 

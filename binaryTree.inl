@@ -126,8 +126,11 @@ userCompare = input;
 userSetCompare = true;
 }
 
-#include "functionChecker.h"
-template <class T> bool binaryTreeType<T>::checkForCompare(bool* equalCheck)
+
+//Returns true for equality compare.
+//compareCheck must be an array of size two, the first for greater than, and the second
+//for lesser than.
+template <class T> bool binaryTreeType<T>::checkForCompare(bool* compareCheck)
 {
 
    if (CHECK::IsPrimitiveType<T>::value == 0){

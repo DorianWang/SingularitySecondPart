@@ -78,6 +78,18 @@ int temp = *a;
 *b = temp;
 }
 
+class foo
+{
+
+};
+
+class bar
+{
+   public:
+   bool operator == (const bar& op2){
+      return true;//Testing
+   };
+};
 
 
 
@@ -236,6 +248,10 @@ treeType<int> testTreeAgain("things");
 linkedList<char> testList;
 
 testList.test();
+
+linkedList<bar> testNoOps;
+
+testNoOps.test();
 
 
 
