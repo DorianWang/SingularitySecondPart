@@ -133,36 +133,30 @@ userSetCompare = true;
 template <class T> bool binaryTreeType<T>::checkForCompare(bool* compareCheck)
 {
 
-   if (CHECK::IsPrimitiveType<T>::value == 0){
-      if (CHECK::opGreaterExists <T>::value){
-         if (CHECK::opLesserExists <T>::value){
-            if (CHECK::opEqualExists<T>::value){
-               *equalCheck = true;
-            }
-            else
-            {
-               *equalCheck = false;
-            }
-             return true;
-          }
-      }
-
-      if (CHECK::opEqualExists<T>::value){
-         *equalCheck = true;
-      }
-      else
-      {
-         *equalCheck = false;
-      }
-      return false;
+//Basic data type. Must have compare, or I'll eat my hat.
+   if (is_class<T>::value == false){
+      compareCheck[0] = true; compareCheck[1] = true;
+      return true;
    }
-*equalCheck = true;
-return true;//Basic data type. Must have compare, or I'll eat my hat.
+
+   if (CHECK::opGreaterExists <T>::value){
+      compareCheck[0] = true;
+   }
+
+   if (CHECK::opLesserExists <T>::value){
+      compareCheck[1] = true;
+   }
+
+   if (CHECK::opEqualExists<T>::value){
+      return true;
+   }
+
+return false;
 }
 
 
 
-template <class T> std::vector<T> binaryTreeType<T>::outputAll(bool* equalCheck)
+template <class T> std::vector<T> binaryTreeType<T>::outputAll()
 {
 
    int asdf;

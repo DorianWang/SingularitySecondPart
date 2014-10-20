@@ -259,7 +259,7 @@
 1413250532 source:d:\dorian's programs\singularitysecondpart\container.cpp
 	"Container.h"
 
-1413687370 d:\dorian's programs\singularitysecondpart\container.h
+1413842406 d:\dorian's programs\singularitysecondpart\container.h
 	"functionChecker.h"
 	<string>
 	<iostream>
@@ -375,7 +375,7 @@
 1405981482 d:\dorian's programs\singularitysecondpart\lootdrop.h
 	"FileIO.h"
 
-1413687320 source:d:\dorian's programs\singularitysecondpart\main.cpp
+1413733016 source:d:\dorian's programs\singularitysecondpart\main.cpp
 	<cstdlib>
 	<iostream>
 	<algorithm>
@@ -523,7 +523,7 @@
 1411763324 source:d:\dorian's programs\singularitysecondpart\inventorysorter.cpp
 	"ItemDeclaration.h"
 
-1413684526 d:\dorian's programs\singularitysecondpart\functionchecker.h
+1413733016 d:\dorian's programs\singularitysecondpart\functionchecker.h
 	<array>
 	<iostream>
 
@@ -826,15 +826,14 @@
 1413071583 source:d:\dorian's programs\singularitysecondpart\binarytree.cpp
 	"binaryTree.h"
 
-1413072432 d:\dorian's programs\singularitysecondpart\binarytree.h
+1413842449 d:\dorian's programs\singularitysecondpart\binarytree.h
 	"UsefulHeaders.h"
 	"functionChecker.h"
 	"binaryNodeType.h"
 	"binaryTree.inl"
 
-1413684572 d:\dorian's programs\singularitysecondpart\binarytree.inl
+1413773904 d:\dorian's programs\singularitysecondpart\binarytree.inl
 	"binaryTree.h"
-	"functionChecker.h"
 
 1413073001 d:\dorian's programs\singularitysecondpart\container.inl
 	"Container.h"

@@ -371,40 +371,29 @@ template <class D> bool linkedList<D>::linkNode(linkedListNode <D>* firstNode, l
 return true;
 }
 
-
-template <class D> bool linkedList<D>::checkForCompare(bool* equalCheck)
+//See binaryTree implementation
+template <class D> bool linkedList<D>::checkForCompare(bool* compareCheck)
 {
 
-   //if (IsPrimitiveType<D>::VALUE != 1){
-   if (std::is_class<D>::value == true){
-      std::cout<<"This is a class!"<<endl;
-      if (CHECK::opGreaterExists<D>::value){
-         cout<<"aasdf"<<endl;
-         if (CHECK::opLesserExists <D>::value){
-            if (CHECK::opEqualExists<D>::value){
-               *equalCheck = true;
-            }
-            else
-            {
-               *equalCheck = false;
-            }
-             return true;
-          }
-      }
-
-      if (CHECK::opEqualExists<D>::value){
-         *equalCheck = true;
-      }
-      else
-      {
-         *equalCheck = false;
-      }
-      return false;
+//Basic data type. Must have compare, or I'll eat my hat.
+   if (is_class<D>::value == false){
+      compareCheck[0] = true; compareCheck[1] = true;
+      return true;
    }
 
+   if (CHECK::opGreaterExists <D>::value){
+      compareCheck[0] = true;
+   }
 
-*equalCheck = true;
-return true;//Basic data type. Must have compare, or I'll eat my hat.
+   if (CHECK::opLesserExists <D>::value){
+      compareCheck[1] = true;
+   }
+
+   if (CHECK::opEqualExists<D>::value){
+      return true;
+   }
+
+return false;
 }
 
 

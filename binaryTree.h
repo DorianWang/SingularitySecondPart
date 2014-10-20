@@ -33,7 +33,7 @@ int addNode(T input);
 
 //output
 //{
-std::vector<T> outputAll(bool* equalCheck);
+std::vector<T> outputAll();
 
 
 
