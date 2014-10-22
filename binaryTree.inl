@@ -181,8 +181,6 @@ template <class T> std::vector<T> binaryTreeType<T>::outputAll()
 
 template <class T> std::vector<T> binaryTreeType<T>::outputTreeSegment(binaryNodeType <T>* tempHead)
 {
-   //Instead of a vector, how about an array that is the exact size of all the data?
-   //Yey! An idea!
    std::vector <T> outputArray;
    if (tempHead.left == NULL){
       if (tempHead.right == NULL){
@@ -194,6 +192,17 @@ template <class T> std::vector<T> binaryTreeType<T>::outputTreeSegment(binaryNod
       return outputArray;
    }
 
+   outputArray = outputTreeSegment(tempHead.left);
+   outputArray.push_back(tempHead.dataStored);
+   if (tempHead.right == NULL){
+      return outputArray;
+   }
+
+   std::vector <T> tempArray = outputTreeSegment(tempHead.right);
+   outputArray.reserve(outputArray.size() + tempArray.size() + 1);
+   outputArray.insert( outputArray.end(), tempArray.begin(), tempArray.end() );
+
+   return outputArray;
 }
 
 

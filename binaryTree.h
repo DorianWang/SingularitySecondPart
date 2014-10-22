@@ -21,6 +21,9 @@ bool (*userCompare)(T first, T second);//User defined function. The first entry 
 
 bool checkForCompare(bool* equalCheck);
 
+//This is used when outputting everything.
+std::vector<T> outputTreeSegment(binaryNodeType <T>* tempHead);
+
 public:
 
 binaryTreeType();
@@ -34,6 +37,7 @@ int addNode(T input);
 //output
 //{
 std::vector<T> outputAll();
+
 
 
 
