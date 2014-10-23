@@ -159,25 +159,14 @@ return false;
 template <class T> std::vector<T> binaryTreeType<T>::outputAll()
 {
    selectedNode = headNode;
-   std::vector <binaryNodeType <T>*> nodeStack;
-   nodeStack.reserve(currentSize/2);
-   std::vector <T> outputArray;
-   outputArray.reserve(currentSize + 1);
-
-   while (true)
-   {
-      if (selectedNode.left != NULL){
-         nodeStack.push_back(selectedNode);
-         selectedNode = selectedNode.left();
-         continue;
-      }
-
-
+   std::vector <T> output;
+   if (selectedNode == NULL){
+      return output;
    }
+   output = outputTreeSegment(selectedNode);
 
-   int asdf;
+   return output;
 }
-
 
 template <class T> std::vector<T> binaryTreeType<T>::outputTreeSegment(binaryNodeType <T>* tempHead)
 {

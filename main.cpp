@@ -249,10 +249,10 @@ linkedList<char> testList;
 
 testList.test();
 
-linkedList<bar> testNoOps;
+binaryTreeType <char> testTree;
 
-testNoOps.test();
-
+testTree.addNode('a');
+testTree.addNode('b');
 
 
    cout<<"I'm done!"<<endl;
