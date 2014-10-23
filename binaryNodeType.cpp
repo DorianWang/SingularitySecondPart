@@ -7,6 +7,12 @@
 template <class E> binaryNodeType<E>::binaryNodeType(E newData)
 {
    dataStored = newData;
+
+//Pointers to NULL
+   up = NULL;
+
+   left = NULL;
+   right = NULL;
 }
 
 //This may also be dangerous...
@@ -27,26 +33,6 @@ template <class E> void binaryNodeType<E>::setData (E input)
 {
    dataStored = input;
 }
-
-
-
-template <class E> void binaryNodeType<E>::setUpPointer(binaryNodeType <E>* input)
-{
-   up = input;
-}
-
-
-template <class E> void binaryNodeType<E>::setDownPointer(bool isLeft, binaryNodeType <E>* input)
-{
-   if (isLeft){
-      left = input;
-   }
-   else
-   {
-      right = input;
-   }
-}
-
 
 
 

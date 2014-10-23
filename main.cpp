@@ -238,22 +238,23 @@ cin>>inputStuff;
 
 */
 
-treeType<int> testTreeAgain("things");
-
-
-//binaryTreeType<int> treeTest;
-
-//treeTest.addNode(20);
-
-linkedList<char> testList;
-
-testList.test();
 
 binaryTreeType <char> testTree;
 
 testTree.addNode('a');
 testTree.addNode('b');
+testTree.addNode('c');
+testTree.addNode('f');
+testTree.addNode('z');
+testTree.addNode('e');
 
+std::vector <char> input = testTree.outputAll();
+
+cout<< input.size() + 'a' <<endl;
+
+for (int a = 0; a < input.size(); a++){
+   cout<<input[a];
+}
 
    cout<<"I'm done!"<<endl;
    system("PAUSE");

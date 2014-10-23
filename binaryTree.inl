@@ -15,6 +15,23 @@ template <class T> binaryTreeType<T>::binaryTreeType()
 }
 
 
+template <class T> void binaryTreeType<T>::addNode(binaryNodeType <T>* parent, binaryNodeType <T>* child, bool childSmaller)
+{
+   child -> up = parent;
+
+   if (childSmaller){
+      //Left
+      parent -> left = child;
+   }
+   else
+   {
+      parent -> right = child;
+   }
+
+
+}
+
+
 template <class T> int binaryTreeType<T>::addNode(T input)
 {
    binaryNodeType <T>* newNode = new binaryNodeType<T>(input);
@@ -31,24 +48,24 @@ template <class T> int binaryTreeType<T>::addNode(T input)
    //Uses the user set function first.
    if (userSetCompare){
       while(true){
-         if (userCompare(newNode, selectedNode)){
-            if (selectedNode.right != NULL){
-               selectedNode = selectedNode.right;
+         if (userCompare(newNode -> getData(), selectedNode -> getData())){
+            if (selectedNode -> right != NULL){
+               selectedNode = selectedNode -> right;
             }
             else
             {
-               selectedNode.right = newNode;
+               selectedNode -> right = newNode;
                return 1;
             }
          }
          else
          {
-            if (selectedNode.left != NULL){
-               selectedNode = selectedNode.left;
+            if (selectedNode -> left != NULL){
+               selectedNode = selectedNode -> left;
             }
             else
             {
-               selectedNode.left = newNode;
+               selectedNode -> left = newNode;
                return 1;
             }
          }
@@ -60,23 +77,23 @@ template <class T> int binaryTreeType<T>::addNode(T input)
       while (true){
 
       if (selectedNode > newNode){
-         if (selectedNode.right != NULL){
-            selectedNode = selectedNode.right;
+         if (selectedNode -> right != NULL){
+            selectedNode = selectedNode -> right;
          }
          else
          {
-            selectedNode.right = newNode;
+            selectedNode -> right = newNode;
             return 1;
          }
       }
       else
       {
-         if (selectedNode.left != NULL){
-            selectedNode = selectedNode.left;
+         if (selectedNode -> left != NULL){
+            selectedNode = selectedNode -> left;
          }
          else
          {
-            selectedNode.left = newNode;
+            selectedNode -> left = newNode;
             return 1;
          }
       }
@@ -88,24 +105,24 @@ template <class T> int binaryTreeType<T>::addNode(T input)
    {
       while (true){
 
-         if (selectedNode.dataStored < newNode.dataStored){
-            if (selectedNode.right != NULL){
-               selectedNode = selectedNode.right;
+         if (selectedNode -> getData() < newNode -> getData()){
+            if (selectedNode -> right != NULL){
+               selectedNode = selectedNode -> right;
             }
             else
             {
-               selectedNode.right = newNode;
+               selectedNode -> right = newNode;
                return 1;
             }
          }
          else
          {
-            if (selectedNode.left != NULL){
-               selectedNode = selectedNode.left;
+            if (selectedNode -> left != NULL){
+               selectedNode = selectedNode -> left;
             }
             else
             {
-               selectedNode.left = newNode;
+               selectedNode -> left = newNode;
                return 1;
             }
          }
@@ -168,30 +185,34 @@ template <class T> std::vector<T> binaryTreeType<T>::outputAll()
    return output;
 }
 
-template <class T> std::vector<T> binaryTreeType<T>::outputTreeSegment(binaryNodeType <T>* tempHead)
+
+//http://stackoverflow.com/questions/4226606/inserting-into-a-vector-at-the-front
+//Change into a queue?
+//TODO: change things
+template <class T> void binaryTreeType<T>::outputTreeSegment(std::vector<T> output, binaryNodeType <T>* tempHead)
 {
    std::vector <T> outputArray;
-   if (tempHead.left == NULL){
-      if (tempHead.right == NULL){
-         outputArray.push_back(tempHead.dataStored);
-         return outputArray;
+   if (tempHead -> left == NULL){
+      if (tempHead -> right == NULL){
+         outputArray.push_back(tempHead -> getData());
+         //return outputArray;
       }
-      outputArray = outputTreeSegment(tempHead.right);
-      outputArray.push_front(tempHead.dataStored);
-      return outputArray;
+      outputArray = outputTreeSegment(tempHead -> right);
+      outputArray.push_front(tempHead -> getData());
+      //return outputArray;
    }
 
-   outputArray = outputTreeSegment(tempHead.left);
-   outputArray.push_back(tempHead.dataStored);
-   if (tempHead.right == NULL){
-      return outputArray;
+   outputArray = outputTreeSegment(tempHead -> left);
+   outputArray.push_back(tempHead -> getData());
+   if (tempHead -> right == NULL){
+      //return outputArray;
    }
 
-   std::vector <T> tempArray = outputTreeSegment(tempHead.right);
+   std::vector <T> tempArray = outputTreeSegment(tempHead -> right);
    outputArray.reserve(outputArray.size() + tempArray.size() + 1);
    outputArray.insert( outputArray.end(), tempArray.begin(), tempArray.end() );
 
-   return outputArray;
+   //return outputArray;
 }
 
 

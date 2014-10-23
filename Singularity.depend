@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
 1410886172 source:d:\doriancode\singularitysecondpart\bases.cpp
 
-1412186632 source:d:\doriancode\singularitysecondpart\container.cpp
+1413397267 source:d:\doriancode\singularitysecondpart\container.cpp
 	"Container.h"
 
-1412186632 d:\doriancode\singularitysecondpart\container.h
+1414090050 d:\doriancode\singularitysecondpart\container.h
 	"functionChecker.h"
 	<string>
 	<iostream>
@@ -39,7 +39,7 @@
 	<stdio.h>
 	<stdlib.h>
 
-1412189772 source:d:\doriancode\singularitysecondpart\cursoroptions.cpp
+1412785885 source:d:\doriancode\singularitysecondpart\cursoroptions.cpp
 	"CursorOptions.h"
 
 1412785885 d:\doriancode\singularitysecondpart\cursoroptions.h
@@ -112,7 +112,7 @@
 1410886173 d:\doriancode\singularitysecondpart\itemfileio.cpp
 	"Items.h"
 
-1410886173 source:d:\doriancode\singularitysecondpart\keys.cpp
+1412785885 source:d:\doriancode\singularitysecondpart\keys.cpp
 	<iostream>
 	<cstdlib>
 	"conio.h"
@@ -527,15 +527,17 @@
 	<array>
 	<iostream>
 
-1412013581 d:\doriancode\singularitysecondpart\functionchecker.h
+1413823062 d:\doriancode\singularitysecondpart\functionchecker.h
+	<array>
+	<iostream>
 
-1412268533 d:\doriancode\singularitysecondpart\consoleoptions.h
+1412271252 d:\doriancode\singularitysecondpart\consoleoptions.h
 	"CursorOptions.h"
 	"cstdlib"
 	<cstdlib>
 	<stdexcept>
 
-1412269372 source:d:\doriancode\singularitysecondpart\consoleoptions.cpp
+1412785885 source:d:\doriancode\singularitysecondpart\consoleoptions.cpp
 	"ConsoleOptions.h"
 
 1412721244 source:d:\dorian's programs\singularitysecondpart\consoleoptions.cpp
@@ -860,4 +862,10 @@
 
 1413729911 c:\github\singularitysecondpart\binarytree.inl
 	"binaryTree.h"
+
+1414090922 source:d:\doriancode\singularitysecondpart\binarynodetype.cpp
+	"binaryNodeType.h"
+
+1414091176 d:\doriancode\singularitysecondpart\binarynodetype.h
+	<cstdlib>
 

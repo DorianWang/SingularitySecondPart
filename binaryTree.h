@@ -24,6 +24,10 @@ bool checkForCompare(bool* equalCheck);
 //This is used when outputting everything.
 std::vector<T> outputTreeSegment(binaryNodeType <T>* tempHead);
 
+//This connects two nodes.
+void addNode(binaryNodeType <T>* parent, binaryNodeType <T>* child, bool childSmaller);
+
+;;
 public:
 
 binaryTreeType();
@@ -31,6 +35,9 @@ binaryTreeType();
 //http://web.eecs.umich.edu/~qstout/abs/CACM86.html
 //http://penguin.ewu.edu/~trolfe/DSWpaper/
 void rebalance();
+
+
+
 
 int addNode(T input);
 
