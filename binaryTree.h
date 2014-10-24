@@ -14,7 +14,7 @@ binaryNodeType <T>* selectedNode;
 
 int currentSize;
 
-bool hasCompare; bool hasEquivalence; bool userSetCompare;
+bool hasEqual; bool hasCompares[2]; bool userSetCompare;
 
 bool (*userCompare)(T first, T second);//User defined function. The first entry should be on the left, and the second on the right.
 //This function should return true if the two nodes are not in their correct position.

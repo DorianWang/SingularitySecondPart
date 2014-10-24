@@ -131,15 +131,12 @@
 1410886173 d:\doriancode\singularitysecondpart\lootdrop.h
 	"FileIO.h"
 
-1412189457 source:d:\doriancode\singularitysecondpart\main.cpp
+1414172091 source:d:\doriancode\singularitysecondpart\main.cpp
 	<cstdlib>
 	<iostream>
 	<algorithm>
 	<sstream>
-	<windows.h>
-	"windows.h"
-	"wincon.h"
-	"stdio.h"
+	"UsefulHeaders.h"
 	"Container.h"
 	"Bases.h"
 	"keys.h"
@@ -147,7 +144,7 @@
 	"Screens.h"
 	"stringFunctions.h"
 	"treeType.h"
-	"functionChecker.h"
+	"binaryTree.h"
 	"Painter.h"
 	"Encrypt.h"
 	"FileIO.h"
@@ -867,6 +864,15 @@
 1414090922 source:d:\doriancode\singularitysecondpart\binarynodetype.cpp
 	"binaryNodeType.h"
 
-1414091176 d:\doriancode\singularitysecondpart\binarynodetype.h
+1414168243 d:\doriancode\singularitysecondpart\binarynodetype.h
 	<cstdlib>
+
+1414169863 d:\doriancode\singularitysecondpart\binarytree.h
+	"UsefulHeaders.h"
+	"functionChecker.h"
+	"binaryNodeType.h"
+	"binaryTree.inl"
+
+1414172119 d:\doriancode\singularitysecondpart\binarytree.inl
+	"binaryTree.h"
 

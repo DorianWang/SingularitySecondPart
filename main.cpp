@@ -245,14 +245,16 @@ binaryTreeType <char> testTree;
 
 testTree.addNode('a');
 
+
 testTree.addNode('b');
+
 testTree.addNode('c');
 testTree.addNode('f');
 testTree.addNode('z');
 testTree.addNode('e');
 
 
-//std::vector <char> input = testTree.outputAll();
+std::vector <char> input = testTree.outputAll();
 
 
 

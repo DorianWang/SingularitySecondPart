@@ -9,9 +9,9 @@ template <class T> binaryTreeType<T>::binaryTreeType()
    headNode = NULL;
    selectedNode = NULL;
 
-   hasCompare = false; hasEquivalence = false; userSetCompare = false;
+   hasEqual = false; userSetCompare = false;
 
-   hasCompare = checkForCompare(&hasEquivalence);
+   hasEqual = checkForCompare(hasCompares);
 }
 
 
@@ -27,7 +27,6 @@ template <class T> void binaryTreeType<T>::addNode(binaryNodeType <T>* parent, b
    {
       parent -> right = child;
    }
-
 
 }
 
@@ -54,7 +53,7 @@ template <class T> int binaryTreeType<T>::addNode(T input)
             }
             else
             {
-               selectedNode -> right = newNode;
+               addNode(selectedNode, newNode, false);
                return 1;
             }
          }
@@ -65,7 +64,7 @@ template <class T> int binaryTreeType<T>::addNode(T input)
             }
             else
             {
-               selectedNode -> left = newNode;
+               addNode(selectedNode, newNode, true);
                return 1;
             }
          }
@@ -73,39 +72,9 @@ template <class T> int binaryTreeType<T>::addNode(T input)
    }
 
    //Directly compares pointers
-   if (!hasCompare){
+   if (!hasCompares[0]&&!hasCompares[1]){
       while (true){
-
-      if (selectedNode > newNode){
-         if (selectedNode -> right != NULL){
-            selectedNode = selectedNode -> right;
-         }
-         else
-         {
-            selectedNode -> right = newNode;
-            return 1;
-         }
-      }
-      else
-      {
-         if (selectedNode -> left != NULL){
-            selectedNode = selectedNode -> left;
-         }
-         else
-         {
-            selectedNode -> left = newNode;
-            return 1;
-         }
-      }
-
-
-   }
-   }
-   else
-   {
-      while (true){
-
-         if (selectedNode -> getData() < newNode -> getData()){
+         if (selectedNode > newNode){
             if (selectedNode -> right != NULL){
                selectedNode = selectedNode -> right;
             }
@@ -129,7 +98,62 @@ template <class T> int binaryTreeType<T>::addNode(T input)
 
       }
    }
+   else if (hasCompares[0])
+   {
+      while (true){
 
+         if (!(selectedNode -> getData() > newNode -> getData())){
+            if (selectedNode -> right != NULL){
+               selectedNode = selectedNode -> right;
+            }
+            else
+            {
+               addNode(selectedNode, newNode, false);
+               return 1;
+            }
+         }
+         else
+         {
+            if (selectedNode -> left != NULL){
+               selectedNode = selectedNode -> left;
+            }
+            else
+            {
+               addNode(selectedNode, newNode, true);
+               return 1;
+            }
+         }
+
+      }
+   }
+   else
+   {
+      while (true){
+
+         if (selectedNode -> getData() < newNode -> getData()){
+            if (selectedNode -> right != NULL){
+               selectedNode = selectedNode -> right;
+            }
+            else
+            {
+               addNode(selectedNode, newNode, false);
+               return 1;
+            }
+         }
+         else
+         {
+            if (selectedNode -> left != NULL){
+               selectedNode = selectedNode -> left;
+            }
+            else
+            {
+               addNode(selectedNode, newNode, true);
+               return 1;
+            }
+         }
+
+      }
+   }
 
 
 }
@@ -152,6 +176,7 @@ template <class T> bool binaryTreeType<T>::checkForCompare(bool* compareCheck)
 
 //Basic data type. Must have compare, or I'll eat my hat.
    if (is_class<T>::value == false){
+      std::cout<<"Is not a class!"<<std::endl;
       compareCheck[0] = true; compareCheck[1] = true;
       return true;
    }
@@ -199,6 +224,7 @@ template <class T> void binaryTreeType<T>::outputTreeSegment(std::vector <T>* ou
 
    //Add selected node to vector
    (*output).push_back(tempHead -> getData());
+   std::cout<<tempHead -> getData();
 
    if (tempHead -> right != NULL){
       //Do right node.
