@@ -126,9 +126,6 @@
 		</Unit>
 		<Unit filename="WindowsIntegration.cpp" />
 		<Unit filename="WindowsIntegration.h" />
-		<Unit filename="binaryNodeType.cpp">
-			<Option virtualFolder="DataStructures/binaryTreeType/" />
-		</Unit>
 		<Unit filename="binaryNodeType.h">
 			<Option virtualFolder="DataStructures/binaryTreeType/" />
 		</Unit>

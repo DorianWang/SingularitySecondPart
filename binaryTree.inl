@@ -180,7 +180,7 @@ template <class T> std::vector<T> binaryTreeType<T>::outputAll()
    if (selectedNode == NULL){
       return output;
    }
-   output = outputTreeSegment(selectedNode);
+   outputTreeSegment(&output, selectedNode);
 
    return output;
 }
@@ -189,30 +189,23 @@ template <class T> std::vector<T> binaryTreeType<T>::outputAll()
 //http://stackoverflow.com/questions/4226606/inserting-into-a-vector-at-the-front
 //Change into a queue?
 //TODO: change things
-template <class T> void binaryTreeType<T>::outputTreeSegment(std::vector<T> output, binaryNodeType <T>* tempHead)
+template <class T> void binaryTreeType<T>::outputTreeSegment(std::vector <T>* output, binaryNodeType <T>* tempHead)
 {
-   std::vector <T> outputArray;
-   if (tempHead -> left == NULL){
-      if (tempHead -> right == NULL){
-         outputArray.push_back(tempHead -> getData());
-         //return outputArray;
-      }
-      outputArray = outputTreeSegment(tempHead -> right);
-      outputArray.push_front(tempHead -> getData());
-      //return outputArray;
+
+   if (tempHead -> left != NULL){
+      //Do left node.
+      outputTreeSegment(output, tempHead -> left);
    }
 
-   outputArray = outputTreeSegment(tempHead -> left);
-   outputArray.push_back(tempHead -> getData());
-   if (tempHead -> right == NULL){
-      //return outputArray;
+   //Add selected node to vector
+   (*output).push_back(tempHead -> getData());
+
+   if (tempHead -> right != NULL){
+      //Do right node.
+      outputTreeSegment(output, tempHead -> right);
    }
 
-   std::vector <T> tempArray = outputTreeSegment(tempHead -> right);
-   outputArray.reserve(outputArray.size() + tempArray.size() + 1);
-   outputArray.insert( outputArray.end(), tempArray.begin(), tempArray.end() );
-
-   //return outputArray;
+// End/return
 }
 
 
