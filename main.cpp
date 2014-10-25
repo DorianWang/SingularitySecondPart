@@ -253,6 +253,7 @@ testTree.addNode('f');
 testTree.addNode('z');
 testTree.addNode('e');
 
+testTree.addNode("qwioputttynmnvsdklj", 19);
 
 std::vector <char> input = testTree.outputAll();
 

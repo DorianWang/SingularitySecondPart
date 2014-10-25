@@ -155,8 +155,15 @@ template <class T> int binaryTreeType<T>::addNode(T input)
       }
    }
 
-
 }
+
+template <class T> int binaryTreeType<T>::addNode(const T* inputArray, int length)
+{
+   for (int i = 0; i < length; i++){
+      addNode(inputArray[i]);
+   }
+}
+
 
 
 
